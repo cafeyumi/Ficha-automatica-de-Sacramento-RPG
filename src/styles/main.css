@@ -1,0 +1,120 @@
+@import url(/src/styles/abstract/tokens.css);
+@import url(/src/styles/vendor/reset.css);
+@import url(/src/styles/layouts/personagem.css);
+@import url(/src/styles/layouts/atributos.css);
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100dvw;
+    height: 100dvh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#main-content {
+    display: grid;
+    height: 910px;
+    width: 1420px;
+    padding: var(--space-4);
+    gap: var(--space-4);
+    grid-template-rows: 350px auto auto auto;
+    grid-template-columns: 1fr 0.25fr 1fr 0.15fr 1fr;
+    grid-template-areas:
+    "personagem personagem atributos cartasdesina cartasdesina"
+    "informacoes antecedentes antecedentes rolagemlivre rolagemlivre"
+    "informacoes antecedentes antecedentes inventario inventario"
+    "informacoes montaria montaria inventario inventario";
+}
+
+#personagem {
+    position: relative;
+    mask: radial-gradient(24px at 0 0,#0000 98%,#000);
+    grid-area: personagem;
+    border: 1px black solid;
+
+    &:before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+        background: black;
+        mask:
+            radial-gradient(25px at 0 0,#0000 calc(98% - 2px),#000 calc(100% - 2px) 98%,#0000),
+            conic-gradient(from -90deg at top 1px right 1px,#000 75%,#0000 0) 100% 0/calc(100% - 25px + 2px) 100% repeat-y,
+            conic-gradient(at bottom 1px left 1px,#0000 25%,#000 0) 0 100%/100% calc(100% - 25px + 2px) repeat-x;
+        }
+}
+
+#atributos {
+    grid-area: atributos;
+    border: 2px black solid;
+}
+
+#cartasdesina {
+    grid-area: cartasdesina;
+    border: 2px black solid;
+}
+
+#informacoes {
+    grid-area: informacoes;
+    border: 2px black solid;
+}
+
+#antecedentes {
+    grid-area: antecedentes;
+    border: 2px black solid;
+}
+
+#rolagemlivre {
+    grid-area: rolagemlivre;
+    border: 2px black solid;
+    
+}
+
+#montaria {
+    grid-area: montaria;
+    border: 2px black solid;
+}
+
+#inventario {
+    grid-area: inventario;
+    border: 2px black solid;
+}
+
+.content {
+    padding: var(--space-sm) var(--space-md);
+    border: 2px black solid;
+}
+
+
+/* ========================== */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Removes the margin that might remain */
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield; /* Standard property for newer browsers */
+}
+
+/* ========================== */
+
+
+.pip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin: var(--space-0) var(--space-1);
+    border: 1px var(--fg-color) solid;
+    border-radius: var(--round);
+}
