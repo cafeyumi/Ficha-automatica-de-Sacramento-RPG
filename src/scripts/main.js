@@ -17,7 +17,11 @@ const stats = {
     pain: 6,
     defense: 5,
     combat: 1,
+    initialcombat: 1,
+
     movement: 1,
+    initialmovement: 1,
+
     physical: 0,
     speed: 0,
     intellect: 0,
@@ -56,6 +60,10 @@ function statsTracker(type) {
     const tracker = document.querySelector(`#${type}`);
     const pips = [...tracker.children];
 
+    pips.forEach((element) => {
+        element.classList.remove(`marked`)
+    })
+
     for (const index in pips) {
 
         let i = (Number(index) + 1);
@@ -73,35 +81,65 @@ function statsValue(type) {
     input.value = stats[type]
 }
 
+function statsMecanism() {
 const trackers = [...document.querySelectorAll(`.rating-picker`)]
 
 trackers.forEach((element) => {
-    [...element.children].forEach((child) => {
+    const pips = [...element.children];
+    pips.forEach((child) => {
         child.addEventListener(`click`, (a) => {
-        let cu = 0;
+        let i = 0;
             for (const items of [...element.children]) {
 
                 if (a.target == items) {
                     break
                 } else {
-                    cu++
+                    i++
                 }
             }
 
             for (const index in [...element.children]) {
-                if (index < cu ) {
+                console.log(i)
+                if (index < i ) {
                     [...element.children][index].classList.add(`marked`)
-                } else if (index == cu) {
+                } else if (index == i) {
                     [...element.children][index].classList.toggle(`marked`)
-                } else if (index > cu) {
+                } else if (index > i) {
                     [...element.children][index].classList.remove(`marked`)
                 }
             }
-            console.log(cu)
-        })
-        
-    })
-})
 
+            let ola = 0;
+            pips.forEach((pipi) => {
+                if ([...pipi.classList].includes(`marked`)) {
+                    ola++
+                }
+            })
+
+            const type = element.id
+            stats[type] = ola
+            console.log(stats)
+            console.log(`${element.attributes.name.value} possui valor: ${ola}`)
+
+            atributes(element.id, ola)
+            console.log(element.id)
+            })
+        })
+    })
+}
+
+function atributes(type, value) {
+    console.log(type == `speed`)
+    console.log(stats.initialmovement + value)
+    if (type == `speed`) {
+        stats.movement = stats.initialmovement + value
+    }
+    if (type == `courage`) {
+        stats.combat = stats.initialcombat + value
+    }
+    updateStats()
+}
+
+statsMecanism()
 updateStats()
 profileChange()

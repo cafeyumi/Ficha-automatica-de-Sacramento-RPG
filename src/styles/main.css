@@ -21,7 +21,7 @@ body {
     padding: var(--space-4);
     gap: var(--space-4);
     grid-template-rows: 350px auto auto auto;
-    grid-template-columns: 1fr 0.25fr 1fr 0.15fr 1fr;
+    grid-template-columns: 1fr 0.25fr 230px 0.15fr 250px;
     grid-template-areas:
     "personagem personagem atributos cartasdesina cartasdesina"
     "informacoes antecedentes antecedentes rolagemlivre rolagemlivre"
