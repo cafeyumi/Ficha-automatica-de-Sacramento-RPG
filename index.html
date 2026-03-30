@@ -19,15 +19,18 @@
             <div class="character-infos">
 
                 <div class="character-identifier">
-                    <img class="character-picture" src="/src/assets/images/nophoto.jpg" alt="foto do personagem">
+                    <div class="character-picture">
+                        <input id="profile-input" type="file" accept="image/*">
+                        <img id="profile-image" src="/src/assets/images/placeholder.jpg" alt="foto do personagem">
+                    </div>
                     <div class="identifier-inputs">
                         <div class="input name">
                             <label for="charactername">Nome</label>
-                            <input id="charactername" type="text" value="Nova Personagem">
+                            <input id="charactername" type="text" value="Nova Personagem" autocomplete="off">
                         </div>
                         <div class="input player">
                             <label for="playername">Jogador</label>
-                            <input id="playername" type="text">
+                            <input id="playername" type="text" autocomplete="off">
                         </div>
                     </div>
                 </div>

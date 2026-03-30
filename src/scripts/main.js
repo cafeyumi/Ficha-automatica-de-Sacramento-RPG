@@ -1,5 +1,14 @@
 "use strict"
 
+// Arrow function feita para atualizar a foto do personagem
+const profileChange = () => {
+    const profileInput = document.querySelector(`#profile-input`);
+    const profileImage = document.querySelector(`#profile-image`);
+    profileInput.addEventListener(`change`, (e) => {
+        profileImage.src = URL.createObjectURL(e.target.files[0]);
+    })
+}
+
 // Dado o livro de Sacramento, esse objeto representa todas
 // as condições inicias para a criação de personagem
 
@@ -34,7 +43,7 @@ function updateStats() {
     statsValue(`xp`)
 }
 
-updateStats()
+
 
 // Função que faz a sincronização dos trackers com os valores
 // do objeto stats
@@ -93,3 +102,6 @@ trackers.forEach((element) => {
         
     })
 })
+
+updateStats()
+profileChange()
