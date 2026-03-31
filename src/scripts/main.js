@@ -21,7 +21,9 @@ const stats = {
 
     movement: 1,
     initialmovement: 1,
-
+    
+    sina: 0,
+    
     physical: 0,
     speed: 0,
     intellect: 0,
@@ -45,6 +47,7 @@ function updateStats() {
     statsValue(`defense`)
     statsValue(`level`)
     statsValue(`xp`)
+    sinaValue()
 }
 
 
@@ -79,6 +82,12 @@ function statsTracker(type) {
 function statsValue(type) {
     let input = document.querySelector(`#${type}`);
     input.value = stats[type]
+}
+
+function sinaValue() {
+    let number = document.querySelector(`#sina`);
+    number.innerHTML = stats.sina
+    console.log(stats.sina)
 }
 
 function statsMecanism() {
@@ -139,6 +148,30 @@ function atributes(type, value) {
     }
     updateStats()
 }
+
+const sinabtns = [...document.querySelectorAll(`.sina-btn`)];
+
+sinabtns.forEach((btn) => {
+    btn.addEventListener(`click`, (a) => {
+        if (a.target.id == `plus`) {
+            stats.sina += 1
+            console.log(stats.sina)
+            console.log(`adicionei`)
+        } else {
+            if (stats.sina != 0 ) {
+                stats.sina -= 1
+                
+                console.log(stats.sina)
+                console.log(`tirei`)
+            } else {
+                btn.classList.add(`nop`)
+                console.log(btn.classList)
+            } 
+        }
+        updateStats()
+    })
+})
+console.log(sinabtns)
 
 statsMecanism()
 updateStats()

@@ -2,6 +2,7 @@
   grid-area: atributos;
   border: 2px black solid;
   height: 100%;
+  background-color: var(--bg-color);
 }
 
 .header {
@@ -13,7 +14,7 @@
   color: var(--bg-color);
   letter-spacing: var(--space-1);
   font-size: var(--text-xl);
-  padding: var(--space-1) var(--space-0);
+  padding: var(--space-3) var(--space-0) var(--space-2) var(--space-0);
 }
 
 .atribut-input {

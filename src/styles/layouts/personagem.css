@@ -1,6 +1,7 @@
 #personagem {
   display: grid;
   min-width: 650px;
+  background-color: var(--bg-color);
   padding: var(--space-4) var(--space-8);
   grid-template-areas:
     "character-infos defense"

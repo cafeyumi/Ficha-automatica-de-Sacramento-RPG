@@ -2,13 +2,14 @@
 
     /* ========== FONTS ========== */
 
+    --maiden: "Maiden Orange", serif;
     --bebas: "Bebas Neue", sans-serif;
     
     /* ========== COLORS ========== */
 
-    --bg-color: #fff8e5;
-    --bg-color-muted: #f3e4ce;
-    --fg-color: #000;
+    --bg-color: #f1e5ca;
+    --bg-color-muted: #e7d1b0;
+    --fg-color: #151111;
     --mk-color: #3a2e1e;
 
     /* ========== FONTS SIZES ========== */
