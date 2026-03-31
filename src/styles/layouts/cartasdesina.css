@@ -1,6 +1,6 @@
 #cartasdesina {
   display: flex;
-  mask: radial-gradient(24px at 100% 0, #0000 98%, #000);
+  mask: radial-gradient(29px at 100% 0,#0000 98%,#000);
   position: relative;
   grid-area: cartasdesina;
   border: 1px var(--fg-color) solid;
@@ -9,29 +9,21 @@
   padding: var(--space-4) 1rem 2rem 1rem;
   justify-content: space-between;
   align-items: center;
-  
+
   flex-direction: column;
   font-family: var(--bebas);
   font-size: var(--text-xl);
   letter-spacing: var(--space-1);
 
   &:before {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
-    background: black;
-    mask:
-      radial-gradient(
-        25px at 100% 0,
-        #0000 calc(98% - 2px),
-        #000 calc(100% - 2px) 98%,
-        #0000
-      ),
-      conic-gradient(from 90deg at 1px 1px, #0000 25%, #000 0) 0 0 /
-        calc(100% - 25px + 2px) 100% repeat-y,
-      conic-gradient(at bottom 1px right 1px, #000 75%, #0000 0) 0 100%/100%
-        calc(100% - 25px + 2px) repeat-x;
+     content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--fg-color);
+  mask:
+    radial-gradient(30px at 100% 0,#0000 calc(98% - 2px),#000 calc(100% - 2px) 98%,#0000),
+    conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0) 0 0/calc(100% - 30px + 2px) 100% repeat-y,
+    conic-gradient(at bottom 1px right 1px,#000 75%,#0000 0) 0 100%/100% calc(100% - 30px + 2px) repeat-x;
   }
 }
 
@@ -41,24 +33,19 @@
   justify-content: center;
   align-items: center;
   color: var(--bg-color);
-  z-index: 10;
-  width: 190px;
+  z-index: 6;
+  width: 170px;
 }
 
 #sina {
   transform: rotate(-8.5deg);
-  left:49.5px;
-  bottom: 75px;
+  left: 40.4px;
+  bottom: 80px;
   text-align: center;
   width: 4.5rem;
   letter-spacing: 0px;
   font-size: var(--text-6xl);
   position: absolute;
-}
-
-.two {
-  position: absolute;
-  left: -200px;
 }
 
 .sina-container {

@@ -1,8 +1,34 @@
 @import url(/src/styles/abstract/tokens.css);
 @import url(/src/styles/vendor/reset.css);
-@import url(/src/styles/layouts/personagem.css);
+@import url(/src/styles/components/trackers.css);
+@import url(/src/styles/layouts/character.css);
 @import url(/src/styles/layouts/atributos.css);
 @import url(/src/styles/layouts/cartasdesina.css);
+
+body {
+  background-image: url("/src/assets/images/background.png");
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100dvw;
+  height: 100dvh;
+  user-select: none;
+}
+
+label {
+  font-family: var(--apple);
+}
+
+input {
+  background-color: var(--bg-color-muted);
+  border: var(--border-md-fg);
+  border-radius: var(--tiny-curve);
+
+  &:focus {
+    outline: none;
+  }
+}
 
 h2 {
   font-family: var(--maiden);
@@ -10,30 +36,8 @@ h2 {
   font-size: var(--text-3xl);
   letter-spacing: 0.2rem;
 }
-body {
-  background-image: url('/src/assets/images/background.png');
-  background-position: center center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100dvw;
-  height: 100dvh;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
-  user-select: none;
-}
 
-#main-content {
+.main__content {
   display: grid;
   height: fit-content;
   width: fit-content;
@@ -41,10 +45,10 @@ body {
   justify-content: center;
   padding: var(--space-4);
   gap: var(--space-3);
-  grid-template-rows: 340px 80px 200px 200px;
-  grid-template-columns: 350px 400px 170px 70px 100px 224px;
+  grid-template-rows: 310px 80px 200px 280px;
+  grid-template-columns: 300px 400px 170px 70px 100px 198px;
   grid-template-areas:
-    "personagem personagem atributos atributos cartasdesina cartasdesina"
+    "character character atributos atributos cartasdesina cartasdesina"
     "informacoes antecedentes antecedentes rolagemlivre rolagemlivre rolagemlivre"
     "informacoes antecedentes antecedentes inventario inventario inventario"
     "informacoes montaria montaria inventario inventario inventario";
@@ -87,7 +91,6 @@ body {
 
 .content {
   background-color: var(--bg-color);
-  padding: var(--space-sm) var(--space-md);
   border: 2px black solid;
   height: 100%;
 }
@@ -107,16 +110,3 @@ input[type="number"] {
 }
 
 /* ========================== */
-
-.pip {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  margin: var(--space-0) var(--space-1);
-  border: 1px var(--fg-color) solid;
-  border-radius: var(--round);
-}

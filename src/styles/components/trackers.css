@@ -1,0 +1,46 @@
+.tracker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &.life path,
+  &.pain path {
+    pointer-events: none;
+  }
+
+  &.life svg,
+  &.pain svg {
+    margin-bottom: 5px;
+    width: 24px;
+    height: 24px;
+    fill: var(--bg-color-muted);
+    cursor: pointer;
+  }
+}
+
+.tracker.life .marked,
+.tracker.pain .marked {
+  fill: var(--fg-color);
+}
+
+.pip.marked::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: var(--mk-color);
+  border-radius: var(--round);
+  position: absolute;
+  margin: auto;
+}
+
+.pip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border: 1px var(--fg-color) solid;
+  border-radius: var(--round);
+}

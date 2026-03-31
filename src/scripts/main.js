@@ -2,8 +2,8 @@
 
 // Arrow function feita para atualizar a foto do personagem
 const profileChange = () => {
-    const profileInput = document.querySelector(`#profile-input`);
-    const profileImage = document.querySelector(`#profile-image`);
+    const profileInput = document.querySelector(`#profileInput`);
+    const profileImage = document.querySelector(`#profileImage`);
     profileInput.addEventListener(`change`, (e) => {
         profileImage.src = URL.createObjectURL(e.target.files[0]);
     })
@@ -16,6 +16,7 @@ const stats = {
     life: 6,
     pain: 6,
     defense: 5,
+
     combat: 1,
     initialcombat: 1,
 
@@ -29,7 +30,8 @@ const stats = {
     intellect: 0,
     courage: 0,
     level: 1,
-    xp: 0
+    xp: 0,
+    bounty: 0
 }
 
 // Uma arrow function feita para inicializar
@@ -91,7 +93,7 @@ function sinaValue() {
 }
 
 function statsMecanism() {
-const trackers = [...document.querySelectorAll(`.rating-picker`)]
+const trackers = [...document.querySelectorAll(`.tracker`)]
 
 trackers.forEach((element) => {
     const pips = [...element.children];
