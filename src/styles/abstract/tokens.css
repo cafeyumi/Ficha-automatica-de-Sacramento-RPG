@@ -12,6 +12,7 @@
     --bg-color-muted: #e7d1b0;
     --fg-color: #151111;
     --mk-color: #3a2e1e;
+    --fg-text-color: #382c21;
 
     /* ========== FONTS SIZES ========== */
 
@@ -63,9 +64,9 @@
 
     /* ========== TRANSITIONS ========== */
 
-    --fastest-speed:   100ms;
-    --fast-speed:   150ms;
-    --normal-speed: 300ms;
-    --slow-speed: 1s;
+    --fastest-speed-ease: all 100ms ease;
+    --fast-speed:    150ms;
+    --normal-speed:  300ms;
+    --slow-speed:    1s;
 
 }

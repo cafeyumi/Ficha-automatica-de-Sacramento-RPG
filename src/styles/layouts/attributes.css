@@ -1,11 +1,14 @@
-#atributos {
-  grid-area: atributos;
-  border: 2px black solid;
+.attributes {
+  display: flex;
+  flex-direction: column;
+  grid-area: attributes;
+  border: var(--border-md-fg);
   height: 100%;
   background-color: var(--bg-color);
+  line-height: 1;
 }
 
-.header {
+.attributes__header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,16 +20,13 @@
   padding: var(--space-3) var(--space-0) var(--space-2) var(--space-0);
 }
 
-p {
-  line-height: 1;
-}
-
-.atribut-input {
+.attributes__input {
   display: flex;
 }
 
-.inner-content {
+.attributes__inner-content {
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   padding: var(--space-2) var(--space-4);

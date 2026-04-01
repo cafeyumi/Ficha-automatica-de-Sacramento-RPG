@@ -2,8 +2,8 @@
 @import url(/src/styles/vendor/reset.css);
 @import url(/src/styles/components/trackers.css);
 @import url(/src/styles/layouts/character.css);
-@import url(/src/styles/layouts/atributos.css);
-@import url(/src/styles/layouts/cartasdesina.css);
+@import url(/src/styles/layouts/attributes.css);
+@import url(/src/styles/layouts/sina.css);
 
 body {
   background-image: url("/src/assets/images/background.png");
@@ -37,7 +37,7 @@ h2 {
   letter-spacing: 0.2rem;
 }
 
-.main__content {
+.main-content {
   display: grid;
   height: fit-content;
   width: fit-content;
@@ -48,7 +48,7 @@ h2 {
   grid-template-rows: 310px 80px 200px 280px;
   grid-template-columns: 300px 400px 170px 70px 100px 198px;
   grid-template-areas:
-    "character character atributos atributos cartasdesina cartasdesina"
+    "character character attributes attributes sina sina"
     "informacoes antecedentes antecedentes rolagemlivre rolagemlivre rolagemlivre"
     "informacoes antecedentes antecedentes inventario inventario inventario"
     "informacoes montaria montaria inventario inventario inventario";
@@ -85,12 +85,6 @@ h2 {
 #inventario {
   background-color: var(--bg-color);
   grid-area: inventario;
-  border: 2px black solid;
-  height: 100%;
-}
-
-.content {
-  background-color: var(--bg-color);
   border: 2px black solid;
   height: 100%;
 }

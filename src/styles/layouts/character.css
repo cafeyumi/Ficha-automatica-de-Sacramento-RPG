@@ -1,32 +1,14 @@
 .character {
   display: flex;
   flex-direction: column;
+  position: relative;
   padding: var(--space-4) var(--space-2) var(--space-4) var(--space-5);
   background-color: var(--bg-color);
   gap: var(--space-4);
-  position: relative;
-  mask: radial-gradient(30px at 0 0, #0000 98%, #000);
+  corner-top-left-shape: scoop;
+  border-top-left-radius: 30px;
   grid-area: character;
-  border: var(--border-sm-fg);
-
-  &:before {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    inset: 0;
-    background: var(--fg-color);
-    mask:
-      radial-gradient(
-        30px at 0 0,
-        #0000 calc(98% - 2px),
-        #000 calc(100% - 2px) 98%,
-        #0000
-      ),
-      conic-gradient(from -90deg at top 0 right 0, #000 75%, #0000 0) 100% 0 /
-        calc(100% - 30px + 2px) 100% repeat-y,
-      conic-gradient(at bottom 0 left 0, #0000 25%, #000 0) 0 100%/100%
-        calc(100% - 30px + 2px) repeat-x;
-  }
+  border: var(--border-md-fg);
 }
 
 /* ========== Parte Superior da seção Character ========== */
@@ -51,16 +33,34 @@
   gap: var(--space-4);
 }
 
-.character-picture {
+.character__picture {
   position: relative;
-  justify-content: center;
-  align-items: center;
   width: 112px;
   height: 112px;
   cursor: pointer;
   border-radius: var(--round);
   border: var(--border-md-fg);
   overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: var(--round);
+      z-index: 5;
+      left: var(--space-0);
+      right: var(--space-0);
+      bottom: var(--space-0);
+      top: var(--space-0);
+      transition: var(--fastest-speed-ease);
+    }
+
+  &:hover {
+    
+    &::after {
+      background-color: #695f4c4f;
+    }
+  }
+  
 
   img {
     object-fit: cover;
@@ -87,6 +87,7 @@
   gap: var(--space-2);
 
   input {
+    color: var(--fg-text-color);
     font-family: var(--apple);
     padding: var(--space-1) var(--space-2);
     width: 100%;
@@ -111,6 +112,7 @@
   }
 
   input {
+    color: var(--fg-text-color);
     padding: var(--space-1) var(--space-2);
     text-align: center;
     width: 40px;
@@ -145,7 +147,7 @@
   grid-area: defense;
 }
 
-.defense-content {
+.defense__content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -219,7 +221,7 @@
   }
 }
 
-.extra {
+.stats__extra {
   display: flex;
   align-items: center;
 
