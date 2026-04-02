@@ -1,5 +1,6 @@
 .character {
   display: flex;
+  height: 100%;
   flex-direction: column;
   position: relative;
   padding: var(--space-4) var(--space-2) var(--space-4) var(--space-5);

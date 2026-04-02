@@ -1,0 +1,12 @@
+.antecedents {
+  grid-area: antecedents;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  border: 2px black solid;
+  height: 100%;
+}
+
+.antecedents h2 {
+    margin-top: 1rem;
+}

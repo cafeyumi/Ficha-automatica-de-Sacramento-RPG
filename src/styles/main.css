@@ -4,6 +4,7 @@
 @import url(/src/styles/layouts/character.css);
 @import url(/src/styles/layouts/attributes.css);
 @import url(/src/styles/layouts/sina.css);
+@import url(/src/styles/layouts/antecedents.css);
 
 body {
   background-image: url("/src/assets/images/background.png");
@@ -49,20 +50,13 @@ h2 {
   grid-template-columns: 300px 400px 170px 70px 100px 198px;
   grid-template-areas:
     "character character attributes attributes sina sina"
-    "informacoes antecedentes antecedentes rolagemlivre rolagemlivre rolagemlivre"
-    "informacoes antecedentes antecedentes inventario inventario inventario"
+    "informacoes antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
+    "informacoes antecedents antecedents inventario inventario inventario"
     "informacoes montaria montaria inventario inventario inventario";
 }
 
 #informacoes {
   grid-area: informacoes;
-  background-color: var(--bg-color);
-  border: 2px black solid;
-  height: 100%;
-}
-
-#antecedentes {
-  grid-area: antecedentes;
   background-color: var(--bg-color);
   border: 2px black solid;
   height: 100%;

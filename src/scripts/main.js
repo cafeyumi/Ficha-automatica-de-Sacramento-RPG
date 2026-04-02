@@ -1,25 +1,27 @@
 "use strict";
 
-// Arrow function feita para atualizar a foto do personagem
-const profileChange = () => {
-  const profileInput = document.querySelector(`#profileInput`);
-  const profileImage = document.querySelector(`#profileImage`);
-  profileInput.addEventListener(`change`, (e) => {
-    profileImage.src = URL.createObjectURL(e.target.files[0]);
-  });
+const init = () => {
+  updateStats(`combat`, 1);
+  updateStats(`movement`, 1);
+  updateStats(`life`, 6);
+  updateStats(`pain`, 6);
+  updateStats(`defense`, 5);
+  updateStats(`physical`, 0);
+  updateStats(`speed`, 0);
+  updateStats(`intellect`, 0);
+  updateStats(`courage`, 0);
+
+  profile();
+  trackerSystem();
+  sinaButtons();
 };
 
-// Dado o livro de Sacramento, esse objeto representa todas
-// as condições inicias para a criação de personagem
+const MAIN_TYPES = [`life`, `pain`, `combat`, `movement`];
+const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
+const allTrackers = [...document.querySelectorAll(`.tracker`)]; // Coloca todos os Trackers em um Array
 
 const stats = {
-  life: 0,
-  pain: 0,
-  defense: 0,
-  combat: 0,
-  movement: 0,
-
-  plain: {
+  baseStats: {
     life: 6,
     pain: 6,
     defense: 5,
@@ -27,7 +29,7 @@ const stats = {
     movement: 1,
   },
 
-  bonus: {
+  currentStats: {
     life: 0,
     pain: 0,
     defense: 0,
@@ -35,7 +37,15 @@ const stats = {
     movement: 0,
   },
 
-  extra: {
+  bonusStats: {
+    life: 0,
+    pain: 0,
+    defense: 0,
+    combat: 0,
+    movement: 0,
+  },
+
+  extraStats: {
     life: 0,
     pain: 0,
     defense: 0,
@@ -55,6 +65,17 @@ const stats = {
     xp: 0,
   },
 
+  antecedents: {
+    attention: 0,
+    medicine: 0,
+    mount: 0,
+    business: 0,
+    theft: 0,
+    sweat: 0,
+    tradition: 0,
+    violence: 0,
+  },
+
   miscellany: {
     bounty: 0,
     sina: 0,
@@ -62,221 +83,227 @@ const stats = {
   },
 };
 
-const extraStats = {
-  extralife: 0,
-  extrapain: 0,
-  extracombat: 0,
-  extramovement: 0,
+// Arrow function feita para atualizar a foto do personagem
+const profile = () => {
+  const profileInput = document.querySelector(`#profileInput`);
+  const profileImage = document.querySelector(`#profileImage`);
+  profileInput.addEventListener(`change`, (e) => {
+    profileImage.src = URL.createObjectURL(e.target.files[0]);
+  });
 };
 
-// Uma arrow function feita para inicializar
-// as partes persistentes do sistema
+// ========== Função que mecaniza os trackers via DOM e recebe seus valores ==========
+function trackerSystem() {
+  // Passa por todos os Trackers do Array
+  allTrackers.forEach((tracker) => {
+    // Coloca todos os Pips do Tracker em um Array
+    const allPips = [...tracker.children];
 
-function updateStats() {
-  statsTracker(`life`, `plain`);
-  statsTracker(`pain`, `plain`);
-  statsTracker(`combat`, `plain`);
-  statsTracker(`movement`, `plain`);
-  statsTracker(`physical`, `attributes`);
-  statsTracker(`speed`, `attributes`);
-  statsTracker(`intellect`, `attributes`);
-  statsTracker(`courage`, `attributes`);
+    // ========== INICIALIZAÇÃO DO DOM DOS VALORES <- ocorre somente uma vez ==========
 
-  statsValues(`level`, `experience`);
-  statsValues(`xp`, `experience`);
-  statsValues(`defense`);
-  statsValues(`bounty`, `miscellany`);
+    const type = tracker.dataset.type; // Tipo do Tracker
 
-  extraValues()
-}
+    // Identificando e Inicilizando os stats principais
 
-// Função que faz a sincronização dos trackers com os valores
-// do objeto stats
-
-function statsTracker(type, subType) {
-
-  const tracker = document.querySelector(`#${type}`);
-  const pips = [...tracker.children];
-
-    stats[type] = stats.plain[type] + stats.bonus[type]
-
-    if ( (stats[type] - 6) > 0 ) {
-      stats.extra[type] = stats[type] - 6
-    }
-
-  for (const index in pips) {
-    let i = Number(index) + 1;
-
-    if (i <= stats[type]) {
-      pips[index].classList.add(`marked`);
-    } else {
-      break;
-    }
-  }
-}
-
-function extraValues() {
-
-  const extra = [...document.querySelectorAll(`.extra`)]
-
-    extra.forEach((element) => {
-   
-    element.addEventListener(`change`, (event) => {
-      const type1 = (event.target.attributes.for.value)
-      stats.extra[type1] = Number(event.target.value)
-    }) 
-
-    const type2 = (element.attributes.for.value)
-    element.value = stats.extra[type2]
-  })
-}
-
-function statsValues(type, subType) {
-  const input = document.querySelector(`#${type}`);
-
-  if (subType == undefined) {
-    input.value = stats[type];
-  } else {
-    stats[type] = stats[subType][type];
-    input.value = stats[subType][type];
-  }
-}
-
-function sinaButtons() {
-
-  const value = document.querySelector(`#sina`);
-  const sinaBtns = [...document.querySelectorAll(`.sina-cards__button`)];
-  const minusBtn = document.querySelector(`#minus`);
-
-  if ( stats.miscellany.sina == 0 ) {
-     minusBtn.classList.add(`sina-cards__button--blocked`)
-  }
-  
-  sinaBtns.forEach((button) => {
-
-    button.addEventListener(`click`, (a) => {
-
-      if (a.target.id == `plus`) {
-
-        stats.miscellany.sina += 1;
-
-      } else {
-
-        if (stats.miscellany.sina > 0) {
-
-          stats.miscellany.sina -= 1;
+    if (MAIN_TYPES.includes(type)) {
+      const initalStats = stats.currentStats[type];
+      for (const index in allPips) {
+        if (index <= initalStats - 1) {
+          allPips[index].classList.add(`marked`);
+        } else {
+          allPips[index].classList.remove(`marked`);
         }
       }
-      
-      value.innerHTML = stats.miscellany.sina;
+    }
 
-      if ( stats.miscellany.sina <= 0 ) {
-        minusBtn.classList.add(`sina-cards__button--blocked`)
-      } else {
-        minusBtn.classList.remove(`sina-cards__button--blocked`)
-      }
-    });
-  });
-}
+    // Identificando e Inicilizando os atributos
 
-function statsMecanism() {
-  const trackers = [...document.querySelectorAll(`.tracker`)];
-
-  trackers.forEach((element) => {
-
-    const pips = [...element.children];
-
-    pips.forEach((child) => {
-
-      child.addEventListener(`click`, (a) => {
-
-        let i = 0; // Contador da posição do index que disparou o evento
-
-        for (const items of [...element.children]) {
-          if (a.target == items) {
-            break;
-          } else {
-            i++;
-          }
+    if (ATTRIBUTES_TYPES.includes(type)) {
+      const attributes = stats.attributes[type];
+      for (const index in allPips) {
+        if (index <= attributes - 1) {
+          allPips[index].classList.add(`marked`);
+        } else {
+          allPips[index].classList.remove(`marked`);
         }
-        
-        /* ========== Funcionalidade para adicionar as marcações */
+      }
+    }
 
-        for (const index in [...element.children]) {
-          if (index < i) {
-            [...element.children][index].classList.add(`marked`);
-          } else if (index == i) {
-            if (index != 0) {
-              if (index != [...element.children].length - 1) {
-                if (
-                  [...[...element.children][i + 1].classList].includes(`marked`)
-                ) {
-                  [...element.children][index].classList.add(`marked`);
-                } else {
-                  [...element.children][index].classList.toggle(`marked`);
-                }
-              } else {
-                [...element.children][index].classList.toggle(`marked`);
-              }
-            } else {
-              if (
-                [...[...element.children][i + 1].classList].includes(`marked`)
-              ) {
-                [...element.children][index].classList.add(`marked`);
-              } else {
-                [...element.children][index].classList.toggle(`marked`);
-              }
+    // Passa por todos os Pips do Array
+    allPips.forEach((pip) => {
+      // Adiciona um evento de click por todos os Pips
+      pip.addEventListener(`click`, (event) => {
+        let i = 0; // Variavel que armazenara a posição do index que disparou o evento
+
+        // Procura quem disparou o evento e armazena seu index
+        for (const pip of allPips) {
+          if (event.target == pip) break;
+          i++;
+        }
+
+        // Adicina a função de marcação a todas as pips
+        markSystem(allPips, i);
+
+        // Valor total de Pips ativados
+        const value = allPips.filter(pip => pip.classList.contains(`marked`)).length
+
+        // ========== ENVIO DE VALORES ==========
+
+        updateStats(type, value); // Entrega o novo valor dado pelo usuario
+
+        // age por cima do valor dado pelo usuario
+        if (ATTRIBUTES_TYPES.includes(type)) {
+          const attributeType = type;
+
+          switch (attributeType) {
+            case `physical`: {
+              const lifePips = [...document.querySelector(`#life`).children];
+              markSystem(lifePips, stats.currentStats.physical - 1);
+              break;
             }
-          } else if (index > i) {
-            [...element.children][index].classList.remove(`marked`);
+            case `speed`: {
+              const speedPips = [
+                ...document.querySelector(`#movement`).children,
+              ];
+              markSystem(speedPips, stats.currentStats.movement - 1);
+              break;
+            }
+            case `intellect`: {
+              break;
+            }
+            case `courage`: {
+              const combatPips = [
+                ...document.querySelector(`#combat`).children,
+              ];
+              markSystem(combatPips, stats.currentStats.combat - 1);
+              break;
+            }
           }
         }
+        updateStats(type, value);
 
-        let ola = 0;
-        pips.forEach((pipi) => {
-          if ([...pipi.classList].includes(`marked`)) {
-            ola++;
-          }
+        const extras = [...document.querySelectorAll(`.extra`)];
+        extras.forEach((extra) => {
+          const extraType = extra.dataset.for;
+          extra.attributes.value.value = stats.extraStats[extraType];
         });
-
-        
-        const type = element.id;
-        const tipo = element.attributes.type.value;
-
-        
-        if (tipo == `attributes`) {
-          attributes(element.id, ola);
-          stats.attributes[type] = ola;
-        }
-
-        
-        
-        updateStats();
-        
-        stats.plain[type] = ola;
-        stats[type] = ola;
-        
       });
     });
   });
 }
 
-function attributes(type, value) {
-  if (type == `physical`) {
-    stats.bonus.life = value;
+function sinaButtons() {
+  const sinaBtns = [...document.querySelectorAll(`.sina-cards__button`)];
+  const minusBtn = document.querySelector(`#minus`);
+
+  if (stats.miscellany.sina == 0) {
+    minusBtn.classList.add(`sina-cards__button--blocked`);
   }
 
-  if (type == `speed`) {
-    stats.bonus.movement = value;
-  }
+  sinaBtns.forEach((button) => {
+    button.addEventListener(`click`, (event) => {
+      if (event.target.id == `plus`) {
+        stats.miscellany.sina += 1;
+      } else {
+        if (stats.miscellany.sina > 0) {
+          stats.miscellany.sina -= 1;
+        }
+      }
+      if (stats.miscellany.sina <= 0) {
+        minusBtn.classList.add(`sina-cards__button--blocked`);
+      } else {
+        minusBtn.classList.remove(`sina-cards__button--blocked`);
+      }
 
-  if (type == `courage`) {
-    stats.bonus.combat = value;
+      updateStats();
+    });
+  });
+}
+
+function markSystem(allPips, value) {
+  for (const index in allPips) {
+    if (index < value) {
+      allPips[index].classList.add(`marked`);
+    } else if (index == value) {
+      if (index != 0) {
+        if (index != allPips.length - 1) {
+          if ([...allPips[value + 1].classList].includes(`marked`)) {
+            allPips[index].classList.add(`marked`);
+          } else {
+            allPips[index].classList.toggle(`marked`);
+          }
+        } else {
+          allPips[index].classList.toggle(`marked`);
+        }
+      } else {
+        if ([...[...allPips][value + 1].classList].includes(`marked`)) {
+          allPips[index].classList.add(`marked`);
+        } else {
+          allPips[index].classList.toggle(`marked`);
+        }
+      }
+    } else if (index > value) {
+      allPips[index].classList.remove(`marked`);
+    }
   }
 }
 
+function updateStats(type, value) {
+  // ========== ATUALIZA O VALOR DAS CARTAS DE SINA ==========
+
+  const sinaNumber = document.querySelector(`#sina`);
+  sinaNumber.innerHTML = stats.miscellany.sina;
+
+  if (!type) return;
+
+  // ========== CALCULO E ATUALIZAÇÃO DOS ATRIBUTOS ==========
+
+  if (ATTRIBUTES_TYPES.includes(type)) {
+    switch (type) {
+      case `physical`: {
+        stats.attributes.physical = value;
+        break;
+      }
+      case `speed`: {
+        stats.attributes.speed = value;
+        break;
+      }
+      case `intellect`: {
+        stats.attributes.intellect = value;
+        break;
+      }
+      case `courage`: {
+        stats.attributes.courage = value;
+        break;
+      }
+    }
+  }
+
+  // ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
+
+  stats.bonusStats.life = stats.attributes.physical;
+  stats.bonusStats.movement = stats.attributes.speed;
+  stats.bonusStats.combat = stats.attributes.courage;
+
+  stats.currentStats.life = stats.baseStats.life + stats.bonusStats.life;
+  stats.currentStats.movement =
+    stats.baseStats.movement + stats.bonusStats.movement;
+  stats.currentStats.combat = stats.baseStats.combat + stats.bonusStats.combat;
+
+  // Força o valor do stat vida, dor, defesa, combate e movimento a ser sobescrevido pelo valor do input do usuario
+  if (MAIN_TYPES.includes(type)) {
+    stats.currentStats[type] = value;
+    stats.baseStats[type] = stats.currentStats[type] - stats.bonusStats[type];
+  }
+
+  MAIN_TYPES.forEach((stat) => {
+    if (stats.currentStats[stat] - 6 > 0) {
+      stats.extraStats[stat] = stats.currentStats[stat] - 6;
+    } else {
+      stats.extraStats[stat] = 0;
+    }
+  });
+}
+
 // INICIALIZAÇÃO
-sinaButtons()
-statsMecanism();
-updateStats();
-profileChange();
+init();
