@@ -14,8 +14,10 @@ const init = () => {
   profile();
   trackerSystem();
   sinaButtons();
+  diceSystem()
 };
 
+const ANTECEDENTS_TYPES = [`attention`, `medicine`, `mount`, `business`, `theft`, `sweat`, `tradition`, `violence`];
 const MAIN_TYPES = [`life`, `pain`, `combat`, `movement`];
 const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
 const allTrackers = [...document.querySelectorAll(`.tracker`)]; // Coloca todos os Trackers em um Array
@@ -83,8 +85,75 @@ const stats = {
   },
 };
 
-// Arrow function feita para atualizar a foto do personagem
-const profile = () => {
+function diceSystem() {
+  const diceSound = new Audio(`/src/assets/audios/dice.mp3`)
+  const dices = [...document.querySelectorAll(`.dice`)]
+  const getTemplate = document.querySelector(`#rollTemplate`)
+  const rollsPosition = document.querySelector(`#rolls`)
+  
+      
+  dices.forEach((dice) => {
+    dice.addEventListener(`click`, (event) => {
+
+    diceSound.currentTime = 0
+    diceSound.play()
+    
+    const diceResult = Math.floor( Math.random() * (7 - 1) + 1 )
+    const type = event.target.dataset.type
+    const antecedentBonus = stats.antecedents[type]
+    const rollName = event.target.dataset.name
+    const rollResult = diceResult + antecedentBonus
+
+    const template = getTemplate.content.cloneNode(true)
+
+    const nameInput = template.querySelector(`.rolls__title`)
+    nameInput.innerHTML = rollName
+
+    const diceInput = template.querySelector(`.rolls__value-dice`)
+    diceInput.innerHTML = diceResult
+
+    const bonusInput = template.querySelector(`.rolls__value-bonus`)
+    bonusInput.innerHTML = antecedentBonus
+
+    const barrel = template.querySelector(`.barrel`)
+    console.log(barrel.src)
+    barrel.src = `/src/assets/images/barrel/barrel${diceResult}.png`
+    console.log(barrel.src)
+
+    const resultInput = template.querySelector(`.rolls__value-result`)
+    if ( diceResult == 6 ) {
+      resultInput.classList.add(`rolls__value--crit`)
+    } else if ( rollResult == 1 ) {
+      resultInput.classList.add(`rolls__value--fail`)
+    }
+    resultInput.innerHTML = rollResult
+
+    const exit = template.querySelector(`.exit`)
+
+    exit.addEventListener(`click`, (event) => {
+      const element = event.target.parentElement.parentElement
+      element.remove()
+    })
+
+    console.log(exit)
+
+    rollsPosition.appendChild(template)
+
+    console.log(diceInput)
+    
+    console.log(rollsPosition)
+    console.log(template)
+
+    console.log(diceResult)
+    console.log(stats.antecedents[type])
+      
+    })
+  })
+  console.log(dices)
+}
+
+// ========== Função que atualiza a foto do personagem ==========
+function profile() {
   const profileInput = document.querySelector(`#profileInput`);
   const profileImage = document.querySelector(`#profileImage`);
   profileInput.addEventListener(`change`, (e) => {
@@ -192,6 +261,7 @@ function trackerSystem() {
   });
 }
 
+// ========== Função que mecaniza os botões de Sina via DOM e recebe seus valores ==========
 function sinaButtons() {
   const sinaBtns = [...document.querySelectorAll(`.sina-cards__button`)];
   const minusBtn = document.querySelector(`#minus`);
@@ -220,6 +290,7 @@ function sinaButtons() {
   });
 }
 
+// ========== Função que controla o sistema dos Trackers ==========
 function markSystem(allPips, value) {
   for (const index in allPips) {
     if (index < value) {
@@ -248,6 +319,7 @@ function markSystem(allPips, value) {
   }
 }
 
+// ========== Função que controla a atualização dos stats e as contas ==========
 function updateStats(type, value) {
   // ========== ATUALIZA O VALOR DAS CARTAS DE SINA ==========
 
@@ -255,6 +327,14 @@ function updateStats(type, value) {
   sinaNumber.innerHTML = stats.miscellany.sina;
 
   if (!type) return;
+
+  // ========== CALCULO E ATUALIZAÇÃO DOS ANTECEDENTES ==========
+
+  if ( ANTECEDENTS_TYPES.includes(type)) {
+    ANTECEDENTS_TYPES.forEach(() => {
+      stats.antecedents[type] = value
+    })
+  }
 
   // ========== CALCULO E ATUALIZAÇÃO DOS ATRIBUTOS ==========
 
@@ -285,6 +365,7 @@ function updateStats(type, value) {
   stats.bonusStats.movement = stats.attributes.speed;
   stats.bonusStats.combat = stats.attributes.courage;
 
+  stats.currentStats.pain = stats.baseStats.pain + stats.bonusStats.pain;
   stats.currentStats.life = stats.baseStats.life + stats.bonusStats.life;
   stats.currentStats.movement =
     stats.baseStats.movement + stats.bonusStats.movement;
@@ -307,3 +388,5 @@ function updateStats(type, value) {
 
 // INICIALIZAÇÃO
 init();
+
+// lembrete: o valor base parece estar com problema, por mais que o codigo pareça estar funcional, vale dar uma olhada afundo depois

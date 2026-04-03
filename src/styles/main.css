@@ -5,6 +5,7 @@
 @import url(/src/styles/layouts/attributes.css);
 @import url(/src/styles/layouts/sina.css);
 @import url(/src/styles/layouts/antecedents.css);
+@import url(/src/styles/layouts/rolls.css);
 
 body {
   background-image: url("/src/assets/images/background.png");
@@ -46,8 +47,8 @@ h2 {
   justify-content: center;
   padding: var(--space-4);
   gap: var(--space-3);
-  grid-template-rows: 310px 80px 200px 280px;
-  grid-template-columns: 300px 400px 170px 70px 100px 198px;
+  grid-template-rows: 310px 80px 250px 250px;
+  grid-template-columns: 350px 330px 170px 80px 100px 198px;
   grid-template-areas:
     "character character attributes attributes sina sina"
     "informacoes antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
