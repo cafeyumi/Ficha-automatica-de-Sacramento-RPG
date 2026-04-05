@@ -1,0 +1,24 @@
+{
+	"name": "sacramento",
+	"version": "1.0.0",
+	"description": "é uma ficha de sacramento yay",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cafeyumi/Ficha-automatica-de-Sacramento-RPG.git"
+	},
+	"keywords": [],
+	"author": "Caféyumia",
+	"license": "MIT",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/cafeyumi/Ficha-automatica-de-Sacramento-RPG/issues"
+	},
+	"homepage": "https://github.com/cafeyumi/Ficha-automatica-de-Sacramento-RPG#readme",
+	"devDependencies": {
+		"@biomejs/biome": "2.4.10"
+	}
+}

@@ -1,438 +1,600 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sacramento • Character Sheet</title>
-    <meta name="description" content="uma tentativa de ficha de sacramento para meus amigos">
-    <meta name="author" content="Caféyumi">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Maiden+Orange&display=swap" rel="stylesheet">
-    <link rel="preload" href="/src/assets/images/background.png" as="image">
-    <link rel="prefetch" href="/src/assets/images/barrel/barrel1.png" as="image">
-    <link rel="prefetch" href="/src/assets/images/barrel/barrel2.png" as="image">
-    <link rel="prefetch" href="/src/assets/images/barrel/barrel3.png" as="image">
-    <link rel="prefetch" href="/src/assets/images/barrel/barrel4.png" as="image">
-    <link rel="prefetch" href="/src/assets/images/barrel/barrel5.png" as="image">
-    <link rel="prefetch" href="/src/assets/images/barrel/barrel6.png" as="image">
-    <link rel="prefetch" href="sinaCards.png" as="image">
-    <link rel="prefetch" href="placeholder.png" as="image">
-    <link rel="prefetch" href="monetary.png" as="image">
-    <link rel="stylesheet" href="/src/styles/main.css">
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sacramento • Character Sheet</title>
+		<meta name="description" content="uma tentativa de ficha de sacramento para meus amigos">
+		<meta name="author" content="Caféyumi">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Maiden+Orange&display=swap"
+			rel="stylesheet">
+		<link rel="preload" href="/src/assets/images/background.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/barrel/barrel1.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/barrel/barrel2.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/barrel/barrel3.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/barrel/barrel4.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/barrel/barrel5.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/barrel/barrel6.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/sinaCards.png" as="image">
+		<link rel="prefetch" href="/src/assets/images/placeholder.jpg" as="image">
+		<link rel="prefetch" href="/src/assets/images/monetary.png" as="image">
+		<link rel="stylesheet" href="/src/styles/main.css">
+	</head>
+	<body>
+		<main id="mainContent" class="main-content">
+			<section id="character" class="character">
+				<div class="character__top">
+					<div class="character__identity">
+						<div class="character__informations">
+							<label for="profileInput" class="character__picture">
+								<input id="profileInput" name="Perfil" type="file" accept="image/*">
+								<img id="profileImage" src="/src/assets/images/placeholder.jpg" alt="foto do personagem">
+							</label>
 
-    <main id="mainContent" class="main-content">
+							<div class="identity__inputs">
+								<div class="name">
+									<label for="characterName">Nome</label>
+									<input
+										id="characterName"
+										name="Nome"
+										type="text"
+										value="Nova Personagem"
+										autocomplete="off">
+								</div>
+								<div class="player">
+									<label for="playerName">Jogador</label>
+									<input id="playerName" name="Jogador" type="text" autocomplete="off">
+								</div>
+							</div>
+						</div>
 
-        <section id="character" class="character">
+						<div class="progression__inputs">
+							<div class="level">
+								<label for="level">Nível</label>
+								<input id="level" name="Nível" type="number" value="1">
+							</div>
+							<div class="xp">
+								<label for="xp">XP</label>
+								<input id="xp" name="XP" type="number" value="0">
+							</div>
+							<div class="bounty">
+								<label for="bounty">Recompensa</label>
+								<img src="/src/assets/images/monetary.png" alt="">
+								<input id="bounty" name="Recompensa" type="number" value="0">
+							</div>
+						</div>
+					</div>
 
-            <div class="character__top">
+					<div class="defense__container">
+						<div class="defense__content">
+							<svg
+								aria-hidden="true"
+								focusable="false"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 48 48"
+								id="Shield-Outline--Streamline-Ionic-Outline"
+								height="48"
+								width="48">
+								<path
+									stroke="#000000"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M45.7455 8.9188C36.3564 7.2347 32.4745 5.9873 24 2.16 15.5255 5.9873 11.6437 7.2347 2.2545 8.9188 0.5535 35.8786 22.3809 45.1879 24 45.84c1.6191 -0.6521 23.4465 -9.9614 21.7455 -36.9212Z"
+									stroke-width="1.25"></path>
+							</svg>
+							<label for="defense">Defesa</label>
+							<input id="defense" name="Defesa" type="number" value="5">
+						</div>
+					</div>
+				</div>
 
-                <div class="character__identity">
+				<div class="character__bottom">
+					<div class="stats__inputs">
+						<div class="stats__tracker">
+							<p>DOR</p>
+							<div class="stats-wrapper">
+								<div id="pain" data-type="pain" name="Dor" class="tracker pain">
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200">
+										<title>Dor valor 1</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200">
+										<title>Dor valor 2</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200">
+										<title>Dor valor 3</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200">
+										<title>Dor valor 4</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200">
+										<title>Dor valor 5</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200">
+										<title>Dor valor 6</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+								</div>
+								<div class="stats__extra">
+									<p>+</p>
+									<input
+										id="extraPain"
+										data-for="pain"
+										name="Dor extra"
+										class="extra"
+										type="number"
+										value="0">
+								</div>
+							</div>
+						</div>
 
-                    <div class="character__informations">
+						<div class="stats__tracker">
+							<p>VIDA</p>
+							<div class="stats-wrapper">
+								<div id="life" data-type="life" name="Vida" class="tracker life">
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216">
+										<title>Vida valor 1</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216">
+										<title>Vida valor 2</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216">
+										<title>Vida valor 3</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216">
+										<title>Vida valor 4</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216">
+										<title>Vida valor 5</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216">
+										<title>Vida valor 6</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+								</div>
+								<div class="stats__extra">
+									<p>+</p>
+									<input
+										id="extraLife"
+										data-for="life"
+										name="Vida extra"
+										class="extra"
+										type="number"
+										value="0">
+								</div>
+							</div>
+						</div>
+					</div>
 
-                        <label for="profileInput" class="character__picture">
-                            <input id="profileInput" name="Perfil" type="file" accept="image/*">
-                            <img id="profileImage" src="/src/assets/images/placeholder.jpg" alt="foto do personagem">
-                        </label>
+					<div class="stats__inputs">
+						<div class="stats__tracker">
+							<p>Movimento</p>
+							<div class="stats-wrapper">
+								<div id="movement" data-type="movement" data-name="Movimento" class="tracker movement">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+								<div class="stats__extra">
+									<p>+</p>
+									<input
+										id="extraMovement"
+										data-for="movement"
+										data-name="Movimento extra"
+										class="extra"
+										type="number"
+										value="0">
+								</div>
+							</div>
+						</div>
 
-                        <div class="identity__inputs">
-                            <div class="name">
-                                <label for="characterName">Nome</label>
-                                <input id="characterName" name="Nome" type="text" value="Nova Personagem" autocomplete="off">
-                            </div>
-                            <div class="player">
-                                <label for="playerName">Jogador</label>
-                                <input id="playerName" name="Jogador" type="text" autocomplete="off">
-                            </div>
-                        </div>
+						<div class="stats__tracker">
+							<p>Ações de Combate</p>
+							<div class="stats-wrapper">
+								<div id="combat" data-type="combat" name="Ações de Combate" class="tracker combataction">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+								<div class="stats__extra">
+									<p>+</p>
+									<input
+										id="extraCombat"
+										data-for="combat"
+										name="Ações de Combate extras"
+										class="extra"
+										type="number"
+										value="0">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-                    </div>
+			<section id="attributes" class="attributes">
+				<div class="attributes__header">
+					<h2>ATRIBUTOS</h2>
+				</div>
+				<div class="attributes__inner-content">
+					<div class="attributes__content">
+						<p>FISICO</p>
+						<div id="physical" data-type="physical" data-name="Fisico" class="tracker">
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+						</div>
+					</div>
+					<div class="attributes__content">
+						<p>VELOCIDADE</p>
+						<div id="speed" data-type="speed" data-name="Velocidade" class="tracker">
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+						</div>
+					</div>
+					<div class="attributes__content">
+						<p>INTELECTO</p>
+						<div id="intellect" data-type="intellect" data-name="Intelecto" class="tracker">
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+						</div>
+					</div>
+					<div class="attributes__content">
+						<p>CORAGEM</p>
+						<div id="courage" data-type="courage" data-name="Coragem" class="tracker">
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+							<div class="pip"></div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-                    <div class="progression__inputs">
+			<section id="sinaCards" class="sina-cards">
+				<h2 class="sina-cards__header">CARTAS DE SINA</h2>
+				<div class="sina-cards__container">
+					<button id="minus" class="sina-cards__button" type="button">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							fill="#000000"
+							viewBox="0 0 256 256">
+							<title>Simbolo de adição</title>
+							<path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path>
+						</svg>
+					</button>
+					<div class="sina-cards__cards">
+						<p id="sina" class="sina-cards__value">0</p>
+						<img src="/src/assets/images/sinaCards.png" alt="">
+					</div>
+					<button id="plus" class="sina-cards__button" type="button">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							fill="#000000"
+							viewBox="0 0 256 256">
+							<title>Simbolo de subtração</title>
+							<path
+								d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+						</svg>
+					</button>
+				</div>
+			</section>
 
-                        <div class="level">
-                            <label for="level">Nível</label>
-                            <input id="level" name="Nível" type="number" value="1">
-                        </div>
-                        <div class="xp">
-                            <label for="xp">XP</label>
-                            <input id="xp" name="XP" type="number" value="0">
-                        </div>
-                        <div class="bounty">
-                            <label for="bounty">Recompensa</label>
-                            <img src="/src/assets/images/monetary.png" alt="">
-                            <input id="bounty" name="Recompensa" type="number" value="0">
-                        </div>
-                    
-                    </div>
-                </div>
+			<section id="informacoes"></section>
 
-                <div class="defense__container">
+			<section id="antecedents" class="antecedents">
+				<h2>ANTECEDENTES</h2>
 
-                    <div class="defense__content">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" id="Shield-Outline--Streamline-Ionic-Outline" height="48" width="48">
-                        <path stroke="#000000" stroke-linecap="round" stroke-linejoin="round" d="M45.7455 8.9188C36.3564 7.2347 32.4745 5.9873 24 2.16 15.5255 5.9873 11.6437 7.2347 2.2545 8.9188 0.5535 35.8786 22.3809 45.1879 24 45.84c1.6191 -0.6521 23.4465 -9.9614 21.7455 -36.9212Z" stroke-width="1.25"></path>
-                        </svg>
-                        <label for="defense">Defesa</label>
-                        <input id ="defense" name="Defesa" type="number" value="5">
-                    </div>
+				<div class="antecedents__content">
+					<div class="antecedents__left">
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Atenção</p>
+								<svg
+									data-type="attention"
+									data-name="Atenção"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="attention" data-type="attention" data-name="Atenção" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Medicina</p>
+								<svg
+									data-type="medicine"
+									data-name="Medicina"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="medicine" data-type="medicine" data-name="Medicina" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Montaria</p>
+								<svg
+									data-type="mount"
+									data-name="Montaria"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="mount" data-type="mount" data-name="Montaria" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
 
-                </div>
-            </div>
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Negócios</p>
+								<svg
+									data-type="business"
+									data-name="Negócios"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="business" data-type="business" data-name="Negócios" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-            <div class="character__bottom">
+					<div class="antecedents__right">
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Roubo</p>
+								<svg
+									data-type="theft"
+									data-name="Roubo"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="theft" data-type="theft" data-name="Roubo" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
 
-                <div class="stats__inputs">
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Suor</p>
+								<svg
+									data-type="sweat"
+									data-name="Suor"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="sweat" data-type="sweat" data-name="Suor" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
 
-                 <div class="stats__tracker">
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Tradição</p>
+								<svg
+									data-type="tradition"
+									data-name="Tradição"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="tradition" data-type="tradition" data-name="Tradição" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
 
-                        <p>DOR</p>
-                        <div class="stats-wrapper">
-                            <div id="pain" data-type="pain" name="Dor" class="tracker pain">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>
-                            </div>
-                            <div class="stats__extra">
-                                <p>+</p>
-                                <input id="extraPain" data-for="pain" name="Dor extra" class="extra" type="number" value="0">
-                            </div>
-                        </div>
-                    </div>
+						<div class="antecedents__tracker-wrapper">
+							<div class="antecedents__tracker-title">
+								<p>Violência</p>
+								<svg
+									data-type="violence"
+									data-name="Violência"
+									class="dice"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 448 512">
+									<title>Simbolo de um dado</title>
+									<path
+										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+								</svg>
+							</div>
+							<div class="antecedents__tracker">
+								<p>1D6+</p>
+								<div id="violence" data-type="violence" data-name="Violência" class="tracker">
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+									<div class="pip"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-                    <div class="stats__tracker">
+			<section id="rolagemlivre"></section>
 
-                        <p>VIDA</p>
-                        <div class="stats-wrapper">
-                            <div id="life" data-type="life" name="Vida" class="tracker life">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>
-                            </div>
-                            <div class="stats__extra">
-                                <p>+</p>
-                                <input id="extraLife" data-for="life" name="Vida extra" class="extra" type="number" value="0">
-                            </div>
-                        </div>
-                    </div>
+			<section id="montaria"></section>
 
-                   
+			<section id="inventario"></section>
 
-                </div>
-
-                <div class="stats__inputs">
-
-                    <div class="stats__tracker">
-                        <p>Movimento</p>
-                        <div class="stats-wrapper">
-                            <div id="movement" data-type="movement" data-name="Movimento" class="tracker movement">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                            <div class="stats__extra">
-                                <p>+</p>
-                                <input id="extraMovement" data-for="movement" data-name="Movimento extra" class="extra" type="number" value="0">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stats__tracker">
-                        <p>Ações de Combate</p>
-                        <div class="stats-wrapper">
-                            <div id="combat" data-type="combat" name="Ações de Combate" class="tracker combataction">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                            <div class="stats__extra">
-                                <p>+</p>
-                                <input id="extraCombat" data-for="combat" name="Ações de Combate extras" class="extra" type="number" value="0">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section id="attributes" class="attributes">
-            <div class="attributes__header">
-                <h2>ATRIBUTOS</h2>
-            </div>
-            <div class="attributes__inner-content"">
-                <div class="attributes__content">
-                    <p>FISICO</p>
-                    <div id="physical" data-type="physical" data-name="Fisico" class="tracker">
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                    </div>
-                </div>
-                <div class="attributes__content">
-                    <p>VELOCIDADE</p>
-                    <div id="speed" data-type="speed" data-name="Velocidade" class="tracker">
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                    </div>
-                </div>
-                <div class="attributes__content">
-                    <p>INTELECTO</p>
-                    <div id="intellect" data-type="intellect" data-name="Intelecto" class="tracker">
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                    </div>
-                </div>
-                <div class="attributes__content">
-                    <p>CORAGEM</p>
-                    <div id="courage" data-type="courage" data-name="Coragem" class="tracker">
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                        <div class="pip"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="sinaCards" class="sina-cards">
-            <h2 class="sina-cards__header">CARTAS DE SINA</h2>
-            <div class="sina-cards__container">
-                <button id="minus"  class="sina-cards__button"> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path></svg></button>
-                <div class="sina-cards__cards">
-                    <p id="sina" class="sina-cards__value">0</p>
-                    <img src="/src/assets/images/sinaCards.png" alt="">
-                </div>
-                <button id="plus" class="sina-cards__button"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg></button>
-            </div>
-        </section>
-
-        <section id="informacoes">
-
-        </section>
-
-        <section id="antecedents" class="antecedents">
-
-            <h2>ANTECEDENTES</h2>
-
-            <div class="antecedents__content">
-                <div class="antecedents__left">
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Atenção</p>
-                            <svg data-type="attention" data-name="Atenção" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="attention" data-type="attention" data-name="Atenção" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Medicina</p>
-                            <svg data-type="medicine" data-name="Medicina" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="medicine" data-type="medicine" data-name="Medicina" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Montaria</p>
-                            <svg data-type="mount" data-name="Montaria" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="mount" data-type="mount" data-name="Montaria" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Negócios</p>
-                            <svg data-type="business" data-name="Negócios" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="business" data-type="business" data-name="Negócios" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="antecedents__right">
-
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Roubo</p>
-                            <svg data-type="theft" data-name="Roubo" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="theft" data-type="theft" data-name="Roubo" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Suor</p>
-                            <svg data-type="sweat" data-name="Suor" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="sweat" data-type="sweat" data-name="Suor" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Tradição</p>
-                            <svg data-type="tradition" data-name="Tradição" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="tradition" data-type="tradition" data-name="Tradição" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="antecedents__tracker-wrapper">
-                        <div class="antecedents__tracker-title">
-                            <p>Violência</p>
-                            <svg data-type="violence" data-name="Violência" class="dice" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z"/></svg>
-                        </div>
-                        <div class="antecedents__tracker">
-                            <p>1D6+</p>
-                            <div id="violence" data-type="violence" data-name="Violência" class="tracker">
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                                <div class="pip"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="rolagemlivre">
-            
-        </section>
-
-        <section id="montaria">
-
-        </section>
-
-        <section id="inventario">
-
-        </section>
-
-        <section id="rolls" class="rolls">
-            <template id="rollTemplate">
-                <div class="rolls__container .rolls__container--hide">
-                    <div class="rolls__top">
-                        <p class="rolls__title"></p>
-                        <button class="exit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></buttom>
-                    </div>
-                    <div class="rolls__bottom">
-                        <div class="rolls__informations">
-                            <p class="rolls__value-dice"></p>
-                            <p>DADO</p>
-                        </div>
-                        <p>+</p>
-                        <div class="rolls__informations">
-                            <p class="rolls__value-bonus"></p>
-                            <p>BÔNUS</p>
-                        </div>
-                        <p>=</p>
-                        <div class="rolls__informations">
-                            <p class="rolls__value-result"></p>
-                            <img class="barrel" src="/src/assets/images/barrel/barrel6.png" alt="">
-                            <p>RESULTADO</p>
-                        </div>
-                    </div>
-                </div>
-            </template>
-        </section>
-    </main>
-    <script src="/src/scripts/main.js"></script>
-</body>
+			<section id="rolls" class="rolls">
+				<template id="rollTemplate">
+					<div class="rolls__container">
+						<div class="rolls__top">
+							<p class="rolls__title"></p>
+							<button class="exit" type="button">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									height="20"
+									fill="#000000"
+									viewBox="0 0 256 256">
+									<title>Simbolo de X</title>
+									<path
+										d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
+								</svg>
+							</button>
+						</div>
+						<div class="rolls__bottom">
+							<div class="rolls__informations">
+								<p class="rolls__value-dice"></p>
+								<p>DADO</p>
+							</div>
+							<p>+</p>
+							<div class="rolls__informations">
+								<p class="rolls__value-bonus"></p>
+								<p>BÔNUS</p>
+							</div>
+							<p>=</p>
+							<div class="rolls__informations">
+								<p class="rolls__value-result"></p>
+								<img class="barrel" src="/src/assets/images/barrel/barrel6.png" alt="">
+								<p>RESULTADO</p>
+							</div>
+						</div>
+					</div>
+				</template>
+			</section>
+		</main>
+		<script src="/src/scripts/main.js"></script>
+	</body>
 </html>

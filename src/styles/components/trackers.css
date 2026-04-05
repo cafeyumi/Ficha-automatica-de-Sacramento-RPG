@@ -1,46 +1,46 @@
 .tracker {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
 
-  &.life path,
-  &.pain path {
-    pointer-events: none;
-  }
+	&.life path,
+	&.pain path {
+		pointer-events: none;
+	}
 
-  &.life svg,
-  &.pain svg {
-    margin-bottom: 5px;
-    width: 23px;
-    height: 23px;
-    fill: var(--bg-color-muted);
-    cursor: pointer;
-  }
+	&.life svg,
+	&.pain svg {
+		margin-bottom: 5px;
+		width: 23px;
+		height: 23px;
+		fill: var(--bg-color-muted);
+		cursor: pointer;
+	}
 }
 
 .tracker.life .marked,
 .tracker.pain .marked {
-  fill: var(--fg-color);
+	fill: var(--fg-color);
 }
 
 .pip.marked::after {
-  content: "";
-  width: 15px;
-  height: 15px;
-  background-color: var(--mk-color);
-  border-radius: var(--round);
-  position: absolute;
-  margin: auto;
+	content: "";
+	width: 15px;
+	height: 15px;
+	background-color: var(--mk-color);
+	border-radius: var(--round);
+	position: absolute;
+	margin: auto;
 }
 
 .pip {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 23px;
-  height: 23px;
-  cursor: pointer;
-  border: 1px var(--fg-color) solid;
-  border-radius: var(--round);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	width: 23px;
+	height: 23px;
+	cursor: pointer;
+	border: 1px var(--fg-color) solid;
+	border-radius: var(--round);
 }
