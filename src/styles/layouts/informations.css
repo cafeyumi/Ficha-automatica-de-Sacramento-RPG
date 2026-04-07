@@ -1,0 +1,99 @@
+.informations {
+	grid-area: informations;
+	background-color: var(--bg-color);
+	border: var(--border-md-fg);
+	height: 100%;
+	overflow: hidden;
+}
+
+.informations__header {
+	display: flex;
+	justify-content: space-around;
+	background-color: var(--fg-color);
+	padding: var(--space-3);
+
+	button {
+		background-color: transparent;
+		border: none;
+		line-height: 1;
+		font-size: var(--text-xl);
+		font-family: var(--bebas);
+		color: var(--bg-color);
+		cursor: pointer;
+	}
+}
+
+/* HABILITIES */
+
+.informations__skills {
+	display: flex;
+	flex-direction: column;
+	overflow-y: scroll;
+	width: 100%;
+	height: 100%;
+	gap: var(--space-3);
+	padding: var(--space-3);
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+}
+
+.informations__add-button-position {
+	display: flex;
+	width: 100%;
+	height: 32px;
+	justify-content: flex-end;
+}
+
+.informations__add-button {
+    background-color: var(--fg-color);
+    border: none;
+    padding: var(--space-1) var(--space-3);
+    color: var(--bg-color);
+    font-family: var(--apple);
+    font-weight: 900;
+}
+
+.informations__skill-informations {
+	display: flex;
+	gap: var(--space-1);
+	width: 100%;
+	flex-direction: column;
+}
+
+.informations__skill {
+	display: flex;
+	justify-content: space-between;
+	border: 2px var(--text-dark) solid;
+	padding: var(--space-4) var(--space-5) var(--space-4) var(--space-3);
+
+	svg {
+		width: 32px;
+	}
+}
+
+.informations__skills-name {
+	font-weight: 700;
+	letter-spacing: 2px;
+	font-family: var(--maiden);
+	line-height: 1;
+}
+
+.informations__skills-type {
+	display: flex;
+	width: fit-content;
+	padding: var(--space-1) var(--space-3);
+	background-color: var(--text-dark);
+	color: var(--bg-color);
+	font-family: var(--apple);
+	line-height: 1;
+	font-weight: 900;
+	font-size: var(--text-sm);
+}
+
+.informations__skill-bonuses {
+	display: flex;
+	justify-content: space-around;
+}

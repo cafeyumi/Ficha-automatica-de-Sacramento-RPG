@@ -16,6 +16,7 @@
 		fill: var(--bg-color-muted);
 		cursor: pointer;
 	}
+
 }
 
 .tracker.life .marked,
@@ -43,4 +44,8 @@
 	cursor: pointer;
 	border: 1px var(--fg-color) solid;
 	border-radius: var(--round);
+}
+
+.marked {
+	counter-increment: contador;
 }

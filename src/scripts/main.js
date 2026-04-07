@@ -10,6 +10,7 @@ const init = () => {
 	updateStats(`speed`, 0);
 	updateStats(`intellect`, 0);
 	updateStats(`courage`, 0);
+	updateStats(`level`, 1);
 
 	profile();
 	trackerSystem();
@@ -131,6 +132,7 @@ function diceSystem() {
 			} else if (rollResult === 1) {
 				resultInput.classList.add(`rolls__value--fail`);
 			}
+
 			resultInput.innerHTML = rollResult;
 
 			const exit = template.querySelector(`.exit`);
@@ -142,16 +144,14 @@ function diceSystem() {
 
 			rollsPosition.appendChild(template);
 
-			// console.log(diceInput);
-
-			// console.log(rollsPosition);
-			// console.log(template);
-
-			// console.log(diceResult);
-			// console.log(stats.antecedents[type]);
+			if ( rollsPosition.children.length-1 === 6 ) {
+				
+				[...rollsPosition.children][0].remove()
+				console.log([...rollsPosition.children])
+				
+			}
 		});
 	});
-	console.log(dices);
 }
 
 // ========== Função que atualiza a foto do personagem ==========
@@ -165,6 +165,8 @@ function profile() {
 
 // ========== Função que mecaniza os trackers via DOM e recebe seus valores ==========
 function trackerSystem() {
+	const trackerSound = new Audio(`/src/assets/audios/tracker.mp3`);
+
 	// Passa por todos os Trackers do Array
 	allTrackers.forEach((tracker) => {
 		// Coloca todos os Pips do Tracker em um Array
@@ -204,6 +206,9 @@ function trackerSystem() {
 		allPips.forEach((pip) => {
 			// Adiciona um evento de click por todos os Pips
 			pip.addEventListener(`click`, (event) => {
+				trackerSound.currentTime = 0;
+				trackerSound.play();
+
 				let i = 0; // Variavel que armazenara a posição do index que disparou o evento
 
 				// Procura quem disparou o evento e armazena seu index
@@ -230,15 +235,15 @@ function trackerSystem() {
 
 					switch (attributeType) {
 						case `physical`: {
-							const lifePips = [...document.querySelector(`#life`).children];
-							markSystem(lifePips, stats.currentStats.physical - 1);
+							const physicalPips = [...document.querySelector(`#life`).children];
+							markSystem(physicalPips, stats.currentStats.life -1, `life`);
 							break;
 						}
 						case `speed`: {
 							const speedPips = [
 								...document.querySelector(`#movement`).children,
 							];
-							markSystem(speedPips, stats.currentStats.movement - 1);
+							markSystem(speedPips, stats.currentStats.movement -1, `movement`);
 							break;
 						}
 						case `intellect`: {
@@ -248,18 +253,12 @@ function trackerSystem() {
 							const combatPips = [
 								...document.querySelector(`#combat`).children,
 							];
-							markSystem(combatPips, stats.currentStats.combat - 1);
+							markSystem(combatPips, stats.currentStats.combat -1, `combat`);
 							break;
 						}
 					}
 				}
 				updateStats(type, value);
-
-				const extras = [...document.querySelectorAll(`.extra`)];
-				extras.forEach((extra) => {
-					const extraType = extra.dataset.for;
-					extra.attributes.value.value = stats.extraStats[extraType];
-				});
 			});
 		});
 	});
@@ -267,8 +266,11 @@ function trackerSystem() {
 
 // ========== Função que mecaniza os botões de Sina via DOM e recebe seus valores ==========
 function sinaButtons() {
+	const sinaSound = new Audio(`/src/assets/audios/sina.mp3`);
 	const sinaBtns = [...document.querySelectorAll(`.sina-cards__button`)];
+	const sinaValue = document.querySelector(`#sina`);
 	const minusBtn = document.querySelector(`#minus`);
+	const plusBtn = document.querySelector(`#plus`);
 
 	if (stats.miscellany.sina === 0) {
 		minusBtn.classList.add(`sina-cards__button--blocked`);
@@ -277,26 +279,40 @@ function sinaButtons() {
 	sinaBtns.forEach((button) => {
 		button.addEventListener(`click`, (event) => {
 			if (event.target.id === `plus`) {
-				stats.miscellany.sina += 1;
+				if (stats.miscellany.sina < 99) {
+					stats.miscellany.sina += 1;
+					sinaSound.currentTime = 0;
+					sinaSound.play();
+				}
 			} else {
 				if (stats.miscellany.sina > 0) {
 					stats.miscellany.sina -= 1;
+					sinaSound.currentTime = 0;
+					sinaSound.play();
 				}
 			}
+
 			if (stats.miscellany.sina <= 0) {
 				minusBtn.classList.add(`sina-cards__button--blocked`);
 			} else {
 				minusBtn.classList.remove(`sina-cards__button--blocked`);
 			}
 
-			updateStats();
+			if (stats.miscellany.sina === 99) {
+				plusBtn.classList.add(`sina-cards__button--blocked`);
+			} else {
+				plusBtn.classList.remove(`sina-cards__button--blocked`);
+			}
+
+			sinaValue.innerHTML = stats.miscellany.sina;
 		});
 	});
 }
 
 // ========== Função que controla o sistema dos Trackers ==========
-function markSystem(allPips, value) {
+function markSystem(allPips, value, type) {
 	for (let index in allPips) {
+		console.log(index, allPips, value)
 		index = Number(index); // o index por padrão vem como string, aqui forço ele a virar um Number
 		if (index < value) {
 			allPips[index].classList.add(`marked`);
@@ -309,7 +325,11 @@ function markSystem(allPips, value) {
 						allPips[index].classList.toggle(`marked`);
 					}
 				} else {
-					allPips[index].classList.toggle(`marked`);
+					if ( stats.extraStats[type] >= 0 ) {
+						allPips[index].classList.add(`marked`)
+					} else {
+						allPips[index].classList.toggle(`marked`)
+					}
 				}
 			} else {
 				if ([...[...allPips][value + 1].classList].includes(`marked`)) {
@@ -326,12 +346,7 @@ function markSystem(allPips, value) {
 
 // ========== Função que controla a atualização dos stats e as contas ==========
 function updateStats(type, value) {
-	// ========== ATUALIZA O VALOR DAS CARTAS DE SINA ==========
-
-	const sinaNumber = document.querySelector(`#sina`);
-	sinaNumber.innerHTML = stats.miscellany.sina;
-
-	if (!type) return;
+	const extras = [...document.querySelectorAll(`.extra`)];
 
 	// ========== CALCULO E ATUALIZAÇÃO DOS ANTECEDENTES ==========
 
@@ -364,11 +379,30 @@ function updateStats(type, value) {
 		}
 	}
 
-	// ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
-
 	stats.bonusStats.life = stats.attributes.physical;
 	stats.bonusStats.movement = stats.attributes.speed;
 	stats.bonusStats.combat = stats.attributes.courage;
+
+	// ========== VERIFICAR O VALOR DO LEVEL ATUAL ==========
+
+	if (type === `level`) {
+		stats.experience.level = Number(value);
+	}
+
+	if (stats.experience.level === 2) {
+		stats.bonusStats.life *= 2;
+	} else if (stats.experience.level === 3) {
+		stats.bonusStats.life *= 2;
+	} else if (stats.experience.level === 4) {
+		stats.bonusStats.life *= 3;
+	} else if (stats.experience.level === 5) {
+		stats.bonusStats.life *= 4;
+	} else if (stats.experience.level === 6) {
+		stats.bonusStats.life *= 4;
+		stats.bonusStats.life += 3;
+	}
+
+	// ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
 
 	stats.currentStats.pain = stats.baseStats.pain + stats.bonusStats.pain;
 	stats.currentStats.life = stats.baseStats.life + stats.bonusStats.life;
@@ -379,7 +413,7 @@ function updateStats(type, value) {
 	// Força o valor do stat vida, dor, defesa, combate e movimento a ser sobescrevido pelo valor do input do usuario
 	if (MAIN_TYPES.includes(type)) {
 		stats.currentStats[type] = value;
-		stats.baseStats[type] = stats.currentStats[type] - stats.bonusStats[type];
+		stats.baseStats[type] = value;
 	}
 
 	MAIN_TYPES.forEach((stat) => {
@@ -389,9 +423,45 @@ function updateStats(type, value) {
 			stats.extraStats[stat] = 0;
 		}
 	});
+
+	extras.forEach((extra) => {
+		const extraType = extra.dataset.for;
+		extra.value = stats.extraStats[extraType];
+	});
 }
 
 // INICIALIZAÇÃO
 init();
 
+function dropdownSystem() {
+	const allDropdowns = [...document.querySelectorAll(`.dropdown`)];
+
+	allDropdowns.forEach((dropdown) => {
+		const dropBtn = dropdown.querySelector(`.dropdown__btn`);
+		const btnValue = dropBtn.querySelector(`span`);
+		const dropType = dropBtn.id;
+		const dropOptions = dropdown.querySelector(`.dropdown__options`);
+
+		dropBtn.addEventListener(`click`, () => {
+			dropOptions.classList.toggle(`dropdown__options--hide`);
+			console.log(`oi`);
+		});
+
+		const dropOption = [...dropOptions.children];
+
+		dropOption.forEach((option) => {
+			option.addEventListener(`click`, (event) => {
+				dropOptions.classList.toggle(`dropdown__options--hide`);
+
+				const selectedValue = event.target.dataset.value;
+				btnValue.innerHTML = selectedValue;
+
+				updateStats(dropType, selectedValue);
+				console.log(stats);
+			});
+		});
+	});
+}
+
+dropdownSystem();
 // lembrete: o valor base parece estar com problema, por mais que o codigo pareça estar funcional, vale dar uma olhada afundo depois

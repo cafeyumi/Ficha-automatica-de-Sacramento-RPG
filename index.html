@@ -11,6 +11,7 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Maiden+Orange&display=swap"
 			rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
 		<link rel="preload" href="/src/assets/images/background.png" as="image">
 		<link rel="prefetch" href="/src/assets/images/barrel/barrel1.png" as="image">
 		<link rel="prefetch" href="/src/assets/images/barrel/barrel2.png" as="image">
@@ -52,9 +53,44 @@
 						</div>
 
 						<div class="progression__inputs">
-							<div class="level">
+							<div>
 								<label for="level">Nível</label>
-								<input id="level" name="Nível" type="number" value="1">
+								<div class="dropdown">
+									<button id="level" class="dropdown__btn" type="button">
+										<span class="dropdown__btn-text">1</span>
+										<svg
+											aria-hidden="true"
+											focusable="false"
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+											class="size-6">
+											<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+										</svg>
+									</button>
+									<ul class="dropdown__options dropdown__options--hide">
+										<li class="dropdown__option" data-value="1">
+											<span class="dropdown__option-text">1</span>
+										</li>
+										<li class="dropdown__option" data-value="2">
+											<span class="dropdown__option-text">2</span>
+										</li>
+										<li class="dropdown__option" data-value="3">
+											<span class="dropdown__option-text">3</span>
+										</li>
+										<li class="dropdown__option" data-value="4">
+											<span class="dropdown__option-text">4</span>
+										</li>
+										<li class="dropdown__option" data-value="5">
+											<span class="dropdown__option-text">5</span>
+										</li>
+										<li class="dropdown__option" data-value="6">
+											<span class="dropdown__option-text">6</span>
+										</li>
+									</ul>
+								</div>
 							</div>
 							<div class="xp">
 								<label for="xp">XP</label>
@@ -332,7 +368,84 @@
 				</div>
 			</section>
 
-			<section id="informacoes"></section>
+			<section id="informations" class="informations">
+				<div class="informations__header">
+					<button type="button">Habilidades</button>
+					<button type="button">Redenção</button>
+					<button type="button">Descrição</button>
+				</div>
+				<div class="informations__skills">
+					<div class="informations__skill">
+						<div class="informations__skill-informations">
+							<h3 class="informations__skills-name">-ARMAS DA NATUREZA</h3>
+							<div class="informations__skills-type"><span>Combate</span></div>
+						</div>
+						<svg
+							aria-hidden="true"
+							focusable="false"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+						</svg>
+					</div>
+					<div class="informations__skill">
+						<div class="informations__skill-informations">
+							<h3 class="informations__skills-name">-ATAQUE SACANA</h3>
+							<div class="informations__skills-type"><span>Combate</span></div>
+						</div>
+						<svg
+							aria-hidden="true"
+							focusable="false"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+						</svg>
+					</div>
+					<div class="informations__skill">
+						<div class="informations__skill-informations">
+							<h3 class="informations__skills-name">-ÀS NA MANGA</h3>
+							<div class="informations__skills-type"><span>Profissão</span></div>
+						</div>
+						<svg
+							aria-hidden="true"
+							focusable="false"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+						</svg>
+					</div>
+					<div class="informations__skill">
+						<div class="informations__skill-informations">
+							<h3 class="informations__skills-name">-BOCA NA BOTIJA</h3>
+							<div class="informations__skills-type"><span>Profissão</span></div>
+						</div>
+						<svg
+							aria-hidden="true"
+							focusable="false"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.5"
+							stroke="currentColor"
+							class="size-6">
+							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+						</svg>
+					</div>
+					<div class="informations__add-button-position"><button class="informations__add-button" type="button">Adicionar</button></div>
+				</div>
+			</section>
 
 			<section id="antecedents" class="antecedents">
 				<h2>ANTECEDENTES</h2>
