@@ -16,7 +16,6 @@
 		fill: var(--bg-color-muted);
 		cursor: pointer;
 	}
-
 }
 
 .tracker.life .marked,

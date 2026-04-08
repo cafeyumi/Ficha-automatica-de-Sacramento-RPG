@@ -15,6 +15,7 @@
 
 .antecedents__content {
 	display: flex;
+	padding: var(--space-1) var(--space-0);
 	height: 100%;
 	gap: 2.5rem;
 }
@@ -41,7 +42,7 @@
 	font-size: var(--text-2xl);
 	margin-bottom: 1px;
 	line-height: 1;
-	letter-spacing: 2px;
+	letter-spacing: 0.75px;
 	display: flex;
 
 	> p {
@@ -67,7 +68,7 @@
 .antecedents__tracker {
 	display: flex;
 	gap: 0.25rem;
-	font-family: var(--apple);
+	font-family: var(--poppins);
 
 	p {
 		margin-bottom: 1px;

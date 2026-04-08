@@ -21,7 +21,7 @@ body {
 }
 
 label {
-	font-family: var(--apple);
+	font-family: var(--poppins);
 }
 
 input {
@@ -37,7 +37,7 @@ input {
 h2 {
 	font-family: var(--maiden);
 	line-height: 1;
-	font-size: var(--text-3xl);
+	font-size: var(--text-header);
 	letter-spacing: 0.2rem;
 }
 
@@ -50,7 +50,7 @@ h2 {
 	padding: var(--space-4);
 	gap: var(--space-3);
 	grid-template-rows: 330px 80px 250px 250px;
-	grid-template-columns: 360px 330px 170px 80px 100px 208px;
+	grid-template-columns: 360px 330px 150px 70px 120px 208px;
 	grid-template-areas:
 		"character character attributes attributes sina sina"
 		"informations antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
@@ -61,21 +61,21 @@ h2 {
 #rolagemlivre {
 	background-color: var(--bg-color);
 	grid-area: rolagemlivre;
-	border: 2px black solid;
+	border: var(--border-md-fg);
 	height: 100%;
 }
 
 #montaria {
 	background-color: var(--bg-color);
 	grid-area: montaria;
-	border: 2px black solid;
+	border: var(--border-md-fg);
 	height: 100%;
 }
 
 #inventario {
 	background-color: var(--bg-color);
 	grid-area: inventario;
-	border: 2px black solid;
+	border: var(--border-md-fg);
 	height: 100%;
 }
 

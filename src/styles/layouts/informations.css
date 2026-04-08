@@ -8,21 +8,28 @@
 
 .informations__header {
 	display: flex;
+	height: 48px;
 	justify-content: space-around;
 	background-color: var(--fg-color);
-	padding: var(--space-3);
-
-	button {
-		background-color: transparent;
-		border: none;
-		line-height: 1;
-		font-size: var(--text-xl);
-		font-family: var(--bebas);
-		color: var(--bg-color);
-		cursor: pointer;
-	}
+	padding: var(--space-2) var(--space-3);
 }
 
+.informations__header-btn {
+	background-color: transparent;
+	padding: var(--space-1) var(--space-3);
+	border: none;
+	letter-spacing: 1.5px;
+	line-height: 1;
+	font-size: var(--text-xl);
+	font-weight: 900;
+	font-family: var(--bebas);
+	color: var(--bg-color);
+	cursor: pointer;
+}
+
+.informations__header-btn.informations__header-btn--selected {
+	color: rgb(255, 255, 255);
+}
 /* HABILITIES */
 
 .informations__skills {
@@ -37,7 +44,6 @@
 	&::-webkit-scrollbar {
 		display: none;
 	}
-
 }
 
 .informations__add-button-position {
@@ -48,17 +54,17 @@
 }
 
 .informations__add-button {
-    background-color: var(--fg-color);
-    border: none;
-    padding: var(--space-1) var(--space-3);
-    color: var(--bg-color);
-    font-family: var(--apple);
-    font-weight: 900;
+	background-color: var(--fg-color);
+	border: none;
+	padding: var(--space-1) var(--space-3);
+	color: var(--bg-color);
+	font-family: var(--poppins);
+	font-weight: 700;
 }
 
 .informations__skill-informations {
 	display: flex;
-	gap: var(--space-1);
+	gap: var(--space-2);
 	width: 100%;
 	flex-direction: column;
 }
@@ -66,8 +72,9 @@
 .informations__skill {
 	display: flex;
 	justify-content: space-between;
-	border: 2px var(--text-dark) solid;
-	padding: var(--space-4) var(--space-5) var(--space-4) var(--space-3);
+	border: var(--border-md-fg);
+	background-color: var(--bg-color-muted);
+	padding: var(--space-4) var(--space-5) var(--space-3) var(--space-3);
 
 	svg {
 		width: 32px;
@@ -75,21 +82,20 @@
 }
 
 .informations__skills-name {
-	font-weight: 700;
-	letter-spacing: 2px;
-	font-family: var(--maiden);
+	font-weight: 500;
+	font-family: var(--chelsea);
 	line-height: 1;
 }
 
 .informations__skills-type {
 	display: flex;
 	width: fit-content;
-	padding: var(--space-1) var(--space-3);
+	padding: var(--space-1) var(--space-2);
 	background-color: var(--text-dark);
-	color: var(--bg-color);
-	font-family: var(--apple);
+	color: var(--bg-color-muted);
+	font-family: var(--poppins);
 	line-height: 1;
-	font-weight: 900;
+	font-weight: 700;
 	font-size: var(--text-sm);
 }
 

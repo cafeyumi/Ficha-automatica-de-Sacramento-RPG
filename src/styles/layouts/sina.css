@@ -13,7 +13,6 @@
 	align-items: center;
 	flex-direction: column;
 	font-family: var(--bebas);
-	font-size: var(--text-xl);
 	letter-spacing: var(--space-1);
 }
 
@@ -28,8 +27,8 @@
 }
 
 .sina-cards__value {
-	transform: rotate(-9deg);
-	left: 40.5px;
+	transform: rotate(-8.75deg);
+	left: 40px;
 	bottom: 63px;
 	text-align: center;
 	width: 4.5rem;

@@ -11,7 +11,8 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Maiden+Orange&display=swap"
 			rel="stylesheet">
-			<link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
 		<link rel="preload" href="/src/assets/images/background.png" as="image">
 		<link rel="prefetch" href="/src/assets/images/barrel/barrel1.png" as="image">
 		<link rel="prefetch" href="/src/assets/images/barrel/barrel2.png" as="image">
@@ -370,14 +371,14 @@
 
 			<section id="informations" class="informations">
 				<div class="informations__header">
-					<button type="button">Habilidades</button>
-					<button type="button">Redenção</button>
-					<button type="button">Descrição</button>
+					<button class="informations__header-btn informations__header-btn--selected" type="button">Habilidades</button>
+					<button class="informations__header-btn" type="button">Redenção</button>
+					<button class="informations__header-btn" type="button">Descrição</button>
 				</div>
 				<div class="informations__skills">
 					<div class="informations__skill">
 						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">-ARMAS DA NATUREZA</h3>
+							<h3 class="informations__skills-name">Armas da Natureza</h3>
 							<div class="informations__skills-type"><span>Combate</span></div>
 						</div>
 						<svg
@@ -394,7 +395,7 @@
 					</div>
 					<div class="informations__skill">
 						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">-ATAQUE SACANA</h3>
+							<h3 class="informations__skills-name">Ataque Sacana</h3>
 							<div class="informations__skills-type"><span>Combate</span></div>
 						</div>
 						<svg
@@ -411,7 +412,7 @@
 					</div>
 					<div class="informations__skill">
 						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">-ÀS NA MANGA</h3>
+							<h3 class="informations__skills-name">Às na Manga</h3>
 							<div class="informations__skills-type"><span>Profissão</span></div>
 						</div>
 						<svg
@@ -428,7 +429,7 @@
 					</div>
 					<div class="informations__skill">
 						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">-BOCA NA BOTIJA</h3>
+							<h3 class="informations__skills-name">Boca na Botija</h3>
 							<div class="informations__skills-type"><span>Profissão</span></div>
 						</div>
 						<svg
@@ -443,7 +444,9 @@
 							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
 						</svg>
 					</div>
-					<div class="informations__add-button-position"><button class="informations__add-button" type="button">Adicionar</button></div>
+					<div class="informations__add-button-position">
+						<button class="informations__add-button" type="button">Adicionar</button>
+					</div>
 				</div>
 			</section>
 
@@ -690,7 +693,7 @@
 						<div class="rolls__bottom">
 							<div class="rolls__informations">
 								<p class="rolls__value-dice"></p>
-								<p>DADO</p>
+								<p>BASE</p>
 							</div>
 							<p>+</p>
 							<div class="rolls__informations">
