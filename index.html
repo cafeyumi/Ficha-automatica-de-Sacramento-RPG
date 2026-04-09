@@ -11,8 +11,12 @@
 		<link
 			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Maiden+Orange&display=swap"
 			rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+			rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap"
+			rel="stylesheet">
 		<link rel="preload" href="/src/assets/images/background.png" as="image">
 		<link rel="prefetch" href="/src/assets/images/barrel/barrel1.png" as="image">
 		<link rel="prefetch" href="/src/assets/images/barrel/barrel2.png" as="image">
@@ -71,7 +75,7 @@
 											<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
 										</svg>
 									</button>
-									<ul class="dropdown__options dropdown__options--hide">
+									<menu class="dropdown__options dropdown__options--hide">
 										<li class="dropdown__option" data-value="1">
 											<span class="dropdown__option-text">1</span>
 										</li>
@@ -90,7 +94,7 @@
 										<li class="dropdown__option" data-value="6">
 											<span class="dropdown__option-text">6</span>
 										</li>
-									</ul>
+									</menu>
 								</div>
 							</div>
 							<div class="xp">
@@ -370,82 +374,20 @@
 			</section>
 
 			<section id="informations" class="informations">
-				<div class="informations__header">
-					<button class="informations__header-btn informations__header-btn--selected" type="button">Habilidades</button>
-					<button class="informations__header-btn" type="button">Redenção</button>
-					<button class="informations__header-btn" type="button">Descrição</button>
-				</div>
+				<menu class="informations__header">
+					<li>
+						<button class="informations__header-btn informations__header-btn--selected" type="button">
+							Habilidades
+						</button>
+					</li>
+					<li><button class="informations__header-btn" type="button">Redenção</button></li>
+					<li><button class="informations__header-btn" type="button">Descrição</button></li>
+				</menu>
 				<div class="informations__skills">
-					<div class="informations__skill">
-						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">Armas da Natureza</h3>
-							<div class="informations__skills-type"><span>Combate</span></div>
-						</div>
-						<svg
-							aria-hidden="true"
-							focusable="false"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="size-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-						</svg>
-					</div>
-					<div class="informations__skill">
-						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">Ataque Sacana</h3>
-							<div class="informations__skills-type"><span>Combate</span></div>
-						</div>
-						<svg
-							aria-hidden="true"
-							focusable="false"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="size-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-						</svg>
-					</div>
-					<div class="informations__skill">
-						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">Às na Manga</h3>
-							<div class="informations__skills-type"><span>Profissão</span></div>
-						</div>
-						<svg
-							aria-hidden="true"
-							focusable="false"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="size-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-						</svg>
-					</div>
-					<div class="informations__skill">
-						<div class="informations__skill-informations">
-							<h3 class="informations__skills-name">Boca na Botija</h3>
-							<div class="informations__skills-type"><span>Profissão</span></div>
-						</div>
-						<svg
-							aria-hidden="true"
-							focusable="false"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							class="size-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-						</svg>
-					</div>
 					<div class="informations__add-button-position">
-						<button class="informations__add-button" type="button">Adicionar</button>
+						<button popovertarget="skills-add" class="informations__add-button" type="button">
+							Adicionar
+						</button>
 					</div>
 				</div>
 			</section>
@@ -672,45 +614,85 @@
 
 			<section id="inventario"></section>
 
-			<section id="rolls" class="rolls">
-				<template id="rollTemplate">
-					<div class="rolls__container">
-						<div class="rolls__top">
-							<p class="rolls__title"></p>
-							<button class="exit" type="button">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="20"
-									height="20"
-									fill="#000000"
-									viewBox="0 0 256 256">
-									<title>Simbolo de X</title>
-									<path
-										d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
-								</svg>
-							</button>
-						</div>
-						<div class="rolls__bottom">
-							<div class="rolls__informations">
-								<p class="rolls__value-dice"></p>
-								<p>BASE</p>
-							</div>
-							<p>+</p>
-							<div class="rolls__informations">
-								<p class="rolls__value-bonus"></p>
-								<p>BÔNUS</p>
-							</div>
-							<p>=</p>
-							<div class="rolls__informations">
-								<p class="rolls__value-result"></p>
-								<img class="barrel" src="/src/assets/images/barrel/barrel6.png" alt="">
-								<p>RESULTADO</p>
-							</div>
-						</div>
-					</div>
-				</template>
-			</section>
+			<section id="rolls" class="rolls"></section>
 		</main>
-		<script src="/src/scripts/main.js"></script>
+
+		<div popover id="skills-add" class="skills__add-menu"></div>
+
+		<template id="rollTemplate">
+			<div class="rolls__container">
+				<div class="rolls__top">
+					<p class="rolls__title"></p>
+					<button class="exit" type="button">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							fill="#000000"
+							viewBox="0 0 256 256">
+							<title>Simbolo de X</title>
+							<path
+								d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
+						</svg>
+					</button>
+				</div>
+				<div class="rolls__bottom">
+					<div class="rolls__informations">
+						<p class="rolls__value-dice"></p>
+						<p>BASE</p>
+					</div>
+					<p>+</p>
+					<div class="rolls__informations">
+						<p class="rolls__value-bonus"></p>
+						<p>BÔNUS</p>
+					</div>
+					<p>=</p>
+					<div class="rolls__informations">
+						<p class="rolls__value-result"></p>
+						<img class="barrel" src="/src/assets/images/barrel/barrel6.png" alt="">
+						<p>RESULTADO</p>
+					</div>
+				</div>
+			</div>
+		</template>
+
+		<template id="skillTemplate">
+			<div class="informations__skill">
+				<div class="informations__skill-top">
+					<div class="informations__skill-informations">
+						<h3 id="skillName" class="informations__skills-name"></h3>
+						<div class="informations__skills-type"><span>Profissão</span></div>
+					</div>
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="size-6">
+						<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+					</svg>
+					<button type="button" class="">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							fill="#000000"
+							viewBox="0 0 256 256">
+							<title>Simbolo de subtração</title>
+							<path
+								d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+						</svg>
+					</button>
+				</div>
+				<div class="informations__skill-bottom">
+					<p id="skillDescription"></p>
+				</div>
+			</div>
+		</template>
+
+		<script type="module" src="/src/scripts/main.js"></script>
 	</body>
 </html>

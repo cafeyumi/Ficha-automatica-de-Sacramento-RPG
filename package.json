@@ -11,9 +11,9 @@
 		"url": "git+https://github.com/cafeyumi/Ficha-automatica-de-Sacramento-RPG.git"
 	},
 	"keywords": [],
-	"author": "Caféyumia",
+	"author": "Caféyumi",
 	"license": "MIT",
-	"type": "commonjs",
+	"type": "module",
 	"bugs": {
 		"url": "https://github.com/cafeyumi/Ficha-automatica-de-Sacramento-RPG/issues"
 	},

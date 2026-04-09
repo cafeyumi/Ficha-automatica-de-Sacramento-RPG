@@ -71,6 +71,8 @@
 
 .informations__skill {
 	display: flex;
+	gap: 0.5rem;
+	flex-direction: column;
 	justify-content: space-between;
 	border: var(--border-md-fg);
 	background-color: var(--bg-color-muted);
@@ -102,4 +104,33 @@
 .informations__skill-bonuses {
 	display: flex;
 	justify-content: space-around;
+}
+
+.skills__add-menu {
+	width: 500px;
+	height: 800px;
+	z-index: 6;
+	margin: auto;
+	background-color: aqua;
+}
+
+.informations__skill-top {
+	display: flex;
+}
+
+.informations__skill-bottom {
+	p {
+		font-family: var(--poppins);
+		font-size: var(--text-sm);
+		text-align: justify;
+	}
+
+	svg {
+		display: inline-flex;
+		position: relative;
+		top: 4px;
+		margin-left: 0.25rem;
+		width: var(--text-lg);
+		height: var(--text-lg);
+	}
 }

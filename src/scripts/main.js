@@ -1,5 +1,3 @@
-"use strict";
-
 const init = () => {
 	updateStats(`combat`, 1);
 	updateStats(`movement`, 1);
@@ -16,6 +14,7 @@ const init = () => {
 	trackerSystem();
 	sinaButtons();
 	diceSystem();
+	dropdownSystem();
 };
 
 const ANTECEDENTS_TYPES = [
@@ -31,6 +30,10 @@ const ANTECEDENTS_TYPES = [
 const MAIN_TYPES = [`life`, `pain`, `combat`, `movement`];
 const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
 const allTrackers = [...document.querySelectorAll(`.tracker`)]; // Coloca todos os Trackers em um Array
+
+
+import { skills } from '/src/scripts/skills.js';
+console.log(skills)
 
 const stats = {
 	baseStats: {
@@ -144,11 +147,9 @@ function diceSystem() {
 
 			rollsPosition.appendChild(template);
 
-			if ( rollsPosition.children.length-1 === 6 ) {
-				
-				[...rollsPosition.children][0].remove()
-				console.log([...rollsPosition.children])
-				
+			if (rollsPosition.children.length - 1 === 6) {
+				[...rollsPosition.children][0].remove();
+				console.log([...rollsPosition.children]);
 			}
 		});
 	});
@@ -235,15 +236,21 @@ function trackerSystem() {
 
 					switch (attributeType) {
 						case `physical`: {
-							const physicalPips = [...document.querySelector(`#life`).children];
-							markSystem(physicalPips, stats.currentStats.life -1, `life`);
+							const physicalPips = [
+								...document.querySelector(`#life`).children,
+							];
+							markSystem(physicalPips, stats.currentStats.life - 1, `life`);
 							break;
 						}
 						case `speed`: {
 							const speedPips = [
 								...document.querySelector(`#movement`).children,
 							];
-							markSystem(speedPips, stats.currentStats.movement -1, `movement`);
+							markSystem(
+								speedPips,
+								stats.currentStats.movement - 1,
+								`movement`,
+							);
 							break;
 						}
 						case `intellect`: {
@@ -253,7 +260,7 @@ function trackerSystem() {
 							const combatPips = [
 								...document.querySelector(`#combat`).children,
 							];
-							markSystem(combatPips, stats.currentStats.combat -1, `combat`);
+							markSystem(combatPips, stats.currentStats.combat - 1, `combat`);
 							break;
 						}
 					}
@@ -312,7 +319,7 @@ function sinaButtons() {
 // ========== Função que controla o sistema dos Trackers ==========
 function markSystem(allPips, value, type) {
 	for (let index in allPips) {
-		console.log(index, allPips, value)
+		console.log(index, allPips, value);
 		index = Number(index); // o index por padrão vem como string, aqui forço ele a virar um Number
 		if (index < value) {
 			allPips[index].classList.add(`marked`);
@@ -325,10 +332,10 @@ function markSystem(allPips, value, type) {
 						allPips[index].classList.toggle(`marked`);
 					}
 				} else {
-					if ( stats.extraStats[type] >= 0 ) {
-						allPips[index].classList.add(`marked`)
+					if (stats.extraStats[type] >= 0) {
+						allPips[index].classList.add(`marked`);
 					} else {
-						allPips[index].classList.toggle(`marked`)
+						allPips[index].classList.toggle(`marked`);
 					}
 				}
 			} else {
@@ -430,9 +437,6 @@ function updateStats(type, value) {
 	});
 }
 
-// INICIALIZAÇÃO
-init();
-
 function dropdownSystem() {
 	const allDropdowns = [...document.querySelectorAll(`.dropdown`)];
 
@@ -463,5 +467,22 @@ function dropdownSystem() {
 	});
 }
 
-dropdownSystem();
-// lembrete: o valor base parece estar com problema, por mais que o codigo pareça estar funcional, vale dar uma olhada afundo depois
+
+function skillSystem() {
+	const getTemplate = document.querySelector('#skillTemplate')
+	const skillsMenu = document.querySelector('#skills-add')
+
+	skills.combat.forEach ((skill) => {
+		const template = getTemplate.content.cloneNode(true) // quero clonar o template
+		const nameInput = template.querySelector('#skillName') // quero pegar o nome no DOM
+		const descriptionInput = template.querySelector('#skillDescription') // quero pegar a descrição no DOM
+
+		nameInput.innerHTML = skill.name // quero inserir o nome na template
+		descriptionInput.innerHTML = skill.description // quero inserir a descrição na template
+		skillsMenu.appendChild(template)
+	})
+}
+
+skillSystem()
+// INICIALIZAÇÃO
+init();
