@@ -15,6 +15,7 @@ const init = () => {
 	sinaButtons();
 	diceSystem();
 	dropdownSystem();
+	skillSystem();
 };
 
 const ANTECEDENTS_TYPES = [
@@ -31,9 +32,11 @@ const MAIN_TYPES = [`life`, `pain`, `combat`, `movement`];
 const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
 const allTrackers = [...document.querySelectorAll(`.tracker`)]; // Coloca todos os Trackers em um Array
 
+const lifeSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><title>Circulo de Vida</title><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>`;
+const painSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><title>Circulo de Dor</title><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>`;
 
-import { skills } from '/src/scripts/skills.js';
-console.log(skills)
+const resposta = await fetch("/src/data/skills.json");
+const skills = await resposta.json();
 
 const stats = {
 	baseStats: {
@@ -467,22 +470,129 @@ function dropdownSystem() {
 	});
 }
 
-
 function skillSystem() {
-	const getTemplate = document.querySelector('#skillTemplate')
-	const skillsMenu = document.querySelector('#skills-add')
+	const template = document.querySelector("#skillTemplate");
 
-	skills.combat.forEach ((skill) => {
-		const template = getTemplate.content.cloneNode(true) // quero clonar o template
-		const nameInput = template.querySelector('#skillName') // quero pegar o nome no DOM
-		const descriptionInput = template.querySelector('#skillDescription') // quero pegar a descrição no DOM
+	const skillsMenu = document.querySelector("#skillsMenu");
 
-		nameInput.innerHTML = skill.name // quero inserir o nome na template
-		descriptionInput.innerHTML = skill.description // quero inserir a descrição na template
-		skillsMenu.appendChild(template)
-	})
+	const skillsBtns = [...document.querySelector("#skillsBtns").children];
+
+	const combatSkills = document.querySelector("#combatSkills");
+	const professionSkills = document.querySelector("#professionSkills");
+
+	const skillAddBtn = document.querySelector("#skillAddBtn");
+	const selectedSkills = document.querySelector("#selectedSkills");
+
+	const containers = {
+		combat: combatSkills,
+		profession: professionSkills,
+	};
+
+	skillsBtns.forEach((buttons) => {
+		[...buttons.children].forEach((button) => {
+			button.addEventListener("click", (event) => {
+				skillsBtns.forEach((buttons) => {
+					[...buttons.children].forEach((button) => {
+						button.classList.remove("skill-menu__header-btn--selected");
+					});
+				});
+				if (event.target.id === "combatSkillsBtn") {
+					button.classList.add("skill-menu__header-btn--selected");
+					combatSkills.classList.remove("skills-menu__container--closed");
+					professionSkills.classList.add("skills-menu__container--closed");
+				} else if (event.target.id === "professionSkillsBtn") {
+					button.classList.add("skill-menu__header-btn--selected");
+					professionSkills.classList.remove("skills-menu__container--closed");
+					combatSkills.classList.add("skills-menu__container--closed");
+				}
+			});
+		});
+	});
+
+	// Pega o objeto skills e o transforma em um array par de chave valor, exemplo: ['combat', [...]], e itera por esses 2, atribundo
+	//a variavel type para seu tipo, e skills para seu objeto interno, depois ele itera o objeto interno para pegar suas informações
+	Object.entries(skills).forEach(([type, skills]) => {
+		skills.forEach((skill) => {
+			const clone = template.content.cloneNode(true); // Clono a template para criar um novo elemento
+
+			const teste = clone.querySelector(".informations__skill");
+			teste.dataset.repeatable = skill.repeatable;
+			teste.dataset.type = type;
+
+			const nameInput = clone.querySelector("#skillName"); // Pego a posição do nome da Habilidade no DOM
+			const descriptionInput = clone.querySelector("#skillDescription"); // Pego a posição da descrição no DOM
+			const TypeInput = clone.querySelector("#skillType"); // Pego a posição do tipo da Habilidade no DOM
+
+			const container = containers[type];
+
+			nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM
+
+			descriptionInput.innerHTML = skill.description; // Insiro a descrição do objeto no elemento DOM
+			descriptionInput.innerHTML = skill.description
+				.replace(/\{life\}/g, lifeSvg)
+				.replace(/\{pain\}/g, painSvg); // Substituo os placeholders do objeto pelos icones
+
+			if (type === "combat") {
+				TypeInput.innerHTML = "Combate";
+			} else if (type === "profession") {
+				TypeInput.innerHTML = "Profissão";
+			} // Insiro o tipo da Habilidade no DOM, dependendo do valor da chave no objeto
+
+			container.appendChild(clone);
+		});
+	});
+
+	// ========== selected menu ========
+
+	selectedSkills.addEventListener("click", (event) => {
+		if (event.target.closest("#skillCollapse")) {
+			const skill = event.target.closest(".informations__skill");
+			skill
+				.querySelector("#collapse")
+				.classList.toggle("informations__skill-bottom--open");
+		}
+	});
+
+	// ========== skills menu ==========
+
+	skillsMenu.addEventListener("click", (event) => {
+		if (event.target.closest("#skillCollapse")) {
+			const skill = event.target.closest(".informations__skill");
+			skill
+				.querySelector("#collapse")
+				.classList.toggle("informations__skill-bottom--open");
+		}
+
+		if (event.target.closest("#skillSelectBtn")) {
+			const skill = event.target.closest(".informations__skill");
+
+			if (skill.dataset.repeatable === "true") {
+				const clone = skill.cloneNode(true);
+				containers[skill.dataset.type].appendChild(clone);
+				event.target
+					.closest("#skillSelectBtn")
+					.classList.add("skill-select-button--removed");
+				selectedSkills.appendChild(skill);
+			} else if (skill.dataset.repeatable === "false") {
+				event.target
+					.closest("#skillSelectBtn")
+					.classList.add("skill-select-button--removed");
+				selectedSkills.appendChild(skill);
+			}
+
+			skillsMenu.hidePopover();
+
+			if (selectedSkills.children.length === 6) {
+				skillAddBtn.classList.add(
+					"informations-skills__add-skill-button--limit",
+				);
+			} else {
+				skillAddBtn.classList.remove(
+					"informations-skills__add-skill-button--limit",
+				);
+			}
+		}
+	});
 }
-
-skillSystem()
 // INICIALIZAÇÃO
 init();

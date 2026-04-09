@@ -1,0 +1,96 @@
+.skills-menu {
+	width: 500px;
+	height: 800px;
+	margin: auto;
+    padding: 0;
+    border: 2px var(--fg-color) solid;
+	background: var(--bg-color);
+    overflow: hidden;
+}
+
+.skills-menu__header {
+    display: flex;
+	height: 48px;
+	background-color: var(--fg-color);
+	padding: var(--space-2) var(--space-3);
+    list-style: none;
+}
+
+.skill-menu__header-btn {
+    background-color: transparent;
+	padding: var(--space-1) var(--space-3);
+	border: none;
+	letter-spacing: 1.5px;
+	line-height: 1;
+	font-size: var(--text-xl);
+	font-weight: 900;
+	font-family: var(--bebas);
+	color: var(--bg-color);
+	cursor: pointer;
+}
+
+.skill-menu__header-btn.skill-menu__header-btn--selected {
+	color: rgb(255, 255, 255);
+}
+
+.skills-menu__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    height: calc(100% - 48px);
+    overflow: auto;
+}
+
+.skills-menu__container.skills-menu__container--closed {
+    display: none
+}
+
+
+/* SKILLS */
+
+.skills-collapse {
+	background: none;
+	border: none;
+    cursor: pointer;
+
+	svg:first-child{
+		display: flex;
+		fill: var(--fg-color);
+	}
+
+	svg:last-child{
+		display: none;
+		fill: var(--fg-color);
+	}
+}
+
+.skills-collapse.skills-collapse--open {
+	svg:first-child{
+		display: none;
+	}
+
+	svg:last-child{
+		display: flex;
+	}
+}
+
+.skill-select-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--fg-color);
+	border-radius: 5px;
+	border: none;
+	width: 38px;
+	height: 38px;
+    cursor: pointer;
+
+	svg {
+		fill: var(--bg-color-muted);
+	}
+}
+
+.skill-select-button.skill-select-button--removed {
+    display: none;
+}
