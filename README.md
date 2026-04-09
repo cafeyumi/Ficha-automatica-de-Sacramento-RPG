@@ -16,4 +16,4 @@ Este projeto foi desenvolvido sem o uso de inteligência artificial.
 - Biome
 
 ## Aviso Legal
-Sacramento RPG é propriedade de Thiago "Calango" Elias e da [Jambo Editora](https://jamboeditora.com.br). Este projeto é um utilitário não oficial criado de fã para fã, sem fins lucrativos. Todo o conteúdo do sistema pertencem aos seus respectivos detentores.
+Sacramento RPG é propriedade de Thiago "Calango" Elias e [Jambo Editora](https://jamboeditora.com.br). Este projeto é um utilitário não oficial criado de fã para fã, sem fins lucrativos. Todo o conteúdo do sistema pertencem aos seus respectivos detentores.
