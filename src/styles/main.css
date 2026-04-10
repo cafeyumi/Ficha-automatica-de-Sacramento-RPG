@@ -2,6 +2,7 @@
 @import url(/src/styles/vendor/reset.css);
 @import url(/src/styles/components/trackers.css);
 @import url(/src/styles/components/dropdown.css);
+@import url(/src/styles/components/collapse.css);
 @import url(/src/styles/layouts/character.css);
 @import url(/src/styles/layouts/attributes.css);
 @import url(/src/styles/layouts/sina.css);

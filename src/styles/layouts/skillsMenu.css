@@ -29,7 +29,7 @@
 	cursor: pointer;
 }
 
-.skill-menu__header-btn.skill-menu__header-btn--selected {
+.header-button.header-button--selected {
 	color: rgb(255, 255, 255);
 }
 
@@ -42,36 +42,42 @@
     overflow: auto;
 }
 
-.skills-menu__container.skills-menu__container--closed {
+.menu__container.menu__container--closed {
     display: none
 }
 
 
 /* SKILLS */
 
-.skills-collapse {
-	background: none;
-	border: none;
-    cursor: pointer;
+.skill {
+	display: flex;
+	gap: 0.5rem;
+	flex-direction: column;
+	justify-content: space-between;
+	border: var(--border-md-fg);
+	background-color: var(--bg-color-muted);
+	padding: var(--space-4) var(--space-5) var(--space-3) var(--space-3);
 
-	svg:first-child{
-		display: flex;
-		fill: var(--fg-color);
-	}
-
-	svg:last-child{
-		display: none;
-		fill: var(--fg-color);
+	svg {
+		width: 32px;
 	}
 }
 
-.skills-collapse.skills-collapse--open {
-	svg:first-child{
-		display: none;
+.skill__bottom.skill__bottom--open {
+
+	p {
+		font-family: var(--poppins);
+		font-size: var(--text-sm);
+		text-align: justify;
 	}
 
-	svg:last-child{
-		display: flex;
+	svg {
+		display: inline-flex;
+		position: relative;
+		top: 4px;
+		margin-left: 0.25rem;
+		width: var(--text-lg);
+		height: var(--text-lg);
 	}
 }
 
@@ -91,6 +97,6 @@
 	}
 }
 
-.skill-select-button.skill-select-button--removed {
+.select-button.select-button--selected {
     display: none;
 }

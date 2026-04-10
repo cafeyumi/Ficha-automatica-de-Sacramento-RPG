@@ -372,17 +372,17 @@
 				</div>
 			</section>
 
-			<section id="informations" class="informations">
-				<menu class="informations__header">
+			<section id="informations" class="menu informations">
+				<menu class="buttons-header informations__header">
 					<li>
-						<button class="informations__header-btn informations__header-btn--selected" type="button">
+						<button data-for="informationsSkills" class="header-button header-button--selected informations__header-btn" type="button">
 							Habilidades
 						</button>
 					</li>
-					<li><button class="informations__header-btn" type="button">Redenção</button></li>
-					<li><button class="informations__header-btn" type="button">Descrição</button></li>
+					<li><button data-for="informationsRedemption" class="header-button informations__header-btn" type="button">Redenção</button></li>
+					<li><button data-for="informationsDescription" class="header-button informations__header-btn" type="button">Descrição</button></li>
 				</menu>
-				<div class="informations__skills">
+				<div id="informationsSkills" class="menu__container informations__skills">
 					<div class="informations-skills__selected-skills" id="selectedSkills"></div>
 					<button
 						id="skillAddBtn"
@@ -401,6 +401,8 @@
 						</svg>
 					</button>
 				</div>
+				<div id="informationsRedemption" class="menu__container"></div>
+				<div id="informationsDescription" class="menu__container"></div>
 			</section>
 
 			<section id="antecedents" class="antecedents">
@@ -628,13 +630,13 @@
 			<section id="rolls" class="rolls"></section>
 		</main>
 
-		<div popover id="skillsMenu" class="skills-menu">
-			<menu id="skillsBtns" class="skills-menu__header">
-				<li><button id="combatSkillsBtn" class="skill-menu__header-btn skill-menu__header-btn--selected" type="button">Habilidades de Combate</button></li>
-				<li><button id="professionSkillsBtn" class="skill-menu__header-btn" type="button">Habilidades de Profissão</button></li>
+		<div popover id="skillsMenu" class="menu skills-menu">
+			<menu class="buttons-header skills-menu__header">
+				<li><button data-for="combatSkills" class="header-button header-button--selected skill-menu__header-btn" type="button">Habilidades de Combate</button></li>
+				<li><button data-for="professionSkills" class="header-button skill-menu__header-btn" type="button">Habilidades de Profissão</button></li>
 			</menu>
-			<div id="combatSkills" class="skills-menu__container"></div>
-			<div id="professionSkills" class="skills-menu__container"></div>
+			<div id="combatSkills" class="menu__container skills-menu__container"></div>
+			<div id="professionSkills" class="menu__container skills-menu__container"></div>
 		</div>
 
 		<template id="rollTemplate">
@@ -675,14 +677,14 @@
 		</template>
 
 		<template id="skillTemplate">
-			<div data-repeatable="" data-type="" class="informations__skill">
+			<div data-repeatable="" data-type="" class="skill">
 				<div class="informations__skill-top">
 					<div class="informations__skill-informations">
-						<h3 id="skillName" class="informations__skills-name"></h3>
-						<div id="skillType" class="informations__skills-type"><span></span></div>
+						<h3 class="skill__name informations__skills-name"></h3>
+						<div class="informations__skills-type"><span class="skill__type"></span></div>
 					</div>
 					<div class="skill-buttons">
-						<button id="skillCollapse" class="skills-collapse" type="button">
+						<button class="skills-collapse collapse-button" type="button">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="32"
@@ -704,7 +706,7 @@
 									d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z"></path>
 							</svg>
 						</button>
-						<button id="skillSelectBtn" type="button" class="skill-select-button">
+						<button type="button" class="select-button skill-select-button">
 							<svg
 								aria-hidden="true"
 								xmlns="http://www.w3.org/2000/svg"
@@ -718,8 +720,8 @@
 						</button>
 					</div>
 				</div>
-				<div id="collapse" class="informations__skill-bottom">
-					<p id="skillDescription"></p>
+				<div class="collapse informations__skill-bottom">
+					<p class="skill__description"></p>
 				</div>
 			</div>
 		</template>

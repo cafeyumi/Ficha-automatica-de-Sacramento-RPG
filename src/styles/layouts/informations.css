@@ -38,20 +38,6 @@
 	flex-direction: column;
 }
 
-.informations__skill {
-	display: flex;
-	gap: 0.5rem;
-	flex-direction: column;
-	justify-content: space-between;
-	border: var(--border-md-fg);
-	background-color: var(--bg-color-muted);
-	padding: var(--space-4) var(--space-5) var(--space-3) var(--space-3);
-
-	svg {
-		width: 32px;
-	}
-}
-
 .informations__skills-name {
 	font-weight: 500;
 	font-family: var(--chelsea);
@@ -85,26 +71,6 @@
 
 	path {
 		pointer-events: none;
-	}
-}
-
-.informations__skill-bottom.informations__skill-bottom--open {
-	display: flex;
-	height: auto;
-
-	p {
-		font-family: var(--poppins);
-		font-size: var(--text-sm);
-		text-align: justify;
-	}
-
-	svg {
-		display: inline-flex;
-		position: relative;
-		top: 4px;
-		margin-left: 0.25rem;
-		width: var(--text-lg);
-		height: var(--text-lg);
 	}
 }
 

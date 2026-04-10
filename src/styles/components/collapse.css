@@ -1,0 +1,34 @@
+.collapse {
+	display: none;
+
+	&.collapse--open {
+		display: flex;
+		height: auto;
+	}
+}
+
+.collapse-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+
+	svg:first-child {
+		display: flex;
+		fill: var(--fg-color);
+	}
+
+	svg:last-child {
+		display: none;
+		fill: var(--fg-color);
+	}
+
+	&.collapse-button--open {
+		svg:first-child {
+			display: none;
+		}
+
+		svg:last-child {
+			display: flex;
+		}
+	}
+}
