@@ -64,7 +64,7 @@
 .informations__skill-top {
 	display: flex;
 	justify-content: space-between;
-	
+
 	svg {
 		pointer-events: none;
 	}
@@ -93,7 +93,6 @@
 		height: var(--text-lg);
 	}
 }
-
 
 .skill-buttons {
 	align-items: center;

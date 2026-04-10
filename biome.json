@@ -24,13 +24,13 @@
 		}
 	},
 	"html": {
-    "formatter": {
-      "enabled": true,
-	  "bracketSameLine": true,
-	  "indentWidth": 1,
-	  "lineWidth": 100
-    }
-  },
+		"formatter": {
+			"enabled": true,
+			"bracketSameLine": true,
+			"indentWidth": 1,
+			"lineWidth": 100
+		}
+	},
 	"assist": {
 		"enabled": true,
 		"actions": {

@@ -557,7 +557,7 @@ function skillSelectButton(target, template, selectedSkills) {
 			const nameInput = clone.querySelector(".skill__name"); // Pego a posição do nome da Habilidade no DOM
 			const typeInput = clone.querySelector(".skill__type"); // Pego a posição do tipo da Habilidade no DOM
 			const descriptionInput = clone.querySelector(".skill__description"); // Pego a posição da descrição no DOM
-			const selectButton = clone.querySelector('.select-button')
+			const selectButton = clone.querySelector(".select-button");
 
 			nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM
 
@@ -567,7 +567,7 @@ function skillSelectButton(target, template, selectedSkills) {
 				.replace(/\{life\}/g, lifeSvg)
 				.replace(/\{pain\}/g, painSvg); // Substituo os placeholders do objeto pelos icones
 
-			selectButton.classList.add('select-button--selected')
+			selectButton.classList.add("select-button--selected");
 			selectedSkills.appendChild(clone);
 		});
 

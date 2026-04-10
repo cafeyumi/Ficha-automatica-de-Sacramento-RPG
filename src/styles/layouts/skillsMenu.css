@@ -2,22 +2,22 @@
 	width: 500px;
 	height: 800px;
 	margin: auto;
-    padding: 0;
-    border: 2px var(--fg-color) solid;
+	padding: 0;
+	border: 2px var(--fg-color) solid;
 	background: var(--bg-color);
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .skills-menu__header {
-    display: flex;
+	display: flex;
 	height: 48px;
 	background-color: var(--fg-color);
 	padding: var(--space-2) var(--space-3);
-    list-style: none;
+	list-style: none;
 }
 
 .skill-menu__header-btn {
-    background-color: transparent;
+	background-color: transparent;
 	padding: var(--space-1) var(--space-3);
 	border: none;
 	letter-spacing: 1.5px;
@@ -34,18 +34,17 @@
 }
 
 .skills-menu__container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    height: calc(100% - 48px);
-    overflow: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.75rem;
+	height: calc(100% - 48px);
+	overflow: auto;
 }
 
 .menu__container.menu__container--closed {
-    display: none
+	display: none;
 }
-
 
 /* SKILLS */
 
@@ -64,7 +63,6 @@
 }
 
 .skill__bottom.skill__bottom--open {
-
 	p {
 		font-family: var(--poppins);
 		font-size: var(--text-sm);
@@ -90,7 +88,7 @@
 	border: none;
 	width: 38px;
 	height: 38px;
-    cursor: pointer;
+	cursor: pointer;
 
 	svg {
 		fill: var(--bg-color-muted);
@@ -98,5 +96,5 @@
 }
 
 .select-button.select-button--selected {
-    display: none;
+	display: none;
 }
