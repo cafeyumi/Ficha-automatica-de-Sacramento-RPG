@@ -442,6 +442,7 @@ function updateStats(type, value) {
 
 function dropdownSystem() {
 	const allDropdowns = [...document.querySelectorAll(`.dropdown`)];
+	const selectedSkills = document.querySelector("#selectedSkills")
 
 	allDropdowns.forEach((dropdown) => {
 		const dropBtn = dropdown.querySelector(`.dropdown__btn`);
@@ -463,15 +464,14 @@ function dropdownSystem() {
 				btnValue.innerHTML = selectedValue;
 
 				updateStats(dropType, selectedValue);
+				skillsLimiter(currentSkills, selectedSkills)
 			});
 		});
 	});
 }
 
 function skillSystem() {
-	const template = document.querySelector("#skillTemplate");
 	const informations = document.querySelector("#informations");
-	const selectedSkills = document.querySelector("#selectedSkills");
 	const combatSkills = document.querySelector("#combatSkills");
 	const professionSkills = document.querySelector("#professionSkills");
 	const skillsMenu = document.querySelector("#skillsMenu");
@@ -483,7 +483,8 @@ function skillSystem() {
 
 		buttonHeader(target);
 		collapseButton(target);
-		skillAddButton(target, template, combatSkills, professionSkills);
+		skillRemoveButton(target);
+		skillAddButton(target, combatSkills, professionSkills);
 	});
 
 	// ========== skills menu ==========
@@ -493,7 +494,7 @@ function skillSystem() {
 
 		buttonHeader(target);
 		collapseButton(target);
-		skillSelectButton(target, template, selectedSkills);
+		skillSelectButton(target);
 	});
 }
 
@@ -535,14 +536,14 @@ function collapseButton(target) {
 	}
 }
 
-function skillSelectButton(target, template, selectedSkills) {
+function skillSelectButton(target) {
 	if (target.closest(".skill-select-button")) {
-		selectedSkills.innerHTML = "";
+		document.querySelector("#selectedSkills").innerHTML = "";
 
 		const skill = target.closest(".skill");
 		const skillName = skill.querySelector(".skill__name").innerHTML;
 
-		Object.entries(skills).forEach(([type, skills]) => {
+		Object.entries(skills).forEach(([, skills]) => {
 			skills.forEach((skill, index) => {
 				if (skill.name === skillName) {
 					currentSkills.push(...skills.splice(index, 1));
@@ -553,7 +554,7 @@ function skillSelectButton(target, template, selectedSkills) {
 		});
 
 		currentSkills.forEach((skill) => {
-			const clone = template.content.cloneNode(true); // Clono a template para criar um novo elemento
+			const clone = document.querySelector("#skillTemplate").content.cloneNode(true); // Clono a template para criar um novo elemento
 			const nameInput = clone.querySelector(".skill__name"); // Pego a posição do nome da Habilidade no DOM
 			const typeInput = clone.querySelector(".skill__type"); // Pego a posição do tipo da Habilidade no DOM
 			const descriptionInput = clone.querySelector(".skill__description"); // Pego a posição da descrição no DOM
@@ -568,14 +569,26 @@ function skillSelectButton(target, template, selectedSkills) {
 				.replace(/\{pain\}/g, painSvg); // Substituo os placeholders do objeto pelos icones
 
 			selectButton.classList.add("select-button--selected");
-			selectedSkills.appendChild(clone);
+			document.querySelector("#selectedSkills").appendChild(clone);
 		});
+
+		if (currentSkills.length === 0) {
+			selectedSkills.classList.remove(
+				"informations-skills__selected-skills--show",
+			);
+		} else if (currentSkills.length > 0) {
+			selectedSkills.classList.add(
+				"informations-skills__selected-skills--show",
+			);
+		}
+
+		skillsLimiter(currentSkills, selectedSkills)
 
 		skillsMenu.hidePopover();
 	}
 }
 
-function skillAddButton(target, template, combatSkills, professionSkills) {
+function skillAddButton(target, combatSkills, professionSkills) {
 	if (target.closest("#skillAddBtn")) {
 		professionSkills.innerHTML = "";
 		combatSkills.innerHTML = "";
@@ -584,10 +597,13 @@ function skillAddButton(target, template, combatSkills, professionSkills) {
 			skills.sort((a, b) => a.name.localeCompare(b.name)); // Sortindo o array para ordem alfabetica
 
 			skills.forEach((skill) => {
-				const clone = template.content.cloneNode(true); // Clono a template para criar um novo elemento
+				const clone = document.querySelector("#skillTemplate").content.cloneNode(true); // Clono a template para criar um novo elemento
 				const nameInput = clone.querySelector(".skill__name"); // Pego a posição do nome da Habilidade no DOM
 				const typeInput = clone.querySelector(".skill__type"); // Pego a posição do tipo da Habilidade no DOM
 				const descriptionInput = clone.querySelector(".skill__description"); // Pego a posição da descrição no DOM
+				const removeButton = clone.querySelector(".remove-button"); // Pego a posição da descrição no DOM
+
+				removeButton.classList.add("remove-button--none");
 
 				nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM
 
@@ -601,14 +617,103 @@ function skillAddButton(target, template, combatSkills, professionSkills) {
 				// Insiro o tipo da Habilidade no DOM, dependendo do valor da chave no objeto e renderizo para seu container respectivo
 
 				if (type === "combat") {
-					typeInput.innerHTML = "Combate";
 					combatSkills.appendChild(clone);
 				} else if (type === "profession") {
-					typeInput.innerHTML = "Profissão";
 					professionSkills.appendChild(clone);
 				}
 			});
 		});
+	}
+}
+
+function skillRemoveButton(target) {
+	if (target.closest(".remove-button")) {
+		const skill = target.closest(".skill");
+		const skillName = skill.querySelector(".skill__name").innerHTML;
+
+		currentSkills.forEach((skill, index) => {
+			if (skill.name === skillName) {
+				const type = skill.type;
+
+				if (type === "Combate") {
+					skills.combat.push(...currentSkills.splice(index, 1));
+				} else if (type === "Profissão") {
+					skills.profession.push(...currentSkills.splice(index, 1));
+				}
+			}
+		});
+
+		document.querySelector("#selectedSkills").innerHTML = "";
+
+		currentSkills.forEach((skill) => {
+			const clone = document.querySelector("#skillTemplate").content.cloneNode(true); // Clono a template para criar um novo elemento
+			const nameInput = clone.querySelector(".skill__name"); // Pego a posição do nome da Habilidade no DOM
+			const typeInput = clone.querySelector(".skill__type"); // Pego a posição do tipo da Habilidade no DOM
+			const descriptionInput = clone.querySelector(".skill__description"); // Pego a posição da descrição no DOM
+			const selectButton = clone.querySelector(".select-button");
+
+			nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM
+
+			typeInput.innerHTML = skill.type;
+
+			descriptionInput.innerHTML = skill.description
+				.replace(/\{life\}/g, lifeSvg)
+				.replace(/\{pain\}/g, painSvg); // Substituo os placeholders do objeto pelos icones
+
+			selectButton.classList.add("select-button--selected");
+			document.querySelector("#selectedSkills").appendChild(clone);
+		});
+
+		skillsLimiter(currentSkills, document.querySelector("#selectedSkills"))
+	}
+}
+
+function skillsLimiter(array, container) {
+	
+	let skillLimit = 0;
+	switch ( stats.experience.level ) {
+		case 1 : {
+			skillLimit = 2;
+			break;
+		}
+		case 2 : {
+			skillLimit = 3;
+			break;
+		}
+		case 3 : {
+			skillLimit = 4;
+			break;
+		}
+		case 4 : {
+			skillLimit = 5;
+			break;
+		}
+		case 5 : {
+			skillLimit = 5;
+			break;
+		}
+		case 6 : {
+			skillLimit = 6;
+			break;
+		}
+	}
+
+	if (array.length === 0 ) {
+		container.classList.remove(
+			"informations-skills__selected-skills--show",
+		);
+	} else {
+		container.classList.add("informations-skills__selected-skills--show")
+	}
+
+	if (currentSkills.length >= skillLimit) {
+		document
+			.querySelector("#skillAddBtn")
+			.classList.add("informations-skills__add-skill-button--limit");
+	} else {
+		document
+			.querySelector("#skillAddBtn")
+			.classList.remove("informations-skills__add-skill-button--limit");
 	}
 }
 // INICIALIZAÇÃO

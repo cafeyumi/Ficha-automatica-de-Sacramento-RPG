@@ -52,7 +52,7 @@ h2 {
 	padding: var(--space-4);
 	gap: var(--space-3);
 	grid-template-rows: 330px 80px 250px 250px;
-	grid-template-columns: 360px 330px 150px 70px 120px 208px;
+	grid-template-columns: 360px 330px 150px 80px 120px 208px;
 	grid-template-areas:
 		"character character attributes attributes sina sina"
 		"informations antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
