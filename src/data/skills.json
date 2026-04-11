@@ -3,7 +3,7 @@
 		{
 			"name": "Armas da Natureza",
 			"type": "Combate",
-			"description": "Você prefere lutar com métodos \"ultrapassados\". Seja por tradição ou por gosto, sempre que lutar usando armas rústicas, como facas de pedra, lanças de madeira, machadinhas e armas rudimentares, o dano do seu ataque aumenta em <strong>+1{life}</strong> para cada ponto em Físico que tiver.",
+			"description": "Você prefere lutar com métodos \"ultrapassados\". Seja por tradição ou por gosto, sempre que lutar usando armas rústicas, como facas de pedra, lanças de madeira, machadinhas e armas rudimentares, o dano do seu ataque aumenta em <strong>+1 {life}</strong> para cada ponto em Físico que tiver.",
 			"repeatable": false
 		},
 		{
@@ -16,7 +16,7 @@
 		{
 			"name": "Briga de Bar",
 			"type": "Combate",
-			"description": "Quando você viu, já estava enfiando a cara de um maluco no piano do Salão. Você sabe improvisar armas com aquilo que estiver na sua frente: uma cadeira, uma garrafa, ou o <em>bebum</em> segurando a garrafa. Objetos pequenos e médios causam <strong>3{pain}</strong>, enquanto objetos grandes causam <strong>1{life}</strong> mas, neste segundo caso, os <strong>Testes de Violência</strong> tem <strong>-1</strong> de penalidade para que os objetos desengonçados acertem os alvos.",
+			"description": "Quando você viu, já estava enfiando a cara de um maluco no piano do Salão. Você sabe improvisar armas com aquilo que estiver na sua frente: uma cadeira, uma garrafa, ou o <em>bebum</em> segurando a garrafa. Objetos pequenos e médios causam <strong>3 {pain}</strong>, enquanto objetos grandes causam <strong>1 {life}</strong> mas, neste segundo caso, os <strong>Testes de Violência</strong> tem <strong>-1</strong> de penalidade para que os objetos desengonçados acertem os alvos.",
 			"repeatable": false
 		},
 		{
@@ -35,7 +35,7 @@
 		{
 			"name": "Fúria dos Aflitos",
 			"type": "Combate",
-			"description": "Sua raiva é imparável e seu ódio é infinito, a ponto de você não medir perigos e arriscar a própria pele para massacrar seus inimigos. Em combate, você reduz sua Defesa em <strong>-1</strong> ponto, e aumenta o dano de seus ataques corpo a corpo em <strong>+3{pain}</strong>.",
+			"description": "Sua raiva é imparável e seu ódio é infinito, a ponto de você não medir perigos e arriscar a própria pele para massacrar seus inimigos. Em combate, você reduz sua Defesa em <strong>-1</strong> ponto, e aumenta o dano de seus ataques corpo a corpo em <strong>+3 {pain}</strong>.",
 			"repeatable": false
 		},
 		{
@@ -47,19 +47,19 @@
 		{
 			"name": "Livramento",
 			"type": "Combate",
-			"description": "Você ouviu a morte chamar seu nome, chegou sua hora, mas você não quer bater as botas. Quando riscar todos os seus {life}, caia no chão, recupere <strong>+2{life}</strong> e permaneça com a sua carranca feia pela Terra. Se você cair outra vez no mesmo combate, acabou a colher de chá e será preciso fazer o <strong>Teste de Morte</strong> normalmente.",
+			"description": "Você ouviu a morte chamar seu nome, chegou sua hora, mas você não quer bater as botas. Quando riscar todos os seus {life}, caia no chão, recupere <strong>+2 {life}</strong> e permaneça com a sua carranca feia pela Terra. Se você cair outra vez no mesmo combate, acabou a colher de chá e será preciso fazer o <strong>Teste de Morte</strong> normalmente.",
 			"repeatable": false
 		},
 		{
 			"name": "Marretada",
 			"type": "Combate",
-			"description": "Pra quê um revolver se sua mão é tão pesada quanto uma marreta? Quando luta de mãos vazias, apenas com o poder de seus socos e chutes, o dano de seus ataques desarmados aumenta em <strong>+1{pain}</strong> para cada ponto no <strong>Atributo Físico</strong> que tiver.",
+			"description": "Pra quê um revolver se sua mão é tão pesada quanto uma marreta? Quando luta de mãos vazias, apenas com o poder de seus socos e chutes, o dano de seus ataques desarmados aumenta em <strong>+1 {pain}</strong> para cada ponto no <strong>Atributo Físico</strong> que tiver.",
 			"repeatable": false
 		},
 		{
 			"name": "Parrudeza",
 			"type": "Combate",
-			"description": "Difícil de morrer e duro de matar. Você tem um couro bem grosso ou só gosta muito de estar vivo. Você soma <strong>+2{life}</strong> à sua vida. Esta Habilidade pode ser escolhida várias vezes.",
+			"description": "Difícil de morrer e duro de matar. Você tem um couro bem grosso ou só gosta muito de estar vivo. Você soma <strong>+2 {life}</strong> à sua vida. Esta Habilidade pode ser escolhida várias vezes.",
 			"repeatable": true
 		},
 		{
@@ -127,7 +127,7 @@
 		{
 			"name": "Cuspe e Cola",
 			"type": "Profissão",
-			"description": "Nas condições precárias da Guerra, tinham poucos <em>trem</em> para cuidar dos soldados feridos, às vezes era preciso limpar com cuspe e estancar com cola. Este é o único jeito de curar alguém no meio do combate. Para fazer isso, você precisa estar colado no seu paciente e gastar <strong>2 Ações de Combate</strong> para cada ${life} que curar. O limite de usos dessa habilidade aumenta conforme seu nível.",
+			"description": "Nas condições precárias da Guerra, tinham poucos <em>trem</em> para cuidar dos soldados feridos, às vezes era preciso limpar com cuspe e estancar com cola. Este é o único jeito de curar alguém no meio do combate. Para fazer isso, você precisa estar colado no seu paciente e gastar <strong>2 Ações de Combate</strong> para cada {life} que curar. O limite de usos dessa habilidade aumenta conforme seu nível.",
 			"repeatable": false,
 			"table": {}
 		},
@@ -171,7 +171,7 @@
 		{
 			"name": "Sabugos e Peçonhas",
 			"type": "Profissão",
-			"description": "Seus anos vivendo entre as matas do Oeste Selvagem lhe renderam conhecimento para saber tudo o que há de mal nas plantas. Você consegue produzir venenos mais eficientes. Eles causam <strong>1{pain}</strong> a cada ação feita pelo alvo envenenado. Ou seja, se o alvo usar uma ação para atirar, sofre <strong>1{pain}</strong>. Se der outro tiro, sofre mais até o veneno ser curado, resistido ou o alvo ficar inconsciente.",
+			"description": "Seus anos vivendo entre as matas do Oeste Selvagem lhe renderam conhecimento para saber tudo o que há de mal nas plantas. Você consegue produzir venenos mais eficientes. Eles causam <strong>1 {pain}</strong> a cada ação feita pelo alvo envenenado. Ou seja, se o alvo usar uma ação para atirar, sofre <strong>1 {pain}</strong>. Se der outro tiro, sofre mais até o veneno ser curado, resistido ou o alvo ficar inconsciente.",
 			"repeatable": false
 		},
 		{

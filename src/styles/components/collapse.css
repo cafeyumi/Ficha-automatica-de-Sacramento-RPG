@@ -10,25 +10,18 @@
 .collapse-button {
 	background: none;
 	border: none;
+	margin-right: var(--space-2);
 	cursor: pointer;
 
-	svg:first-child {
-		display: flex;
-		fill: var(--fg-color);
-	}
-
-	svg:last-child {
-		display: none;
-		fill: var(--fg-color);
+	img {
+		height: 16px;
+		transition: all 150ms ease;
+		pointer-events: none;
 	}
 
 	&.collapse-button--open {
-		svg:first-child {
-			display: none;
-		}
-
-		svg:last-child {
-			display: flex;
+		img {
+		transform: rotate(-180deg)
 		}
 	}
 }
