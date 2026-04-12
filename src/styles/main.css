@@ -119,6 +119,12 @@ input[type="number"] {
 	}
 }
 
+@media (max-width: 1480px) {
+	html {
+		font-size: 11px;
+	}
+}
+
 @media (max-width: 1440px) {
 	html {
 		font-size: 12px;
