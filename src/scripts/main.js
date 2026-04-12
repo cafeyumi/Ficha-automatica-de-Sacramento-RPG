@@ -16,6 +16,8 @@ const init = () => {
 	diceSystem();
 	dropdownSystem();
 	skillSystem();
+	resize();
+	menuSystem(); // ultima vez revisado: 12/04, avaliação: bom
 };
 
 const ANTECEDENTS_TYPES = [
@@ -489,7 +491,6 @@ function skillSystem() {
 	informations.addEventListener("click", (event) => {
 		const target = event.target;
 
-		if (target.matches(".header-button")) return buttonHeader(target);
 		if (target.matches(".collapse-button")) return collapseButton(target);
 		if (target.matches(".remove-button")) return skillRemoveButton(target);
 		if (target.matches("#skillAddBtn"))
@@ -501,7 +502,6 @@ function skillSystem() {
 	skillsMenu.addEventListener("click", (event) => {
 		const target = event.target;
 
-		if (target.matches(".header-button")) return buttonHeader(target);
 		if (target.matches(".collapse-button")) return collapseButton(target);
 		if (target.matches(".select-button")) return skillSelectButton(target);
 	});
@@ -509,26 +509,38 @@ function skillSystem() {
 
 // ========== SKILL SYSTEM FUNCTIONS ==========
 
-function buttonHeader(button) {
-	[...button.closest(".buttons-header").children].forEach((buttons) => {
-		[...buttons.children].forEach((button) => {
-			button.classList.remove("header-button--selected");
+function menuSystem() {
+	const allMenus = document.querySelectorAll(".menu");
+
+	allMenus.forEach((menu) => {
+		menu.addEventListener("click", (event) => {
+			const target = event.target;
+
+			if (target.matches(".header-button")) {
+				[...target.closest(".buttons-header").children].forEach((buttons) => {
+					[...buttons.children].forEach((button) => {
+						button.classList.remove("header-button--selected");
+					});
+				});
+				target
+					.closest(".header-button")
+					.classList.add("header-button--selected");
+
+				[
+					...target.closest(".menu").querySelectorAll(".menu__container"),
+				].forEach((container) => {
+					container.classList.add("menu__container--closed");
+				});
+
+				const selectedContainer = target.dataset.for;
+
+				[
+					...target.closest(".menu").querySelectorAll(`#${selectedContainer}`),
+				].forEach((a) => {
+					a.classList.remove("menu__container--closed");
+				});
+			}
 		});
-	});
-	button.closest(".header-button").classList.add("header-button--selected");
-
-	[...button.closest(".menu").querySelectorAll(".menu__container")].forEach(
-		(container) => {
-			container.classList.add("menu__container--closed");
-		},
-	);
-
-	const selectedContainer = button.closest(".header-button").dataset.for;
-
-	[
-		...button.closest(".menu").querySelectorAll(`#${selectedContainer}`),
-	].forEach((a) => {
-		a.classList.remove("menu__container--closed");
 	});
 }
 
@@ -651,6 +663,7 @@ function skillAddButton(combatSkills, professionSkills) {
 			}
 		});
 	});
+	skillsMenu.showPopover();
 }
 
 function skillRemoveButton(button) {
@@ -766,7 +779,17 @@ function skillsLimiterSync(array) {
 	}
 }
 
-// ========== SKILL SYSTEM ==========
+// ========== RESIZE SYSTEM ==========
+
+const input = document.querySelector("#pathTitle");
+const resizer = document.querySelector(".textResizer");
+
+input.addEventListener("input", resize);
+
+function resize() {
+	resizer.textContent = input.value || input.placeholder;
+	input.style.width = resizer.offsetWidth + 10 + "px";
+}
 
 // INICIALIZAÇÃO
 init();

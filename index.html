@@ -399,13 +399,9 @@
 						</button>
 					</li>
 				</menu>
-				<div id="informationsSkills" class="menu__container informations__skills">
+				<div id="informationsSkills" class="informations__skills menu__container">
 					<div class="informations-skills__selected-skills" id="selectedSkills"></div>
-					<button
-						id="skillAddBtn"
-						popovertarget="skillsMenu"
-						class="informations-skills__add-skill-button"
-						type="button">
+					<button id="skillAddBtn" class="informations-skills__add-skill-button" type="button">
 						<svg
 							aria-hidden="true"
 							xmlns="http://www.w3.org/2000/svg"
@@ -418,8 +414,83 @@
 						</svg>
 					</button>
 				</div>
-				<div id="informationsRedemption" class="menu__container"></div>
-				<div id="informationsDescription" class="menu__container"></div>
+				<div
+					id="informationsRedemption"
+					class="informations__redemption menu__container menu__container--closed">
+					<div class="informations__redemption-path">
+						<button type="button">back</button>
+						<div>
+							<span class="textResizer"></span>
+							<input id="pathTitle" type="text" value="Trilha" autocomplete="off">
+						</div>
+						<button type="button">next</button>
+					</div>
+					<div>
+						<div><label for="">Passo 1</label> <input type="radio"></div>
+						<textarea name="" id=""></textarea>
+					</div>
+					<div>
+						<div><label for="">Passo 2</label> <input type="radio"></div>
+						<textarea name="" id=""></textarea>
+					</div>
+					<div>
+						<div><label for="">Passo 3</label> <input type="radio"></div>
+						<textarea name="" id=""></textarea>
+					</div>
+					<div>
+						<div><label for="">Passo 4</label> <input type="radio"></div>
+						<textarea name="" id=""></textarea>
+					</div>
+					<div>
+						<div><label for="">Passo 5</label> <input type="radio"></div>
+						<textarea name="" id=""></textarea>
+					</div>
+					<div>
+						<div><label for="">Passo 6</label> <input type="radio"></div>
+						<textarea name="" id=""></textarea>
+					</div>
+				</div>
+				<div
+					id="informationsDescription"
+					class="informations__description menu__container menu__container--closed">
+					<div class="informations__description-content">
+						<div class="informations__description-inputs">
+							<label for="notes">Anotações</label>
+							<textarea
+								name=""
+								id="notes"
+								placeholder="Lembretes, notas, pistas e até mesmo boatos são dignos de terem suas proprias anotações."></textarea>
+						</div>
+						<div class="informations__description-inputs">
+							<label for="concept">Conceito</label>
+							<textarea
+								name=""
+								id="concept"
+								placeholder="O Conceito é a resposta mais curta possível para definir quem é seu PJ. É a essência de quem ele é e o que ele faz."></textarea>
+						</div>
+						<div class="informations__description-inputs">
+							<label for="appearance">Aparência</label>
+							<textarea
+								name=""
+								id="appearance"
+								placeholder="Quando se tem sua cara estampada em diversos cartazes de recompensa, um bom PJ sabe muito bem como lidar com sua própria aparência."></textarea>
+						</div>
+						<div class="informations__description-inputs">
+							<label for="backstory">Passado</label>
+							<textarea
+								name=""
+								id="backstory"
+								placeholder="Sempre existe algo no passado que aperta seu peito e te faz sentir remorso, culpa ou sede de vingança. Foi algo muito triste que você fez ou que fizeram com você."></textarea>
+						</div>
+						<div class="informations__description-inputs">
+							<label for="goal">Objetivo</label>
+							<textarea
+								name=""
+								id="goal"
+								placeholder="Ninguém faz um omelete sem quebrar alguns ovos, não é mesmo? e para isso é preciso ter um objetivo em mente para qual lutar."></textarea>
+						</div>
+					</div>
+				</div>
 			</section>
 
 			<section id="antecedents" class="antecedents">
@@ -642,7 +713,25 @@
 
 			<section id="montaria"></section>
 
-			<section id="inventario"></section>
+			<section id="equipment" class="equipment menu">
+				<menu class="buttons-header equipment__header">
+					<li>
+						<button
+							class="header-button header-button--selected equipment__header-btn"
+							data-for="inventoryCombat"
+							type="button">
+							Combate
+						</button>
+					</li>
+					<li>
+						<button class="header-button equipment__header-btn" data-for="inventoryItems" type="button">
+							Equipamentos
+						</button>
+					</li>
+				</menu>
+				<div id="equipmentCombat" class="menu__container"></div>
+				<div id="equipmentItems" class="menu__container menu__container--closed"></div>
+			</section>
 
 			<section id="rolls" class="rolls"></section>
 		</main>

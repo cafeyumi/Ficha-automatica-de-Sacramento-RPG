@@ -1,0 +1,27 @@
+.equipment {
+	background-color: var(--bg-color);
+	grid-area: equipment;
+	border: var(--border-md-fg);
+	height: 100%;
+}
+
+.equipment__header {
+	display: flex;
+	height: var(--space-12);
+	background-color: var(--fg-color);
+	padding: var(--space-2) var(--space-3);
+	list-style: none;
+}
+
+.equipment__header-btn {
+	background-color: transparent;
+	padding: var(--space-1) var(--space-3);
+	border: none;
+	letter-spacing: 1.5px;
+	line-height: 1;
+	font-size: var(--text-xl);
+	font-weight: 900;
+	font-family: var(--bebas);
+	color: var(--bg-color);
+	cursor: pointer;
+}
