@@ -2,6 +2,11 @@
 	display: none;
 }
 
-.header-button.header-button--selected {
+
+.header-button--selected {
 	color: rgb(255, 255, 255);
+}
+
+.header-button {
+	list-style: none;
 }

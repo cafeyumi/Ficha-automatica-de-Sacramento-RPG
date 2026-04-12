@@ -51,6 +51,9 @@
 }
 
 .sina-cards__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: var(--bg-color-muted);
 	border-radius: var(--small-curve);
 	border: 2px var(--fg-text-color) solid;
