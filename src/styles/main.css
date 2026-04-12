@@ -36,6 +36,7 @@ body {
 	width: 100dvw;
 	height: 100dvh;
 	user-select: none;
+	overflow: hidden;
 }
 
 label {
@@ -61,8 +62,6 @@ h2 {
 
 .main-content {
 	display: grid;
-	height: fit-content;
-	width: fit-content;
 	align-items: center;
 	justify-content: center;
 	padding: var(--space-4);
@@ -113,14 +112,38 @@ input[type="number"] {
 
 /* ========================== */
 
-@media (max-width: 1536px) {
+@media (max-height: 1100px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+@media (max-height: 1000px) {
+	html {
+		font-size: 13px;
+	}
+}
+
+@media (max-height: 900px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (max-height: 800px) {
 	html {
 		font-size: 11px;
 	}
 }
 
-@media (max-width: 1440px) {
+@media (max-height: 700px) {
 	html {
-		font-size: 12px;
+		font-size: 10px;
+	}
+}
+
+@media (max-height: 600px) {
+	html {
+		font-size: 9px;
 	}
 }
