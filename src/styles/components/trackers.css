@@ -30,7 +30,6 @@
 	background-color: var(--mk-color);
 	border-radius: var(--round);
 	position: absolute;
-	margin: auto;
 }
 
 .pip {
