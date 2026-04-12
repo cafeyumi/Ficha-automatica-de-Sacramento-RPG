@@ -77,13 +77,14 @@
 	}
 }
 
+@media (max-width: 1536px) {
+	.sina-cards {
+		border-top-right-radius: 24px;
+	}
+}
+
 @media (max-width: 1440px) {
 	.sina-cards {
 		border-top-right-radius: 22px;
-	}
-}
-@media (max-width: 1366px) {
-	.sina-cards {
-		border-top-right-radius: 23px;
 	}
 }

@@ -113,14 +113,14 @@ input[type="number"] {
 
 /* ========================== */
 
-@media (max-width: 1440px) {
+@media (max-width: 1536px) {
 	html {
-		font-size: 12px;
+		font-size: 13px;
 	}
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1440px) {
 	html {
-		font-size: 11px;
+		font-size: 12px;
 	}
 }
