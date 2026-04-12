@@ -55,7 +55,7 @@
 	--space-14: 3.5rem; /* 56px */
 	--space-15: 3.75rem; /* 60px */
 	--space-16: 4rem; /* 64px */
-	--space-20: 5rem; /* 80px */
+	--space-20: 5rem; /* var(--space-20) */
 	--space-24: 6rem; /* 96px */
 
 	/* ========== BORDER RADIUS ========== */

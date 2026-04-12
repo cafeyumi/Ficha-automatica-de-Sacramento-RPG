@@ -546,13 +546,12 @@ function skillSelectButton(button) {
 
 	Object.entries(skills).forEach(([, skills]) => {
 		skills.forEach((skill, index) => {
-
 			if (skill.name === skillName) {
-				if ( skill.repeatable === true ) {
-					skills[index].id = multipleHabId
-					currentSkills.push({...skills[index]})
-					++multipleHabId
-					console.log(currentSkills)
+				if (skill.repeatable === true) {
+					skills[index].id = multipleHabId;
+					currentSkills.push({ ...skills[index] });
+					++multipleHabId;
+					console.log(currentSkills);
 				} else {
 					currentSkills.push(...skills.splice(index, 1));
 				}
@@ -571,10 +570,10 @@ function skillSelectButton(button) {
 		const repeatableInput = clone.querySelector(".skill__repeatable"); // Pego a posição do tipo de comportamento no DOM
 		const descriptionInput = clone.querySelector(".skill__description"); // Pego a posição da descrição no DOM
 		const selectButton = clone.querySelector(".select-button");
-		const skillId = clone.querySelector(".skill")
+		const skillId = clone.querySelector(".skill");
 
-		if ( skill.id !== undefined ) {
-			skillId.dataset.id = skill.id
+		if (skill.id !== undefined) {
+			skillId.dataset.id = skill.id;
 		}
 		nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM
 
@@ -659,19 +658,18 @@ function skillRemoveButton(button) {
 	const skillName = selectedSkill.querySelector(".skill__name").innerHTML;
 
 	currentSkills.forEach((skill, index) => {
-
 		if (skill.name === skillName) {
 			if (skill.type === "Combate") {
-				if ( skill.repeatable === true ) {
-					if ( Number(selectedSkill.dataset.id) === skill.id ) {
-						currentSkills.splice(index, 1)
+				if (skill.repeatable === true) {
+					if (Number(selectedSkill.dataset.id) === skill.id) {
+						currentSkills.splice(index, 1);
 					}
 				} else {
 					skills.combat.push(...currentSkills.splice(index, 1));
 				}
 			} else if (skill.type === "Profissão") {
-				if ( skill.repeatable === true ) {
-					currentSkills.splice(index, 1)
+				if (skill.repeatable === true) {
+					currentSkills.splice(index, 1);
 				} else {
 					skills.profession.push(...currentSkills.splice(index, 1));
 				}
@@ -690,10 +688,10 @@ function skillRemoveButton(button) {
 		const repeatableInput = clone.querySelector(".skill__repeatable"); // Pego a posição do tipo de comportamento no DOM
 		const descriptionInput = clone.querySelector(".skill__description"); // Pego a posição da descrição no DOM
 		const selectButton = clone.querySelector(".select-button");
-		const skillId = clone.querySelector(".skill")
+		const skillId = clone.querySelector(".skill");
 
-		if ( skill.id !== undefined ) {
-			skillId.dataset.id = skill.id
+		if (skill.id !== undefined) {
+			skillId.dataset.id = skill.id;
 		}
 
 		nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM

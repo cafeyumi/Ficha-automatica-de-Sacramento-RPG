@@ -1,7 +1,7 @@
 .tracker {
 	display: flex;
 	align-items: center;
-	gap: 6px;
+	gap: 0.375rem;
 
 	&.life path,
 	&.pain path {
@@ -10,9 +10,9 @@
 
 	&.life svg,
 	&.pain svg {
-		margin-bottom: 5px;
-		width: 23px;
-		height: 23px;
+		margin-bottom: 0.3125;
+		width: 1.438rem;
+		height: 1.438rem;
 		fill: var(--bg-color-muted);
 		cursor: pointer;
 	}
@@ -25,8 +25,8 @@
 
 .pip.marked::after {
 	content: "";
-	width: 15px;
-	height: 15px;
+	width: 0.9375rem;
+	height: 0.9375rem;
 	background-color: var(--mk-color);
 	border-radius: var(--round);
 	position: absolute;
@@ -38,13 +38,9 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	width: 23px;
-	height: 23px;
+	width: 1.438rem;
+	height: 1.438rem;
 	cursor: pointer;
-	border: 1px var(--fg-color) solid;
+	border: var(--border-sm-fg);
 	border-radius: var(--round);
-}
-
-.marked {
-	counter-increment: contador;
 }

@@ -6,10 +6,10 @@
 	align-items: center;
 	border: 2px black solid;
 	height: 100%;
-	padding: 1rem 2rem 1.5rem 2rem;
+	padding: var(--space-4) var(--space-8) var(--space-6) var(--space-8);
 
 	h2 {
-		margin-bottom: 1rem;
+		margin-bottom: var(--space-4);
 	}
 }
 
@@ -17,7 +17,7 @@
 	display: flex;
 	padding: var(--space-1) var(--space-0);
 	height: 100%;
-	gap: 2.5rem;
+	gap: var(--space-10);
 }
 
 .antecedents__left {
@@ -54,9 +54,9 @@
 	}
 
 	svg {
-		margin-left: 0.25rem;
-		width: 20px;
-		height: 20px;
+		margin-left: var(--space-1);
+		width: var(--space-5);
+		height: var(--space-5);
 		cursor: pointer;
 	}
 
@@ -67,7 +67,7 @@
 
 .antecedents__tracker {
 	display: flex;
-	gap: 0.25rem;
+	gap: var(--space-1);
 	font-family: var(--poppins);
 
 	p {

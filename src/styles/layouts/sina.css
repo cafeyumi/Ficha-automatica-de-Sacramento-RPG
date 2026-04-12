@@ -1,3 +1,9 @@
+@media (min-width: 2560px) {
+	.sina-cards {
+		border-top-right-radius: 40px;
+	}
+}
+
 .sina-cards {
 	display: flex;
 	position: relative;
@@ -8,7 +14,7 @@
 	border: var(--border-md-fg);
 	height: 100%;
 	background-color: var(--bg-color);
-	padding: var(--space-4) 1rem 2rem 1rem;
+	padding: var(--space-4) var(--space-4) var(--space-8) var(--space-4);
 	justify-content: space-between;
 	align-items: center;
 	flex-direction: column;
@@ -23,16 +29,16 @@
 	align-items: center;
 	color: var(--bg-color);
 	z-index: 6;
-	width: 170px;
+	width: 10.625rem;
 }
 
 .sina-cards__value {
 	transform: rotate(-8.75deg);
-	left: 40px;
-	bottom: 63px;
+	left: var(--space-10);
+	bottom: 4rem;
 	text-align: center;
 	width: 4.5rem;
-	letter-spacing: 0px;
+	letter-spacing: var(--space-0);
 	font-size: var(--text-6xl);
 	position: absolute;
 }
@@ -48,8 +54,8 @@
 	background-color: var(--bg-color-muted);
 	border-radius: var(--small-curve);
 	border: 2px var(--fg-text-color) solid;
-	width: 40px;
-	height: 40px;
+	width: var(--space-10);
+	height: var(--space-10);
 	cursor: pointer;
 
 	path {
@@ -62,11 +68,22 @@
 }
 
 .sina-cards__button--blocked {
-	background-color: rgb(194, 167, 128);
-	border: 2px solid var(--fg-text-color);
+	background-color: #c2a780;
+	border: var(--border-md-fg);
 	cursor: default;
 
 	svg {
 		fill: var(--fg-text-color);
+	}
+}
+
+@media (max-width: 1440px) {
+	.sina-cards {
+		border-top-right-radius: 22px;
+	}
+}
+@media (max-width: 1366px) {
+	.sina-cards {
+		border-top-right-radius: 23px;
 	}
 }

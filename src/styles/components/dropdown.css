@@ -10,12 +10,12 @@
 	border-radius: var(--tiny-curve);
 	align-items: center;
 	padding: var(--space-1) var(--space-3);
-	width: 60px;
+	width: var(--space-15);
 	cursor: pointer;
 
 	svg {
-		width: 16px;
-		height: 16px;
+		width: var(--space-4);
+		height: var(--space-4);
 		pointer-events: none;
 	}
 
@@ -30,8 +30,8 @@
 	background-color: var(--bg-color-muted);
 	font-weight: 500;
 	border: 2px solid black;
-	width: 60px;
-	top: 40px;
+	width: var(--space-15);
+	top: var(--space-10);
 	position: absolute;
 	list-style: none;
 	border-radius: var(--tiny-curve);
@@ -39,7 +39,7 @@
 
 .dropdown__option {
 	display: flex;
-	padding: 0.25rem var(--space-3);
+	padding: var(--space-1) var(--space-3);
 	width: 100%;
 	cursor: pointer;
 

@@ -16,6 +16,17 @@
 @import url(/src/styles/layouts/antecedents.css);
 @import url(/src/styles/layouts/rolls.css);
 
+@media (min-width: 2560px) {
+	html {
+		font-size: 21.333333px;
+	}
+
+	.main-content {
+		grid-template-rows: 440px var(--space-20) 333px 333px;
+		grid-template-columns: 480px 440px 200px var(--space-20) 160px 277px;
+	}
+}
+
 body {
 	background-image: url("/src/assets/images/background.png");
 	background-position: center center;
@@ -56,8 +67,8 @@ h2 {
 	justify-content: center;
 	padding: var(--space-4);
 	gap: var(--space-3);
-	grid-template-rows: 330px 80px 250px 250px;
-	grid-template-columns: 360px 330px 150px 80px 120px 208px;
+	grid-template-rows: 20.625rem var(--space-20) 15.625rem 15.625rem;
+	grid-template-columns: 22.5rem 20.625rem 9.275rem var(--space-20) 7.5rem 13rem;
 	grid-template-areas:
 		"character character attributes attributes sina sina"
 		"informations antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
@@ -101,3 +112,15 @@ input[type="number"] {
 }
 
 /* ========================== */
+
+@media (max-width: 1440px) {
+	html {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 1366px) {
+	html {
+		font-size: 11px;
+	}
+}

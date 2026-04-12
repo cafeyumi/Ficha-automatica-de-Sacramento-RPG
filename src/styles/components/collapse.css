@@ -14,14 +14,14 @@
 	cursor: pointer;
 
 	img {
-		height: 16px;
+		height: var(--space-4);
 		transition: all 150ms ease;
 		pointer-events: none;
 	}
 
 	&.collapse-button--open {
 		img {
-		transform: rotate(-180deg)
+			transform: rotate(-180deg);
 		}
 	}
 }

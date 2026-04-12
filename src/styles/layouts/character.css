@@ -1,3 +1,9 @@
+@media (min-width: 2560px) {
+	.character {
+		border-top-left-radius: 40px;
+	}
+}
+
 .character {
 	display: flex;
 	height: 100%;
@@ -38,8 +44,8 @@
 
 .character__picture {
 	position: relative;
-	width: 112px;
-	height: 112px;
+	width: 7rem;
+	height: 7rem;
 	cursor: pointer;
 	border-radius: var(--round);
 	border: var(--border-md-fg);
@@ -85,7 +91,7 @@
 .identity__inputs {
 	display: flex;
 	flex-direction: column;
-	width: 320px;
+	width: 20rem;
 	gap: var(--space-2);
 
 	input {
@@ -117,7 +123,7 @@
 		color: var(--fg-text-color);
 		padding: var(--space-1) var(--space-2);
 		text-align: center;
-		width: 40px;
+		width: var(--space-10);
 		font-weight: 500;
 	}
 
@@ -126,14 +132,14 @@
 
 		img {
 			position: absolute;
-			right: 65px;
-			bottom: 10px;
-			width: 14px;
+			right: 4rem;
+			bottom: 0.625rem;
+			width: 0.875rem;
 		}
 
 		input {
 			padding: var(--space-1) var(--space-2) var(--space-1) var(--space-6);
-			width: 90px;
+			width: 5.625rem;
 		}
 	}
 }
@@ -154,16 +160,16 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	width: 130px;
-	height: 130px;
+	width: 8rem;
+	height: 8rem;
 
 	&::after {
 		content: "";
 		position: absolute;
-		width: 40px;
-		height: 2px;
+		width: var(--space-10);
+		height: 0.125rem;
 		background-color: var(--fg-color);
-		bottom: 27px;
+		bottom: 1.6875rem;
 	}
 
 	svg {
@@ -176,13 +182,13 @@
 		position: absolute;
 		font-family: var(--bebas);
 		font-size: var(--text-3xl);
-		top: 17px;
+		top: 1rem;
 	}
 
 	input {
 		color: var(--fg-color);
 		font-size: var(--text-5xl);
-		bottom: 10px;
+		bottom: 0.625rem;
 		display: flex;
 		width: var(--space-20);
 		text-align: center;
@@ -213,7 +219,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 32px;
+	height: var(--space-8);
 	font-family: var(--bebas);
 	font-size: var(--text-2xl);
 	letter-spacing: 0.75px;
@@ -236,11 +242,22 @@
 	input {
 		border: none;
 		background: transparent;
-		width: 32px;
+		width: var(--space-8);
 		margin-bottom: 1px;
 	}
 }
 
 .stats-wrapper {
 	display: flex;
+}
+
+@media (max-width: 1440px) {
+	.character {
+		border-top-left-radius: 22px;
+	}
+}
+@media (max-width: 1366px) {
+	.character {
+		border-top-left-radius: 23px;
+	}
 }
