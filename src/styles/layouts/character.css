@@ -250,14 +250,3 @@
 .stats-wrapper {
 	display: flex;
 }
-
-@media (max-width: 1440px) {
-	.character {
-		border-top-left-radius: 22px;
-	}
-}
-@media (max-width: 1366px) {
-	.character {
-		border-top-left-radius: 23px;
-	}
-}

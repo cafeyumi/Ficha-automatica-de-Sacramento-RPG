@@ -67,7 +67,7 @@ h2 {
 	padding: var(--space-4);
 	gap: var(--space-3);
 	grid-template-rows: 20.625rem var(--space-20) 15.625rem 15.625rem;
-	grid-template-columns: 22.5rem 20.625rem 9.275rem var(--space-20) 7.5rem 13rem;
+	grid-template-columns: 22.75rem 20.625rem 9.275rem var(--space-20) 7.5rem 13rem;
 	grid-template-areas:
 		"character character attributes attributes sina sina"
 		"informations antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
@@ -112,38 +112,32 @@ input[type="number"] {
 
 /* ========================== */
 
-@media (max-height: 1100px) {
+@media (max-height: 960px) {
 	html {
-		font-size: 14px;
-	}
-}
-
-@media (max-height: 1000px) {
-	html {
-		font-size: 13px;
+		font-size: 15px;
 	}
 }
 
 @media (max-height: 900px) {
 	html {
+		font-size: 14px;
+	}
+}
+
+@media (max-height: 840px) {
+	html {
+		font-size: 13px;
+	}
+}
+
+@media (max-height: 790px) {
+	html {
 		font-size: 12px;
 	}
 }
 
-@media (max-height: 800px) {
+@media (max-height: 720px) {
 	html {
 		font-size: 11px;
-	}
-}
-
-@media (max-height: 700px) {
-	html {
-		font-size: 10px;
-	}
-}
-
-@media (max-height: 600px) {
-	html {
-		font-size: 9px;
 	}
 }

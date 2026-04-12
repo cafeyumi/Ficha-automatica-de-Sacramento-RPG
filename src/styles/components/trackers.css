@@ -2,6 +2,7 @@
 	display: flex;
 	align-items: center;
 	gap: 0.375rem;
+	line-height: 1;
 
 	&.life path,
 	&.pain path {
@@ -10,9 +11,10 @@
 
 	&.life svg,
 	&.pain svg {
-		margin-bottom: 0.3125;
-		width: 1.438rem;
-		height: 1.438rem;
+		display: flex;
+		margin-bottom: 0.3125rem;
+		width: 23px;
+		height: 23px;
 		fill: var(--bg-color-muted);
 		cursor: pointer;
 	}
@@ -25,8 +27,8 @@
 
 .pip.marked::after {
 	content: "";
-	width: 0.9375rem;
-	height: 0.9375rem;
+	width: 15px;
+	height: 15px;
 	background-color: var(--mk-color);
 	border-radius: var(--round);
 	position: absolute;
@@ -34,12 +36,133 @@
 
 .pip {
 	display: flex;
+	flex-shrink: 0;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	width: 1.438rem;
-	height: 1.438rem;
+	width: 23px;
+	height: 23px;
 	cursor: pointer;
 	border: var(--border-sm-fg);
 	border-radius: var(--round);
+}
+
+@media (max-height: 960px) {
+	.tracker {
+		&.life svg,
+		&.pain svg {
+			width: 21px;
+			height: 21px;
+		}
+	}
+
+	.pip.marked::after {
+		content: "";
+		width: 14px;
+		height: 14px;
+		background-color: var(--mk-color);
+		border-radius: var(--round);
+		position: absolute;
+	}
+
+	.pip {
+		width: 21px;
+		height: 21px;
+	}
+}
+
+@media (max-height: 900px) {
+	.tracker {
+		&.life svg,
+		&.pain svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.pip.marked::after {
+		content: "";
+		width: 13px;
+		height: 13px;
+		background-color: var(--mk-color);
+		border-radius: var(--round);
+		position: absolute;
+	}
+
+	.pip {
+		width: 20px;
+		height: 20px;
+	}
+}
+
+@media (max-height: 840px) {
+	.tracker {
+		&.life svg,
+		&.pain svg {
+			width: 19px;
+			height: 19px;
+		}
+	}
+
+	.pip.marked::after {
+		content: "";
+		width: 12px;
+		height: 12px;
+		background-color: var(--mk-color);
+		border-radius: var(--round);
+		position: absolute;
+	}
+
+	.pip {
+		width: 19px;
+		height: 19px;
+	}
+}
+
+@media (max-height: 790px) {
+	.tracker {
+		&.life svg,
+		&.pain svg {
+			width: 17px;
+			height: 17px;
+		}
+	}
+
+	.pip.marked::after {
+		content: "";
+		width: 10px;
+		height: 10px;
+		background-color: var(--mk-color);
+		border-radius: var(--round);
+		position: absolute;
+	}
+
+	.pip {
+		width: 17px;
+		height: 17px;
+	}
+}
+
+@media (max-height: 720px) {
+	.tracker {
+		&.life svg,
+		&.pain svg {
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+	.pip.marked::after {
+		content: "";
+		width: 8px;
+		height: 8px;
+		background-color: var(--mk-color);
+		border-radius: var(--round);
+		position: absolute;
+	}
+
+	.pip {
+		width: 15px;
+		height: 15px;
+	}
 }
