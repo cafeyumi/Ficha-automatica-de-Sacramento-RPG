@@ -12,9 +12,9 @@ const init = () => {
 
 	profile();
 	trackerSystem();
-	sinaButtons();
+	sinaSystem(); // ultima vez revisado: 12/04, avaliação: otima
 	diceSystem();
-	dropdownSystem();
+	levelSystem(); // ultima vez revisado: 12/04, avaliação: otima
 	skillSystem();
 	resize();
 	menuSystem(); // ultima vez revisado: 12/04, avaliação: bom
@@ -46,6 +46,7 @@ const resposta = await fetch("/src/data/skills.json");
 const skills = await resposta.json();
 
 let multipleHabId = 0;
+const currentSkills = [];
 
 const stats = {
 	baseStats: {
@@ -108,9 +109,143 @@ const stats = {
 		sina: 0,
 		money: 200,
 	},
+
+	limit: {
+		skills: 0,
+	},
 };
 
-const currentSkills = [];
+// #region ========== LEVEL SYSTEM ==========
+function levelSystem() {
+	const dropdown = document.querySelector(".dropdown");
+
+	const dropdownValue = dropdown.querySelector(".dropdown__value");
+	const dropdownOptions = dropdown.querySelector(".dropdown__options");
+
+	dropdown.addEventListener("click", (event) => {
+		const target = event.target;
+
+		if (target.matches(".dropdown__btn")) {
+			dropdownOptions.classList.toggle("dropdown__options--hide");
+		}
+
+		if (target.matches(".dropdown__option")) {
+			const selectedValue = Number(target.dataset.value);
+			dropdownValue.innerHTML = selectedValue;
+
+			updateStats("level", selectedValue);
+			renderLevel();
+
+			dropdownOptions.classList.toggle("dropdown__options--hide");
+		}
+	});
+}
+
+function renderLevel() {
+	if (currentSkills.length === 0) {
+		currentSkillsList.classList.remove(
+			"informations-skills__selected-skills--show",
+		);
+	} else {
+		currentSkillsList.classList.add(
+			"informations-skills__selected-skills--show",
+		);
+	}
+
+	if (currentSkills.length >= stats.limit.skills) {
+		addSkillButton.classList.add(
+			"informations-skills__add-skill-button--limit",
+		);
+	} else {
+		addSkillButton.classList.remove(
+			"informations-skills__add-skill-button--limit",
+		);
+	}
+}
+
+function updateLevel() {
+	const level = stats.experience.level;
+
+	switch (level) {
+		case 1: {
+			stats.limit.skills = 2;
+			break;
+		}
+		case 2: {
+			stats.limit.skills = 3;
+			stats.bonusStats.life *= 2;
+			break;
+		}
+		case 3: {
+			stats.limit.skills = 4;
+			stats.bonusStats.life *= 2;
+			break;
+		}
+		case 4: {
+			stats.limit.skills = 5;
+			stats.bonusStats.life *= 3;
+			break;
+		}
+		case 5: {
+			stats.limit.skills = 5;
+			stats.bonusStats.life *= 4;
+			break;
+		}
+		case 6: {
+			stats.limit.skills = 6;
+			stats.bonusStats.life *= 4;
+			stats.bonusStats.life += 3;
+			break;
+		}
+	}
+}
+// #endregion
+
+// #region ========== SINA SYSTEM ==========
+function sinaSystem() {
+	const sinaSound = new Audio("/src/assets/audios/sina.mp3");
+	const sina = document.querySelector(".sina-cards__container");
+	const minusButton = sina.querySelector("#minus");
+	const plusButton = sina.querySelector("#plus");
+	const sinaValue = sina.querySelector("#sina");
+
+	sina.addEventListener("click", (event) => {
+		const target = event.target;
+		if (target.matches("#plus")) {
+			if (stats.miscellany.sina < 99) {
+				stats.miscellany.sina++;
+				sinaSound.currentTime = 0;
+				sinaSound.play();
+				renderSina(sinaValue, minusButton, plusButton);
+			}
+		}
+		if (target.matches("#minus")) {
+			if (stats.miscellany.sina > 0) {
+				stats.miscellany.sina--;
+				sinaSound.currentTime = 0;
+				sinaSound.play();
+				renderSina(sinaValue, minusButton, plusButton);
+			}
+		}
+	});
+}
+
+function renderSina(sinaValue, minusButton, plusButton) {
+	if (stats.miscellany.sina <= 0) {
+		minusButton.classList.add("sina-cards__button--blocked");
+	} else {
+		minusButton.classList.remove("sina-cards__button--blocked");
+	}
+
+	if (stats.miscellany.sina === 99) {
+		plusButton.classList.add("sina-cards__button--blocked");
+	} else {
+		plusButton.classList.remove("sina-cards__button--blocked");
+	}
+
+	sinaValue.innerHTML = stats.miscellany.sina;
+}
+// #endregion ========== SINA SYSTEM ==========
 
 function diceSystem() {
 	const diceSound = new Audio(`/src/assets/audios/dice.mp3`);
@@ -284,51 +419,6 @@ function trackerSystem() {
 	});
 }
 
-// ========== Função que mecaniza os botões de Sina via DOM e recebe seus valores ==========
-function sinaButtons() {
-	const sinaSound = new Audio(`/src/assets/audios/sina.mp3`);
-	const sinaBtns = [...document.querySelectorAll(`.sina-cards__button`)];
-	const sinaValue = document.querySelector(`#sina`);
-	const minusBtn = document.querySelector(`#minus`);
-	const plusBtn = document.querySelector(`#plus`);
-
-	if (stats.miscellany.sina === 0) {
-		minusBtn.classList.add(`sina-cards__button--blocked`);
-	}
-
-	sinaBtns.forEach((button) => {
-		button.addEventListener(`click`, (event) => {
-			if (event.target.id === `plus`) {
-				if (stats.miscellany.sina < 99) {
-					stats.miscellany.sina += 1;
-					sinaSound.currentTime = 0;
-					sinaSound.play();
-				}
-			} else {
-				if (stats.miscellany.sina > 0) {
-					stats.miscellany.sina -= 1;
-					sinaSound.currentTime = 0;
-					sinaSound.play();
-				}
-			}
-
-			if (stats.miscellany.sina <= 0) {
-				minusBtn.classList.add(`sina-cards__button--blocked`);
-			} else {
-				minusBtn.classList.remove(`sina-cards__button--blocked`);
-			}
-
-			if (stats.miscellany.sina === 99) {
-				plusBtn.classList.add(`sina-cards__button--blocked`);
-			} else {
-				plusBtn.classList.remove(`sina-cards__button--blocked`);
-			}
-
-			sinaValue.innerHTML = stats.miscellany.sina;
-		});
-	});
-}
-
 // ========== Função que controla o sistema dos Trackers ==========
 function markSystem(allPips, value, type) {
 	for (let index in allPips) {
@@ -402,24 +492,13 @@ function updateStats(type, value) {
 	stats.bonusStats.movement = stats.attributes.speed;
 	stats.bonusStats.combat = stats.attributes.courage;
 
-	// ========== VERIFICAR O VALOR DO LEVEL ATUAL ==========
+	// ========== INPUT DO USUARIO É ADICIONADO AO LEVEL ==========
 
-	if (type === `level`) {
-		stats.experience.level = Number(value);
+	if (type === "level") {
+		stats.experience.level = value;
 	}
 
-	if (stats.experience.level === 2) {
-		stats.bonusStats.life *= 2;
-	} else if (stats.experience.level === 3) {
-		stats.bonusStats.life *= 2;
-	} else if (stats.experience.level === 4) {
-		stats.bonusStats.life *= 3;
-	} else if (stats.experience.level === 5) {
-		stats.bonusStats.life *= 4;
-	} else if (stats.experience.level === 6) {
-		stats.bonusStats.life *= 4;
-		stats.bonusStats.life += 3;
-	}
+	updateLevel();
 
 	// ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
 
@@ -446,35 +525,6 @@ function updateStats(type, value) {
 	extras.forEach((extra) => {
 		const extraType = extra.dataset.for;
 		extra.value = stats.extraStats[extraType];
-	});
-}
-
-function dropdownSystem() {
-	const allDropdowns = [...document.querySelectorAll(`.dropdown`)];
-
-	allDropdowns.forEach((dropdown) => {
-		const dropBtn = dropdown.querySelector(`.dropdown__btn`);
-		const btnValue = dropBtn.querySelector(`span`);
-		const dropType = dropBtn.id;
-		const dropOptions = dropdown.querySelector(`.dropdown__options`);
-
-		dropBtn.addEventListener(`click`, () => {
-			dropOptions.classList.toggle(`dropdown__options--hide`);
-		});
-
-		const dropOption = [...dropOptions.children];
-
-		dropOption.forEach((option) => {
-			option.addEventListener(`click`, (event) => {
-				dropOptions.classList.toggle(`dropdown__options--hide`);
-
-				const selectedValue = event.target.dataset.value;
-				btnValue.innerHTML = selectedValue;
-
-				updateStats(dropType, selectedValue);
-				skillsLimiterSync(currentSkills);
-			});
-		});
 	});
 }
 
@@ -615,7 +665,7 @@ function skillSelectButton(button) {
 		);
 	}
 
-	skillsLimiterSync(currentSkills);
+	renderLevel();
 
 	skillsMenu.hidePopover();
 }
@@ -725,58 +775,8 @@ function skillRemoveButton(button) {
 		currentSkillsList.appendChild(clone);
 	});
 
-	skillsLimiterSync(currentSkills);
-}
-
-function skillsLimiterSync(array) {
-	let skillLimit = 0;
-	switch (stats.experience.level) {
-		case 1: {
-			skillLimit = 2;
-			break;
-		}
-		case 2: {
-			skillLimit = 3;
-			break;
-		}
-		case 3: {
-			skillLimit = 4;
-			break;
-		}
-		case 4: {
-			skillLimit = 5;
-			break;
-		}
-		case 5: {
-			skillLimit = 5;
-			break;
-		}
-		case 6: {
-			skillLimit = 6;
-			break;
-		}
-	}
-
-	if (array.length === 0) {
-		currentSkillsList.classList.remove(
-			"informations-skills__selected-skills--show",
-		);
-	} else {
-		currentSkillsList.classList.add(
-			"informations-skills__selected-skills--show",
-		);
-	}
-
-	if (currentSkills.length >= skillLimit) {
-		addSkillButton.classList.add(
-			"informations-skills__add-skill-button--limit",
-		);
-	} else {
-		document;
-		addSkillButton.classList.remove(
-			"informations-skills__add-skill-button--limit",
-		);
-	}
+	updateLevel();
+	renderLevel();
 }
 
 // ========== RESIZE SYSTEM ==========
