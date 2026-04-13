@@ -126,11 +126,9 @@ const ANTECEDENTS_TYPES = [
 ];
 const MAIN_TYPES = [`life`, `pain`, `combat`, `movement`];
 const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
-
 // ========== DOM =========
 
-; // pega a lista de skills adicionadas no DOM
-; // Pega o botão de adicionar skills do DOM
+// pega a lista de skills adicionadas no DOM // Pega o botão de adicionar skills do DOM
 
 const lifeSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><title>Circulo de Vida</title><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>`;
 const painSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><title>Circulo de Dor</title><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>`;
@@ -161,8 +159,8 @@ function levelSystem() {
 }
 
 function renderLevel() {
-	const addSkillButton = document.querySelector("#skillAddBtn")
-	const currentSkillsList = document.querySelector("#selectedSkills")
+	const addSkillButton = document.querySelector("#skillAddBtn");
+	const currentSkillsList = document.querySelector("#selectedSkills");
 
 	const dropdownValue = document.querySelector(".dropdown__value");
 	dropdownValue.innerHTML = stats.experience.level;
@@ -453,7 +451,7 @@ function collapseButton(button) {
 
 // #region ========== SKILL SYSTEM ===================
 function skillSystem() {
-	const currentSkillsList = document.querySelector("#selectedSkills")
+	const currentSkillsList = document.querySelector("#selectedSkills");
 	const informations = document.querySelector("#informations");
 	const skillsMenu = document.querySelector("#skillsMenu");
 	const combatSkills = document.querySelector("#combatSkills");
@@ -465,7 +463,8 @@ function skillSystem() {
 		const target = event.target;
 
 		if (target.matches(".collapse-button")) return collapseButton(target);
-		if (target.matches(".remove-button")) return skillRemoveButton(target, currentSkillsList);
+		if (target.matches(".remove-button"))
+			return skillRemoveButton(target, currentSkillsList);
 		if (target.matches("#skillAddBtn"))
 			return skillAddButton(combatSkills, professionSkills);
 	});
@@ -475,7 +474,8 @@ function skillSystem() {
 	skillsMenu.addEventListener("click", (event) => {
 		const target = event.target;
 		if (target.matches(".collapse-button")) return collapseButton(target);
-		if (target.matches(".select-button")) return skillSelectButton(target, currentSkillsList);
+		if (target.matches(".select-button"))
+			return skillSelectButton(target, currentSkillsList);
 	});
 }
 
