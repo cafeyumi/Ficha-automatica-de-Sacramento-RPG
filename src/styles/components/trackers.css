@@ -1,3 +1,24 @@
+@media (min-width: 2560px) {
+.pip.svg {
+		width: 40px;
+		height: 40px;
+	}
+
+	.pip.marked::after {
+		content: "";
+		width: 20px;
+		height: 20px;
+		background-color: var(--mk-color);
+		border-radius: var(--round);
+		position: absolute;
+	}
+
+	.pip.dot {
+		width: 40px;
+		height: 40px;
+	}
+}
+
 .tracker {
 	display: flex;
 	align-items: center;
@@ -7,16 +28,6 @@
 	&.life path,
 	&.pain path {
 		pointer-events: none;
-	}
-
-	&.life svg,
-	&.pain svg {
-		display: flex;
-		margin-bottom: 0.3125rem;
-		width: 23px;
-		height: 23px;
-		fill: var(--bg-color-muted);
-		cursor: pointer;
 	}
 }
 
@@ -34,7 +45,7 @@
 	position: absolute;
 }
 
-.pip {
+.pip.dot {
 	display: flex;
 	flex-shrink: 0;
 	justify-content: center;
@@ -47,13 +58,19 @@
 	border-radius: var(--round);
 }
 
+.pip.svg {
+	display: flex;
+	margin-bottom: 0.3125rem;
+	width: 23px;
+	height: 23px;
+	fill: var(--bg-color-muted);
+	cursor: pointer;
+}
+
 @media (max-height: 960px) {
-	.tracker {
-		&.life svg,
-		&.pain svg {
-			width: 21px;
-			height: 21px;
-		}
+	.pip.svg {
+		width: 21px;
+		height: 21px;
 	}
 
 	.pip.marked::after {
@@ -65,19 +82,16 @@
 		position: absolute;
 	}
 
-	.pip {
+	.pip.dot {
 		width: 21px;
 		height: 21px;
 	}
 }
 
 @media (max-height: 900px) {
-	.tracker {
-		&.life svg,
-		&.pain svg {
-			width: 20px;
-			height: 20px;
-		}
+	.pip.svg {
+		width: 20px;
+		height: 20px;
 	}
 
 	.pip.marked::after {
@@ -89,19 +103,16 @@
 		position: absolute;
 	}
 
-	.pip {
+	.pip.dot {
 		width: 20px;
 		height: 20px;
 	}
 }
 
 @media (max-height: 840px) {
-	.tracker {
-		&.life svg,
-		&.pain svg {
-			width: 19px;
-			height: 19px;
-		}
+	.pip.svg {
+		width: 19px;
+		height: 19px;
 	}
 
 	.pip.marked::after {
@@ -113,19 +124,16 @@
 		position: absolute;
 	}
 
-	.pip {
+	.pip.dot {
 		width: 19px;
 		height: 19px;
 	}
 }
 
 @media (max-height: 790px) {
-	.tracker {
-		&.life svg,
-		&.pain svg {
-			width: 17px;
-			height: 17px;
-		}
+	.pip.svg {
+		width: 17px;
+		height: 17px;
 	}
 
 	.pip.marked::after {
@@ -137,19 +145,16 @@
 		position: absolute;
 	}
 
-	.pip {
+	.pip.dot {
 		width: 17px;
 		height: 17px;
 	}
 }
 
 @media (max-height: 720px) {
-	.tracker {
-		&.life svg,
-		&.pain svg {
-			width: 15px;
-			height: 15px;
-		}
+	.pip.svg {
+		width: 15px;
+		height: 15px;
 	}
 
 	.pip.marked::after {
@@ -161,7 +166,7 @@
 		position: absolute;
 	}
 
-	.pip {
+	.pip.dot {
 		width: 15px;
 		height: 15px;
 	}
