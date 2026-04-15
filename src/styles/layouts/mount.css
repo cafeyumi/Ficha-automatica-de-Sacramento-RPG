@@ -60,10 +60,15 @@
 }
 
 .mount__input {
+	color: var(--fg-color);
 	font-family: var(--poppins);
 	font-size: var(--text-sm);
 	width: 12rem;
 	padding: var(--space-1) var(--space-2);
+
+	&::placeholder {
+		color: var(--placeholder-color);
+	}
 }
 
 .mount__dropdown {
@@ -103,14 +108,6 @@
 	line-height: 1;
 	letter-spacing: 0.75px;
 	display: flex;
-
-	> span {
-		cursor: pointer;
-
-		&:hover {
-			color: var(--text-highlight);
-		}
-	}
 
 	svg {
 		margin-left: var(--space-1);

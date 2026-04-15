@@ -41,17 +41,9 @@
 	color: var(--bg-color-muted);
 	font-family: var(--poppins);
 	font-size: var(--text-sm);
-	padding: var(--space-1) var(--space-3) var(--space-1) var(--space-4);
+	padding: var(--space-1) var(--space-3) var(--space-1) var(--space-8);
 	font-weight: 600;
 	cursor: pointer;
-
-	svg {
-		position: absolute;
-		left: -6.5px;
-		height: var(--space-4);
-		width: var(--space-4);
-		fill: var(--bg-color-muted);
-	}
 }
 
 .remove-button.remove-button--none {
@@ -79,8 +71,19 @@
 		display: inline-flex;
 		position: relative;
 		top: 2px;
-		width: var(--text-base);
-		height: var(--text-base);
+		width: var(--text-sm);
+		height: var(--text-sm);
+	}
+
+	.skill__button-remove {
+		svg {
+			position: absolute;
+			top: 0.4rem;
+			left: 0.5rem;
+			height: var(--space-4);
+			width: var(--space-4);
+			fill: var(--bg-color-muted);
+		}
 	}
 }
 

@@ -34,13 +34,8 @@
 }
 
 .attributes__content {
-	> p {
-		cursor: pointer;
+	> span {
 		margin-bottom: var(--space-1);
 		width: fit-content;
-
-		&:hover {
-			color: var(--text-highlight);
-		}
 	}
 }

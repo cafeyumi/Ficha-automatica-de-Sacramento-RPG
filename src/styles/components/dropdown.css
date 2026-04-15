@@ -14,6 +14,7 @@
 	cursor: pointer;
 
 	svg {
+		transition: all 100ms ease;
 		width: var(--space-4);
 		height: var(--space-4);
 		pointer-events: none;
@@ -22,6 +23,12 @@
 	span {
 		pointer-events: none;
 		font-weight: 500;
+	}
+}
+
+.dropdown__btn.dropdown__btn--open {
+	svg {
+		transform: rotate(-180deg);
 	}
 }
 

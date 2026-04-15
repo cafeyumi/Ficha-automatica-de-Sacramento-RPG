@@ -370,7 +370,7 @@
 				</div>
 				<div class="attributes__inner-content">
 					<div class="attributes__content">
-						<p>FISICO</p>
+						<span class="has-tooltip" data-for="physical">FISICO</span>
 						<div
 							id="physical"
 							data-subtype="attributes"
@@ -387,7 +387,7 @@
 						</div>
 					</div>
 					<div class="attributes__content">
-						<p>VELOCIDADE</p>
+						<span class="has-tooltip" data-for="speed">VELOCIDADE</span>
 						<div
 							id="speed"
 							data-subtype="attributes"
@@ -404,7 +404,7 @@
 						</div>
 					</div>
 					<div class="attributes__content">
-						<p>INTELECTO</p>
+						<span class="has-tooltip" data-for="intellect">INTELECTO</span>
 						<div
 							id="intellect"
 							data-subtype="attributes"
@@ -421,7 +421,7 @@
 						</div>
 					</div>
 					<div class="attributes__content">
-						<p>CORAGEM</p>
+						<span class="has-tooltip" data-for="courage">CORAGEM</span>
 						<div
 							id="courage"
 							data-subtype="attributes"
@@ -456,7 +456,7 @@
 					</button>
 					<div class="sina-cards__cards">
 						<p id="sina" class="sina-cards__value">0</p>
-						<img src="/src/assets/images/sinaCards.png" alt="">
+						<img draggable="false" src="/src/assets/images/sinaCards.png" alt="">
 					</div>
 					<button id="plus" class="sina-cards__button" type="button">
 						<svg
@@ -516,7 +516,7 @@
 					</button>
 				</div>
 				<div
-					id="informationsRedemption"
+					id="botarquidepois"
 					class="informations__redemption menu__container menu__container--closed">
 					<div class="informations__redemption-path">
 						<button type="button">back</button>
@@ -606,20 +606,20 @@
 					<div class="antecedents__left">
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Atenção</p>
+								<span class="has-tooltip" data-for="attention">Atenção</span>
 								<svg
 									data-type="attention"
 									data-name="Atenção"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="attention"
 									data-subtype="antecedents"
@@ -636,20 +636,20 @@
 						</div>
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Medicina</p>
+								<span class="has-tooltip" data-for="medicine">Medicina</span>
 								<svg
 									data-type="medicine"
 									data-name="Medicina"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="medicine"
 									data-subtype="antecedents"
@@ -666,20 +666,20 @@
 						</div>
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Montaria</p>
+								<span class="has-tooltip" data-for="mount">Montaria</span>
 								<svg
 									data-type="mount"
 									data-name="Montaria"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="mount"
 									data-subtype="antecedents"
@@ -697,20 +697,20 @@
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Negócios</p>
+								<span class="has-tooltip" data-for="business">Negócios</span>
 								<svg
 									data-type="business"
 									data-name="Negócios"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="business"
 									data-subtype="antecedents"
@@ -730,20 +730,20 @@
 					<div class="antecedents__right">
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Roubo</p>
+								<span class="has-tooltip" data-for="theft">Roubo</span>
 								<svg
 									data-type="theft"
 									data-name="Roubo"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="theft"
 									data-subtype="antecedents"
@@ -761,20 +761,20 @@
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Suor</p>
+								<span class="has-tooltip" data-for="sweat">Suor</span>
 								<svg
 									data-type="sweat"
 									data-name="Suor"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="sweat"
 									data-subtype="antecedents"
@@ -792,20 +792,20 @@
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Tradição</p>
+								<span class="has-tooltip" data-for="tradition">Tradição</span>
 								<svg
 									data-type="tradition"
 									data-name="Tradição"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="tradition"
 									data-subtype="antecedents"
@@ -823,20 +823,20 @@
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<p>Violência</p>
+								<span class="has-tooltip" data-for="violence">Violência</span>
 								<svg
 									data-type="violence"
 									data-name="Violência"
 									class="dice"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 448 512">
-									<title>Simbolo de um dado</title>
+									<title>Icone de dado</title>
 									<path
 										d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 								</svg>
 							</div>
 							<div class="antecedents__tracker">
-								<p>1D6+</p>
+								<span>1D6+</span>
 								<div
 									id="violence"
 									data-subtype="antecedents"
@@ -863,13 +863,18 @@
 					<div class="mount__left">
 						<div>
 							<label class="mount__label" for="mountName">Nome</label>
-							<input id="mountName" class="mount__input save-input" type="text">
+							<input
+								id="mountName"
+								placeholder="Novo companheiro"
+								class="mount__input save-input"
+								type="text"
+								autocomplete="off">
 						</div>
 						<div class="mount__dropdown">
 							<span>Fidelidade</span>
 							<div class="dropdown">
 								<button class="dropdown__btn dropdown__mount-btn" type="button">
-									<span class="dropdown__value dropdown__btn-text">1</span>
+									<span class="dropdown__value dropdown__btn-text">0</span>
 									<svg
 										aria-hidden="true"
 										xmlns="http://www.w3.org/2000/svg"
@@ -1075,14 +1080,14 @@
 				<div class="mount__bottom">
 					<div>
 						<div class="mount__tracker-title">
-							<span>Potência</span>
+							<span class="has-tooltip" data-for="potency">Potência</span>
 							<svg
 								data-type="potency"
 								data-name="Potência"
 								class="dice"
 								xmlns="http://www.w3.org/2000/svg"
 								viewBox="0 0 448 512">
-								<title>Simbolo de um dado</title>
+								<title>Icone de dado</title>
 								<path
 									d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
 							</svg>
@@ -1101,7 +1106,9 @@
 						</div>
 					</div>
 					<div>
-						<div class="mount__tracker-title"><span>Resistência</span></div>
+						<div class="mount__tracker-title">
+							<span class="has-tooltip" data-for="endurance">Resistência</span>
+						</div>
 						<div
 							id="endurance"
 							data-subtype="mount"
@@ -1137,9 +1144,30 @@
 				<div id="equipmentCombat" class="menu__container"></div>
 				<div id="equipmentItems" class="menu__container menu__container--closed"></div>
 			</section>
-
-			<section id="rolls" class="rolls"></section>
 		</main>
+
+		<div id="rolls" class="rolls"></div>
+
+		<div popover id="tooltip" class="tooltip-popover">
+			<div class="tooltip-header">
+				<span id="tooltipName"></span>
+				<button class="tooltip-exitBtn" popovertarget="tooltip" type="button">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="16"
+						height="16"
+						fill="#000000"
+						viewBox="0 0 256 256">
+						<title>Fechar tooltip</title>
+						<path
+							d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path>
+					</svg>
+				</button>
+			</div>
+			<div class="tooltip-description">
+				<p id="tooltipDescription"></p>
+			</div>
+		</div>
 
 		<div popover id="skillsMenu" class="menu skills-menu">
 			<menu class="buttons-header skills-menu__header">

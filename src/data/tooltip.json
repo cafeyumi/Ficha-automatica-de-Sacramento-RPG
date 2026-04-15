@@ -1,0 +1,56 @@
+{
+	"physical": {
+		"name": "Fisico",
+		"description": "Determina quantos Círculos de Vida você têm e indica sua resistência a doenças, venenos e ferimentos."
+	},
+	"speed": {
+		"name": "Velocidade",
+		"description": "É sua rapidez com as pernas, seus reflexos e a capacidade de se esquivar na hora certa de armadilhas ou explosões."
+	},
+	"intellect": {
+		"name": "Intelecto",
+		"description": "É sua inteligência e a capacidade de descobrir, notar, perceber enganações e memorizar fatos."
+	},
+	"courage": {
+		"name": "Coragem",
+		"description": "Mede a prontidão no combate, Velocidade para agir, capacidade de controlar medos, paciência e a força de vontade."
+	},
+	"attention": {
+		"name": "Atenção",
+		"description": "Era preciso ficar de olho aberto e de prontidão para tudo o que acontecia ao seu redor. Você pode ter sido, por exemplo, um explorador das matas, um desbravador ou uma caçadora em busca de alimento. Alguém que não podia deixar passar qualquer detalhe. Consequentemente, se tornou o tipo de pessoa que detecta coisas fora do lugar, compartimentos ou passagens secretas, emboscadas ou arapucas que possam pegá-lo desprevenido."
+	},
+	"medicine": {
+		"name": "Medicina",
+		"description": "Nas universidades do Estrangeiro, no Oriente ou nas tradições do seu povo, você aprendeu a cuidar do bem-estar e da saúde alheia. Com bisturis, xaropes, bandagens, ervas, unguentos, cuspe ou cola, você jurou salvar vidas e é isso que faz. Curar pessoas e animais, avaliar doenças e venenos, fazer cirurgias improvisadas com o que estiver à mão. Com um ponto em Medicina, não é preciso fazer um Teste para recuperar seus {life} ou dos seus pacientes durante os merecidos descansos."
+	},
+	"mount": {
+		"name": "Montaria",
+		"description": "Sua bunda passou mais tempo sentada numa sela de cavalo do que numa cadeira. Você viveu mais ao lado de cavalos, burros, jegues e mulas do que lidando com seres humanos. Cuidar de gado pode ser algo que você faz bem, assim como adestrar equinos selvagens, cuidar de vacas, ovelhas, cabras e vários outros animais de pastoreio."
+	},
+	"business": {
+		"name": "Negócios",
+		"description": "Você viveu entre sorrisos falsos, apertos de mão duvidoso olhares sedutores, golpes e mentiras. É alguém de sorriso fácil, fala mansa e papinho mole para vender seu tônico de peroba, fechar negócios ou conseguir favores. Você sabe mentir, convencer, seduzir, vender, manipular e, obviamente, negociar."
+	},
+	"theft": {
+		"name": "Roubo",
+		"description": "Não ter parado na ponta da forca é um verdadeiro mistério para você, já que contou com malandragem, furtividade e subterfúgio para se esconder, roubar ou trapacear nas cartas com suas mãos leves e rápidas. Dizem que viver assim no Oeste Selvagem é para os covardes, mas para você é só questão de sobrevivência."
+	},
+	"sweat": {
+		"name": "Suor",
+		"description": "Seu passado envolveu trabalho pesado! Nó... foi tempo demais debaixo do sol nas plantações, dentro de minas escuras com mãos cheias de calos e pés congelados no frio das montanhas. Todo esse trabalho deu pra você diversas aptidões físicas como: nadar, correr, saltar, escalar, empurrar, puxar, além de habilidades em diversos ofícios manuais."
+	},
+	"tradition": {
+		"name": "Tradição",
+		"description": "O amor pela terra está cravado no seu coração. Você pode fazer parte dos povos originários do Oeste Selvagem ou de alguém que ama a natureza e aprendeu a sobreviver e se adaptar a ela. Preservar o meio ambiente e todas as origens e conhecimentos humanos é fundamental a você. Por isso, este <strong>Antecedente</strong> pode representar seus conhecimentos sobre culturas, regiões, plantas, animais e tudo o que você pode ter aprendido com os livros ou com a vida."
+	},
+	"violence": {
+		"name": "Violência",
+		"description": "O som das seis balas de um revólver é familiar a você que teve uma vida preenchida pela guerra e pela brutalidade. Foi assim que você viveu e sobreviveu até hoje. Você sabe atirar, lutar, machuchar ou criar estratégias de batalha ou até verificar a procedência de ferimentos, tiros ou cortes."
+	},
+	"potency": {
+		"description": "Potência é o quanto a montaria acelera, corre e mostra sua força nas quatro patas. Para correr, alcançar, aposstar corrida e tudo que envolve a velocidade da montaria, é feito um <strong>Teste de Potência</strong> do animal somado com o <strong>Antecedente Montaria</strong> do PJ. Resumindo: 1d6 + Potência + Antecedente contra NA 6."
+	},
+	"endurance": {
+		"description": "A <strong>Resistência</strong> determina o quanto o animal é forte para uma longa jornada, ferimentos ou doenças. Montarias recebem <strong>+1 {life}</strong> para cada ponto neste Atributo."
+	}
+}

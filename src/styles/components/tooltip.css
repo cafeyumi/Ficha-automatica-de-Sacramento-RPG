@@ -1,0 +1,57 @@
+.has-tooltip {
+	cursor: pointer;
+
+	&:hover {
+		color: var(--text-highlight);
+	}
+}
+
+.tooltip-popover {
+	margin: auto;
+	padding: var(--space-0);
+	width: 38.5rem;
+	background-color: var(--bg-color);
+	border: var(--border-md-fg);
+
+	&::backdrop {
+		background: rgba(48, 31, 11, 0.4);
+		backdrop-filter: blur(2px);
+	}
+}
+
+.tooltip-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: var(--text-3xl);
+	font-family: var(--bebas);
+	letter-spacing: 2px;
+	color: var(--bg-color);
+	padding: var(--space-1) var(--space-3) var(--space-0) var(--space-3);
+	background: var(--fg-color);
+}
+
+.tooltip-description {
+	padding: var(--space-4) var(--space-6);
+	font-family: var(--poppins);
+
+	svg {
+		display: inline-flex;
+		position: relative;
+		top: 2px;
+		width: var(--text-base);
+		height: var(--text-base);
+	}
+}
+
+.tooltip-exitBtn {
+	background: none;
+	border: none;
+	cursor: pointer;
+
+	svg {
+		height: 1.5rem;
+		width: 1.5rem;
+		fill: var(--bg-color);
+	}
+}

@@ -10,6 +10,9 @@ if (localStorage.getItem("savedSkills") !== null) {
 	currentSkills = [];
 }
 
+const tooltipsJSON = await fetch("/src/data/tooltip.json");
+const tooltipsContent = await tooltipsJSON.json();
+
 const init = () => {
 	// Define os valores iniciais caso seja a primeira vez do usuario
 	if (localStorage.getItem("savedStats") !== null) {
@@ -32,18 +35,19 @@ const init = () => {
 	trackersSystem(); // ultima vez revisado: 13/04, avaliação: boom
 	renderTrackers(); // ultima vez revisado: 13/04, avaliação: bom
 
-	renderExtras();
-
-	diceSystem();
-
 	inputsSystem(); // ultima vez revisado: 13/04, avaliação: otima
 	renderInputs(); // ultima vez revisado: 13/04, avaliação: otima
 
 	skillSystem(); // ultima vez revisado: 13/04, avaliação: meh
 	renderSkills("select", currentSkills); // ultima vez revisado: 13/04, avaliação: duvidosa
 
-	resize();
 	menuSystem(); // ultima vez revisado: 12/04, avaliação: bom
+
+	tooltipSystem(); // ultima vez revisado: 15/04, avaliação: bom
+
+	renderExtras();
+	diceSystem();
+	resize();
 };
 
 const stats = {
@@ -168,6 +172,7 @@ function levelSystem() {
 
 		if (target.matches(".dropdown__btn")) {
 			dropdownOptions.classList.toggle("dropdown__options--hide");
+			target.classList.toggle("dropdown__btn--open");
 		}
 
 		if (target.matches(".dropdown__option")) {
@@ -738,6 +743,36 @@ function renderExtras() {
 	extras.forEach((extra) => {
 		const type = extra.dataset.for;
 		extra.value = stats.extraStats[type];
+	});
+}
+
+function tooltipSystem() {
+	const allTooltips = [...document.querySelectorAll(".has-tooltip")];
+	const tooltipMenu = document.querySelector("#tooltip");
+	const tooltipName = tooltipMenu.querySelector("#tooltipName");
+	const tooltipDescription = tooltipMenu.querySelector("#tooltipDescription");
+
+	allTooltips.forEach((tooltip) => {
+		tooltip.addEventListener("click", (e) => {
+			const target = e.target;
+			const identifier = target.dataset.for;
+
+			const contentCheck = Object.entries(tooltipsContent).find(
+				([type]) => identifier === type,
+			);
+
+			const [, content] = contentCheck;
+
+			const name = content.name;
+			const description = content.description
+				.replace(/\{life\}/g, lifeSvg)
+				.replace(/\{pain\}/g, painSvg);
+
+			tooltipName.innerHTML = name;
+			tooltipDescription.innerHTML = description;
+
+			tooltipMenu.showPopover();
+		});
 	});
 }
 

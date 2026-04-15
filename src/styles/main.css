@@ -7,6 +7,7 @@
 @import url(/src/styles/components/collapse.css);
 @import url(/src/styles/components/menu.css);
 @import url(/src/styles/components/skill.css);
+@import url(/src/styles/components/tooltip.css);
 
 @import url(/src/styles/layouts/character.css);
 @import url(/src/styles/layouts/attributes.css);
@@ -39,6 +40,11 @@ body {
 	height: 100dvh;
 	user-select: none;
 	overflow: hidden;
+
+	&::selection {
+		color: var(--bg-color);
+		background: var(--text-highlight);
+	}
 }
 
 label {

@@ -66,14 +66,6 @@
 	letter-spacing: 0.75px;
 	display: flex;
 
-	> p {
-		cursor: pointer;
-
-		&:hover {
-			color: var(--text-highlight);
-		}
-	}
-
 	svg {
 		margin-left: var(--space-1);
 		width: var(--space-5);
