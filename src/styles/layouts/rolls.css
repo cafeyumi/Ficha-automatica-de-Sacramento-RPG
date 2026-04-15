@@ -96,9 +96,9 @@
 }
 
 .rolls__value--crit {
-	color: rgb(201, 125, 12);
+	color: rgb(197, 123, 11);
 }
 
 .rolls__value--fail {
-	color: rgb(190, 51, 26);
+	color: rgb(196, 40, 13);
 }

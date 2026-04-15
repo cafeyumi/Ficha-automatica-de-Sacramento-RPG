@@ -1,0 +1,125 @@
+.mount {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--bg-color);
+	padding: var(--space-3) var(--space-2);
+	grid-area: mount;
+	border: var(--border-md-fg);
+	height: 100%;
+}
+
+.mount__header {
+	display: flex;
+	justify-content: center;
+
+	&::after {
+		content: "";
+		margin: 0.5rem 0 0 0.5rem;
+		width: 9.5rem;
+		height: 0.125rem;
+		background: var(--fg-color);
+	}
+
+	&::before {
+		content: "";
+		margin: 0.5rem 0.5rem 0 0;
+		width: 9.5rem;
+		height: 0.125rem;
+		background: var(--fg-color);
+	}
+}
+
+.mount__top {
+	display: flex;
+	padding: var(--space-0) var(--space-0) var(--space-0) var(--space-4);
+	margin: 0 0 1.5rem 0;
+}
+
+.mount__bottom {
+	display: flex;
+	width: 100%;
+	justify-content: space-evenly;
+}
+
+.mount__left {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.mount__right {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: flex-end;
+	flex-direction: column;
+}
+
+.mount__label {
+	font-size: var(--text-sm);
+}
+
+.mount__input {
+	font-family: var(--poppins);
+	font-size: var(--text-sm);
+	width: 12rem;
+	padding: var(--space-1) var(--space-2);
+}
+
+.mount__dropdown {
+	display: flex;
+	align-items: center;
+
+	span {
+		font-family: var(--poppins);
+		margin-right: 0.5rem;
+		font-size: var(--text-sm);
+	}
+}
+
+.mount_tracker {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--space-8);
+	font-family: var(--bebas);
+	font-size: var(--text-2xl);
+	letter-spacing: 0.75px;
+	line-height: 1;
+
+	span {
+		margin-right: var(--space-2);
+	}
+}
+
+.tracker.mount_tracker-gap {
+	gap: 0.25rem;
+}
+
+.mount__tracker-title {
+	font-family: var(--bebas);
+	font-size: var(--text-2xl);
+	margin-bottom: 0.25rem;
+	line-height: 1;
+	letter-spacing: 0.75px;
+	display: flex;
+
+	> span {
+		cursor: pointer;
+
+		&:hover {
+			color: var(--text-highlight);
+		}
+	}
+
+	svg {
+		margin-left: var(--space-1);
+		width: var(--space-5);
+		height: var(--space-5);
+		cursor: pointer;
+	}
+
+	path {
+		pointer-events: none;
+	}
+}

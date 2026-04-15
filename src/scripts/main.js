@@ -17,7 +17,6 @@ const init = () => {
 
 		Object.keys(actualStats).forEach((category) => {
 			Object.assign(stats[category], actualStats[category]);
-			console.log(stats[category]);
 		});
 	}
 
@@ -54,6 +53,9 @@ const stats = {
 		defense: 5,
 		combat: 1,
 		movement: 1,
+
+		mountPain: 6,
+		mountLife: 6,
 	},
 
 	currentStats: {
@@ -62,6 +64,9 @@ const stats = {
 		defense: 5,
 		combat: 1,
 		movement: 1,
+
+		mountPain: 6,
+		mountLife: 6,
 	},
 
 	bonusStats: {
@@ -70,6 +75,9 @@ const stats = {
 		defense: 0,
 		combat: 0,
 		movement: 0,
+
+		mountPain: 0,
+		mountLife: 0,
 	},
 
 	extraStats: {
@@ -78,6 +86,8 @@ const stats = {
 		defense: 0,
 		combat: 0,
 		movement: 0,
+		mountPain: 0,
+		mountLife: 0,
 	},
 
 	attributes: {
@@ -103,6 +113,12 @@ const stats = {
 		violence: 0,
 	},
 
+	mount: {
+		potency: 0,
+		endurance: 0,
+		loyalty: 1,
+	},
+
 	miscellany: {
 		bounty: 0,
 		sina: 0,
@@ -124,7 +140,14 @@ const ANTECEDENTS_TYPES = [
 	`tradition`,
 	`violence`,
 ];
-const MAIN_TYPES = [`life`, `pain`, `combat`, `movement`];
+const MAIN_TYPES = [
+	`life`,
+	`pain`,
+	`combat`,
+	`movement`,
+	"mountLife",
+	"mountPain",
+];
 const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
 // ========== DOM =========
 
@@ -317,7 +340,6 @@ function trackersSystem() {
 				playSound(trackerSound);
 
 				const i = allPips.indexOf(target);
-				console.log(i);
 
 				const selectedValue = markSystem(allPips, i);
 
@@ -379,6 +401,7 @@ function markSystem(allPips, value) {
 	const selectedPips = allPips.filter((pip) =>
 		pip.classList.contains(`marked`),
 	).length;
+
 	return selectedPips;
 }
 // #endregion ======= TRACKER SYSTEM =================
@@ -409,12 +432,15 @@ function renderInputs() {
 // #region ========== COMPONENTS =====================
 function menuSystem() {
 	const allMenus = document.querySelectorAll(".menu");
+	const menuSound = new Audio("src/assets/audios/menu.wav");
 
 	allMenus.forEach((menu) => {
 		menu.addEventListener("click", (event) => {
 			const target = event.target;
 
 			if (target.matches(".header-button")) {
+				playSound(menuSound);
+
 				[...target.closest(".buttons-header").children].forEach((buttons) => {
 					[...buttons.children].forEach((button) => {
 						button.classList.remove("header-button--selected");
@@ -434,8 +460,8 @@ function menuSystem() {
 
 				[
 					...target.closest(".menu").querySelectorAll(`#${selectedContainer}`),
-				].forEach((a) => {
-					a.classList.remove("menu__container--closed");
+				].forEach((container) => {
+					container.classList.remove("menu__container--closed");
 				});
 			}
 		});
@@ -492,7 +518,6 @@ function skillSelectButton(button, currentSkillsList) {
 					skills[index].id = multipleHabId;
 					currentSkills.push({ ...skills[index] });
 					++multipleHabId;
-					console.log(currentSkills);
 				} else {
 					currentSkills.push(...skills.splice(index, 1));
 				}
@@ -647,15 +672,13 @@ function diceSystem() {
 	const rollsPosition = document.querySelector(`#rolls`);
 
 	dices.forEach((dice) => {
-		dice.addEventListener(`click`, (event) => {
+		dice.addEventListener(`click`, (e) => {
 			diceSound.currentTime = 0;
 			diceSound.play();
 
 			const diceResult = Math.floor(Math.random() * (7 - 1) + 1);
-			const type = event.target.dataset.type;
-			const antecedentBonus = stats.antecedents[type];
-			const rollName = event.target.dataset.name;
-			const rollResult = diceResult + antecedentBonus;
+			const type = e.target.dataset.type;
+			const rollName = e.target.dataset.name;
 
 			const template = getTemplate.content.cloneNode(true);
 
@@ -666,7 +689,20 @@ function diceSystem() {
 			diceInput.innerHTML = diceResult;
 
 			const bonusInput = template.querySelector(`.rolls__value-bonus`);
-			bonusInput.innerHTML = antecedentBonus;
+
+			let bonus;
+
+			if (type === "potency") {
+				const mountBonus = stats.antecedents.mount;
+				const potencyBonus = stats.mount.potency;
+				bonus = mountBonus + potencyBonus;
+			} else {
+				bonus = stats.antecedents[type];
+			}
+
+			bonusInput.innerHTML = bonus;
+
+			const rollResult = diceResult + bonus;
 
 			const barrel = template.querySelector(`.barrel`);
 			barrel.src = `/src/assets/images/barrel/barrel${diceResult}.png`;
@@ -708,6 +744,14 @@ function renderExtras() {
 function updateStats(type, value) {
 	const extras = [...document.querySelectorAll(`.extra`)];
 
+	// mount
+
+	if (type === "potency" || type === "endurance") {
+		stats.mount[type] = value;
+	}
+
+	stats.bonusStats.mountLife = stats.mount.endurance;
+
 	// ========== CALCULO E ATUALIZAÇÃO DOS ANTECEDENTES ==========
 
 	if (ANTECEDENTS_TYPES.includes(type)) {
@@ -747,9 +791,8 @@ function updateStats(type, value) {
 
 	if (type === "level") {
 		stats.experience.level = value;
+		updateLevel();
 	}
-
-	updateLevel();
 
 	// ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
 
@@ -758,6 +801,11 @@ function updateStats(type, value) {
 	stats.currentStats.movement =
 		stats.baseStats.movement + stats.bonusStats.movement;
 	stats.currentStats.combat = stats.baseStats.combat + stats.bonusStats.combat;
+
+	stats.currentStats.mountLife =
+		stats.baseStats.mountLife + stats.bonusStats.mountLife;
+	stats.currentStats.mountPain =
+		stats.baseStats.mountPain + stats.bonusStats.mountPain;
 
 	// Força o valor do stat vida, dor, defesa, combate e movimento a ser sobescrevido pelo valor do input do usuario
 	if (MAIN_TYPES.includes(type)) {
@@ -775,7 +823,13 @@ function updateStats(type, value) {
 
 	extras.forEach((extra) => {
 		const extraType = extra.dataset.for;
-		extra.value = stats.extraStats[extraType];
+		const extraSubtype = extra.dataset.subtype;
+
+		if (extraSubtype === "mount") {
+			extra.value = stats.extraMount[extraType];
+		} else {
+			extra.value = stats.extraStats[extraType];
+		}
 	});
 
 	saveLocal("savedStats", stats);

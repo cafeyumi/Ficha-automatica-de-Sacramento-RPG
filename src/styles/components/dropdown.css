@@ -55,3 +55,12 @@
 .dropdown__options.dropdown__options--hide {
 	display: none;
 }
+
+.dropdown__btn.dropdown__mount-btn {
+	padding: var(--space-1) var(--space-3);
+	width: var(--space-13);
+
+	span {
+		font-size: var(--text-sm);
+	}
+}

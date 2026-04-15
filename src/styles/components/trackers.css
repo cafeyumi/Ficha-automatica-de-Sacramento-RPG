@@ -67,16 +67,30 @@
 	cursor: pointer;
 }
 
+.svg.mount-pip {
+	width: 20px;
+	min-width: 20px;
+	height: 20px;
+	min-height: 20px;
+}
+
 @media (max-height: 960px) {
 	.pip.svg {
 		width: 21px;
 		height: 21px;
 	}
 
+	.svg.mount-pip {
+		width: 19px;
+		min-width: 19px;
+		height: 19px;
+		min-height: 19px;
+	}
+
 	.pip.marked::after {
 		content: "";
-		width: 14px;
-		height: 14px;
+		width: 13px;
+		height: 13px;
 		background-color: var(--mk-color);
 		border-radius: var(--round);
 		position: absolute;
@@ -94,10 +108,17 @@
 		height: 20px;
 	}
 
+	.svg.mount-pip {
+		width: 18px;
+		min-width: 18px;
+		height: 18px;
+		min-height: 18px;
+	}
+
 	.pip.marked::after {
 		content: "";
-		width: 13px;
-		height: 13px;
+		width: 12px;
+		height: 12px;
 		background-color: var(--mk-color);
 		border-radius: var(--round);
 		position: absolute;
@@ -115,10 +136,17 @@
 		height: 19px;
 	}
 
+	.svg.mount-pip {
+		width: 17px;
+		min-width: 17px;
+		height: 17px;
+		min-height: 17px;
+	}
+
 	.pip.marked::after {
 		content: "";
-		width: 12px;
-		height: 12px;
+		width: 11px;
+		height: 11px;
 		background-color: var(--mk-color);
 		border-radius: var(--round);
 		position: absolute;
@@ -136,10 +164,17 @@
 		height: 17px;
 	}
 
+	.svg.mount-pip {
+		width: 15px;
+		min-width: 15px;
+		height: 15px;
+		min-height: 15px;
+	}
+
 	.pip.marked::after {
 		content: "";
-		width: 10px;
-		height: 10px;
+		width: 9px;
+		height: 9px;
 		background-color: var(--mk-color);
 		border-radius: var(--round);
 		position: absolute;
@@ -157,10 +192,17 @@
 		height: 15px;
 	}
 
+	.svg.mount-pip {
+		width: 13px;
+		min-width: 13px;
+		height: 13px;
+		min-height: 13px;
+	}
+
 	.pip.marked::after {
 		content: "";
-		width: 8px;
-		height: 8px;
+		width: 7px;
+		height: 7px;
 		background-color: var(--mk-color);
 		border-radius: var(--round);
 		position: absolute;

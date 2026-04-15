@@ -4,12 +4,33 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	border: 2px black solid;
+	border: var(--border-md-fg);
 	height: 100%;
 	padding: var(--space-4) var(--space-8) var(--space-6) var(--space-8);
 
 	h2 {
 		margin-bottom: var(--space-4);
+	}
+}
+
+.antecedents__header {
+	display: flex;
+	justify-content: center;
+
+	&::after {
+		content: "";
+		margin: 0.5rem 0 0 0.5rem;
+		width: 7.5rem;
+		height: 0.125rem;
+		background: var(--fg-color);
+	}
+
+	&::before {
+		content: "";
+		margin: 0.5rem 0.5rem 0 0;
+		width: 7.5rem;
+		height: 0.125rem;
+		background: var(--fg-color);
 	}
 }
 

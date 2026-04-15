@@ -15,6 +15,7 @@
 @import url(/src/styles/layouts/skillsMenu.css);
 @import url(/src/styles/layouts/antecedents.css);
 @import url(/src/styles/layouts/rolls.css);
+@import url(/src/styles/layouts/mount.css);
 @import url(/src/styles/layouts/equipment.css);
 
 @media (min-width: 2560px) {
@@ -73,19 +74,12 @@ h2 {
 		"character character attributes attributes sina sina"
 		"informations antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
 		"informations antecedents antecedents equipment equipment equipment"
-		"informations montaria montaria equipment equipment equipment";
+		"informations mount mount equipment equipment equipment";
 }
 
 #rolagemlivre {
 	background-color: var(--bg-color);
 	grid-area: rolagemlivre;
-	border: var(--border-md-fg);
-	height: 100%;
-}
-
-#montaria {
-	background-color: var(--bg-color);
-	grid-area: montaria;
 	border: var(--border-md-fg);
 	height: 100%;
 }

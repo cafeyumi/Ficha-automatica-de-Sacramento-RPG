@@ -225,7 +225,7 @@
 	letter-spacing: 0.75px;
 	line-height: 1;
 
-	p {
+	span {
 		margin-right: var(--space-3);
 	}
 }

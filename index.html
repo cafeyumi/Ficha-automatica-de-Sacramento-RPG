@@ -31,7 +31,7 @@
 		<meta property="og:title" content="Ficha de Personagem Sacramento RPG">
 		<meta property="og:description" content="uma tentativa de ficha de sacramento para meus amigos">
 		<meta name="twitter:card" content="summary_large_image">
-  		<meta name="twitter:image" content="https://i.imgur.com/KL8eBm2.png">
+		<meta name="twitter:image" content="https://i.imgur.com/KL8eBm2.png">
 		<link rel="stylesheet" href="/src/styles/main.css">
 	</head>
 	<body>
@@ -141,7 +141,7 @@
 				<div class="character__bottom">
 					<div class="stats__inputs">
 						<div class="stats__tracker">
-							<p>DOR</p>
+							<span>DOR</span>
 							<div class="stats-wrapper">
 								<div id="pain" data-subtype="currentStats" data-type="pain" name="Dor" class="tracker pain">
 									<svg
@@ -219,7 +219,7 @@
 						</div>
 
 						<div class="stats__tracker">
-							<p>VIDA</p>
+							<span>VIDA</span>
 							<div class="stats-wrapper">
 								<div
 									id="life"
@@ -304,7 +304,7 @@
 
 					<div class="stats__inputs">
 						<div class="stats__tracker">
-							<p>Movimento</p>
+							<span>Movimento</span>
 							<div class="stats-wrapper">
 								<div
 									id="movement"
@@ -333,7 +333,7 @@
 						</div>
 
 						<div class="stats__tracker">
-							<p>Ações de Combate</p>
+							<span>Ações de Combate</span>
 							<div class="stats-wrapper">
 								<div
 									id="combat"
@@ -600,7 +600,7 @@
 			</section>
 
 			<section id="antecedents" class="antecedents">
-				<h2>ANTECEDENTES</h2>
+				<h2 class="antecedents__header">ANTECEDENTES</h2>
 
 				<div class="antecedents__content">
 					<div class="antecedents__left">
@@ -857,7 +857,266 @@
 
 			<section id="rolagemlivre"></section>
 
-			<section id="montaria"></section>
+			<section id="mount" class="mount">
+				<h2 class="mount__header">MONTARIA</h2>
+				<div class="mount__top">
+					<div class="mount__left">
+						<div>
+							<label class="mount__label" for="mountName">Nome</label>
+							<input id="mountName" class="mount__input save-input" type="text">
+						</div>
+						<div class="mount__dropdown">
+							<span>Fidelidade</span>
+							<div class="dropdown">
+								<button class="dropdown__btn dropdown__mount-btn" type="button">
+									<span class="dropdown__value dropdown__btn-text">1</span>
+									<svg
+										aria-hidden="true"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										fill="#000000"
+										viewBox="0 0 256 256">
+										<path
+											d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
+									</svg>
+								</button>
+								<menu class="dropdown__options dropdown__options--hide">
+									<li class="dropdown__option" data-value="1">
+										<span class="dropdown__option-text">1</span>
+									</li>
+									<li class="dropdown__option" data-value="2">
+										<span class="dropdown__option-text">2</span>
+									</li>
+									<li class="dropdown__option" data-value="3">
+										<span class="dropdown__option-text">3</span>
+									</li>
+									<li class="dropdown__option" data-value="4">
+										<span class="dropdown__option-text">4</span>
+									</li>
+									<li class="dropdown__option" data-value="5">
+										<span class="dropdown__option-text">5</span>
+									</li>
+									<li class="dropdown__option" data-value="6">
+										<span class="dropdown__option-text">6</span>
+									</li>
+								</menu>
+							</div>
+						</div>
+					</div>
+					<div class="mount__right">
+						<div class="mount_tracker">
+							<span>DOR</span>
+							<div class="stats-wrapper">
+								<div
+									id="mountPain"
+									data-subtype="currentStats"
+									data-type="mountPain"
+									name="Dor da Montaria"
+									class="tracker pain mount_tracker-gap">
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 32 208 200">
+										<title>Dor valor 1</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 32 208 200">
+										<title>Dor valor 2</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 32 208 200">
+										<title>Dor valor 3</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 32 208 200">
+										<title>Dor valor 4</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 32 208 200">
+										<title>Dor valor 5</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 32 208 200">
+										<title>Dor valor 6</title>
+										<path
+											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+									</svg>
+								</div>
+								<div class="stats__extra">
+									<p>+</p>
+									<input
+										id="mountExtraPain"
+										data-for="mountPain"
+										data-subtype="currentStats"
+										name="Dor extra da Montaria"
+										class="extra"
+										type="number"
+										value="0">
+								</div>
+							</div>
+						</div>
+						<div class="mount_tracker">
+							<span>VIDA</span>
+							<div class="stats-wrapper">
+								<div
+									id="mountlife"
+									data-subtype="currentStats"
+									data-type="mountLife"
+									name="Vida da Montaria"
+									class="tracker life mount_tracker-gap">
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 16 208 216">
+										<title>Vida valor 1</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 16 208 216">
+										<title>Vida valor 2</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 16 208 216">
+										<title>Vida valor 3</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 16 208 216">
+										<title>Vida valor 4</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 16 208 216">
+										<title>Vida valor 5</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+									<svg
+										class="pip svg mount-pip"
+										xmlns="http://www.w3.org/2000/svg"
+										width="32"
+										height="32"
+										viewBox="24 16 208 216">
+										<title>Vida valor 6</title>
+										<path
+											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+									</svg>
+								</div>
+								<div class="stats__extra">
+									<p>+</p>
+									<input
+										id="mountExtraLife"
+										data-for="mountLife"
+										name="Vida extra da Montaria"
+										class="extra"
+										type="number"
+										value="0">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mount__bottom">
+					<div>
+						<div class="mount__tracker-title">
+							<span>Potência</span>
+							<svg
+								data-type="potency"
+								data-name="Potência"
+								class="dice"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 448 512">
+								<title>Simbolo de um dado</title>
+								<path
+									d="M422.19 109.95L256.21 9.07c-19.91-12.1-44.52-12.1-64.43 0L25.81 109.95c-5.32 3.23-5.29 11.27.06 14.46L224 242.55l198.14-118.14c5.35-3.19 5.38-11.22.05-14.46zm13.84 44.63L240 271.46v223.82c0 12.88 13.39 20.91 24.05 14.43l152.16-92.48c19.68-11.96 31.79-33.94 31.79-57.7v-197.7c0-6.41-6.64-10.43-11.97-7.25zM0 161.83v197.7c0 23.77 12.11 45.74 31.79 57.7l152.16 92.47c10.67 6.48 24.05-1.54 24.05-14.43V271.46L11.97 154.58C6.64 151.4 0 155.42 0 161.83z" />
+							</svg>
+						</div>
+						<div
+							id="potency"
+							data-subtype="mount"
+							data-type="potency"
+							data-name="Potência"
+							class="tracker">
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+						</div>
+					</div>
+					<div>
+						<div class="mount__tracker-title"><span>Resistência</span></div>
+						<div
+							id="endurance"
+							data-subtype="mount"
+							data-type="endurance"
+							data-name="Resistência"
+							class="tracker">
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+							<div class="pip dot"></div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 			<section id="equipment" class="equipment menu">
 				<menu class="buttons-header equipment__header">
