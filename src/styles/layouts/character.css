@@ -97,7 +97,7 @@
 	input {
 		color: var(--fg-text-color);
 		font-family: var(--poppins);
-		padding: var(--space-1) var(--space-3);
+		padding: var(--space-1) var(--space-2);
 		width: 100%;
 	}
 }
