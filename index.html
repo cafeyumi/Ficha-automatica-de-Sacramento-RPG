@@ -141,72 +141,85 @@
 				<div class="character__bottom">
 					<div class="stats__inputs">
 						<div class="stats__tracker">
-							<span>DOR</span>
+							<span id="pain-label">DOR</span>
 							<div class="stats-wrapper">
-								<div id="pain" data-subtype="currentStats" data-type="pain" name="Dor" class="tracker pain">
-									<svg
+								<div
+									id="pain"
+									data-subtype="currentStats"
+									data-type="pain"
+									name="Dor"
+									class="tracker"
+									role="radiogroup"
+									aria-labelledby="pain-label">
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 1</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor 1 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 2</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor 2 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 3</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor 3 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 4</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor 4 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 5</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor 5 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 6</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
+										type="button"
+										aria-checked="false"
+										aria-label="Dor 6 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
 								</div>
 								<div class="stats__extra">
-									<p>+</p>
+									<span>+</span>
 									<input
 										id="extraPain"
 										data-for="pain"
@@ -219,77 +232,85 @@
 						</div>
 
 						<div class="stats__tracker">
-							<span>VIDA</span>
+							<span id="life-label">VIDA</span>
 							<div class="stats-wrapper">
 								<div
 									id="life"
 									data-subtype="currentStats"
 									data-type="life"
 									name="Vida"
-									class="tracker life">
-									<svg
+									class="tracker"
+									role="radiogroup"
+									aria-labelledby="life-label">
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 1</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida 1 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 2</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida 2 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 3</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida 3 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 4</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida 4 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 5</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida 5 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 6</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
+										type="button"
+										aria-checked="false"
+										aria-label="Vida 6 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
 								</div>
 								<div class="stats__extra">
-									<p>+</p>
+									<span>+</span>
 									<input
 										id="extraLife"
 										data-for="life"
@@ -304,23 +325,55 @@
 
 					<div class="stats__inputs">
 						<div class="stats__tracker">
-							<span>Movimento</span>
+							<span id="movement-label">Movimento</span>
 							<div class="stats-wrapper">
 								<div
 									id="movement"
+									aria-labelledby="movement-label"
+									role="radiogroup"
 									data-subtype="currentStats"
 									data-type="movement"
 									data-name="Movimento"
-									class="tracker movement">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									class="tracker">
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Movimento 1 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Movimento 2 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Movimento 3 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Movimento 4 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Movimento 5 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Movimento 6 de 6"
+										role="radio"></button>
 								</div>
 								<div class="stats__extra">
-									<p>+</p>
+									<span>+</span>
 									<input
 										id="extraMovement"
 										data-for="movement"
@@ -333,23 +386,55 @@
 						</div>
 
 						<div class="stats__tracker">
-							<span>Ações de Combate</span>
+							<span id="combat-label">Ações de Combate</span>
 							<div class="stats-wrapper">
 								<div
 									id="combat"
+									aria-labelledby="combat-label"
+									role="radiogroup"
 									data-subtype="currentStats"
 									data-type="combat"
 									name="Ações de Combate"
 									class="tracker combataction">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Ações de combate 1 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Ações de combate 2 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Ações de combate 3 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Ações de combate 4 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Ações de combate 5 de 6"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Ações de combate 6 de 6"
+										role="radio"></button>
 								</div>
 								<div class="stats__extra">
-									<p>+</p>
+									<span>+</span>
 									<input
 										id="extraCombat"
 										data-for="combat"
@@ -370,71 +455,219 @@
 				</div>
 				<div class="attributes__inner-content">
 					<div class="attributes__content">
-						<span class="has-tooltip" data-for="physical">FISICO</span>
+						<span id="physical-label" class="has-tooltip" data-for="physical">FISICO</span>
 						<div
 							id="physical"
+							aria-labelledby="physical-label"
+							role="radiogroup"
 							data-subtype="attributes"
 							data-type="physical"
 							data-name="Fisico"
 							class="tracker">
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 1 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 2 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 3 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 4 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 5 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 6 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Fisico 7 de 7"
+								role="radio"></button>
 						</div>
 					</div>
 					<div class="attributes__content">
-						<span class="has-tooltip" data-for="speed">VELOCIDADE</span>
+						<span id="speed-label" class="has-tooltip" data-for="speed">VELOCIDADE</span>
 						<div
 							id="speed"
+							aria-labelledby="speed-label"
+							role="radiogroup"
 							data-subtype="attributes"
 							data-type="speed"
 							data-name="Velocidade"
 							class="tracker">
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 1 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 2 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 3 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 4 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 5 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 6 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Velocidade 7 de 7"
+								role="radio"></button>
 						</div>
 					</div>
 					<div class="attributes__content">
-						<span class="has-tooltip" data-for="intellect">INTELECTO</span>
+						<span id="intellect-label" class="has-tooltip" data-for="intellect">INTELECTO</span>
 						<div
 							id="intellect"
+							aria-labelledby="intellect-label"
+							role="radiogroup"
 							data-subtype="attributes"
 							data-type="intellect"
 							data-name="Intelecto"
 							class="tracker">
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 1 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 2 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 3 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 4 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 5 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 6 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Intelecto 7 de 7"
+								role="radio"></button>
 						</div>
 					</div>
 					<div class="attributes__content">
-						<span class="has-tooltip" data-for="courage">CORAGEM</span>
+						<span id="courage-label" class="has-tooltip" data-for="courage">CORAGEM</span>
 						<div
 							id="courage"
+							aria-labelledby="courage-label"
+							role="radiogroup"
 							data-subtype="attributes"
 							data-type="courage"
 							data-name="Coragem"
 							class="tracker">
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 1 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 2 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 3 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 4 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 5 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 6 de 7"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Coragem 7 de 7"
+								role="radio"></button>
 						</div>
 					</div>
 				</div>
@@ -516,39 +749,153 @@
 					</button>
 				</div>
 				<div
-					id="botarquidepois"
+					id="informationsRedemption"
 					class="informations__redemption menu__container menu__container--closed">
-					<div class="informations__redemption-path">
-						<button type="button">back</button>
-						<div>
-							<span class="textResizer save-input" id="pathResizer"></span>
-							<input class="save-input" id="pathTitle" type="text" value="Trilha" autocomplete="off">
+					<div>
+						<div class="informations__redemption-path">
+							<button class="redemptionBtn back-path" id="back-path" type="button">
+								<img src="/src/assets/images/collapse.png" alt="">
+							</button>
+							<div>
+								<input
+									data-for="name"
+									class="step-input"
+									id="pathTitle"
+									type="text"
+									value=""
+									autocomplete="off">
+							</div>
+							<button id="next-path" class="redemptionBtn next-path" type="button">
+								<img src="/src/assets/images/collapse.png" alt="">
+							</button>
 						</div>
-						<button type="button">next</button>
+						<div class="informations__path-descriptions">
+							<textarea
+								data-for="description"
+								class="informations__step step-input"
+								name=""
+								id="pathDescription"></textarea>
+						</div>
 					</div>
 					<div>
-						<div><label for="step1">Passo 1</label> <input type="radio"></div>
-						<textarea name="Passo 1" id="step1"></textarea>
+						<div class="informations__step-header">
+							<span class="step-stage">Passo 1</span>
+							<div class="informations__step-conclusion">
+								<span id="step1Status">Incompleto</span>
+								<button
+									class="pip dot step"
+									type="button"
+									id="step1Radio"
+									aria-checked="false"
+									aria-label="Redenção passo 1"
+									role="radio"></button>
+							</div>
+						</div>
+						<textarea
+							data-for="step1"
+							class="informations__step step-input"
+							name="Passo 1"
+							id="step1"></textarea>
 					</div>
 					<div>
-						<div><label for="step2">Passo 2</label> <input type="radio"></div>
-						<textarea name="Passo 2" id="step2"></textarea>
+						<div class="informations__step-header">
+							<span class="step-stage">Passo 2</span>
+							<div class="informations__step-conclusion">
+								<span id="step2Status">Incompleto</span>
+								<button
+									class="pip dot step"
+									type="button"
+									id="step2Radio"
+									aria-checked="false"
+									aria-label="Redenção passo 2"
+									role="radio"></button>
+							</div>
+						</div>
+						<textarea
+							data-for="step2"
+							class="informations__step step-input"
+							name="Passo 2"
+							id="step2"></textarea>
 					</div>
 					<div>
-						<div><label for="step3">Passo 3</label> <input type="radio"></div>
-						<textarea name="Passo 3" id="step3"></textarea>
+						<div class="informations__step-header">
+							<span class="step-stage">Passo 3</span>
+							<div class="informations__step-conclusion">
+								<span id="step3Status">Incompleto</span>
+								<button
+									class="pip dot step"
+									type="button"
+									aria-checked="false"
+									id="step3Radio"
+									aria-label="Redenção passo 3"
+									role="radio"></button>
+							</div>
+						</div>
+						<textarea
+							data-for="step3"
+							class="informations__step step-input"
+							name="Passo 3"
+							id="step3"></textarea>
 					</div>
 					<div>
-						<div><label for="step4">Passo 4</label> <input type="radio"></div>
-						<textarea name="Passo 4" id="step4"></textarea>
+						<div class="informations__step-header">
+							<span class="step-stage">Passo 4</span>
+							<div class="informations__step-conclusion">
+								<span id="step4Status">Incompleto</span>
+								<button
+									class="pip dot step"
+									type="button"
+									id="step4Radio"
+									aria-checked="false"
+									aria-label="Redenção passo 4"
+									role="radio"></button>
+							</div>
+						</div>
+						<textarea
+							data-for="step4"
+							class="informations__step step-input"
+							name="Passo 4"
+							id="step4"></textarea>
 					</div>
 					<div>
-						<div><label for="step5">Passo 5</label> <input type="radio"></div>
-						<textarea name="Passo 5" id="step5"></textarea>
+						<div class="informations__step-header">
+							<span class="step-stage">Passo 5</span>
+							<div class="informations__step-conclusion">
+								<span id="step5Status">Incompleto</span>
+								<button
+									class="pip dot step"
+									type="button"
+									aria-checked="false"
+									id="step5Radio"
+									aria-label="Redenção passo 5"
+									role="radio"></button>
+							</div>
+						</div>
+						<textarea
+							data-for="step5"
+							class="informations__step step-input"
+							name="Passo 5"
+							id="step5"></textarea>
 					</div>
 					<div>
-						<div><label for="step6">Passo 6</label> <input type="radio"></div>
-						<textarea name="Passo 6" id="step6"></textarea>
+						<div class="informations__step-header">
+							<span class="step-stage">Passo 6</span>
+							<div class="informations__step-conclusion">
+								<span id="step6Status">Incompleto</span>
+								<button
+									class="pip dot step"
+									type="button"
+									aria-checked="false"
+									id="step6Radio"
+									aria-label="Redenção passo 6"
+									role="radio"></button>
+							</div>
+						</div>
+						<textarea
+							data-for="step6"
+							class="informations__step step-input"
+							name="Passo 6"
+							id="step6"></textarea>
 					</div>
 				</div>
 				<div
@@ -606,7 +953,7 @@
 					<div class="antecedents__left">
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="attention">Atenção</span>
+								<span id="attention-label" class="has-tooltip" data-for="attention">Atenção</span>
 								<svg
 									data-type="attention"
 									data-name="Atenção"
@@ -622,21 +969,48 @@
 								<span>1D6+</span>
 								<div
 									id="attention"
+									aria-labelledby="attention-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="attention"
 									data-name="Atenção"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Atenção 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Atenção 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Atenção 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Atenção 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Atenção 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="medicine">Medicina</span>
+								<span id="medicine-label" class="has-tooltip" data-for="medicine">Medicina</span>
 								<svg
 									data-type="medicine"
 									data-name="Medicina"
@@ -652,21 +1026,48 @@
 								<span>1D6+</span>
 								<div
 									id="medicine"
+									aria-labelledby="medicine-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="medicine"
 									data-name="Medicina"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Medicina 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Medicina 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Medicina 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Medicina 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Medicina 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="mount">Montaria</span>
+								<span id="mount-label" class="has-tooltip" data-for="mount">Montaria</span>
 								<svg
 									data-type="mount"
 									data-name="Montaria"
@@ -682,22 +1083,49 @@
 								<span>1D6+</span>
 								<div
 									id="mount"
+									aria-labelledby="mount-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="mount"
 									data-name="Montaria"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Montaria 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Montaria 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Montaria 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Montaria 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Montaria 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="business">Negócios</span>
+								<span id="business-label" class="has-tooltip" data-for="business">Negócios</span>
 								<svg
 									data-type="business"
 									data-name="Negócios"
@@ -713,15 +1141,42 @@
 								<span>1D6+</span>
 								<div
 									id="business"
+									aria-labelledby="business-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="business"
 									data-name="Negócios"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Negócios 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Negócios 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Negócios 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Negócios 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Negócios 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
@@ -730,7 +1185,7 @@
 					<div class="antecedents__right">
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="theft">Roubo</span>
+								<span id="theft-label" class="has-tooltip" data-for="theft">Roubo</span>
 								<svg
 									data-type="theft"
 									data-name="Roubo"
@@ -746,22 +1201,49 @@
 								<span>1D6+</span>
 								<div
 									id="theft"
+									aria-labelledby="theft-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="theft"
 									data-name="Roubo"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Roubo 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Roubo 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Roubo 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Roubo 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Roubo 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="sweat">Suor</span>
+								<span id="sweat-label" class="has-tooltip" data-for="sweat">Suor</span>
 								<svg
 									data-type="sweat"
 									data-name="Suor"
@@ -777,22 +1259,49 @@
 								<span>1D6+</span>
 								<div
 									id="sweat"
+									aria-labelledby="sweat-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="sweat"
 									data-name="Suor"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Suor 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Suor 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Suor 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Suor 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Suor 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="tradition">Tradição</span>
+								<span id="tradition-label" class="has-tooltip" data-for="tradition">Tradição</span>
 								<svg
 									data-type="tradition"
 									data-name="Tradição"
@@ -808,22 +1317,49 @@
 								<span>1D6+</span>
 								<div
 									id="tradition"
+									aria-labelledby="tradition-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="tradition"
 									data-name="Tradição"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Tradição 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Tradição 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Tradição 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Tradição 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Tradição 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
 
 						<div class="antecedents__tracker-wrapper">
 							<div class="antecedents__tracker-title">
-								<span class="has-tooltip" data-for="violence">Violência</span>
+								<span id="violence-label" class="has-tooltip" data-for="violence">Violência</span>
 								<svg
 									data-type="violence"
 									data-name="Violência"
@@ -839,15 +1375,42 @@
 								<span>1D6+</span>
 								<div
 									id="violence"
+									aria-labelledby="violence-label"
+									role="radiogroup"
 									data-subtype="antecedents"
 									data-type="violence"
 									data-name="Violência"
 									class="tracker">
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
-									<div class="pip dot"></div>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Violência 1 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Violência 2 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Violência 3 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Violência 4 de 5"
+										role="radio"></button>
+									<button
+										class="pip dot"
+										type="button"
+										aria-checked="false"
+										aria-label="Violência 5 de 5"
+										role="radio"></button>
 								</div>
 							</div>
 						</div>
@@ -911,77 +1474,105 @@
 					</div>
 					<div class="mount__right">
 						<div class="mount_tracker">
-							<span>DOR</span>
+							<span id="mountPain-label">DOR</span>
 							<div class="stats-wrapper">
 								<div
 									id="mountPain"
+									aria-labelledby="mountPain-label"
+									role="radiogroup"
 									data-subtype="currentStats"
 									data-type="mountPain"
 									name="Dor da Montaria"
 									class="tracker pain mount_tracker-gap">
-									<svg
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 1</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor da Montaria 1 de 6"
+										role="radio">
+										<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 2</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor da Montaria 2 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 3</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor da Montaria 3 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 4</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor da Montaria 4 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 5</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Dor da Montaria 5 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 32 208 200">
-										<title>Dor valor 6</title>
-										<path
-											d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
-									</svg>
+										type="button"
+										aria-checked="false"
+										aria-label="Dor da Montaria 6 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 32 208 200">
+											<path
+												d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path>
+										</svg>
+									</button>
 								</div>
 								<div class="stats__extra">
-									<p>+</p>
+									<span>+</span>
 									<input
 										id="mountExtraPain"
 										data-for="mountPain"
@@ -994,77 +1585,109 @@
 							</div>
 						</div>
 						<div class="mount_tracker">
-							<span>VIDA</span>
+							<span id="mountLife-label">VIDA</span>
 							<div class="stats-wrapper">
 								<div
-									id="mountlife"
+									id="mountLife"
+									aria-labelledby="mountLife-label"
+									role="radiogroup"
 									data-subtype="currentStats"
 									data-type="mountLife"
 									name="Vida da Montaria"
 									class="tracker life mount_tracker-gap">
-									<svg
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 1</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida da Montaria 1 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 2</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida da Montaria 2 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 3</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida da Montaria 3 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 4</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida da Montaria 4 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 5</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
-									<svg
+										type="button"
+										aria-checked="false"
+										aria-label="Vida da Montaria 5 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
+									<button
 										class="pip svg mount-pip"
-										xmlns="http://www.w3.org/2000/svg"
-										width="32"
-										height="32"
-										viewBox="24 16 208 216">
-										<title>Vida valor 6</title>
-										<path
-											d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
-									</svg>
+										type="button"
+										aria-checked="false"
+										aria-label="Vida da Montaria 6 de 6"
+										role="radio">
+										<svg
+											aria-hidden="true"
+											class="pip svg mount-pip"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="24 16 208 216">
+											<path
+												d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path>
+										</svg>
+									</button>
 								</div>
 								<div class="stats__extra">
-									<p>+</p>
+									<span>+</span>
 									<input
 										id="mountExtraLife"
 										data-for="mountLife"
@@ -1080,7 +1703,7 @@
 				<div class="mount__bottom">
 					<div>
 						<div class="mount__tracker-title">
-							<span class="has-tooltip" data-for="potency">Potência</span>
+							<span id="potency-label" class="has-tooltip" data-for="potency">Potência</span>
 							<svg
 								data-type="potency"
 								data-name="Potência"
@@ -1094,32 +1717,86 @@
 						</div>
 						<div
 							id="potency"
+							aria-labelledby="potency-label"
+							role="radiogroup"
 							data-subtype="mount"
 							data-type="potency"
 							data-name="Potência"
 							class="tracker">
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Potência 1 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Potência 2 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Potência 3 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Potência 4 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Potência 5 de 5"
+								role="radio"></button>
 						</div>
 					</div>
 					<div>
 						<div class="mount__tracker-title">
-							<span class="has-tooltip" data-for="endurance">Resistência</span>
+							<span id="endurance-label" class="has-tooltip" data-for="endurance">Resistência</span>
 						</div>
 						<div
 							id="endurance"
+							aria-labelledby="endurance-label"
+							role="radiogroup"
 							data-subtype="mount"
 							data-type="endurance"
 							data-name="Resistência"
 							class="tracker">
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
-							<div class="pip dot"></div>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Resistência 1 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Resistência 2 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Resistência 3 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Resistência 4 de 5"
+								role="radio"></button>
+							<button
+								class="pip dot"
+								type="button"
+								aria-checked="false"
+								aria-label="Resistência 5 de 5"
+								role="radio"></button>
 						</div>
 					</div>
 				</div>

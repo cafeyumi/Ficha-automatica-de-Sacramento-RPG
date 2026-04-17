@@ -1,0 +1,67 @@
+{
+	"revenge": {
+		"name": "VINGANÇA",
+		"description": "Preciso me vingar de (nome) que (assassinou/sequestrou) minha/meu (povo/família/terras).",
+		"step1": "Causar problemas para minha gangue ao menos três vezes por causa da minha vingança.",
+		"step2": "Encontrar e ajudar (nome), a última vítima de (nome de quem está se vingando).",
+		"step3": "Ir até o último local onde (nome de quem está se vingando) foi avistado.",
+		"step4": "Resolver outro problema que (nome de quem está se vingando) causou pelo caminho.",
+		"step5": "Encontrar o paradeiro de (nome de quem está se vingando) e fazer o desafio para um duelo.",
+		"step6": "Vencer o duelo e completar minha vingança."
+	},
+
+	"escape": {
+		"name": "FUGA",
+		"description": "Acabei de escapar (da cadeia/dos sagrados/de outra gangue). Há uma boa recompensa pela minha cabeça.",
+		"step1": "Usar sua condição de procurado para ajudar a gangue.",
+		"step2": "Causar problemas para minha gangue ao menos três vezes por ser procurado.",
+		"step3": "Sacrificar (algo/alguém) importante para mim, em nome da minha liberdade.",
+		"step4": "Livrar-me do pior caçador de recompensas que estiver atrás da minha cabeça.",
+		"step5": "Juntar o dinheiro necessário para pagar o preço pela minha cabeça.",
+		"step6": "Eliminar minha situação de procurado pagando a dívida ou lidando com as autoridades."
+	},
+
+	"debt": {
+		"name": "DÍVIDA",
+		"description": "Tenho uma dívida com um (mafioso/político) poderoso. Devo quitá-la ou pagarei com a vida.",
+		"step1": "Esconder dinheiro da minha gangue para pagar minha dívida.",
+		"step2": "Causar problemas para minha gangue ao menos três vezes por causa da minha dívida.",
+		"step3": "Encontrar um trabalho que dê muito dinheiro, mas é muito mais arriscado do que o normal.",
+		"step4": "Juntar o valor de metade da minha dívida, ou conseguir um desconto.",
+		"step5": "(Roubar/enganar) alguém que eu amo para conseguir ainda mais dinheiro.",
+		"step6": "Pagar minha dívida."
+	},
+
+	"remorse": {
+		"name": "REMORSO",
+		"description": "Cometi um crime impensável contra (minha gangue/família/meu povo).",
+		"step1": "Não (matar/roubar/andar à cavalo) como conduta punitiva para meu remorso.",
+		"step2": "Causar problemas para minha gangue ao menos três vezes por causa do meu remorso.",
+		"step3": "Reencontrar aqueles que sofreram por minha causa e fazer um serviço importante para eles.",
+		"step4": "Encontrar uma forma de compensar (minha gangue/família/meu povo) pelo ato que cometi.",
+		"step5": "Sacrificar as (minhas posses/vida atual/alguém importante) para conseguir o perdão.",
+		"step6": "Expiar o remorso dentro de mim e viver com o coração mais leve."
+	},
+
+	"ambition": {
+		"name": "AMBIÇÃO",
+		"description": "Vou me tornar (maior/melhor/mais rápido) (duelista/jogador/bandido) que já pisou no Oeste Selvagem.",
+		"step1": "Encontrar três outros (duelistas/jogadores/bandidos) para (duelar/jogar/enfrentar).",
+		"step2": "Causar problemas para minha gangue ao menos três vezes por causa da minha ambição.",
+		"step3": "Fazer ao menos três grandes (duelistas/jogadores/bandidos conhecerem minha reputação.",
+		"step4": "Perder alguém importante por causa da ambição. (Este passo não pode acontecer primeiro).",
+		"step5": "Fazer amizade com um (rival/xerife/ bandido) que tem a mesma ambição que eu.",
+		"step6": "Vencer o (duelo/jogo/combate) e me tornar (maior/melhor/mais rápido) do Oeste Selvagem."
+	},
+
+	"fresh start": {
+		"name": "RECOMEÇO",
+		"description": "Já fui um grande (bandido/xerife/caçador) no passado, me aposentei e perdi minha honra.",
+		"step1": "Realizar uma façanha que prove para minha gangue que eu ainda posso ser útil.",
+		"step2": "Encontrar alguém do meu passado que ainda se lembre de minha reputação.",
+		"step3": "Aprender ao menos 2 novas habilidades (isso pode ser conseguido com a evolução do personagem).",
+		"step4": "Causar problemas para minha gangue ao menos três vezes pela minha busca por recomeço.",
+		"step5": "Repetir duas façanhas tão épicas (roubos/salvamentos/capturas quanto as que fiz no passado.",
+		"step6": "Recuperar minha honra, glória e fama que tinha no passado."
+	}
+}

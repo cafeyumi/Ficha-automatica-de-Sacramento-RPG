@@ -13,6 +13,12 @@ if (localStorage.getItem("savedSkills") !== null) {
 const tooltipsJSON = await fetch("/src/data/tooltip.json");
 const tooltipsContent = await tooltipsJSON.json();
 
+const redemptionJSON = await fetch("/src/data/redemption.json");
+const redemptionContent = await redemptionJSON.json();
+const currentRedemption = {
+	current: {},
+};
+
 const init = () => {
 	// Define os valores iniciais caso seja a primeira vez do usuario
 	if (localStorage.getItem("savedStats") !== null) {
@@ -42,12 +48,13 @@ const init = () => {
 	renderSkills("select", currentSkills); // ultima vez revisado: 13/04, avaliação: duvidosa
 
 	menuSystem(); // ultima vez revisado: 12/04, avaliação: bom
-
 	tooltipSystem(); // ultima vez revisado: 15/04, avaliação: bom
+
+	redemptionSystem();
+	renderRedemption();
 
 	renderExtras();
 	diceSystem();
-	resize();
 };
 
 const stats = {
@@ -132,33 +139,39 @@ const stats = {
 	limit: {
 		skills: 2,
 	},
+
+	path: {
+		steps: 0,
+	},
 };
 
 const ANTECEDENTS_TYPES = [
-	`attention`,
-	`medicine`,
-	`mount`,
-	`business`,
-	`theft`,
-	`sweat`,
-	`tradition`,
-	`violence`,
+	"attention",
+	"medicine",
+	"mount",
+	"business",
+	"theft",
+	"sweat",
+	"tradition",
+	"violence",
 ];
 const MAIN_TYPES = [
-	`life`,
-	`pain`,
-	`combat`,
-	`movement`,
+	"life",
+	"pain",
+	"combat",
+	"movement",
 	"mountLife",
 	"mountPain",
 ];
-const ATTRIBUTES_TYPES = [`physical`, `speed`, `intellect`, `courage`];
+const ATTRIBUTES_TYPES = ["physical", "speed", "intellect", "courage"];
 // ========== DOM =========
 
 // pega a lista de skills adicionadas no DOM // Pega o botão de adicionar skills do DOM
 
-const lifeSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><title>Circulo de Vida</title><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>`;
-const painSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><title>Circulo de Dor</title><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>`;
+const lifeSvg =
+	'<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><title>Circulo de Vida</title><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>';
+const painSvg =
+	'<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><title>Circulo de Dor</title><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>';
 
 let multipleHabId = 0;
 
@@ -248,6 +261,11 @@ function updateLevel() {
 			stats.bonusStats.life += 3;
 			break;
 		}
+	}
+
+	if (stats.path.steps >= 6) {
+		stats.bonusStats.life += 2;
+		stats.limit.skills++;
 	}
 }
 // #endregion ======= LEVEL SYSTEM ===================
@@ -651,14 +669,6 @@ function renderSkills(type, array) {
 // #endregion ======= SKILL SYSTEM ===================
 
 // #region ========== FUNÇÕES AUXILIARES =============
-function resize() {
-	const input = document.querySelector("#pathTitle");
-	const resizer = document.querySelector(".textResizer");
-	input.addEventListener("input", () => {
-		resizer.textContent = input.value || input.placeholder;
-		input.style.width = resizer.offsetWidth + 10 + "px";
-	});
-}
 
 function saveLocal(key, value) {
 	localStorage.setItem(key, JSON.stringify(value));
@@ -738,12 +748,196 @@ function diceSystem() {
 }
 
 function renderExtras() {
-	const extras = [...document.querySelectorAll(`.extra`)];
+	const extras = [...document.querySelectorAll(".extra")];
 
 	extras.forEach((extra) => {
 		const type = extra.dataset.for;
 		extra.value = stats.extraStats[type];
 	});
+}
+
+// function teste() {
+// 	const buttons = [...document.querySelectorAll(".redemptionBtn")];
+
+// 	const allConclusions = [
+// 		...document.querySelectorAll(".informations__step-conclusion"),
+// 	];
+
+// 	allConclusions.forEach((conclusion) => {
+// 		conclusion.addEventListener("click", e => {
+// 			const target = e.target;
+
+// 			if (target.matches(".step")) {
+// 				target.classList.toggle('marked')
+
+// 				if ([...target.classList].includes("marked")) {
+// 					target.setAttribute("aria-checked", "true");
+// 					conclusion.querySelector(".step-text").innerHTML = "Completo";
+// 				} else {
+// 					target.setAttribute("aria-checked", "false");
+// 					conclusion.querySelector(".step-text").innerHTML = "Incompleto";
+// 				}
+
+// 				const markedRadios = allConclusions.filter((conclusion) => {
+// 					return [...conclusion.querySelector('.step').classList].includes('marked')
+// 				});
+
+// 				const value = markedRadios.length
+
+// 				updateStats('redemption', value)
+// 			}
+// 		});
+// 	});
+
+// 	let position = 0;
+
+// 	buttons.forEach((button) => {
+// 		button.addEventListener("click", (e) => {
+// 			const target = e.target;
+
+// 			if (target.matches("#next-path")) {
+// 				position++;
+// 			}
+
+// 			if (target.matches("#back-path")) {
+// 				position--;
+// 			}
+
+// 			if (position > 5) {
+// 				position = 0;
+// 			}
+// 			renderRedemption(position);
+// 		});
+// 	});
+// }
+
+// function renderRedemption(position) {
+// 	const pathTitle = document.querySelector("#pathTitle");
+// 	const resizer = document.querySelector(".textResizer");
+// 	const pathDescription = document.querySelector("#pathDescription");
+
+// 	pathTitle.value = Object.values(redemptionContent)[position].name;
+// 	pathDescription.value =
+// 		Object.values(redemptionContent)[position].description;
+
+// 	resizer.textContent = pathTitle.value;
+// 	pathTitle.style.width = resizer.offsetWidth + 10 + "px";
+
+// 	for (let i = 1; i < 7; i++) {
+// 		const step = document.querySelector(`#step${i}`)
+// 		step.value =
+// 			Object.values(redemptionContent)[position][`step${i}`];
+// 	}
+// }
+
+function redemptionSystem() {
+	const pathButtons = [...document.querySelectorAll(".redemptionBtn")];
+	const stepRadios = [...document.querySelectorAll(".step")];
+	const stepInputs = [...document.querySelectorAll(".step-input")];
+
+	let position = 0; // armazena a posição atual
+
+	if (localStorage.getItem("pathPosition") === null) {
+		saveLocal("pathPosition", position);
+	} else {
+		position = JSON.parse(localStorage.getItem("pathPosition")); // adiciona a posição
+	}
+
+	stepRadios.forEach((radio) => {
+		radio.addEventListener("click", (e) => {
+			const target = e.target;
+
+			target.classList.toggle("marked");
+
+			const totalValue = stepRadios.filter((radio) =>
+				[...radio.classList].includes("marked"),
+			).length;
+
+			stepRadios.forEach((radio) => {
+				if ([...radio.classList].includes("marked")) {
+					saveLocal(radio.id, true);
+				} else {
+					saveLocal(radio.id, false);
+				}
+			});
+
+			renderRedemption();
+			updateStats("redemption", totalValue);
+		});
+	});
+
+	pathButtons.forEach((button) => {
+		button.addEventListener("click", (e) => {
+			const target = e.target;
+
+			if (target.matches("#next-path")) {
+				position++;
+			} else if (target.matches("#back-path")) {
+				position--;
+			}
+
+			if (position > 5 || position < 0) {
+				position = 0;
+			}
+
+			saveLocal("pathPosition", position);
+			renderRedemption(target.id);
+		});
+	});
+
+	stepInputs.forEach((stepInput) => {
+		stepInput.addEventListener("change", (e) => {
+			const target = e.target;
+			const type = target.dataset.for;
+
+			currentRedemption.current[type] = target.value;
+			console.log(target);
+
+			saveLocal("savedCurrentRedemption", currentRedemption.current);
+		});
+	});
+}
+
+function renderRedemption(btnHasClicked) {
+	if (
+		btnHasClicked ||
+		localStorage.getItem("savedCurrentRedemption") === null
+	) {
+		const cu =
+			Object.values(redemptionContent)[
+				JSON.parse(localStorage.getItem("pathPosition"))
+			];
+		currentRedemption.current = cu;
+	} else {
+		currentRedemption.current = JSON.parse(
+			localStorage.getItem("savedCurrentRedemption"),
+		);
+	}
+
+	const pathTitle = document.querySelector("#pathTitle");
+	const pathDescription = document.querySelector("#pathDescription");
+
+	for (let i = 1; i < 7; i++) {
+		const radioChecked = JSON.parse(localStorage.getItem(`step${i}Radio`));
+		const radio = document.querySelector(`#step${i}Radio`);
+		const status = document.querySelector(`#step${i}Status`);
+		const step = document.querySelector(`#step${i}`);
+
+		step.value = currentRedemption.current[`step${i}`];
+
+		if (radioChecked) {
+			radio.classList.add("marked");
+			status.innerHTML = "Completo";
+			radio.setAttribute("aria-checked", "true");
+		} else {
+			radio.classList.remove("marked");
+			status.innerHTML = "Incompleto";
+			radio.setAttribute("aria-checked", "false");
+		}
+	}
+
+	pathTitle.value = currentRedemption.current.name;
+	pathDescription.value = currentRedemption.current.description;
 }
 
 function tooltipSystem() {
@@ -779,6 +973,12 @@ function tooltipSystem() {
 function updateStats(type, value) {
 	const extras = [...document.querySelectorAll(`.extra`)];
 
+	// redenção
+
+	if (type === "redemption") {
+		stats.path.steps = value;
+	}
+
 	// mount
 
 	if (type === "potency" || type === "endurance") {
@@ -799,19 +999,19 @@ function updateStats(type, value) {
 
 	if (ATTRIBUTES_TYPES.includes(type)) {
 		switch (type) {
-			case `physical`: {
+			case "physical": {
 				stats.attributes.physical = value;
 				break;
 			}
-			case `speed`: {
+			case "speed": {
 				stats.attributes.speed = value;
 				break;
 			}
-			case `intellect`: {
+			case "intellect": {
 				stats.attributes.intellect = value;
 				break;
 			}
-			case `courage`: {
+			case "courage": {
 				stats.attributes.courage = value;
 				break;
 			}
@@ -826,8 +1026,10 @@ function updateStats(type, value) {
 
 	if (type === "level") {
 		stats.experience.level = value;
-		updateLevel();
 	}
+
+	updateLevel();
+	renderLevel();
 
 	// ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
 

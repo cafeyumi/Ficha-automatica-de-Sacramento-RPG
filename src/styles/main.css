@@ -19,14 +19,15 @@
 @import url(/src/styles/layouts/mount.css);
 @import url(/src/styles/layouts/equipment.css);
 
-@media (min-width: 2560px) {
+@media (min-height: 1200px) {
 	html {
-		font-size: 21.333333px;
+		font-size: 17px;
 	}
+}
 
-	.main-content {
-		grid-template-rows: 440px var(--space-20) 333px 333px;
-		grid-template-columns: 480px 440px 200px var(--space-20) 160px 277px;
+@media (min-height: 1400px) {
+	html {
+		font-size: 19px;
 	}
 }
 

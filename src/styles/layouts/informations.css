@@ -52,6 +52,10 @@
 	font-weight: 700;
 	cursor: pointer;
 
+	svg {
+		pointer-events: none;
+	}
+
 	&.informations-skills__add-skill-button--limit {
 		display: none;
 	}
@@ -91,9 +95,12 @@
 /* ========== Redemption ========= */
 
 .informations__redemption {
+	display: flex;
+	flex-direction: column;
 	padding: var(--space-3) var(--space-0) var(--space-3) var(--space-3);
 	height: calc(100% - var(--space-12));
 	overflow-y: scroll;
+	gap: 0.5rem;
 
 	&::-webkit-scrollbar {
 		width: var(--space-5);
@@ -108,36 +115,111 @@
 }
 
 .informations__redemption-path {
+	margin-top: 1rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
-
-	.textResizer {
-		visibility: hidden;
-		position: absolute;
-		font-size: 1.75rem;
-		font-family: var(--chelsea);
-		white-space: pre;
-	}
+	gap: 0.5rem;
 
 	input {
 		border: none;
+		color: var(--fg-color);
 		background: none;
-		font-family: var(--chelsea);
+		font-family: var(--maiden);
+		line-height: 1;
 		text-align: center;
-		font-size: 1.75rem;
+		letter-spacing: 1px;
+		font-size: 2rem;
 		transition: width 0.1s ease;
-		flex-shrink: 0;
 		overflow: hidden;
-		max-width: 13rem;
-		min-width: 7rem;
-		height: 2.5rem;
+		height: 2.25rem;
+		width: 13rem;
 		border-radius: 0;
-		border-bottom: 2px black solid;
+		border-bottom: 2px var(--fg-color) solid;
 	}
 }
 
+.informations__path-descriptions {
+	display: flex;
+
+	textarea {
+		font-family: var(--poppins);
+		font-size: var(--text-sm);
+		text-align: center;
+		padding: var(--space-2);
+		height: 5rem;
+		max-width: 100%;
+		color: var(--fg-color);
+		width: 100%;
+		background: none;
+		border: none;
+		min-width: 100%;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+}
+
+.redemptionBtn {
+	background: none;
+	border: none;
+	padding: 0;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
+	margin-bottom: 0.5rem;
+
+	img {
+		pointer-events: none;
+	}
+}
+
+.back-path {
+	transform: rotate(90deg);
+}
+
+.next-path {
+	transform: rotate(270deg);
+}
+
+.informations__step {
+	width: 100%;
+	max-width: 100%;
+	border: var(--border-md-fg);
+	font-size: var(--text-sm);
+	height: 6rem;
+	min-width: 100%;
+	color: var(--fg-color);
+	font-family: var(--poppins);
+	padding: var(--space-2) var(--space-2);
+	border-radius: 4px;
+	background: var(--bg-color-muted);
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.informations__step-header {
+	display: flex;
+	margin-bottom: 0.25rem;
+	justify-content: space-between;
+	font-family: var(--poppins);
+}
+
+.informations__step-conclusion {
+	display: flex;
+	align-items: center;
+
+	span {
+		margin-right: 0.25rem;
+	}
+}
+
+.step-stage {
+	font-family: var(--chelsea);
+}
 /* ========== Description ========= */
 
 .informations__description {

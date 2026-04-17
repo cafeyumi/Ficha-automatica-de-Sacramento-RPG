@@ -92,7 +92,7 @@
 	letter-spacing: 0.75px;
 	line-height: 1;
 
-	span {
+	> span {
 		margin-right: var(--space-2);
 	}
 }
