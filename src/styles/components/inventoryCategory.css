@@ -1,0 +1,267 @@
+.inventory-equipment__content {
+	height: calc(100% - 48px);
+	padding: var(--space-2) 1px var(--space-2) var(--space-3);
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		width: var(--space-5);
+		background: none;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--scroll-color);
+		border-radius: var(--corners-round);
+		border: 5px solid transparent;
+		background-clip: padding-box;
+	}
+}
+
+.inventory-category {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	padding: var(--space-2) var(--space-0);
+}
+
+.inventory-category__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--space-1) var(--space-0) var(--space-1) var(--space-0);
+}
+
+.inventory-category__content {
+	display: flex;
+	flex-direction: column;
+	min-height: 6rem;
+	height: fit-content;
+	max-height: 21rem;
+	overflow: auto;
+	border: var(--border-md-fg);
+	border-radius: 8px;
+	background: var(--bg-color-muted);
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.inventory-category__title {
+	font-family: var(--bebas);
+	height: 1.5rem;
+	font-weight: 500;
+	font-size: var(--text-3xl);
+	letter-spacing: 1px;
+	line-height: 1;
+}
+.inventory-category__content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: var(--space-2);
+}
+
+.inventory-category__add-item {
+	background: var(--fg-color);
+	color: var(--bg-color);
+	padding: 0.25rem 0.75rem;
+	border: none;
+	cursor: pointer;
+	font-family: var(--poppins);
+	border-radius: 4px;
+}
+
+.inventory-category__capacity {
+	font-family: var(--poppins);
+}
+
+/* item */
+
+.item {
+	display: flex;
+	gap: var(--space-2);
+	flex-direction: column;
+	justify-content: space-between;
+	border: var(--border-md-fg);
+	background-color: var(--bg-color-muted);
+	padding: var(--space-3) var(--space-3) var(--space-3) var(--space-3);
+
+	svg {
+		width: var(--space-8);
+	}
+}
+
+.item__name {
+	font-weight: 500;
+	font-size: var(--text-xl);
+	font-family: var(--chelsea);
+	line-height: 1;
+}
+
+.item__stats {
+	display: flex;
+	font-family: var(--poppins);
+	font-size: var(--text-sm);
+	gap: 1rem;
+}
+
+.item__informations {
+	display: flex;
+	gap: var(--space-1);
+	flex-direction: column;
+}
+
+.item__main-buttons {
+	align-items: center;
+	gap: var(--space-1);
+	display: flex;
+}
+
+.inventory-category__capacity-stats {
+	display: flex;
+	margin-top: 0.25rem;
+	gap: var(--space-3);
+}
+
+.inventory-equipment__filter {
+	display: flex;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
+
+	input {
+		background: none;
+		flex: 1;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		border-radius: 0;
+	}
+}
+
+.inventory-category__buttons {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.inventory-category__remove-category {
+	background: none;
+	border: none;
+	width: 1.75rem;
+	height: 1.75rem;
+	padding: 0;
+	cursor: pointer;
+
+	svg {
+		pointer-events: none;
+	}
+}
+
+/* inventory selection menu */
+
+.inventory-selection__menu {
+	width: 31.25rem;
+	height: 37rem;
+	margin: auto;
+	background: var(--bg-color);
+	border: var(--border-md-fg);
+	padding: 0;
+	&::backdrop {
+		background: rgba(48, 31, 11, 0.4);
+		backdrop-filter: blur(2px);
+	}
+}
+
+.inventory-selection__header {
+	background: var(--fg-color);
+	color: var(--bg-color);
+	padding: var(--space-3) var(--space-3);
+
+	h2 {
+		font-family: var(--bebas);
+	}
+}
+
+.inventory-selection__options {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	padding: var(--space-3) 2px var(--space-3) var(--space-3);
+	height: calc(100% - 52px);
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		width: var(--space-5);
+		background: none;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: var(--scroll-color);
+		border-radius: 9999px;
+		border: 5px solid transparent;
+		background-clip: padding-box;
+	}
+}
+
+/* a */
+
+.inventory-option {
+	display: flex;
+	gap: var(--space-2);
+	flex-direction: column;
+	justify-content: space-between;
+	border: var(--border-md-fg);
+	background-color: var(--bg-color-muted);
+	padding: var(--space-3) var(--space-3) var(--space-3) var(--space-3);
+
+	svg {
+		width: var(--space-8);
+	}
+}
+
+.inventory__top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	svg {
+		pointer-events: none;
+	}
+
+	path {
+		pointer-events: none;
+	}
+}
+
+.inventory-option__bottom {
+	flex-direction: column;
+	gap: var(--space-2);
+
+	hr {
+		background: var(--fg-text-color);
+		border: none;
+		border-radius: 9999px;
+		height: 2px;
+	}
+
+	p {
+		font-family: var(--poppins);
+		font-size: var(--text-sm);
+		line-height: 1.25;
+	}
+
+	svg {
+		display: inline-flex;
+		position: relative;
+		top: 2px;
+		width: var(--text-sm);
+		height: var(--text-sm);
+	}
+}
+
+.inventory-option__name {
+	font-weight: 500;
+	font-family: var(--chelsea);
+	font-size: var(--text-2xl);
+	line-height: 1;
+}

@@ -15,6 +15,7 @@ const tooltipsContent = await tooltipsJSON.json();
 
 const redemptionJSON = await fetch("/src/data/redemption.json");
 const redemptionContent = await redemptionJSON.json();
+
 const currentRedemption = {
 	current: {},
 };
@@ -28,9 +29,6 @@ const init = () => {
 			Object.assign(stats[category], actualStats[category]);
 		});
 	}
-
-	levelSystem(); // ultima vez revisado: 12/04, avaliação: otima
-	renderLevel(); // ultima vez revisado: 13/04, avaliação: otima
 
 	sinaSystem(); // ultima vez revisado: 12/04, avaliação: otima
 	renderSina(); // ultima vez revisado: 13/04, avaliação: otima
@@ -49,12 +47,16 @@ const init = () => {
 
 	menuSystem(); // ultima vez revisado: 12/04, avaliação: bom
 	tooltipSystem(); // ultima vez revisado: 15/04, avaliação: bom
+	dropdownComponent(); // ultima vez revisado: 12/04, avaliação: otima
+	renderDropdown(); // ultima vez revisado: 13/04, avaliação: otima
 
-	redemptionSystem();
-	renderRedemption();
+	redemptionSystem(); // ultima vez revisado: 13/04, avaliação: nao sei
+	renderRedemption(); // ultima vez revisado: 13/04, avaliação: nao sei
 
 	renderExtras();
 	diceSystem();
+
+	inventorySystem();
 };
 
 const stats = {
@@ -111,6 +113,7 @@ const stats = {
 	experience: {
 		level: 1,
 		xp: 0,
+		loyalty: 0,
 	},
 
 	antecedents: {
@@ -127,13 +130,11 @@ const stats = {
 	mount: {
 		potency: 0,
 		endurance: 0,
-		loyalty: 1,
 	},
 
 	miscellany: {
 		bounty: 0,
 		sina: 0,
-		money: 200,
 	},
 
 	limit: {
@@ -142,6 +143,11 @@ const stats = {
 
 	path: {
 		steps: 0,
+	},
+
+	id: {
+		multiHab: 0,
+		inventoryId: 0,
 	},
 };
 
@@ -173,38 +179,53 @@ const lifeSvg =
 const painSvg =
 	'<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 32 208 200"><title>Circulo de Dor</title><path d="M232,120v8A104,104,0,0,1,127.63,232c-54-.19-98-42.06-103.12-94.78a4,4,0,0,1,5.56-4A35.94,35.94,0,0,0,72,122.59a35.92,35.92,0,0,0,53.94,2.33,40.36,40.36,0,0,0,12.87,13A47.94,47.94,0,0,0,120,176a8,8,0,0,0,8.67,8,8.21,8.21,0,0,0,7.33-8.26A32,32,0,0,1,168,144a8,8,0,0,0,8-8.53,8.18,8.18,0,0,0-8.25-7.47H160a24,24,0,0,1-24-24V88h64A32,32,0,0,1,232,120ZM44.73,120C55.57,119.6,64,110.37,64,99.52v-23C64,65.63,55.57,56.4,44.73,56A20,20,0,0,0,24,76v24A20,20,0,0,0,44.73,120Zm56,0c10.84-.39,19.27-9.62,19.27-20.47v-47c0-10.85-8.43-20.08-19.27-20.47A20,20,0,0,0,80,52v48A20,20,0,0,0,100.73,120ZM176,52a20,20,0,0,0-20.73-20C144.43,32.4,136,41.63,136,52.48V72h36a4,4,0,0,0,4-4Z"></path></svg>';
 
-let multipleHabId = 0;
-
 // #region ========== LEVEL SYSTEM ===================
-function levelSystem() {
-	const dropdown = document.querySelector(".dropdown");
-	const dropdownOptions = dropdown.querySelector(".dropdown__options");
 
-	dropdown.addEventListener("click", (e) => {
-		const target = e.target;
+function dropdownComponent() {
+	const dropdowns = [...document.querySelectorAll(".dropdown")];
 
-		if (target.matches(".dropdown__btn")) {
-			dropdownOptions.classList.toggle("dropdown__options--hide");
-			target.classList.toggle("dropdown__btn--open");
-		}
+	dropdowns.forEach((dropdown) => {
+		const options = dropdown.querySelector(".dropdown__options");
+		dropdown.addEventListener("click", (e) => {
+			const target = e.target;
 
-		if (target.matches(".dropdown__option")) {
-			const selectedValue = Number(target.dataset.value);
+			if (target.matches(".dropdown__btn")) {
+				options.classList.toggle("dropdown__options--hide");
+				target.classList.toggle("dropdown__btn--open");
+			}
 
-			updateStats("level", selectedValue);
-			renderLevel();
+			if (target.matches(".dropdown__option")) {
+				const selectedValue = Number(target.dataset.value);
+				const btn = dropdown.querySelector(".dropdown__btn");
 
-			dropdownOptions.classList.toggle("dropdown__options--hide");
-		}
+				btn.classList.toggle("dropdown__btn--open");
+				options.classList.toggle("dropdown__options--hide");
+
+				if (dropdown.dataset.type === "level") {
+					updateStats("level", selectedValue);
+					renderDropdown();
+				} else if (dropdown.dataset.type === "loyalty") {
+					updateStats("loyalty", selectedValue);
+					renderDropdown();
+				}
+			}
+		});
 	});
 }
 
-function renderLevel() {
+function renderDropdown() {
 	const addSkillButton = document.querySelector("#skillAddBtn");
 	const currentSkillsList = document.querySelector("#selectedSkills");
 
-	const dropdownValue = document.querySelector(".dropdown__value");
-	dropdownValue.innerHTML = stats.experience.level;
+	const dropdownValue = [...document.querySelectorAll(".dropdown__value")];
+
+	dropdownValue.forEach((dropdown) => {
+		if (dropdown.dataset.for === "level") {
+			dropdown.innerHTML = stats.experience.level;
+		} else if (dropdown.dataset.for === "loyalty") {
+			dropdown.innerHTML = stats.experience.loyalty;
+		}
+	});
 
 	if (currentSkills.length === 0) {
 		currentSkillsList.classList.remove(
@@ -434,7 +455,7 @@ function inputsSystem() {
 	const allInputs = [...document.querySelectorAll(".save-input")];
 
 	allInputs.forEach((input) => {
-		input.addEventListener("change", (e) => {
+		input.addEventListener("input", (e) => {
 			const target = e.target;
 			localStorage.setItem(target.id, target.value);
 		});
@@ -450,6 +471,7 @@ function renderInputs() {
 		}
 	});
 }
+
 // #endregion ======= INPUTS SYSTEM ==================
 
 // #region ========== COMPONENTS =====================
@@ -476,7 +498,7 @@ function menuSystem() {
 				[
 					...target.closest(".menu").querySelectorAll(".menu__container"),
 				].forEach((container) => {
-					container.classList.add("menu__container--closed");
+					container.classList.add("hide");
 				});
 
 				const selectedContainer = target.dataset.for;
@@ -484,7 +506,7 @@ function menuSystem() {
 				[
 					...target.closest(".menu").querySelectorAll(`#${selectedContainer}`),
 				].forEach((container) => {
-					container.classList.remove("menu__container--closed");
+					container.classList.remove("hide");
 				});
 			}
 		});
@@ -493,8 +515,14 @@ function menuSystem() {
 
 function collapseButton(button) {
 	button.closest(".collapse-button").classList.toggle("collapse-button--open");
-	const skill = button.closest(".skill");
-	skill.querySelector(".collapse").classList.toggle("collapse--open");
+	let colap = null;
+
+	if (button.dataset.type === "inventory") {
+		colap = button.closest(".inventory-option");
+	} else {
+		colap = button.closest(".skill");
+	}
+	colap.querySelector(".collapse").classList.toggle("collapse--open");
 }
 // #endregion ======= COMPONENTS =====================
 
@@ -538,9 +566,9 @@ function skillSelectButton(button, currentSkillsList) {
 		skills.forEach((skill, index) => {
 			if (skill.name === skillName) {
 				if (skill.repeatable === true) {
-					skills[index].id = multipleHabId;
+					skills[index].id = stats.id.multiHab;
 					currentSkills.push({ ...skills[index] });
-					++multipleHabId;
+					stats.id.multiHab++;
 				} else {
 					currentSkills.push(...skills.splice(index, 1));
 				}
@@ -551,7 +579,8 @@ function skillSelectButton(button, currentSkillsList) {
 	currentSkills.sort((a, b) => a.name.localeCompare(b.name));
 
 	renderSkills("select", currentSkills);
-	renderLevel();
+	renderDropdown();
+	saveLocal("savedStats", stats);
 	saveLocal("savedCurrentSkills", currentSkills);
 	saveLocal("savedSkills", skills);
 
@@ -597,7 +626,7 @@ function skillRemoveButton(button, currentSkillsList) {
 
 	renderSkills("remove", currentSkills);
 	updateLevel();
-	renderLevel();
+	renderDropdown();
 	saveLocal("savedCurrentSkills", currentSkills);
 	saveLocal("savedSkills", skills);
 }
@@ -678,7 +707,197 @@ function playSound(sound) {
 	sound.currentTime = 0;
 	sound.play();
 }
+
+async function loadInventoryTypes() {
+	const response = await fetch("/src/data/inventory.json");
+	const data = await response.json();
+	return data;
+}
+
 // #endregion ======= FUNÇÕES AUXILIARES =============
+
+async function inventorySystem() {
+	const inventoryTemplate = document.querySelector("#InventoryCategory");
+	const inventoryOptionTemplate = document.querySelector("#inventoryOption");
+	const inventoryContainer = document.querySelector("#inventoryContainer");
+	const inventoryOptions = document.querySelector(
+		"#inventory-selection-options",
+	);
+	const inventorySelectionMenu = document.querySelector(
+		"#inventorySelectionMenu",
+	);
+
+	// #region inicialização do estado do inventario
+	const inventoryTypes = Object.values(await loadInventoryTypes());
+	let currentInventory = null;
+	let inventoryId = null;
+
+	if (localStorage.getItem("currentInventory") === null) {
+		currentInventory = [];
+	} else {
+		currentInventory = JSON.parse(localStorage.getItem("currentInventory"));
+	}
+
+	if (localStorage.getItem("inventoryId") === null) {
+		inventoryId = 0;
+	} else {
+		inventoryId = JSON.parse(localStorage.getItem("inventoryId"));
+	}
+
+	renderCurrentInventory(
+		inventoryContainer,
+		currentInventory,
+		inventoryTemplate,
+	);
+	// #endregion
+
+	// #region Adicionar um novo inventario
+	const addInventoryBtn = document.querySelector("#addInventory");
+
+	addInventoryBtn.addEventListener("click", () => {
+		renderInventoryOptions(
+			inventoryOptions,
+			inventoryTypes,
+			inventoryOptionTemplate,
+		);
+	});
+	// #endregion
+
+	// #region Menu de inventarios
+
+	inventoryOptions.addEventListener("click", (e) => {
+		const target = e.target;
+
+		if (target.matches(".select-button")) {
+			const id = Number(target.closest(".inventory-option").dataset.id);
+			const selectedOptionIndex = inventoryTypes.findIndex(
+				(el) => el.id === id,
+			);
+			const selectedOption = { ...inventoryTypes[selectedOptionIndex] };
+
+			selectedOption.id = inventoryId;
+			inventoryId++;
+			saveLocal("inventoryId", inventoryId);
+
+			currentInventory.push(selectedOption);
+
+			renderCurrentInventory(
+				inventoryContainer,
+				currentInventory,
+				inventoryTemplate,
+			);
+
+			inventorySelectionMenu.hidePopover();
+			saveLocal("currentInventory", currentInventory);
+		}
+		if (target.matches(".collapse-button")) return collapseButton(target);
+	});
+
+	// #endregion
+
+	// #region
+
+	inventoryContainer.addEventListener("click", (e) => {
+		const target = e.target;
+
+		if (target.matches(".inventory-category__remove-category")) {
+			const id = Number(target.closest(".inventory-category").dataset.id);
+
+			const InventoryIndex = currentInventory.findIndex((el) => el.id === id);
+			currentInventory.splice(InventoryIndex, 1);
+
+			renderCurrentInventory(
+				inventoryContainer,
+				currentInventory,
+				inventoryTemplate,
+			);
+		}
+
+		if (target.matches("inventory-category__add-item")) {
+		}
+	});
+}
+
+function renderInventoryOptions(menu, list, template) {
+	menu.replaceChildren();
+
+	const arrayList = Object.values(list);
+	arrayList.sort((a, b) => a.name.localeCompare(b.name));
+	arrayList.forEach((option) => {
+		const inventoryOption = template.content.cloneNode(true);
+		inventoryOption.querySelector(".inventory-option").dataset.id = option.id;
+		inventoryOption.querySelector(".inventory-option__name").innerHTML =
+			option.name;
+		inventoryOption.querySelector(".inventory-option__description").innerHTML =
+			option.description;
+		menu.appendChild(inventoryOption);
+	});
+}
+
+function renderCurrentInventory(container, list, template) {
+	container.replaceChildren();
+	let actualQuantity = null;
+	let lastName = null;
+
+	list.sort((a, b) => a.name.localeCompare(b.name));
+
+	list.forEach((inventoryType) => {
+		const inventory = template.content.cloneNode(true);
+
+		inventory.querySelector(".inventory-category").dataset.id =
+			inventoryType.id;
+
+		const quantity = list.filter((el) =>
+			el.name.includes(inventoryType.name),
+		).length;
+
+		if (lastName !== inventoryType.name) {
+			actualQuantity = 1;
+			lastName = inventoryType.name;
+		}
+
+		if (quantity > 1) {
+			if (actualQuantity === 1) {
+				inventory.querySelector(".category-title").innerHTML =
+					inventoryType.name;
+			} else {
+				inventory.querySelector(".category-title").innerHTML =
+					`${inventoryType.name} ${actualQuantity}`;
+			}
+			actualQuantity++;
+		} else {
+			actualQuantity = 1;
+			inventory.querySelector(".category-title").innerHTML = inventoryType.name;
+		}
+
+		if (inventoryType.type === "item") {
+			inventory.querySelector(".category-used").innerHTML = inventoryType.used;
+			inventory.querySelector(".category-capacity").innerHTML =
+				inventoryType.capacity;
+
+			inventory.querySelector(".ammo-inventory").classList.add("hide");
+			inventory.querySelector(".weapon-inventory").classList.add("hide");
+		} else {
+			inventory.querySelector(".weapon-used").innerHTML =
+				inventoryType.weapon_used;
+			inventory.querySelector(".weapon-capacity").innerHTML =
+				inventoryType.weapon_capacity;
+
+			if (inventoryType.subtype === "ranged") {
+				inventory.querySelector(".ammo-used").innerHTML =
+					inventoryType.ammo_used;
+				inventory.querySelector(".ammo-capacity").innerHTML =
+					inventoryType.ammo_capacity;
+			} else {
+				inventory.querySelector(".ammo-inventory").classList.add("hide");
+			}
+
+			inventory.querySelector(".space-inventory").classList.add("hide");
+		}
+
+		container.appendChild(inventory);
+	});
+}
 
 function diceSystem() {
 	const diceSound = new Audio(`/src/assets/audios/dice.mp3`);
@@ -756,80 +975,6 @@ function renderExtras() {
 	});
 }
 
-// function teste() {
-// 	const buttons = [...document.querySelectorAll(".redemptionBtn")];
-
-// 	const allConclusions = [
-// 		...document.querySelectorAll(".informations__step-conclusion"),
-// 	];
-
-// 	allConclusions.forEach((conclusion) => {
-// 		conclusion.addEventListener("click", e => {
-// 			const target = e.target;
-
-// 			if (target.matches(".step")) {
-// 				target.classList.toggle('marked')
-
-// 				if ([...target.classList].includes("marked")) {
-// 					target.setAttribute("aria-checked", "true");
-// 					conclusion.querySelector(".step-text").innerHTML = "Completo";
-// 				} else {
-// 					target.setAttribute("aria-checked", "false");
-// 					conclusion.querySelector(".step-text").innerHTML = "Incompleto";
-// 				}
-
-// 				const markedRadios = allConclusions.filter((conclusion) => {
-// 					return [...conclusion.querySelector('.step').classList].includes('marked')
-// 				});
-
-// 				const value = markedRadios.length
-
-// 				updateStats('redemption', value)
-// 			}
-// 		});
-// 	});
-
-// 	let position = 0;
-
-// 	buttons.forEach((button) => {
-// 		button.addEventListener("click", (e) => {
-// 			const target = e.target;
-
-// 			if (target.matches("#next-path")) {
-// 				position++;
-// 			}
-
-// 			if (target.matches("#back-path")) {
-// 				position--;
-// 			}
-
-// 			if (position > 5) {
-// 				position = 0;
-// 			}
-// 			renderRedemption(position);
-// 		});
-// 	});
-// }
-
-// function renderRedemption(position) {
-// 	const pathTitle = document.querySelector("#pathTitle");
-// 	const resizer = document.querySelector(".textResizer");
-// 	const pathDescription = document.querySelector("#pathDescription");
-
-// 	pathTitle.value = Object.values(redemptionContent)[position].name;
-// 	pathDescription.value =
-// 		Object.values(redemptionContent)[position].description;
-
-// 	resizer.textContent = pathTitle.value;
-// 	pathTitle.style.width = resizer.offsetWidth + 10 + "px";
-
-// 	for (let i = 1; i < 7; i++) {
-// 		const step = document.querySelector(`#step${i}`)
-// 		step.value =
-// 			Object.values(redemptionContent)[position][`step${i}`];
-// 	}
-// }
-
 function redemptionSystem() {
 	const pathButtons = [...document.querySelectorAll(".redemptionBtn")];
 	const stepRadios = [...document.querySelectorAll(".step")];
@@ -886,12 +1031,11 @@ function redemptionSystem() {
 	});
 
 	stepInputs.forEach((stepInput) => {
-		stepInput.addEventListener("change", (e) => {
+		stepInput.addEventListener("input", (e) => {
 			const target = e.target;
 			const type = target.dataset.for;
 
 			currentRedemption.current[type] = target.value;
-			console.log(target);
 
 			saveLocal("savedCurrentRedemption", currentRedemption.current);
 		});
@@ -1029,7 +1173,11 @@ function updateStats(type, value) {
 	}
 
 	updateLevel();
-	renderLevel();
+	renderDropdown();
+
+	if (type === "loyalty") {
+		stats.experience.loyalty = value;
+	}
 
 	// ========== CALCULO E ATUALIZAÇÃO DOS STATS PRINCIPAIS ==========
 

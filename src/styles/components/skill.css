@@ -5,7 +5,7 @@
 	justify-content: space-between;
 	border: var(--border-md-fg);
 	background-color: var(--bg-color-muted);
-	padding: var(--space-4) var(--space-3) var(--space-3) var(--space-3);
+	padding: var(--space-3) var(--space-3) var(--space-3) var(--space-3);
 
 	svg {
 		width: var(--space-8);

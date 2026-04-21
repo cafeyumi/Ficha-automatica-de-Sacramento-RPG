@@ -41,7 +41,11 @@
 					<div class="character__identity">
 						<div class="character__informations">
 							<label for="profileInput" class="character__picture">
-								<input id="profileInput" name="Perfil" type="file" accept="image/*">
+								<input
+									id="profileInput"
+									name="Perfil"
+									type="file"
+									accept="image/png, image/jpeg, image/webp">
 								<img id="profileImage" src="/src/assets/images/placeholder.jpg" alt="foto do personagem">
 							</label>
 
@@ -66,9 +70,9 @@
 						<div class="progression__inputs">
 							<div>
 								<label for="level">Nível</label>
-								<div class="dropdown">
+								<div data-type="level" class="dropdown">
 									<button id="level" class="dropdown__btn" type="button">
-										<span class="dropdown__value dropdown__btn-text">1</span>
+										<span data-for="level" class="dropdown__value dropdown__btn-text">1</span>
 										<svg
 											aria-hidden="true"
 											xmlns="http://www.w3.org/2000/svg"
@@ -748,9 +752,7 @@
 						</svg>
 					</button>
 				</div>
-				<div
-					id="informationsRedemption"
-					class="informations__redemption menu__container menu__container--closed">
+				<div id="informationsRedemption" class="informations__redemption menu__container hide">
 					<div>
 						<div class="informations__redemption-path">
 							<button class="redemptionBtn back-path" id="back-path" type="button">
@@ -898,9 +900,7 @@
 							id="step6"></textarea>
 					</div>
 				</div>
-				<div
-					id="informationsDescription"
-					class="informations__description menu__container menu__container--closed">
+				<div id="informationsDescription" class="informations__description menu__container hide">
 					<div class="informations__description-content">
 						<div class="informations__description-inputs">
 							<label for="notes">Anotações</label>
@@ -1435,9 +1435,9 @@
 						</div>
 						<div class="mount__dropdown">
 							<span>Fidelidade</span>
-							<div class="dropdown">
+							<div data-type="loyalty" class="dropdown">
 								<button class="dropdown__btn dropdown__mount-btn" type="button">
-									<span class="dropdown__value dropdown__btn-text">0</span>
+									<span data-for="loyalty" class="dropdown__value dropdown__btn-text">0</span>
 									<svg
 										aria-hidden="true"
 										xmlns="http://www.w3.org/2000/svg"
@@ -1450,6 +1450,9 @@
 									</svg>
 								</button>
 								<menu class="dropdown__options dropdown__options--hide">
+									<li class="dropdown__option" data-value="0">
+										<span class="dropdown__option-text">0</span>
+									</li>
 									<li class="dropdown__option" data-value="1">
 										<span class="dropdown__option-text">1</span>
 									</li>
@@ -1465,9 +1468,6 @@
 									<li class="dropdown__option" data-value="5">
 										<span class="dropdown__option-text">5</span>
 									</li>
-									<li class="dropdown__option" data-value="6">
-										<span class="dropdown__option-text">6</span>
-									</li>
 								</menu>
 							</div>
 						</div>
@@ -1482,7 +1482,7 @@
 									role="radiogroup"
 									data-subtype="currentStats"
 									data-type="mountPain"
-									name="Dor da Montaria"
+									data-name="Dor da Montaria"
 									class="tracker pain mount_tracker-gap">
 									<button
 										class="pip svg mount-pip"
@@ -1577,7 +1577,7 @@
 										id="mountExtraPain"
 										data-for="mountPain"
 										data-subtype="currentStats"
-										name="Dor extra da Montaria"
+										data-name="Dor extra da Montaria"
 										class="extra"
 										type="number"
 										value="0">
@@ -1691,7 +1691,7 @@
 									<input
 										id="mountExtraLife"
 										data-for="mountLife"
-										name="Vida extra da Montaria"
+										data-name="Vida extra da Montaria"
 										class="extra"
 										type="number"
 										value="0">
@@ -1813,13 +1813,196 @@
 						</button>
 					</li>
 					<li>
-						<button class="header-button equipment__header-btn" data-for="inventoryItems" type="button">
-							Equipamentos
+						<button
+							class="header-button equipment__header-btn"
+							data-for="equipmentInventory"
+							type="button">
+							Inventário
 						</button>
 					</li>
 				</menu>
 				<div id="equipmentCombat" class="menu__container"></div>
-				<div id="equipmentItems" class="menu__container menu__container--closed"></div>
+				<div id="equipmentInventory" class="menu__container inventory-equipment__content hide">
+					<div class="inventory-equipment__filter">
+						<input type="text" placeholder="Filtrar items">
+						<button popovertarget="inventorySelectionMenu" id="addInventory" type="button">
+							Adicionar
+						</button>
+					</div>
+					<div id="inventoryContainer"></div>
+					<!-- <div data-repeatable="" data-type="" data-id="" class="item">
+								<div class="skill__top">
+									<div class="item__informations">
+										<h4 class="item__name">Revólver</h4>
+										<div class="item__stats">
+											<div><span><strong>Dano:</strong> <span>1</span></span></div>
+											<div><span><strong>Munição:</strong> <span>6</span></span></div>
+											<div><span><strong>Peso:</strong> <span>1</span></span></div>
+										</div>
+									</div>
+									<div class="item__main-buttons">
+										<button class="collapse-button" type="button">
+											<img src="/src/assets/images/collapse.png" alt="">
+										</button>
+										<button type="button"></button>
+									</div>
+								</div>
+								<div class="collapse skill__bottom">
+									<hr>
+									<p class="skill__description"></p>
+									<div class="skill__button-remove-position">
+										<button class="skill__button-remove remove-button" type="button">
+											<svg
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												fill="#000000"
+												viewBox="0 0 256 256">
+												<path
+													d="M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z"></path>
+											</svg>Remover
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<div data-repeatable="" data-type="" data-id="" class="item">
+								<div class="skill__top">
+									<div class="item__informations">
+										<h4 class="item__name">Atum (lata)</h4>
+										<div class="item__stats">
+											<div><span><strong>Peso:</strong> <span>0.5</span></span></div>
+										</div>
+									</div>
+									<div class="skill__main-buttons">
+										<button class="collapse-button" type="button">
+											<img src="/src/assets/images/collapse.png" alt="">
+										</button>
+									</div>
+								</div>
+								<div class="collapse skill__bottom">
+									<hr>
+									<p class="skill__description"></p>
+									<div class="skill__button-remove-position">
+										<button class="skill__button-remove remove-button" type="button">
+											<svg
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												fill="#000000"
+												viewBox="0 0 256 256">
+												<path
+													d="M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z"></path>
+											</svg>Remover
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<div data-repeatable="" data-type="" data-id="" class="item">
+								<div class="skill__top">
+									<div class="item__informations">
+										<h4 class="item__name">Atum (lata)</h4>
+										<div class="item__stats">
+											<div><span><strong>Peso:</strong> <span>0.5</span></span></div>
+										</div>
+									</div>
+									<div class="skill__main-buttons">
+										<button class="collapse-button" type="button">
+											<img src="/src/assets/images/collapse.png" alt="">
+										</button>
+									</div>
+								</div>
+								<div class="collapse skill__bottom">
+									<hr>
+									<p class="skill__description"></p>
+									<div class="skill__button-remove-position">
+										<button class="skill__button-remove remove-button" type="button">
+											<svg
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												fill="#000000"
+												viewBox="0 0 256 256">
+												<path
+													d="M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z"></path>
+											</svg>Remover
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<div data-repeatable="" data-type="" data-id="" class="item">
+								<div class="skill__top">
+									<div class="item__informations">
+										<h4 class="item__name">Atum (lata)</h4>
+										<div class="item__stats">
+											<div><span><strong>Peso:</strong> <span>0.5</span></span></div>
+										</div>
+									</div>
+									<div class="skill__main-buttons">
+										<button class="collapse-button" type="button">
+											<img src="/src/assets/images/collapse.png" alt="">
+										</button>
+									</div>
+								</div>
+								<div class="collapse skill__bottom">
+									<hr>
+									<p class="skill__description"></p>
+									<div class="skill__button-remove-position">
+										<button class="skill__button-remove remove-button" type="button">
+											<svg
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												fill="#000000"
+												viewBox="0 0 256 256">
+												<path
+													d="M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z"></path>
+											</svg>Remover
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<div data-repeatable="" data-type="" data-id="" class="item">
+								<div class="item__top">
+									<div class="item__informations">
+										<h4 class="item__name">Atum (lata)</h4>
+										<div class="item__stats">
+											<div><span><strong>Peso:</strong> <span>0.5</span></span></div>
+										</div>
+									</div>
+									<div class="skill__main-buttons">
+										<button class="collapse-button" type="button">
+											<img src="/src/assets/images/collapse.png" alt="">
+										</button>
+									</div>
+								</div>
+								<div class="collapse skill__bottom">
+									<hr>
+									<p class="skill__description"></p>
+									<div class="skill__button-remove-position">
+										<button class="skill__button-remove remove-button" type="button">
+											<svg
+												aria-hidden="true"
+												xmlns="http://www.w3.org/2000/svg"
+												width="32"
+												height="32"
+												fill="#000000"
+												viewBox="0 0 256 256">
+												<path
+													d="M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z"></path>
+											</svg>Remover
+										</button>
+									</div>
+								</div>
+							</div> -->
+				</div>
 			</section>
 		</main>
 
@@ -1865,6 +2048,78 @@
 			<div id="combatSkills" class="menu__container skills-menu__container"></div>
 			<div id="professionSkills" class="menu__container skills-menu__container"></div>
 		</div>
+
+		<div popover id="inventorySelectionMenu" class="inventory-selection__menu">
+			<div class="inventory-selection__header"><h2>INVENTÁRIOS</h2></div>
+			<div id="inventory-selection-options" class="inventory-selection__options"></div>
+
+			<template id="inventoryOption"
+				><div data-id="" class="inventory-option">
+					<div class="inventory__top">
+						<h3 class="inventory-option__name"></h3>
+						<div class="skill__main-buttons">
+							<button data-type="inventory" class="collapse-button" type="button">
+								<img src="/src/assets/images/collapse.png" alt="">
+							</button>
+							<button type="button" class="select-button">
+								<svg
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									width="32"
+									height="32"
+									fill="#000000"
+									viewBox="0 0 256 256">
+									<path
+										d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+								</svg>
+							</button>
+						</div>
+					</div>
+					<div class="collapse inventory-option__bottom">
+						<hr>
+						<p class="inventory-option__description"></p>
+					</div>
+				</div>
+			</template>
+		</div>
+
+		<template id="InventoryCategory">
+			<section class="inventory-category" data-id="">
+				<div class="inventory-category__header">
+					<div>
+						<h3 class="inventory-category__title category-title"></h3>
+						<div class="inventory-category__capacity-stats">
+							<span class="inventory-category__capacity weapon-inventory"
+								>Arma: <span class="weapon-used"></span>/<span class="weapon-capacity"></span></span
+							>
+							<span class="inventory-category__capacity ammo-inventory"
+								>Munição: <span class="ammo-used"></span>/<span class="ammo-capacity"></span></span
+							>
+							<span class="inventory-category__capacity space-inventory"
+								>Espaço total: <span class="category-used"></span>/<span
+									class="category-capacity"></span></span
+							>
+						</div>
+					</div>
+					<div class="inventory-category__buttons">
+						<button class="inventory-category__remove-category" type="button">
+							<svg
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								width="32"
+								height="32"
+								fill="#000000"
+								viewBox="0 0 256 256">
+								<path
+									d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM112,168a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm0-120H96V40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8Z"></path>
+							</svg>
+						</button>
+						<button class="inventory-category__add-item" type="button">Novo Item</button>
+					</div>
+				</div>
+				<div class="inventory-category__content"></div>
+			</section>
+		</template>
 
 		<template id="rollTemplate">
 			<div class="rolls__container">

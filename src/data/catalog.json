@@ -1,0 +1,225 @@
+{
+	"weapons": [
+		{
+			"name": "Revólver",
+			"ammunition": 6,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "holster", "horse"],
+			"description": null
+		},
+		{
+			"name": "Fuzil",
+			"ammunition": 5,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "3 {life}",
+			"space": 3,
+			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
+			"description": null
+		},
+		{
+			"name": "Espingarda",
+			"ammunition": 2,
+			"reload": 1,
+			"reload_type": "action",
+			"damage": "{life} longe, 2 {life} perto",
+			"space": 2,
+			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
+			"description": null
+		},
+		{
+			"name": "Garrucha",
+			"ammunition": 1,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "2 {life} apenas perto",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "holster", "horse"],
+			"description": null
+		},
+		{
+			"name": "Zarabatana",
+			"ammunition": null,
+			"reload": null,
+			"damage": "{pain} + veneno",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
+			"description": null
+		},
+		{
+			"name": "Estilingue",
+			"ammunition": null,
+			"reload": null,
+			"damage": "2 {pain}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "horse"],
+			"description": null
+		},
+		{
+			"name": "Boleadeira",
+			"ammunition": null,
+			"reload": null,
+			"damage": "3 {pain}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "horse"],
+			"description": null
+		},
+		{
+			"name": "Arco e flecha",
+			"ammunition": null,
+			"reload": null,
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "horse"],
+			"description": null
+		},
+		{
+			"name": "Faca",
+			"ammunition": null,
+			"reload": null,
+			"damage": "3 {pain}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "sheath", "horse"],
+			"description": null
+		},
+		{
+			"name": "Sabre (Espada)",
+			"ammunition": null,
+			"reload": null,
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "sheath", "horse"],
+			"description": null
+		},
+		{
+			"name": "Lança",
+			"ammunition": null,
+			"reload": null,
+			"damage": "{life}",
+			"space": 2,
+			"compatible_slots": ["inventory"],
+			"description": null
+		},
+		{
+			"name": "Machadinha",
+			"ammunition": null,
+			"reload": null,
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "sheath", "horse"],
+			"description": null
+		},
+		{
+			"name": "Machado de lenha",
+			"ammunition": null,
+			"reload": null,
+			"damage": "2 {life}",
+			"space": 2,
+			"compatible_slots": ["inventory", "bag", "horse"],
+			"description": null
+		},
+		{
+			"name": "Martelo de mão",
+			"ammunition": null,
+			"reload": null,
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "horse"],
+			"description": null
+		}
+	],
+
+	"special weapons": [
+		{
+			"name": "Pistola automática",
+			"ammunition": 11,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "holster", "horse"],
+			"description": "Esta arma ainda é um protótipo daquela que seria inventada apenas em 1911. É conhecida como <em>Single-Action</em>, ou seja, não é preciso puxar o cão do revólver e depois o gatilho, basta mirar e atirar que a arma já sai cuspindo bala. Com ela, é possível dar um tiro adicional por Ação de Combate."
+		},
+		{
+			"name": "Magnum de cano alongado",
+			"ammunition": 6,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "2 {life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "holster", "horse"],
+			"description": "É um revólver grande, com cano alongado e funciona como um revólver comum, puxando o cão, depois o gatilho. A diferença é que seu calibre .357 causa um dano devastador."
+		},
+		{
+			"name": "Mauser C69",
+			"ammunition": 15,
+			"reload": 1,
+			"reload_type": "action",
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "holster", "horse"],
+			"description": "Mais encorpada e robusta, esta arma de calibre 7.63mm. se destaca por ter um carregador maior, comportando até 15 balas no carregador."
+		},
+		{
+			"name": "Carabina de repetição",
+			"ammunition": 7,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "2 {life}",
+			"space": 2,
+			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
+			"description": "Muito utilizada para a caça, esta arma é versátil ao atirar em média ou longa distância. Com a carabina você pode dar um tiro adicional com sua primeira Ação de Combate no turno, com penalidade -1 nos Testes de Violência."
+		},
+		{
+			"name": "Derringer (revólver escondido)",
+			"ammunition": 2,
+			"reload": 1,
+			"reload_type": "action",
+			"damage": "{life}",
+			"space": 1,
+			"compatible_slots": ["inventory", "bag", "holster", "horse"],
+			"description": "É um pequeno revólver de apenas uma bala. O segredo é que a arma é acoplada a uma pequena esteira de molas que pode ser presa ao punho de seu usuário, geralmente vestido com uma jaqueta de mangas complidas para esconder o revólver. A pequena esteira empurra a Derringer para fora da manga até o alcance da mão. Por ser discreta, esta arma permite aproveitar os bônus da Habilidade Ataque Sacana."
+		},
+		{
+			"name": "Espingarda de cano serrado",
+			"ammunition": 2,
+			"reload": 2,
+			"reload_type": "action",
+			"damage": "3 {life}",
+			"space": 2,
+			"compatible_slots": ["inventory", "bag", "bandolier", "holster", "horse"],
+			"description": "Serrar o calibre de uma espingarda é muito mais difícil do que parece. Por isso deve ser algo feito unicamente por especialistas. Serrar o cano faz com que a arma diminua o alcance dos tiros, mas aumenta o dano. Outra vantagem é que a espingarda de cano serrado fica bem menor, podendo ser portada em uma única mão e levada no coldre da cintura."
+		},
+		{
+			"name": "Canhão de cavalaria",
+			"ammunition": 1,
+			"reload": 2,
+			"reload_type": "turn",
+			"damage": "6 {life}",
+			"compatible_slots": ["inventory"],
+			"description": "Seus disparos atingem todos em uma área de 3m de raio, mas, por conta da rusticidade do equipamento, é bastante difícil acertar um tiro com precisão. Por isso, para acertar o tiro, é preciso fazer um Teste de Violência de NA 7 em vez de uma jogada contra a Defesa do alvo. Se falhar, você erra o tiro por 3m em uma direção aleatória. Se obter uma falha crítica, o tiro atinge um aliado e seus arredores."
+		},
+		{
+			"name": "Metralhadora montada",
+			"ammunition": null,
+			"reload": 2,
+			"reload_type": "turn",
+			"damage": "3 {life}",
+			"compatible_slots": ["inventory"],
+			"description": "Como o nome diz, esta arma é tão pesada que precisa ser transportada com a ajuda de rodas. É preciso usar o turno inteiro para atirar com ela e não há como mirar, ou seja, ela vai atingir os inimigos e os amigos que estiverem pela frente. Ela causa dano de 3 Círculos de Vida para cada Ação de Combate e Movimento que o PJ gasta usando a Metralhadora. Por exemplo: se seu PJ gastar 2 Ações de Combate e 2 Movimentos o dano da metralhadora será de 6 Círculos de Vida. No fim do turno a arma precisa ser recarregada."
+		},
+		{
+			"name": "Explosivos (TNT/Dinamite)",
+			"ammunition": null,
+			"reload": 3,
+			"reload_type": "action",
+			"damage": "5 {life}",
+			"space": 0.5,
+			"compatible_slots": ["inventory", "bag", "horse"],
+			"description": "Explosivos atingem mais de um oponente. São armas realmente devastadoras e que podem fazer um bom estrago na vida de todo mundo, tanto que não se limitam a prejudicar um único alvo. Explosivos e molotovs causam dano em uma área de 1,5m de raio. É preciso usar 1 Movimento e 1 Ação de Combate para acender o pavio de um explosivo e jogá-lo no alvo.<br>Além disso, no Teste de Violência para atirar o explosivo é preciso atenção caso o dado caia com o número 1. Se isso acontecer, faça um Teste de Resistência de Velocidade. Se você falhar, a bomba explode na mão do usuário. Isso acontece apenas com explosivos, outros ataques horríveis terão outras consequências."
+		}
+	]
+}

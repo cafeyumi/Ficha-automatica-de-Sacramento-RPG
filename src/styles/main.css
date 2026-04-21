@@ -8,6 +8,7 @@
 @import url(/src/styles/components/menu.css);
 @import url(/src/styles/components/skill.css);
 @import url(/src/styles/components/tooltip.css);
+@import url(/src/styles/components/inventoryCategory.css);
 
 @import url(/src/styles/layouts/character.css);
 @import url(/src/styles/layouts/attributes.css);
@@ -89,6 +90,11 @@ h2 {
 	grid-area: rolagemlivre;
 	border: var(--border-md-fg);
 	height: 100%;
+}
+
+.hide {
+	/* biome-ignore lint/complexity/noImportantStyles: using to hide elements */
+	display: none !important;
 }
 
 /* ========================== */

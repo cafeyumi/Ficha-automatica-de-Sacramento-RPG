@@ -48,9 +48,11 @@
 		"description": "O som das seis balas de um revólver é familiar a você que teve uma vida preenchida pela guerra e pela brutalidade. Foi assim que você viveu e sobreviveu até hoje. Você sabe atirar, lutar, machuchar ou criar estratégias de batalha ou até verificar a procedência de ferimentos, tiros ou cortes."
 	},
 	"potency": {
+		"name": "Potência",
 		"description": "Potência é o quanto a montaria acelera, corre e mostra sua força nas quatro patas. Para correr, alcançar, aposstar corrida e tudo que envolve a velocidade da montaria, é feito um <strong>Teste de Potência</strong> do animal somado com o <strong>Antecedente Montaria</strong> do PJ. Resumindo: 1d6 + Potência + Antecedente contra NA 6."
 	},
 	"endurance": {
+		"name": "Resistência",
 		"description": "A <strong>Resistência</strong> determina o quanto o animal é forte para uma longa jornada, ferimentos ou doenças. Montarias recebem <strong>+1 {life}</strong> para cada ponto neste Atributo."
 	}
 }
