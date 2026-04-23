@@ -170,9 +170,6 @@ const MAIN_TYPES = [
 	"mountPain",
 ];
 const ATTRIBUTES_TYPES = ["physical", "speed", "intellect", "courage"];
-// ========== DOM =========
-
-// pega a lista de skills adicionadas no DOM // Pega o botão de adicionar skills do DOM
 
 const lifeSvg =
 	'<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="24 16 208 216"><title>Circulo de Vida</title><path d="M128,16C70.65,16,24,60.86,24,116c0,34.1,18.27,66,48,84.28V216a16,16,0,0,0,16,16h8a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h16a4,4,0,0,0,4-4V200.27a8.17,8.17,0,0,1,7.47-8.25,8,8,0,0,1,8.53,8v28a4,4,0,0,0,4,4h8a16,16,0,0,0,16-16V200.28C213.73,182,232,150.1,232,116,232,60.86,185.35,16,128,16ZM92,152a20,20,0,1,1,20-20A20,20,0,0,1,92,152Zm72,0a20,20,0,1,1,20-20A20,20,0,0,1,164,152Z"></path></svg>';
@@ -517,12 +514,44 @@ function collapseButton(button) {
 	button.closest(".collapse-button").classList.toggle("collapse-button--open");
 	let colap = null;
 
-	if (button.dataset.type === "inventory") {
+	if (button.dataset.dropdown === "inventory") {
 		colap = button.closest(".inventory-option");
-	} else {
+	} else if (button.dataset.dropdown === "skill") {
 		colap = button.closest(".skill");
+	} else {
+		colap = button.closest(".item");
 	}
 	colap.querySelector(".collapse").classList.toggle("collapse--open");
+}
+
+function tooltipSystem() {
+	const allTooltips = [...document.querySelectorAll(".has-tooltip")];
+	const tooltipMenu = document.querySelector("#tooltip");
+	const tooltipName = tooltipMenu.querySelector("#tooltipName");
+	const tooltipDescription = tooltipMenu.querySelector("#tooltipDescription");
+
+	allTooltips.forEach((tooltip) => {
+		tooltip.addEventListener("click", (e) => {
+			const target = e.target;
+			const identifier = target.dataset.for;
+
+			const contentCheck = Object.entries(tooltipsContent).find(
+				([type]) => identifier === type,
+			);
+
+			const [, content] = contentCheck;
+
+			const name = content.name;
+			const description = content.description
+				.replace(/\{life\}/g, lifeSvg)
+				.replace(/\{pain\}/g, painSvg);
+
+			tooltipName.innerHTML = name;
+			tooltipDescription.innerHTML = description;
+
+			tooltipMenu.showPopover();
+		});
+	});
 }
 // #endregion ======= COMPONENTS =====================
 
@@ -663,6 +692,7 @@ function renderSkills(type, array) {
 		if (skill.id !== undefined) {
 			skillId.dataset.id = skill.id;
 		}
+
 		nameInput.innerHTML = skill.name; // Insiro o nome do objeto no elemento DOM
 
 		typeInput.innerHTML = `#${skill.type}`;
@@ -714,11 +744,20 @@ async function loadInventoryTypes() {
 	return data;
 }
 
+async function loadCatalog() {
+	const response = await fetch("/src/data/catalog.json");
+	const data = await response.json();
+	return data;
+}
+
 // #endregion ======= FUNÇÕES AUXILIARES =============
+
+// #region ========== INVENTORY & ITEM SYSTEM ===============
 
 async function inventorySystem() {
 	const inventoryTemplate = document.querySelector("#InventoryCategory");
 	const inventoryOptionTemplate = document.querySelector("#inventoryOption");
+	const itemTemplate = document.querySelector("#itemTemplate");
 	const inventoryContainer = document.querySelector("#inventoryContainer");
 	const inventoryOptions = document.querySelector(
 		"#inventory-selection-options",
@@ -726,9 +765,14 @@ async function inventorySystem() {
 	const inventorySelectionMenu = document.querySelector(
 		"#inventorySelectionMenu",
 	);
+	const catalogMenu = document.querySelector("#catalog");
+	const tagTemplate = document.querySelector("#tag");
+	let selectedCategoryId;
 
 	// #region inicialização do estado do inventario
 	const inventoryTypes = Object.values(await loadInventoryTypes());
+	const catalog = Object.entries(await loadCatalog());
+
 	let currentInventory = null;
 	let inventoryId = null;
 
@@ -748,6 +792,8 @@ async function inventorySystem() {
 		inventoryContainer,
 		currentInventory,
 		inventoryTemplate,
+		itemTemplate,
+		tagTemplate,
 	);
 	// #endregion
 
@@ -785,6 +831,8 @@ async function inventorySystem() {
 				inventoryContainer,
 				currentInventory,
 				inventoryTemplate,
+				itemTemplate,
+				tagTemplate,
 			);
 
 			inventorySelectionMenu.hidePopover();
@@ -794,8 +842,6 @@ async function inventorySystem() {
 	});
 
 	// #endregion
-
-	// #region
 
 	inventoryContainer.addEventListener("click", (e) => {
 		const target = e.target;
@@ -810,11 +856,56 @@ async function inventorySystem() {
 				inventoryContainer,
 				currentInventory,
 				inventoryTemplate,
+				itemTemplate,
+				tagTemplate,
 			);
 		}
 
-		if (target.matches("inventory-category__add-item")) {
+		// #region catalog?
+
+		if (target.matches(".inventory-category__add-item")) {
+			selectedCategoryId = Number(
+				target.closest(".inventory-category").dataset.id,
+			);
+			renderCatalog(catalog, itemTemplate, tagTemplate, "add");
 		}
+
+		if (target.matches(".collapse-button")) return collapseButton(target);
+		// #endregion
+	});
+
+	catalogMenu.addEventListener("click", (e) => {
+		const target = e.target;
+
+		if (target.matches(".select-button")) {
+			const itemDOM = target.closest(".item");
+			const id = Number(itemDOM.dataset.id);
+
+			let selectedItem;
+
+			catalog.find(([, items]) => {
+				selectedItem = items.find((item) => item.id === id);
+				return selectedItem;
+			});
+
+			const selectedInventory = currentInventory.find(
+				(category) => category.id === selectedCategoryId,
+			);
+
+			selectedInventory.items.push({ ...selectedItem });
+
+			catalogMenu.hidePopover();
+
+			renderCurrentInventory(
+				inventoryContainer,
+				currentInventory,
+				inventoryTemplate,
+				itemTemplate,
+				tagTemplate,
+			);
+		}
+
+		if (target.matches(".collapse-button")) return collapseButton(target);
 	});
 }
 
@@ -834,7 +925,13 @@ function renderInventoryOptions(menu, list, template) {
 	});
 }
 
-function renderCurrentInventory(container, list, template) {
+function renderCurrentInventory(
+	container,
+	list,
+	template,
+	itemTemplate,
+	tagTemplate,
+) {
 	container.replaceChildren();
 	let actualQuantity = null;
 	let lastName = null;
@@ -843,9 +940,11 @@ function renderCurrentInventory(container, list, template) {
 
 	list.forEach((inventoryType) => {
 		const inventory = template.content.cloneNode(true);
+		const category = inventory.querySelector(".inventory-category");
 
-		inventory.querySelector(".inventory-category").dataset.id =
-			inventoryType.id;
+		category.dataset.id = inventoryType.id;
+		category.dataset.type = inventoryType.type;
+		category.dataset.format = inventoryType.format;
 
 		const quantity = list.filter((el) =>
 			el.name.includes(inventoryType.name),
@@ -895,85 +994,124 @@ function renderCurrentInventory(container, list, template) {
 			inventory.querySelector(".space-inventory").classList.add("hide");
 		}
 
+		renderItems(
+			inventoryType.items,
+			itemTemplate,
+			tagTemplate,
+			inventory.querySelector(".inventory-category__content"),
+
+			inventoryType.type,
+		);
+
+		let usedSpace = 0;
+		let usedAmmo = 0;
+		let usedWeapon = 0;
+
+		inventoryType.items.forEach((item) => {
+			usedSpace += item.space;
+
+			if (item.type === "weapon") {
+				usedWeapon += 1;
+			}
+
+			if (item.type === "ammo") {
+				usedAmmo += 1;
+			}
+		});
+
+		if (inventoryType.type === "item") {
+			inventory.querySelector(".category-used").innerHTML = usedSpace;
+			inventoryType.used = usedSpace;
+		} else {
+			if (inventoryType.subtype === "weapon") {
+				inventory.querySelector(".weapon-used").innerHTML = usedWeapon;
+				inventoryType.weapon_used = usedWeapon;
+				inventory.querySelector(".ammo-used").innerHTML = usedAmmo;
+				inventoryType.weapon_ammo = usedAmmo;
+			} else {
+				inventory.querySelector(".weapon-used").innerHTML = usedWeapon;
+				inventoryType.weapon_used = usedSpace;
+			}
+		}
+
 		container.appendChild(inventory);
 	});
 }
 
-function diceSystem() {
-	const diceSound = new Audio(`/src/assets/audios/dice.mp3`);
-	const dices = [...document.querySelectorAll(`.dice`)];
-	const getTemplate = document.querySelector(`#rollTemplate`);
-	const rollsPosition = document.querySelector(`#rolls`);
+function renderCatalog(array, template, tagTemplate, type) {
+	array.forEach(([category, items]) => {
+		items.forEach((item) => {
+			const itemTemplate = template.content.cloneNode(true);
+			const tags = itemTemplate.querySelector(".item__tags");
+			const itemDOM = itemTemplate.querySelector(".item");
 
-	dices.forEach((dice) => {
-		dice.addEventListener(`click`, (e) => {
-			diceSound.currentTime = 0;
-			diceSound.play();
+			itemDOM.dataset.id = item.id;
+			itemTemplate.querySelector(".item__name").innerHTML = item.name;
 
-			const diceResult = Math.floor(Math.random() * (7 - 1) + 1);
-			const type = e.target.dataset.type;
-			const rollName = e.target.dataset.name;
-
-			const template = getTemplate.content.cloneNode(true);
-
-			const nameInput = template.querySelector(`.rolls__title`);
-			nameInput.innerHTML = rollName;
-
-			const diceInput = template.querySelector(`.rolls__value-dice`);
-			diceInput.innerHTML = diceResult;
-
-			const bonusInput = template.querySelector(`.rolls__value-bonus`);
-
-			let bonus;
-
-			if (type === "potency") {
-				const mountBonus = stats.antecedents.mount;
-				const potencyBonus = stats.mount.potency;
-				bonus = mountBonus + potencyBonus;
-			} else {
-				bonus = stats.antecedents[type];
+			if (type === "add") {
+				itemTemplate.querySelector(".use-button").classList.add("hide");
+				itemTemplate
+					.querySelector(".skill__button-remove-position")
+					.classList.add("hide");
 			}
 
-			bonusInput.innerHTML = bonus;
-
-			const rollResult = diceResult + bonus;
-
-			const barrel = template.querySelector(`.barrel`);
-			barrel.src = `/src/assets/images/barrel/barrel${diceResult}.png`;
-
-			const resultInput = template.querySelector(`.rolls__value-result`);
-			if (diceResult === 6) {
-				resultInput.classList.add(`rolls__value--crit`);
-			} else if (rollResult === 1) {
-				resultInput.classList.add(`rolls__value--fail`);
-			}
-
-			resultInput.innerHTML = rollResult;
-
-			const exit = template.querySelector(`.exit`);
-
-			exit.addEventListener(`click`, (event) => {
-				const element = event.target.parentElement.parentElement;
-				element.remove();
+			item.tags.forEach((tag) => {
+				const tagTemp = tagTemplate.content.cloneNode(true);
+				tagTemp.querySelector(".tag-content").innerHTML = tag;
+				tags.appendChild(tagTemp);
 			});
 
-			rollsPosition.appendChild(template);
+			itemTemplate.querySelector(".item__description").innerHTML =
+				item.description;
 
-			if (rollsPosition.children.length - 1 === 6) {
-				[...rollsPosition.children][0].remove();
+			if (category === "weapons") {
+				document.querySelector("#weapons").appendChild(itemTemplate);
+			} else if (category === "special weapons") {
+				document.querySelector("#specialWeapons").appendChild(itemTemplate);
 			}
 		});
 	});
 }
 
-function renderExtras() {
-	const extras = [...document.querySelectorAll(".extra")];
+function renderItems(list, template, tagTemplate, container, type) {
+	list.sort((a, b) => a.name.localeCompare(b.name));
 
-	extras.forEach((extra) => {
-		const type = extra.dataset.for;
-		extra.value = stats.extraStats[type];
+	list.forEach((item) => {
+		const itemDOM = template.content.cloneNode(true);
+		const tags = itemDOM.querySelector(".item__tags");
+
+		itemDOM.querySelector(".item__name").innerHTML = item.name;
+
+		itemDOM.querySelector(".damage-stat").innerHTML = item.damage
+			.replace(/\{life\}/g, lifeSvg)
+			.replace(/\{pain\}/g, painSvg);
+
+		item.tags.forEach((tag) => {
+			const tagTemp = tagTemplate.content.cloneNode(true);
+			tagTemp.querySelector(".tag-content").innerHTML = tag;
+			tags.appendChild(tagTemp);
+		});
+
+		if (item.ammunition !== null) {
+			itemDOM.querySelector(".ammo-stat").innerHTML = item.ammunition;
+		} else {
+			itemDOM.querySelector(".ammo").classList.add("hide");
+		}
+
+		if (item.space !== null) {
+			itemDOM.querySelector(".weight-stat").innerHTML = item.space;
+		} else {
+			itemDOM.querySelector(".weight").classList.add("hide");
+		}
+
+		itemDOM.querySelector(".item__description").innerHTML = item.description;
+		itemDOM.querySelector(".select-button").classList.add("hide");
+		container.appendChild(itemDOM);
 	});
 }
+// #endregion ======= INVENTORY SYSTEM ===============
+
+// #region ========== REDEMPTION SYSTEM ===============
 
 function redemptionSystem() {
 	const pathButtons = [...document.querySelectorAll(".redemptionBtn")];
@@ -1084,33 +1222,81 @@ function renderRedemption(btnHasClicked) {
 	pathDescription.value = currentRedemption.current.description;
 }
 
-function tooltipSystem() {
-	const allTooltips = [...document.querySelectorAll(".has-tooltip")];
-	const tooltipMenu = document.querySelector("#tooltip");
-	const tooltipName = tooltipMenu.querySelector("#tooltipName");
-	const tooltipDescription = tooltipMenu.querySelector("#tooltipDescription");
+// #endregion ======= REDEMPTION SYSTEM ==============
 
-	allTooltips.forEach((tooltip) => {
-		tooltip.addEventListener("click", (e) => {
-			const target = e.target;
-			const identifier = target.dataset.for;
+function diceSystem() {
+	const diceSound = new Audio(`/src/assets/audios/dice.mp3`);
+	const dices = [...document.querySelectorAll(`.dice`)];
+	const getTemplate = document.querySelector(`#rollTemplate`);
+	const rollsPosition = document.querySelector(`#rolls`);
 
-			const contentCheck = Object.entries(tooltipsContent).find(
-				([type]) => identifier === type,
-			);
+	dices.forEach((dice) => {
+		dice.addEventListener(`click`, (e) => {
+			diceSound.currentTime = 0;
+			diceSound.play();
 
-			const [, content] = contentCheck;
+			const diceResult = Math.floor(Math.random() * (7 - 1) + 1);
+			const type = e.target.dataset.type;
+			const rollName = e.target.dataset.name;
 
-			const name = content.name;
-			const description = content.description
-				.replace(/\{life\}/g, lifeSvg)
-				.replace(/\{pain\}/g, painSvg);
+			const template = getTemplate.content.cloneNode(true);
 
-			tooltipName.innerHTML = name;
-			tooltipDescription.innerHTML = description;
+			const nameInput = template.querySelector(`.rolls__title`);
+			nameInput.innerHTML = rollName;
 
-			tooltipMenu.showPopover();
+			const diceInput = template.querySelector(`.rolls__value-dice`);
+			diceInput.innerHTML = diceResult;
+
+			const bonusInput = template.querySelector(`.rolls__value-bonus`);
+
+			let bonus;
+
+			if (type === "potency") {
+				const mountBonus = stats.antecedents.mount;
+				const potencyBonus = stats.mount.potency;
+				bonus = mountBonus + potencyBonus;
+			} else {
+				bonus = stats.antecedents[type];
+			}
+
+			bonusInput.innerHTML = bonus;
+
+			const rollResult = diceResult + bonus;
+
+			const barrel = template.querySelector(`.barrel`);
+			barrel.src = `/src/assets/images/barrel/barrel${diceResult}.png`;
+
+			const resultInput = template.querySelector(`.rolls__value-result`);
+			if (diceResult === 6) {
+				resultInput.classList.add(`rolls__value--crit`);
+			} else if (rollResult === 1) {
+				resultInput.classList.add(`rolls__value--fail`);
+			}
+
+			resultInput.innerHTML = rollResult;
+
+			const exit = template.querySelector(`.exit`);
+
+			exit.addEventListener(`click`, (event) => {
+				const element = event.target.parentElement.parentElement;
+				element.remove();
+			});
+
+			rollsPosition.appendChild(template);
+
+			if (rollsPosition.children.length - 1 === 6) {
+				[...rollsPosition.children][0].remove();
+			}
 		});
+	});
+}
+
+function renderExtras() {
+	const extras = [...document.querySelectorAll(".extra")];
+
+	extras.forEach((extra) => {
+		const type = extra.dataset.for;
+		extra.value = stats.extraStats[type];
 	});
 }
 

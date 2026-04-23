@@ -2,18 +2,20 @@
 	"sheath": {
 		"id": 0,
 		"name": "Bainha",
+		"format": "sheath",
 		"type": "weapon",
 		"subtype": "melee",
 		"weapon_capacity": 1,
 		"weapon_used": 0,
 		"description": "Uma bainha pode carregar uma faca, espada ou arma branca equivalente",
 
-		"items": {}
+		"items": []
 	},
 
 	"bandolier": {
 		"id": 1,
 		"name": "Bandoleira",
+		"format": "bandolier",
 		"type": "weapon",
 		"subtype": "ranged",
 		"weapon_capacity": 1,
@@ -22,12 +24,13 @@
 		"ammo_used": 0,
 		"description": "Uma bandoleira pode carregar um fuzil ou espingarda e até 24 balas dessas armas",
 
-		"items": {}
+		"items": []
 	},
 
 	"holster": {
 		"id": 2,
 		"name": "Coldre",
+		"format": "holster",
 		"type": "weapon",
 		"subtype": "ranged",
 		"weapon_capacity": 1,
@@ -36,50 +39,54 @@
 		"ammo_used": 0,
 		"description": "Cada coldre (e seu cinturão) pode carregar um revólver ou arma semelhante e até 36 balas de revolver.",
 
-		"items": {}
+		"items": []
 	},
 
 	"backpack": {
 		"id": 3,
 		"name": "Mochila",
+		"format": "backpack",
 		"type": "item",
 		"capacity": 10,
 		"used": 0,
 		"description": "Cada mochila contém 10 espaços. Para atravessar o Oeste Selvagem, viajantes sabem que é preciso levar apenas o indispensável.",
 
-		"items": {}
+		"items": []
 	},
 
 	"saddlebag": {
 		"id": 4,
 		"name": "Bolsa de montaria",
+		"format": "saddlebag",
 		"type": "item",
 		"capacity": 10,
 		"used": 0,
 		"description": "Necessária para transportar objetos e armas no cavalo. Comporta mais 10 espaços para armazenar ainda mais itens e armas",
 
-		"items": {}
+		"items": []
 	},
 
 	"car": {
 		"id": 5,
 		"name": "Carro",
+		"format": "car",
 		"type": "item",
 		"capacity": 20,
 		"used": 0,
 		"description": "Uma grande prancha de madeira com rodas, geralmente puxada por bois ou cavalos. Serve para transportar itens muito grandes ou uma grande quantidade de coisas. Comporta 20 espaços para armazenar itens.",
 
-		"items": {}
+		"items": []
 	},
 
 	"wagon": {
 		"id": 6,
 		"name": "Carroça",
+		"format": "wagon",
 		"type": "item",
 		"capacity": 30,
 		"used": 0,
 		"description": "Utilizada para grandes travessias pelo Oeste Selvagem. Elas são feitas para pessoas levarem todos os seus pertences e também como abrigo durante as viagens, o que justifica as lonas que as cobrem. Comporta 30 espaços para armazenar itens.",
 
-		"items": {}
+		"items": []
 	}
 }
