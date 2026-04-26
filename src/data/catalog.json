@@ -33,7 +33,7 @@
 			"ammunition": 2,
 			"reload": 1,
 			"reload_type": "action",
-			"damage": "{life} longe, 2 {life} perto",
+			"damage": "{life}",
 			"space": 2,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
@@ -46,7 +46,7 @@
 			"ammunition": 1,
 			"reload": 2,
 			"reload_type": "action",
-			"damage": "2 {life} apenas perto",
+			"damage": "2 {life}",
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
@@ -289,6 +289,351 @@
 			"tags": ["Arma", "Explosivo"],
 			"compatible_slots": ["inventory", "bag", "horse"],
 			"description": "Explosivos atingem mais de um oponente. São armas realmente devastadoras e que podem fazer um bom estrago na vida de todo mundo, tanto que não se limitam a prejudicar um único alvo. Explosivos e molotovs causam dano em uma área de 1,5m de raio. É preciso usar 1 Movimento e 1 Ação de Combate para acender o pavio de um explosivo e jogá-lo no alvo.<br>Além disso, no Teste de Violência para atirar o explosivo é preciso atenção caso o dado caia com o número 1. Se isso acontecer, faça um Teste de Resistência de Velocidade. Se você falhar, a bomba explode na mão do usuário. Isso acontece apenas com explosivos, outros ataques horríveis terão outras consequências."
+		}
+	],
+
+	"general": [
+		{
+			"id": 23,
+			"name": "Açúcar",
+			"detail": "1/2 kg",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 24,
+			"name": "Alcaçuz",
+			"detail": "doces",
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 25,
+			"name": "Atum",
+			"detail": "lata",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 26,
+			"name": "Azeite",
+			"detail": "garrafa",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 27,
+			"name": "Biscoitos",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 28,
+			"name": "Carne seca",
+			"detail": "1 kg",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 29,
+			"name": "Café",
+			"detail": "lata",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 30,
+			"name": "Cenouras",
+			"detail": "5",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 31,
+			"name": "Cerveja",
+			"detail": "garrafa",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Bebida"],
+			"description": null
+		},
+		{
+			"id": 32,
+			"name": "Chocolate",
+			"detail": "barra",
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 33,
+			"name": "Conhaque fino",
+			"detail": "garrafa",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Bebida"],
+			"description": null
+		},
+		{
+			"id": 34,
+			"name": "Ervilhas",
+			"detail": "lata",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 35,
+			"name": "Erva medicinal",
+			"detail": "1/2 kg",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 36,
+			"name": "Farinha",
+			"detail": "1/2 kg",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 37,
+			"name": "Feijão",
+			"detail": "lata",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 38,
+			"name": "Folhas de chá",
+			"detail": "1/2 kg",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 39,
+			"name": "Fósforos",
+			"detail": "10",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 40,
+			"name": "Jornal",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 41,
+			"name": "Leite",
+			"detail": "1/2 litro",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 42,
+			"name": "Maçã",
+			"detail": "3",
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 43,
+			"name": "Martelo",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 44,
+			"name": "Milho",
+			"detail": "lata",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 45,
+			"name": "Mochila",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 46,
+			"name": "Óleo",
+			"detail": "lanterna",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 47,
+			"name": "Ovos",
+			"detail": "6",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 48,
+			"name": "Paierinho",
+			"detail": "5",
+			"type": "item",
+			"space": 0,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 49,
+			"name": "Pinga",
+			"detail": "garrafa",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "bebida"],
+			"description": null
+		},
+		{
+			"id": 50,
+			"name": "Pão de Queijo",
+			"detail": "10",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 51,
+			"name": "Sardinha",
+			"detail": "lata",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 52,
+			"name": "Sabão",
+			"detail": "barra",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 53,
+			"name": "Sopa",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Alimento"],
+			"description": null
+		},
+		{
+			"id": 54,
+			"name": "Queijo",
+			"detail": "1/2 kg",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Ingrediente"],
+			"description": null
+		},
+		{
+			"id": 55,
+			"name": "Tabaco",
+			"detail": "1/2 kg",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 56,
+			"name": "Tábua de lavar",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 57,
+			"name": "Tônico capilar",
+			"detail": "frasco",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 58,
+			"name": "Vinho",
+			"detail": "garrafa",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Bebida"],
+			"description": null
+		},
+		{
+			"id": 59,
+			"name": "Unguento",
+			"detail": "frasco",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 60,
+			"name": "Uísque",
+			"detail": "garrafa",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Bebida"],
+			"description": null
 		}
 	]
 }

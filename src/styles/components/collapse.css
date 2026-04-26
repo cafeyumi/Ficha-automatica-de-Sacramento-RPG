@@ -8,13 +8,19 @@
 }
 
 .collapse-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background: none;
 	border: none;
-	margin-right: var(--space-2);
+	width: 32px;
+	padding: 0;
+	height: 32px;
 	cursor: pointer;
 
 	img {
-		height: var(--space-4);
+		object-fit: cover;
+		height: 16px;
 		transition: all 150ms ease;
 		pointer-events: none;
 	}

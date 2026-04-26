@@ -768,6 +768,7 @@ async function inventorySystem() {
 	const catalogMenu = document.querySelector("#catalog");
 	const tagTemplate = document.querySelector("#tag");
 	let selectedCategoryId;
+	let itemId;
 
 	// #region inicialização do estado do inventario
 	const inventoryTypes = Object.values(await loadInventoryTypes());
@@ -821,10 +822,6 @@ async function inventorySystem() {
 			);
 			const selectedOption = { ...inventoryTypes[selectedOptionIndex] };
 
-			selectedOption.id = inventoryId;
-			inventoryId++;
-			saveLocal("inventoryId", inventoryId);
-
 			currentInventory.push(selectedOption);
 
 			renderCurrentInventory(
@@ -859,19 +856,43 @@ async function inventorySystem() {
 				itemTemplate,
 				tagTemplate,
 			);
-		}
 
-		// #region catalog?
+			saveLocal("currentInventory", currentInventory);
+		}
 
 		if (target.matches(".inventory-category__add-item")) {
 			selectedCategoryId = Number(
 				target.closest(".inventory-category").dataset.id,
 			);
+
+			if (localStorage.getItem("itemId") === null) {
+				itemId = 0;
+			} else {
+				itemId = JSON.parse(localStorage.getItem("itemId"));
+			}
+
 			renderCatalog(catalog, itemTemplate, tagTemplate, "add");
 		}
 
+		if (target.matches(".remove-button")) {
+			const selectedItem = Number(target.closest(".item").dataset.id);
+
+			currentInventory.forEach((inventory) => {
+				inventory.items.splice(
+					inventory.items.findIndex((item) => item.id === selectedItem),
+					1,
+				);
+			});
+
+			renderCurrentInventory(
+				inventoryContainer,
+				currentInventory,
+				inventoryTemplate,
+				itemTemplate,
+				tagTemplate,
+			);
+		}
 		if (target.matches(".collapse-button")) return collapseButton(target);
-		// #endregion
 	});
 
 	catalogMenu.addEventListener("click", (e) => {
@@ -888,11 +909,17 @@ async function inventorySystem() {
 				return selectedItem;
 			});
 
+			const selectedClone = { ...selectedItem };
+
 			const selectedInventory = currentInventory.find(
 				(category) => category.id === selectedCategoryId,
 			);
 
-			selectedInventory.items.push({ ...selectedItem });
+			selectedClone.id = itemId;
+			itemId++;
+			saveLocal("itemId", itemId);
+
+			selectedInventory.items.push(selectedClone);
 
 			catalogMenu.hidePopover();
 
@@ -970,12 +997,6 @@ function renderCurrentInventory(
 		}
 
 		if (inventoryType.type === "item") {
-			inventory.querySelector(".category-used").innerHTML = inventoryType.used;
-			inventory.querySelector(".category-capacity").innerHTML =
-				inventoryType.capacity;
-
-			inventory.querySelector(".ammo-inventory").classList.add("hide");
-			inventory.querySelector(".weapon-inventory").classList.add("hide");
 		} else {
 			inventory.querySelector(".weapon-used").innerHTML =
 				inventoryType.weapon_used;
@@ -1019,19 +1040,38 @@ function renderCurrentInventory(
 			}
 		});
 
+		const ammoInv = inventory.querySelector(".ammo-inventory");
+		const weaponInv = inventory.querySelector(".weapon-inventory");
+		const spaceInv = inventory.querySelector(".space-inventory");
+
 		if (inventoryType.type === "item") {
-			inventory.querySelector(".category-used").innerHTML = usedSpace;
+			const catUsed = inventory.querySelector(".category-used");
+			const catCap = inventory.querySelector(".category-capacity");
+
+			catUsed.innerHTML = usedSpace;
 			inventoryType.used = usedSpace;
+			catCap.innerHTML = inventoryType.capacity;
+
+			ammoInv.classList.add("hide");
+			weaponInv.classList.add("hide");
 		} else {
-			if (inventoryType.subtype === "weapon") {
-				inventory.querySelector(".weapon-used").innerHTML = usedWeapon;
-				inventoryType.weapon_used = usedWeapon;
-				inventory.querySelector(".ammo-used").innerHTML = usedAmmo;
-				inventoryType.weapon_ammo = usedAmmo;
+			const weaponUsed = inventory.querySelector(".weapon-used");
+			const ammoUsed = inventory.querySelector(".ammo-used");
+			const ammoCap = inventory.querySelector(".ammo-capacity");
+			const weaponCap = inventory.querySelector(".weapon-capacity");
+
+			weaponUsed.innerHTML = usedWeapon;
+			inventoryType.weapon_used = usedWeapon;
+			weaponCap.innerHTML = inventoryType.weapon_capacity;
+
+			if (inventoryType.subtype === "ranged") {
+				ammoUsed.innerHTML = usedAmmo;
+				ammoCap.innerHTML = inventoryType.ammo_capacity;
 			} else {
-				inventory.querySelector(".weapon-used").innerHTML = usedWeapon;
-				inventoryType.weapon_used = usedSpace;
+				ammoInv.classList.add("hide");
 			}
+
+			spaceInv.classList.add("hide");
 		}
 
 		container.appendChild(inventory);
@@ -1045,8 +1085,17 @@ function renderCatalog(array, template, tagTemplate, type) {
 			const tags = itemTemplate.querySelector(".item__tags");
 			const itemDOM = itemTemplate.querySelector(".item");
 
+			itemDOM.classList.add("catalog__item");
+
 			itemDOM.dataset.id = item.id;
+
 			itemTemplate.querySelector(".item__name").innerHTML = item.name;
+
+			if (item.detail) {
+				itemDOM.querySelector(".item__detail").innerHTML = `(${item.detail})`;
+			} else {
+				itemDOM.querySelector(".item__detail").classList.add("hide");
+			}
 
 			if (type === "add") {
 				itemTemplate.querySelector(".use-button").classList.add("hide");
@@ -1061,13 +1110,20 @@ function renderCatalog(array, template, tagTemplate, type) {
 				tags.appendChild(tagTemp);
 			});
 
-			itemTemplate.querySelector(".item__description").innerHTML =
-				item.description;
+			if (item.description !== null) {
+				itemDOM.querySelector(".item__description").innerHTML =
+					item.description;
+			} else {
+				itemDOM.querySelector(".item__description").innerHTML =
+					'<span class="no-desc">Este item não possui descrição no momento<span>';
+			}
 
 			if (category === "weapons") {
 				document.querySelector("#weapons").appendChild(itemTemplate);
 			} else if (category === "special weapons") {
 				document.querySelector("#specialWeapons").appendChild(itemTemplate);
+			} else {
+				document.querySelector("#generalItems").appendChild(itemTemplate);
 			}
 		});
 	});
@@ -1082,9 +1138,34 @@ function renderItems(list, template, tagTemplate, container, type) {
 
 		itemDOM.querySelector(".item__name").innerHTML = item.name;
 
-		itemDOM.querySelector(".damage-stat").innerHTML = item.damage
-			.replace(/\{life\}/g, lifeSvg)
-			.replace(/\{pain\}/g, painSvg);
+		if (item.detail) {
+			itemDOM.querySelector(".item__detail").innerHTML = `(${item.detail})`;
+		} else {
+			itemDOM.querySelector(".item__detail").classList.add("hide");
+		}
+
+		if (item.type === "weapon") {
+			itemDOM.querySelector(".damage-stat").innerHTML = item.damage
+				.replace(/\{life\}/g, lifeSvg)
+				.replace(/\{pain\}/g, painSvg);
+
+			if (item.ammunition !== null) {
+				itemDOM.querySelector(".ammo-stat").innerHTML = item.ammunition;
+			} else {
+				itemDOM.querySelector(".ammo_container").classList.add("hide");
+			}
+		} else if (item.type === "item") {
+			itemDOM.querySelector(".damage_container").classList.add("hide");
+			itemDOM.querySelector(".ammo_container").classList.add("hide");
+
+			if (item.selectable) {
+				// vou por coisa aqui depois provavelmente
+			} else {
+				itemDOM.querySelector(".use-button").classList.add("hide");
+			}
+		}
+
+		itemDOM.querySelector(".item").dataset.id = item.id;
 
 		item.tags.forEach((tag) => {
 			const tagTemp = tagTemplate.content.cloneNode(true);
@@ -1095,16 +1176,22 @@ function renderItems(list, template, tagTemplate, container, type) {
 		if (item.ammunition !== null) {
 			itemDOM.querySelector(".ammo-stat").innerHTML = item.ammunition;
 		} else {
-			itemDOM.querySelector(".ammo").classList.add("hide");
+			itemDOM.querySelector(".ammo_container").classList.add("hide");
 		}
 
 		if (item.space !== null) {
 			itemDOM.querySelector(".weight-stat").innerHTML = item.space;
 		} else {
-			itemDOM.querySelector(".weight").classList.add("hide");
+			itemDOM.querySelector(".weight_container").classList.add("hide");
 		}
 
-		itemDOM.querySelector(".item__description").innerHTML = item.description;
+		if (item.description !== null) {
+			itemDOM.querySelector(".item__description").innerHTML = item.description;
+		} else {
+			itemDOM.querySelector(".item__description").innerHTML =
+				'<span class="no-desc">Este item não possui descrição no momento<span>';
+		}
+
 		itemDOM.querySelector(".select-button").classList.add("hide");
 		container.appendChild(itemDOM);
 	});

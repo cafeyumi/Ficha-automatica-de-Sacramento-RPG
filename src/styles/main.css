@@ -19,6 +19,7 @@
 @import url(/src/styles/layouts/rolls.css);
 @import url(/src/styles/layouts/mount.css);
 @import url(/src/styles/layouts/equipment.css);
+@import url(/src/styles/layouts/catalogMenu.css);
 
 @media (min-height: 1200px) {
 	html {

@@ -1911,8 +1911,8 @@
 			</template>
 		</div>
 
-		<div popover id="catalog" class="item-selection__menu menu">
-			<menu class="buttons-header">
+		<div popover id="catalog" class="item-selection__menu menu catalog">
+			<menu class="buttons-header catalog__menu">
 				<li>
 					<button type="button" data-for="weapons" class="header-button header-button--selected">
 						Armas
@@ -1921,24 +1921,45 @@
 				<li>
 					<button type="button" data-for="specialWeapons" class="header-button">Armas Especiais</button>
 				</li>
+				<li>
+					<button type="button" data-for="generalItems" class="header-button">Itens Gerais</button>
+				</li>
+				<li><button type="button" data-for="ammunition" class="header-button">Munição</button></li>
+				<li><button type="button" data-for="protection" class="header-button">Proteção</button></li>
+				<li>
+					<button type="button" data-for="animals" class="header-button">Criações e Animais</button>
+				</li>
+				<li><button type="button" data-for="fashion" class="header-button">Roda da Moda</button></li>
+				<li><button type="button" data-for="warehouse" class="header-button">Armazém</button></li>
+				<li><button type="button" data-for="medicine" class="header-button">Remédios</button></li>
 			</menu>
-			<div id="weapons" class="menu__container">a</div>
-			<div id="specialWeapons" class="menu__container hide">b</div>
+			<div id="weapons" class="menu__container catalog__container"></div>
+			<div id="specialWeapons" class="menu__container catalog__container hide"></div>
+			<div id="generalItems" class="menu__container catalog__container hide"></div>
+			<div id="ammunition" class="menu__container catalog__container hide"></div>
+			<div id="protection" class="menu__container catalog__container hide"></div>
+			<div id="animals" class="menu__container catalog__container hide"></div>
+			<div id="fashion" class="menu__container catalog__container hide"></div>
+			<div id="warehouse" class="menu__container catalog__container hide"></div>
+			<div id="medicine" class="menu__container catalog__container hide"></div>
 		</div>
 
 		<template id="itemTemplate">
 			<div data-id="" class="item">
 				<div class="skill__top">
 					<div class="item__informations">
-						<h4 class="item__name"></h4>
+						<div class="item__title">
+							<h4 class="item__name"></h4>
+							<span class="item__detail"></span>
+						</div>
 						<div class="item__stats">
-							<div class="item__stat">
+							<div class="damage_container">
 								<span><strong>Dano:</strong> <span class="item-stat damage-stat"></span></span>
 							</div>
-							<div class="ammo">
+							<div class="ammo_container">
 								<span><strong>Munição:</strong> <span class="item-stat ammo-stat"></span></span>
 							</div>
-							<div class="item__stat">
+							<div class="weight_container">
 								<span><strong>Peso:</strong> <span class="item-stat weight-stat"></span></span>
 							</div>
 						</div>
