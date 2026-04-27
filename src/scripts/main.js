@@ -20,6 +20,10 @@ const currentRedemption = {
 	current: {},
 };
 
+const selectSound = new Audio("src/assets/audios/select.mp3");
+const clickSound = new Audio("src/assets/audios/click.mp3");
+const dropdownSound = new Audio("src/assets/audios/dropdown.mp3");
+
 const init = () => {
 	// Define os valores iniciais caso seja a primeira vez do usuario
 	if (localStorage.getItem("savedStats") !== null) {
@@ -474,7 +478,7 @@ function renderInputs() {
 // #region ========== COMPONENTS =====================
 function menuSystem() {
 	const allMenus = document.querySelectorAll(".menu");
-	const menuSound = new Audio("src/assets/audios/menu.wav");
+	const menuSound = new Audio("src/assets/audios/switch.mp3");
 
 	allMenus.forEach((menu) => {
 		menu.addEventListener("click", (event) => {
@@ -521,6 +525,8 @@ function collapseButton(button) {
 	} else {
 		colap = button.closest(".item");
 	}
+
+	playSound(dropdownSound)
 	colap.querySelector(".collapse").classList.toggle("collapse--open");
 }
 
@@ -548,6 +554,8 @@ function tooltipSystem() {
 
 			tooltipName.innerHTML = name;
 			tooltipDescription.innerHTML = description;
+
+			playSound(clickSound)
 
 			tooltipMenu.showPopover();
 		});
@@ -613,6 +621,8 @@ function skillSelectButton(button, currentSkillsList) {
 	saveLocal("savedCurrentSkills", currentSkills);
 	saveLocal("savedSkills", skills);
 
+	playSound(selectSound)
+
 	skillsMenu.hidePopover();
 }
 
@@ -623,6 +633,8 @@ function skillAddButton(combatSkills, professionSkills) {
 	Object.entries(skills).forEach(([, skills]) => {
 		renderSkills("add", skills);
 	});
+
+	playSound(clickSound)
 
 	skillsMenu.showPopover();
 }
@@ -652,6 +664,8 @@ function skillRemoveButton(button, currentSkillsList) {
 	});
 
 	currentSkillsList.innerHTML = "";
+
+	playSound(clickSound)
 
 	renderSkills("remove", currentSkills);
 	updateLevel();
@@ -802,6 +816,9 @@ async function inventorySystem() {
 	const addInventoryBtn = document.querySelector("#addInventory");
 
 	addInventoryBtn.addEventListener("click", () => {
+
+		playSound(clickSound)
+		
 		renderInventoryOptions(
 			inventoryOptions,
 			inventoryTypes,
@@ -833,6 +850,9 @@ async function inventorySystem() {
 			);
 
 			inventorySelectionMenu.hidePopover();
+
+			playSound(selectSound)
+
 			saveLocal("currentInventory", currentInventory);
 		}
 		if (target.matches(".collapse-button")) return collapseButton(target);
@@ -857,6 +877,8 @@ async function inventorySystem() {
 				tagTemplate,
 			);
 
+			playSound(clickSound)
+
 			saveLocal("currentInventory", currentInventory);
 		}
 
@@ -871,12 +893,13 @@ async function inventorySystem() {
 				itemId = JSON.parse(localStorage.getItem("itemId"));
 			}
 
+			playSound(clickSound)
+
 			renderCatalog(catalog, itemTemplate, tagTemplate, "add");
 		}
 
 		if (target.matches(".remove-button")) {
 			const selectedItem = Number(target.closest(".item").dataset.id);
-
 			currentInventory.forEach((inventory) => {
 				inventory.items.splice(
 					inventory.items.findIndex((item) => item.id === selectedItem),
@@ -891,6 +914,10 @@ async function inventorySystem() {
 				itemTemplate,
 				tagTemplate,
 			);
+
+			playSound(clickSound)
+
+			saveLocal("currentInventory", currentInventory);
 		}
 		if (target.matches(".collapse-button")) return collapseButton(target);
 	});
@@ -930,6 +957,10 @@ async function inventorySystem() {
 				itemTemplate,
 				tagTemplate,
 			);
+
+			playSound(selectSound)
+
+			saveLocal("currentInventory", currentInventory);
 		}
 
 		if (target.matches(".collapse-button")) return collapseButton(target);
@@ -1036,7 +1067,7 @@ function renderCurrentInventory(
 			}
 
 			if (item.type === "ammo") {
-				usedAmmo += 1;
+				usedAmmo += item.ammo_total;
 			}
 		});
 
@@ -1079,6 +1110,26 @@ function renderCurrentInventory(
 }
 
 function renderCatalog(array, template, tagTemplate, type) {
+	const weaponsContainer = document.querySelector("#weapons");
+	const specialWeaponsContainer = document.querySelector("#specialWeapons");
+	const generalItemsContainer = document.querySelector("#generalItems");
+	const warehouseContainer = document.querySelector("#warehouse");
+	const animalsContainer = document.querySelector("#animals");
+	const ammunitionContainer = document.querySelector("#ammunition");
+	const protectionContainer = document.querySelector("#protection");
+	const medicineContainer = document.querySelector("#medicineHerbs");
+	const fashionContainer = document.querySelector("#fashion");
+
+	weaponsContainer.replaceChildren();
+	specialWeaponsContainer.replaceChildren();
+	generalItemsContainer.replaceChildren();
+	warehouseContainer.replaceChildren();
+	animalsContainer.replaceChildren();
+	ammunitionContainer.replaceChildren();
+	protectionContainer.replaceChildren();
+	medicineContainer.replaceChildren();
+	fashionContainer.replaceChildren();
+
 	array.forEach(([category, items]) => {
 		items.forEach((item) => {
 			const itemTemplate = template.content.cloneNode(true);
@@ -1110,20 +1161,72 @@ function renderCatalog(array, template, tagTemplate, type) {
 				tags.appendChild(tagTemp);
 			});
 
+			if (item.type === "weapon") {
+				itemDOM.querySelector(".reduction_container").classList.add("hide");
+				itemDOM.querySelector(".damage-stat").innerHTML = item.damage
+					.replace(/\{life\}/g, lifeSvg)
+					.replace(/\{pain\}/g, painSvg);
+
+				if (item.ammunition !== null) {
+					itemDOM.querySelector(".ammo-stat").innerHTML = item.ammunition;
+				} else {
+					itemDOM.querySelector(".ammo_container").classList.add("hide");
+				}
+			} else if (item.type === "item") {
+				itemDOM.querySelector(".damage_container").classList.add("hide");
+				itemDOM.querySelector(".ammo_container").classList.add("hide");
+				itemDOM.querySelector(".reduction_container").classList.add("hide");
+
+				if (item.selectable) {
+					// vou por coisa aqui depois provavelmente
+				} else {
+					itemDOM.querySelector(".use-button").classList.add("hide");
+				}
+			} else if (item.type === "ammo") {
+			itemDOM.querySelector(".reduction_container").classList.add("hide");
+			itemDOM.querySelector(".damage_container").classList.add("hide");
+			itemDOM.querySelector(".ammo_container").classList.add("hide");
+			itemDOM.querySelector(".use-button").classList.add("hide");
+		} else {
+			itemDOM.querySelector(".reduction-stat").innerHTML = item.reduction.replace(/\{life\}/g, lifeSvg);
+
+			itemDOM.querySelector(".damage_container").classList.add("hide");
+			itemDOM.querySelector(".ammo_container").classList.add("hide");
+		}
+
+			if (item.space !== null) {
+				itemDOM.querySelector(".weight-stat").innerHTML = item.space;
+			} else {
+				itemDOM.querySelector(".weight_container").classList.add("hide");
+			}
+
 			if (item.description !== null) {
 				itemDOM.querySelector(".item__description").innerHTML =
-					item.description;
+					item.description.replace(/\{life\}/g, lifeSvg)
+					.replace(/\{pain\}/g, painSvg);
 			} else {
 				itemDOM.querySelector(".item__description").innerHTML =
 					'<span class="no-desc">Este item não possui descrição no momento<span>';
 			}
 
 			if (category === "weapons") {
-				document.querySelector("#weapons").appendChild(itemTemplate);
+				weaponsContainer.appendChild(itemTemplate);
 			} else if (category === "special weapons") {
-				document.querySelector("#specialWeapons").appendChild(itemTemplate);
+				specialWeaponsContainer.appendChild(itemTemplate);
+			} else if (category === "general") {
+				generalItemsContainer.appendChild(itemTemplate);
+			} else if (category === "warehouse") {
+				warehouseContainer.appendChild(itemTemplate);
+			} else if (category === "animals") {
+				animalsContainer.appendChild(itemTemplate);
+			} else if (category === "ammunition") {
+				ammunitionContainer.appendChild(itemTemplate);
+			} else if (category === "protection") {
+				protectionContainer.appendChild(itemTemplate);
+			} else if (category === "medicine") {
+				medicineContainer.appendChild(itemTemplate);
 			} else {
-				document.querySelector("#generalItems").appendChild(itemTemplate);
+				fashionContainer.appendChild(itemTemplate);
 			}
 		});
 	});
@@ -1145,6 +1248,7 @@ function renderItems(list, template, tagTemplate, container, type) {
 		}
 
 		if (item.type === "weapon") {
+			itemDOM.querySelector(".reduction_container").classList.add("hide");
 			itemDOM.querySelector(".damage-stat").innerHTML = item.damage
 				.replace(/\{life\}/g, lifeSvg)
 				.replace(/\{pain\}/g, painSvg);
@@ -1154,7 +1258,8 @@ function renderItems(list, template, tagTemplate, container, type) {
 			} else {
 				itemDOM.querySelector(".ammo_container").classList.add("hide");
 			}
-		} else if (item.type === "item") {
+		} else if (item.type === "item" ) {
+			itemDOM.querySelector(".reduction_container").classList.add("hide");
 			itemDOM.querySelector(".damage_container").classList.add("hide");
 			itemDOM.querySelector(".ammo_container").classList.add("hide");
 
@@ -1163,6 +1268,16 @@ function renderItems(list, template, tagTemplate, container, type) {
 			} else {
 				itemDOM.querySelector(".use-button").classList.add("hide");
 			}
+		} else if (item.type === "ammo") {
+			itemDOM.querySelector(".reduction_container").classList.add("hide");
+			itemDOM.querySelector(".damage_container").classList.add("hide");
+			itemDOM.querySelector(".ammo_container").classList.add("hide");
+			itemDOM.querySelector(".use-button").classList.add("hide");
+		} else {
+			itemDOM.querySelector(".reduction-stat").innerHTML = item.reduction.replace(/\{life\}/g, lifeSvg);
+
+			itemDOM.querySelector(".damage_container").classList.add("hide");
+			itemDOM.querySelector(".ammo_container").classList.add("hide");
 		}
 
 		itemDOM.querySelector(".item").dataset.id = item.id;
@@ -1173,12 +1288,6 @@ function renderItems(list, template, tagTemplate, container, type) {
 			tags.appendChild(tagTemp);
 		});
 
-		if (item.ammunition !== null) {
-			itemDOM.querySelector(".ammo-stat").innerHTML = item.ammunition;
-		} else {
-			itemDOM.querySelector(".ammo_container").classList.add("hide");
-		}
-
 		if (item.space !== null) {
 			itemDOM.querySelector(".weight-stat").innerHTML = item.space;
 		} else {
@@ -1186,7 +1295,8 @@ function renderItems(list, template, tagTemplate, container, type) {
 		}
 
 		if (item.description !== null) {
-			itemDOM.querySelector(".item__description").innerHTML = item.description;
+			itemDOM.querySelector(".item__description").innerHTML = item.description.replace(/\{life\}/g, lifeSvg)
+					.replace(/\{pain\}/g, painSvg);
 		} else {
 			itemDOM.querySelector(".item__description").innerHTML =
 				'<span class="no-desc">Este item não possui descrição no momento<span>';

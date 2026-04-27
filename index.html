@@ -1809,7 +1809,7 @@
 							class="header-button header-button--selected equipment__header-btn"
 							data-for="inventoryCombat"
 							type="button">
-							Combate
+							Equipados
 						</button>
 					</li>
 					<li>
@@ -1921,17 +1921,17 @@
 				<li>
 					<button type="button" data-for="specialWeapons" class="header-button">Armas Especiais</button>
 				</li>
-				<li>
-					<button type="button" data-for="generalItems" class="header-button">Itens Gerais</button>
-				</li>
-				<li><button type="button" data-for="ammunition" class="header-button">Munição</button></li>
-				<li><button type="button" data-for="protection" class="header-button">Proteção</button></li>
+				<li><button type="button" data-for="warehouse" class="header-button">Armazém</button></li>
 				<li>
 					<button type="button" data-for="animals" class="header-button">Criações e Animais</button>
 				</li>
+				<li>
+					<button type="button" data-for="generalItems" class="header-button">Itens Gerais</button>
+				</li>
+				<li><button type="button" data-for="ammunition" class="header-button">Acessórios e Munição</button></li>
+				<li><button type="button" data-for="protection" class="header-button">Proteção</button></li>
+				<li><button type="button" data-for="medicineHerbs" class="header-button">Remédios</button></li>
 				<li><button type="button" data-for="fashion" class="header-button">Roda da Moda</button></li>
-				<li><button type="button" data-for="warehouse" class="header-button">Armazém</button></li>
-				<li><button type="button" data-for="medicine" class="header-button">Remédios</button></li>
 			</menu>
 			<div id="weapons" class="menu__container catalog__container"></div>
 			<div id="specialWeapons" class="menu__container catalog__container hide"></div>
@@ -1941,7 +1941,7 @@
 			<div id="animals" class="menu__container catalog__container hide"></div>
 			<div id="fashion" class="menu__container catalog__container hide"></div>
 			<div id="warehouse" class="menu__container catalog__container hide"></div>
-			<div id="medicine" class="menu__container catalog__container hide"></div>
+			<div id="medicineHerbs" class="menu__container catalog__container hide"></div>
 		</div>
 
 		<template id="itemTemplate">
@@ -1953,6 +1953,9 @@
 							<span class="item__detail"></span>
 						</div>
 						<div class="item__stats">
+							<div class="reduction_container">
+								<span><strong>Redução:</strong> <span class="item-stat reduction-stat"></span></span>
+							</div>
 							<div class="damage_container">
 								<span><strong>Dano:</strong> <span class="item-stat damage-stat"></span></span>
 							</div>

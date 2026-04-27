@@ -3,6 +3,7 @@
 		{
 			"id": 0,
 			"name": "Revólver",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 6,
 			"reload": 2,
@@ -16,6 +17,7 @@
 		{
 			"id": 1,
 			"name": "Fuzil",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 5,
 			"reload": 2,
@@ -29,6 +31,7 @@
 		{
 			"id": 2,
 			"name": "Espingarda",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 2,
 			"reload": 1,
@@ -42,6 +45,7 @@
 		{
 			"id": 3,
 			"name": "Garrucha",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 1,
 			"reload": 2,
@@ -55,6 +59,7 @@
 		{
 			"id": 4,
 			"name": "Zarabatana",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -67,6 +72,7 @@
 		{
 			"id": 5,
 			"name": "Estilingue",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -79,6 +85,7 @@
 		{
 			"id": 6,
 			"name": "Boleadeira",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -91,6 +98,7 @@
 		{
 			"id": 7,
 			"name": "Arco e flecha",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -103,6 +111,7 @@
 		{
 			"id": 8,
 			"name": "Faca",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -115,6 +124,7 @@
 		{
 			"id": 9,
 			"name": "Sabre",
+			"detail": "espada",
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -127,6 +137,7 @@
 		{
 			"id": 10,
 			"name": "Lança",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -139,6 +150,7 @@
 		{
 			"id": 11,
 			"name": "Machadinha",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -151,6 +163,7 @@
 		{
 			"id": 12,
 			"name": "Machado de lenha",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -163,6 +176,7 @@
 		{
 			"id": 13,
 			"name": "Martelo de mão",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": null,
@@ -178,6 +192,7 @@
 		{
 			"id": 14,
 			"name": "Pistola automática",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 11,
 			"reload": 2,
@@ -191,6 +206,7 @@
 		{
 			"id": 15,
 			"name": "Magnum de cano alongado",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 6,
 			"reload": 2,
@@ -204,6 +220,7 @@
 		{
 			"id": 16,
 			"name": "Mauser C69",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 15,
 			"reload": 1,
@@ -217,6 +234,7 @@
 		{
 			"id": 17,
 			"name": "Carabina de repetição",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 7,
 			"reload": 2,
@@ -230,6 +248,7 @@
 		{
 			"id": 18,
 			"name": "Derringer",
+			"detail": "révolver escondido",
 			"type": "weapon",
 			"ammunition": 2,
 			"reload": 1,
@@ -243,6 +262,7 @@
 		{
 			"id": 19,
 			"name": "Espingarda de cano serrado",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 2,
 			"reload": 2,
@@ -256,6 +276,7 @@
 		{
 			"id": 20,
 			"name": "Canhão de cavalaria",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": 1,
 			"reload": 2,
@@ -268,6 +289,7 @@
 		{
 			"id": 21,
 			"name": "Metralhadora montada",
+			"detail": null,
 			"type": "weapon",
 			"ammunition": null,
 			"reload": 2,
@@ -280,6 +302,7 @@
 		{
 			"id": 22,
 			"name": "Explosivos",
+			"detail": "TNT/dinamite",
 			"type": "weapon",
 			"ammunition": null,
 			"reload": 3,
@@ -633,6 +656,1323 @@
 			"type": "item",
 			"space": 1,
 			"tags": ["Item", "Bebida"],
+			"description": null
+		}
+	],
+	"warehouse": [
+		{
+			"id": 61,
+			"name": "Acordeão",
+			"detail": "sanfona",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 62,
+			"name": "Alicate de arame",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 63,
+			"name": "Algemas",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 64,
+			"name": "Arame",
+			"detail": "10m",
+			"type": "item",
+			"space": 2,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 65,
+			"name": "Banjo",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 66,
+			"name": "Baralho",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 67,
+			"name": "Barraca",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 68,
+			"name": "Berimbau",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 69,
+			"name": "Binóculo",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 70,
+			"name": "Brinquedo",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 71,
+			"name": "Bússola",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 72,
+			"name": "Cadeado",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 73,
+			"name": "Cantil",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 74,
+			"name": "Corrente",
+			"detail": "2m",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 75,
+			"name": "Corda",
+			"detail": "5m",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 76,
+			"name": "Dados",
+			"detail": "3",
+			"type": "item",
+			"space": 0,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 77,
+			"name": "Detonador",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 78,
+			"name": "Foice",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 79,
+			"name": "Forcado",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 80,
+			"name": "Fósforos",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 81,
+			"name": "Flauta",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 82,
+			"name": "Gaita",
+			"detail": "harmônica",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 83,
+			"name": "Ganzá",
+			"detail": "chocalho",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 84,
+			"name": "Gazuas",
+			"detail": "20",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 85,
+			"name": "Graxa",
+			"detail": "pote",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 86,
+			"name": "Isqueiro",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 87,
+			"name": "Lanterna",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 88,
+			"name": "Linha e agulha",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 89,
+			"name": "Lona",
+			"detail": "2m",
+			"type": "item",
+			"space": 2,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 90,
+			"name": "Machado",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 91,
+			"name": "Marreta",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 92,
+			"name": "Óculos",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 93,
+			"name": "Óleo",
+			"detail": "lata",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 94,
+			"name": "Pá",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 95,
+			"name": "Pandeiro",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 96,
+			"name": "Panela",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 97,
+			"name": "Pavio",
+			"detail": "10m",
+			"type": "item",
+			"space": 2,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 98,
+			"name": "Pé de cabra",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 99,
+			"name": "Pregos",
+			"detail": "20",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item"],
+			"description": null
+		},
+		{
+			"id": 100,
+			"name": "Pederneira",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 101,
+			"name": "Picareta",
+			"detail": null,
+			"type": "item",
+			"space": 2,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 102,
+			"name": "Relógio de bolso",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 103,
+			"name": "Sabão",
+			"detail": "barra",
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 104,
+			"name": "Saco de dormir",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 105,
+			"name": "Tesourão",
+			"detail": null,
+			"type": "item",
+			"space": 2,
+			"tags": ["Item", "Ferramenta"],
+			"description": null
+		},
+		{
+			"id": 106,
+			"name": "Tamborim",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 107,
+			"name": "Vara de pescar",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Sobrevivência"],
+			"description": null
+		},
+		{
+			"id": 108,
+			"name": "Viola",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 109,
+			"name": "Violão",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 110,
+			"name": "Violino",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		},
+		{
+			"id": 111,
+			"name": "Zabumba",
+			"detail": null,
+			"type": "item",
+			"space": 1,
+			"tags": ["Item", "Musical"],
+			"description": null
+		}
+	],
+	"animals": [
+		{
+			"id": 112,
+			"name": "Apicultura",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Criação"],
+			"description": null
+		},
+		{
+			"id": 113,
+			"name": "Bodes/cabras",
+			"detail": "unidade",
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		},
+		{
+			"id": 114,
+			"name": "Bolsa de montaria",
+			"detail": "unidade",
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Acessório"],
+			"description": "Necessária para transportar objetos e armas no cavalo. Comporta mais 10 espaços para armazenar ainda mais itens e armas."
+		},
+		{
+			"id": 115,
+			"name": "Bovino",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		},
+		{
+			"id": 116,
+			"name": "Canoa",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Criação"],
+			"description": null
+		},
+		{
+			"id": 117,
+			"name": "Carroça",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Criação"],
+			"description": "Utilizada para grandes travessias pelo Oeste Selvagem. Elas são feitas para pessoas levarem todos os seus pertences e também como abrigo durante as viagens, o que justifica as lonas que as cobrem. Comporta 30 espaços para armazenar itens."
+		},
+		{
+			"id": 118,
+			"name": "Carro",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Criação"],
+			"description": "Uma grande prancha de madeira com rodas, geralmente puxada por bois ou cavalos. Serve para transportar itens muito grandes ou uma grande quantidade de coisas. Comporta 20 espaços para armazenar itens."
+		},
+		{
+			"id": 119,
+			"name": "Cavalo",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		},
+		{
+			"id": 120,
+			"name": "Curral",
+			"detail": "dia/semana",
+			"type": "item",
+			"space": 0,
+			"tags": ["Criação"],
+			"description": "Se precisar deixar sua montaria esperando, por favor, não deixe-a no relento. Currais cuidam muito bem de seu melhor amigo, que irá ficar feliz e contente, esperando você voltar. O serviço de um curral envolve banho, alimentação e diversos outros cuidados."
+		},
+		{
+			"id": 121,
+			"name": "Galinhas",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		},
+		{
+			"id": 122,
+			"name": "Mulas/Burricos",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		},
+		{
+			"id": 123,
+			"name": "Ovelhas/Cordeiros",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		},
+		{
+			"id": 124,
+			"name": "Sela",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Acessório"],
+			"description": null
+		},
+		{
+			"id": 125,
+			"name": "Suínos",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Animal"],
+			"description": null
+		}
+	],
+	"ammunition": [
+		{
+			"id": 126,
+			"name": "Bainha",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Acessório"],
+			"description": null
+		},
+		{
+			"id": 127,
+			"name": "Bandoleira",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Acessório"],
+			"description": null
+		},
+		{
+			"id": 128,
+			"name": "Coldre",
+			"detail": null,
+			"type": "item",
+			"space": 0,
+			"tags": ["Item", "Acessório"],
+			"description": null
+		},
+		{
+			"id": 129,
+			"name": "Munição de revólver",
+			"detail": "12 balas",
+			"type": "ammo",
+			"ammo_total": 12,
+			"space": 1,
+			"tags": ["Munição"],
+			"description": null
+		},
+		{
+			"id": 130,
+			"name": "Munição de espingarda",
+			"detail": "6 balas",
+			"type": "ammo",
+			"ammo_total": 6,
+			"space": 1,
+			"tags": ["Munição"],
+			"description": null
+		},
+		{
+			"id": 131,
+			"name": "Munição de fuzil",
+			"detail": "6 balas",
+			"type": "ammo",
+			"ammo_total": 6,
+			"space": 1,
+			"tags": ["Munição"],
+			"description": null
+		}
+	],
+	"protection": [
+		{
+			"id": 132,
+			"name": "Sobretudo",
+			"detail": null,
+			"type": "protection",
+			"reduction": "{life}",
+			"space": 1,
+			"tags": ["Proteção"],
+			"description": "<strong>Limite:</strong> 2 {life}<br><strong>Penalidades:</strong><br>-1 Ação de Combate (min. 1)"
+		},
+		{
+			"id": 133,
+			"name": "Colete de couro reforçado",
+			"detail": null,
+			"type": "protection",
+			"reduction": "{life}",
+			"space": 1,
+			"tags": ["Proteção"],
+			"description": "<strong>Limite:</strong> 3 {life}<br><strong>Penalidades:</strong><br>-1 Movimento (min. 1)"
+		},
+		{
+			"id": 134,
+			"name": "Colete de couro com madeira",
+			"detail": null,
+			"type": "protection",
+			"reduction": "2 {life}",
+			"space": 1,
+			"tags": ["Proteção"],
+			"description": "<strong>Limite:</strong> 4 {life}<br><strong>Penalidades:</strong><br>-1 Ação de Combate (min. 1)<br>-1 Movimento (min. 1)"
+		},
+		{
+			"id": 135,
+			"name": "Ombreiras de ferro",
+			"detail": null,
+			"type": "protection",
+			"reduction": "2 {life}",
+			"space": 1,
+			"tags": ["Proteção"],
+			"description": "<strong>Limite:</strong> 4 {life}<br><strong>Penalidades:</strong><br>-2 Movimentos (min. 1)"
+		},
+		{
+			"id": 136,
+			"name": "Placas de metal",
+			"detail": null,
+			"type": "protection",
+			"reduction": "3 {life}",
+			"space": 1,
+			"tags": ["Proteção"],
+			"description": "<strong>Limite:</strong> 5 {life}<br><strong>Penalidades:</strong><br>-2 Movimentos (min. 1)<br>-1 Ação de Combate (min. 1)"
+		},
+		{
+			"id": 137,
+			"name": "Panelas chumbadas",
+			"detail": null,
+			"type": "protection",
+			"reduction": "3 {life}",
+			"space": 1,
+			"tags": ["Proteção"],
+			"description": "<strong>Limite:</strong> 4 {life}<br><strong>Penalidades:</strong><br>-1 Movimento (min. 1)<br>-2 Ações de Combate (min. 1)"
+		}
+	],
+	"medicine": [
+		{
+			"id": 138,
+			"name": "Adrenalina",
+			"detail": "seringa",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Ainda em fase experimental, este estimulante faz com que seus usuários tenham um aumento de ânimo e vida. A seringa é injetada com 1 Ação de Combate e recupera 3 {life} instantaneamente. Porém, alguns instantes depois, normalmente no fim de um combate, acontece o efeito rebote. O usuário perde 1 Ação de Combate e 1 Movimento até conseguir descansar. Usar mais de uma adrenalina não acumula efeitos, mas gera mais perdas. Se o PJ perder todas as ações por causa da adrenalina, sofre uma parada cardíaca e morre."
+		},
+		{
+			"id": 139,
+			"name": "Álcool",
+			"detail": "frasco",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Desinfeta feridas podendo evitar envenenamentos ou inflamações ainda mais graves."
+		},
+		{
+			"id": 140,
+			"name": "Arsênico",
+			"detail": "frasco",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Ao ser administrado oralmente, ajuda a diminuir o efeito de peçonhas e venenos que estejam afetando o organismo. Em muita quantidade pode ser perigoso."
+		},
+		{
+			"id": 141,
+			"name": "Babosa",
+			"detail": "erva",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "A pasta de suas folhas pode ser usada para tratar dores musculares e também para limpar feridas. Também é bom para o cabelo."
+		},
+		{
+			"id": 142,
+			"name": "Boldo",
+			"detail": "erva",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Chá serve para úlcera, dores musculares, dor de cabeça e insolação."
+		},
+		{
+			"id": 143,
+			"name": "Cavalinha",
+			"detail": "erva",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "No chá, a erva causa uma diarreia danada para desintoxicar venenos, tratar de cólera, malária, indigestão ou intestino preso."
+		},
+		{
+			"id": 144,
+			"name": "Cânfora",
+			"detail": "pasta",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Pasta que serve para machucados e dores musculares. Usar um pouco de cânfora no combate custa 1 Ação de Combate e cura 1 {life}"
+		},
+		{
+			"id": 145,
+			"name": "Erva-doce",
+			"detail": "erva",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Chá para curar prisão de ventre e incentivar flatulências (peidos)."
+		},
+		{
+			"id": 146,
+			"name": "Folha de salgueiro",
+			"detail": "erva",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Bom contra febre alta e dores de cabeça."
+		},
+		{
+			"id": 147,
+			"name": "Gengibre",
+			"detail": "raiz",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Chá que ajuda a combater tosses, resfriados e febres."
+		},
+		{
+			"id": 148,
+			"name": "Laxante",
+			"detail": "frasco",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Líquido que ajuda a tratar constipações, inchaço, barriga dura e falta de fibra alimentar."
+		},
+		{
+			"id": 149,
+			"name": "Mil-folhas",
+			"detail": "erva",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Chá que ajuda na circulação respiratória, utilizado para desobstruir as vias nasais."
+		},
+		{
+			"id": 150,
+			"name": "Morfina",
+			"detail": "ampola",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Analgésico intenso, que causa sono e delírio. Utilizado como anestésico antes de cirurgias importantes."
+		},
+		{
+			"id": 151,
+			"name": "Pomada de cavalo",
+			"detail": "pasta",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Ajuda sua montaria a curar 3 {life} durante um descanso."
+		},
+		{
+			"id": 152,
+			"name": "Tônico milagroso",
+			"detail": "frasco",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio?"],
+			"description": "Vendido por charlatões que prometem curas milagrosas para impotência, calvície, tosse e tudo o mais que se pode curar. Ao tomar um tônico faça um Teste de Sorte. Se a carta for preta, seu PJ cura 3 {life} instantaneamente, mas se a carta for vermelha, não há cura e você está envenenado."
+		},
+		{
+			"id": 153,
+			"name": "Unguento",
+			"detail": "pasta",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Uma pasta que ajuda na cicatrização de feridas. É o item de cura mais comum do Oeste Selvagem e cura 1 {life} ao ser aplicado durante o descanso do PJ."
+		},
+		{
+			"id": 154,
+			"name": "Xarope de tosse",
+			"detail": "frasco",
+			"type": "item",
+			"space": 0.5,
+			"tags": ["Item", "Rémedio"],
+			"description": "Ajuda a curar tosse e outras doenças pulmonares."
+		}
+	],
+	"fashion": [
+		{
+			"id": 155,
+			"name": "Anel",
+			"detail": "latão - diamante",
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 156,
+			"name": "Avental de médico",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 157,
+			"name": "Batina",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 158,
+			"name": "Bengala",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 159,
+			"name": "Boina",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 160,
+			"name": "Bolsa de mão",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 161,
+			"name": "Botas",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 162,
+			"name": "Blusa de inverno",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 163,
+			"name": "Blusa de verão",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 164,
+			"name": "Brincos",
+			"detail": "latão - diamantes",
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 165,
+			"name": "Broche",
+			"detail": "latão - prata",
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 166,
+			"name": "Calça",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 167,
+			"name": "Camisa",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 168,
+			"name": "Camisola",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 169,
+			"name": "Cartola",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 170,
+			"name": "Casaco",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 171,
+			"name": "Chapéu",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 172,
+			"name": "Cinto",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 173,
+			"name": "Colar",
+			"detail": "ferro - pérolas",
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 174,
+			"name": "Colete",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 175,
+			"name": "Echarpe",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 176,
+			"name": "Estetoscópio",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 177,
+			"name": "Gargantilha",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 178,
+			"name": "Gravata",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 179,
+			"name": "Jaqueta",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 180,
+			"name": "Lenço de pescoço",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 181,
+			"name": "Leque",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 182,
+			"name": "Lingerie",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 183,
+			"name": "Luvas",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 184,
+			"name": "Macacão jeans",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 185,
+			"name": "Meias",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 186,
+			"name": "Óculos",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 187,
+			"name": "Paletó",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 188,
+			"name": "Perneiras",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 189,
+			"name": "Pijamas",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 190,
+			"name": "Poncho",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 191,
+			"name": "Pulseira",
+			"detail": "lata - diamante",
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 192,
+			"name": "Saia",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 193,
+			"name": "Sapatos",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 194,
+			"name": "Sobretudo",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 195,
+			"name": "Sombrero",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 196,
+			"name": "Suspensórios",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 197,
+			"name": "Tuxedo",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 198,
+			"name": "Vestido",
+			"detail": "trabalho - gala",
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
+			"description": null
+		},
+		{
+			"id": 199,
+			"name": "Xale de lã",
+			"detail": null,
+			"type": "item",
+			"space": 0.5,
+			"selectable": true,
+			"tags": ["Item", "Moda"],
 			"description": null
 		}
 	]
