@@ -12,7 +12,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> {life}"
 		},
 		{
 			"id": 1,
@@ -26,7 +26,7 @@
 			"space": 3,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> 3 {life}"
 		},
 		{
 			"id": 2,
@@ -40,7 +40,7 @@
 			"space": 2,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> 1 ação<br><strong>Dano:</strong> {life} longe, 2 {life} perto"
 		},
 		{
 			"id": 3,
@@ -54,7 +54,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> 2 {life} apenas perto"
 		},
 		{
 			"id": 4,
@@ -67,7 +67,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> {pain} + veneno"
 		},
 		{
 			"id": 5,
@@ -80,7 +80,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> 2 {pain}"
 		},
 		{
 			"id": 6,
@@ -93,7 +93,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> 3 {pain}"
 		},
 		{
 			"id": 7,
@@ -106,7 +106,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> {life}"
 		},
 		{
 			"id": 8,
@@ -119,7 +119,7 @@
 			"space": 1,
 			"tags": ["Arma", "Corpo-a-corpo"],
 			"compatible_slots": ["inventory", "bag", "sheath", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> 3 {pain}"
 		},
 		{
 			"id": 9,
@@ -132,7 +132,7 @@
 			"space": 1,
 			"tags": ["Arma", "Corpo-a-corpo"],
 			"compatible_slots": ["inventory", "bag", "sheath", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> {life}"
 		},
 		{
 			"id": 10,
@@ -145,7 +145,7 @@
 			"space": 2,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> {life}"
 		},
 		{
 			"id": 11,
@@ -158,7 +158,7 @@
 			"space": 1,
 			"tags": ["Arma", "Corpo-a-corpo"],
 			"compatible_slots": ["inventory", "bag", "sheath", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> {life}"
 		},
 		{
 			"id": 12,
@@ -171,7 +171,7 @@
 			"space": 2,
 			"tags": ["Arma", "Corpo-a-corpo"],
 			"compatible_slots": ["inventory", "bag", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> 2 {life}"
 		},
 		{
 			"id": 13,
@@ -184,7 +184,7 @@
 			"space": 1,
 			"tags": ["Arma", "Corpo-a-corpo"],
 			"compatible_slots": ["inventory", "bag", "horse"],
-			"description": null
+			"description": "<strong>Recarga:</strong> ---<br><strong>Dano:</strong> {life}"
 		}
 	],
 
@@ -201,7 +201,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
-			"description": "Esta arma ainda é um protótipo daquela que seria inventada apenas em 1911. É conhecida como <em>Single-Action</em>, ou seja, não é preciso puxar o cão do revólver e depois o gatilho, basta mirar e atirar que a arma já sai cuspindo bala. Com ela, é possível dar um tiro adicional por Ação de Combate."
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> {life}<br>Esta arma ainda é um protótipo daquela que seria inventada apenas em 1911. É conhecida como <em>Single-Action</em>, ou seja, não é preciso puxar o cão do revólver e depois o gatilho, basta mirar e atirar que a arma já sai cuspindo bala. Com ela, é possível dar um tiro adicional por Ação de Combate."
 		},
 		{
 			"id": 15,
@@ -215,7 +215,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
-			"description": "É um revólver grande, com cano alongado e funciona como um revólver comum, puxando o cão, depois o gatilho. A diferença é que seu calibre .357 causa um dano devastador."
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> 2 {life}<br>É um revólver grande, com cano alongado e funciona como um revólver comum, puxando o cão, depois o gatilho. A diferença é que seu calibre .357 causa um dano devastador."
 		},
 		{
 			"id": 16,
@@ -229,7 +229,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
-			"description": "Mais encorpada e robusta, esta arma de calibre 7.63mm. se destaca por ter um carregador maior, comportando até 15 balas no carregador."
+			"description": "<strong>Recarga:</strong> 1 ação<br><strong>Dano:</strong> {life}<br>Mais encorpada e robusta, esta arma de calibre 7.63mm. se destaca por ter um carregador maior, comportando até 15 balas no carregador."
 		},
 		{
 			"id": 17,
@@ -243,7 +243,7 @@
 			"space": 2,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "bandolier", "horse"],
-			"description": "Muito utilizada para a caça, esta arma é versátil ao atirar em média ou longa distância. Com a carabina você pode dar um tiro adicional com sua primeira Ação de Combate no turno, com penalidade -1 nos Testes de Violência."
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> 2 {life}<br>Muito utilizada para a caça, esta arma é versátil ao atirar em média ou longa distância. Com a carabina você pode dar um tiro adicional com sua primeira Ação de Combate no turno, com penalidade -1 nos Testes de Violência."
 		},
 		{
 			"id": 18,
@@ -257,7 +257,7 @@
 			"space": 1,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "holster", "horse"],
-			"description": "É um pequeno revólver de apenas uma bala. O segredo é que a arma é acoplada a uma pequena esteira de molas que pode ser presa ao punho de seu usuário, geralmente vestido com uma jaqueta de mangas complidas para esconder o revólver. A pequena esteira empurra a Derringer para fora da manga até o alcance da mão. Por ser discreta, esta arma permite aproveitar os bônus da Habilidade Ataque Sacana."
+			"description": "<strong>Recarga:</strong> 1 ação<br><strong>Dano:</strong> {life}<br>É um pequeno revólver de apenas uma bala. O segredo é que a arma é acoplada a uma pequena esteira de molas que pode ser presa ao punho de seu usuário, geralmente vestido com uma jaqueta de mangas complidas para esconder o revólver. A pequena esteira empurra a Derringer para fora da manga até o alcance da mão. Por ser discreta, esta arma permite aproveitar os bônus da Habilidade Ataque Sacana."
 		},
 		{
 			"id": 19,
@@ -271,7 +271,7 @@
 			"space": 2,
 			"tags": ["Arma"],
 			"compatible_slots": ["inventory", "bag", "bandolier", "holster", "horse"],
-			"description": "Serrar o calibre de uma espingarda é muito mais difícil do que parece. Por isso deve ser algo feito unicamente por especialistas. Serrar o cano faz com que a arma diminua o alcance dos tiros, mas aumenta o dano. Outra vantagem é que a espingarda de cano serrado fica bem menor, podendo ser portada em uma única mão e levada no coldre da cintura."
+			"description": "<strong>Recarga:</strong> 2 ações<br><strong>Dano:</strong> 3 {life}<br>Serrar o calibre de uma espingarda é muito mais difícil do que parece. Por isso deve ser algo feito unicamente por especialistas. Serrar o cano faz com que a arma diminua o alcance dos tiros, mas aumenta o dano. Outra vantagem é que a espingarda de cano serrado fica bem menor, podendo ser portada em uma única mão e levada no coldre da cintura."
 		},
 		{
 			"id": 20,
@@ -283,8 +283,9 @@
 			"reload_type": "turn",
 			"damage": "6 {life}",
 			"tags": ["Arma", "Explosivo"],
+			"space": 0,
 			"compatible_slots": ["inventory"],
-			"description": "Seus disparos atingem todos em uma área de 3m de raio, mas, por conta da rusticidade do equipamento, é bastante difícil acertar um tiro com precisão. Por isso, para acertar o tiro, é preciso fazer um Teste de Violência de NA 7 em vez de uma jogada contra a Defesa do alvo. Se falhar, você erra o tiro por 3m em uma direção aleatória. Se obter uma falha crítica, o tiro atinge um aliado e seus arredores."
+			"description": "<strong>Recarga:</strong> 2 turnos<br><strong>Dano:</strong> 6 {life}<br>Seus disparos atingem todos em uma área de 3m de raio, mas, por conta da rusticidade do equipamento, é bastante difícil acertar um tiro com precisão. Por isso, para acertar o tiro, é preciso fazer um Teste de Violência de NA 7 em vez de uma jogada contra a Defesa do alvo. Se falhar, você erra o tiro por 3m em uma direção aleatória. Se obter uma falha crítica, o tiro atinge um aliado e seus arredores."
 		},
 		{
 			"id": 21,
@@ -296,8 +297,9 @@
 			"reload_type": "turn",
 			"damage": "3 {life}",
 			"tags": ["Arma", "Pesado"],
+			"space": 0,
 			"compatible_slots": ["inventory"],
-			"description": "Como o nome diz, esta arma é tão pesada que precisa ser transportada com a ajuda de rodas. É preciso usar o turno inteiro para atirar com ela e não há como mirar, ou seja, ela vai atingir os inimigos e os amigos que estiverem pela frente. Ela causa dano de 3 Círculos de Vida para cada Ação de Combate e Movimento que o PJ gasta usando a Metralhadora. Por exemplo: se seu PJ gastar 2 Ações de Combate e 2 Movimentos o dano da metralhadora será de 6 Círculos de Vida. No fim do turno a arma precisa ser recarregada."
+			"description": "<strong>Recarga:</strong> 2 turnos<br><strong>Dano:</strong> 3 {life}<br>Como o nome diz, esta arma é tão pesada que precisa ser transportada com a ajuda de rodas. É preciso usar o turno inteiro para atirar com ela e não há como mirar, ou seja, ela vai atingir os inimigos e os amigos que estiverem pela frente. Ela causa dano de 3 Círculos de Vida para cada Ação de Combate e Movimento que o PJ gasta usando a Metralhadora. Por exemplo: se seu PJ gastar 2 Ações de Combate e 2 Movimentos o dano da metralhadora será de 6 Círculos de Vida. No fim do turno a arma precisa ser recarregada."
 		},
 		{
 			"id": 22,
@@ -311,7 +313,7 @@
 			"space": 0.5,
 			"tags": ["Arma", "Explosivo"],
 			"compatible_slots": ["inventory", "bag", "horse"],
-			"description": "Explosivos atingem mais de um oponente. São armas realmente devastadoras e que podem fazer um bom estrago na vida de todo mundo, tanto que não se limitam a prejudicar um único alvo. Explosivos e molotovs causam dano em uma área de 1,5m de raio. É preciso usar 1 Movimento e 1 Ação de Combate para acender o pavio de um explosivo e jogá-lo no alvo.<br>Além disso, no Teste de Violência para atirar o explosivo é preciso atenção caso o dado caia com o número 1. Se isso acontecer, faça um Teste de Resistência de Velocidade. Se você falhar, a bomba explode na mão do usuário. Isso acontece apenas com explosivos, outros ataques horríveis terão outras consequências."
+			"description": "<strong>Recarga:</strong> 3 ações<br><strong>Dano:</strong> 5 {life}<br>Explosivos atingem mais de um oponente. São armas realmente devastadoras e que podem fazer um bom estrago na vida de todo mundo, tanto que não se limitam a prejudicar um único alvo. Explosivos e molotovs causam dano em uma área de 1,5m de raio. É preciso usar 1 Movimento e 1 Ação de Combate para acender o pavio de um explosivo e jogá-lo no alvo.<br>Além disso, no Teste de Violência para atirar o explosivo é preciso atenção caso o dado caia com o número 1. Se isso acontecer, faça um Teste de Resistência de Velocidade. Se você falhar, a bomba explode na mão do usuário. Isso acontece apenas com explosivos, outros ataques horríveis terão outras consequências."
 		}
 	],
 

@@ -8,9 +8,6 @@
 	display: flex;
 	position: relative;
 	grid-area: sina;
-	/* biome-ignore lint/correctness/noUnknownProperty: propriedade não suportada pelo Biome */
-	corner-top-right-shape: scoop;
-	border-top-right-radius: 30px;
 	border: var(--border-md-fg);
 	height: 100%;
 	background-color: var(--bg-color);
@@ -20,6 +17,15 @@
 	flex-direction: column;
 	font-family: var(--bebas);
 	letter-spacing: var(--space-1);
+}
+
+/* biome-ignore lint/correctness/noUnknownProperty: propriedade não suportada pelo Biome */
+@supports (corner-shape: scoop) {
+	.sina-cards {
+		/* biome-ignore lint/correctness/noUnknownProperty: propriedade não suportada pelo Biome */
+		corner-top-right-shape: scoop;
+		border-top-right-radius: 2rem;
+	}
 }
 
 .sina-cards__cards {

@@ -120,3 +120,12 @@
 		pointer-events: none;
 	}
 }
+
+.dropdown__options.dropdown__loyalty {
+	height: 5rem;
+	width: var(--space-14);
+	overflow-y: scroll;
+	z-index: 6;
+
+	scrollbar-width: none;
+}

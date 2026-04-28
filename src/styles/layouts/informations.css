@@ -195,6 +195,7 @@
 	padding: var(--space-2) var(--space-2);
 	border-radius: 4px;
 	background: var(--bg-color-muted);
+	outline: none;
 
 	&::-webkit-scrollbar {
 		display: none;

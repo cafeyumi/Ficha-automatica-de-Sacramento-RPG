@@ -526,7 +526,7 @@ function collapseButton(button) {
 		colap = button.closest(".item");
 	}
 
-	playSound(dropdownSound)
+	playSound(dropdownSound);
 	colap.querySelector(".collapse").classList.toggle("collapse--open");
 }
 
@@ -555,7 +555,7 @@ function tooltipSystem() {
 			tooltipName.innerHTML = name;
 			tooltipDescription.innerHTML = description;
 
-			playSound(clickSound)
+			playSound(clickSound);
 
 			tooltipMenu.showPopover();
 		});
@@ -621,7 +621,7 @@ function skillSelectButton(button, currentSkillsList) {
 	saveLocal("savedCurrentSkills", currentSkills);
 	saveLocal("savedSkills", skills);
 
-	playSound(selectSound)
+	playSound(selectSound);
 
 	skillsMenu.hidePopover();
 }
@@ -634,7 +634,7 @@ function skillAddButton(combatSkills, professionSkills) {
 		renderSkills("add", skills);
 	});
 
-	playSound(clickSound)
+	playSound(clickSound);
 
 	skillsMenu.showPopover();
 }
@@ -665,7 +665,7 @@ function skillRemoveButton(button, currentSkillsList) {
 
 	currentSkillsList.innerHTML = "";
 
-	playSound(clickSound)
+	playSound(clickSound);
 
 	renderSkills("remove", currentSkills);
 	updateLevel();
@@ -816,9 +816,8 @@ async function inventorySystem() {
 	const addInventoryBtn = document.querySelector("#addInventory");
 
 	addInventoryBtn.addEventListener("click", () => {
+		playSound(clickSound);
 
-		playSound(clickSound)
-		
 		renderInventoryOptions(
 			inventoryOptions,
 			inventoryTypes,
@@ -837,7 +836,9 @@ async function inventorySystem() {
 			const selectedOptionIndex = inventoryTypes.findIndex(
 				(el) => el.id === id,
 			);
-			const selectedOption = { ...inventoryTypes[selectedOptionIndex] };
+			const selectedOption = structuredClone(
+				inventoryTypes[selectedOptionIndex],
+			);
 
 			currentInventory.push(selectedOption);
 
@@ -851,7 +852,7 @@ async function inventorySystem() {
 
 			inventorySelectionMenu.hidePopover();
 
-			playSound(selectSound)
+			playSound(selectSound);
 
 			saveLocal("currentInventory", currentInventory);
 		}
@@ -867,7 +868,11 @@ async function inventorySystem() {
 			const id = Number(target.closest(".inventory-category").dataset.id);
 
 			const InventoryIndex = currentInventory.findIndex((el) => el.id === id);
+			console.log(currentInventory);
+
 			currentInventory.splice(InventoryIndex, 1);
+
+			console.log(currentInventory);
 
 			renderCurrentInventory(
 				inventoryContainer,
@@ -877,7 +882,7 @@ async function inventorySystem() {
 				tagTemplate,
 			);
 
-			playSound(clickSound)
+			playSound(clickSound);
 
 			saveLocal("currentInventory", currentInventory);
 		}
@@ -893,18 +898,22 @@ async function inventorySystem() {
 				itemId = JSON.parse(localStorage.getItem("itemId"));
 			}
 
-			playSound(clickSound)
+			playSound(clickSound);
 
 			renderCatalog(catalog, itemTemplate, tagTemplate, "add");
 		}
 
 		if (target.matches(".remove-button")) {
 			const selectedItem = Number(target.closest(".item").dataset.id);
+
 			currentInventory.forEach((inventory) => {
-				inventory.items.splice(
-					inventory.items.findIndex((item) => item.id === selectedItem),
-					1,
+				const index = inventory.items.findIndex(
+					(item) => item.id === selectedItem,
 				);
+
+				if (index !== -1) {
+					inventory.items.splice(index, 1);
+				}
 			});
 
 			renderCurrentInventory(
@@ -915,7 +924,7 @@ async function inventorySystem() {
 				tagTemplate,
 			);
 
-			playSound(clickSound)
+			playSound(clickSound);
 
 			saveLocal("currentInventory", currentInventory);
 		}
@@ -958,7 +967,7 @@ async function inventorySystem() {
 				tagTemplate,
 			);
 
-			playSound(selectSound)
+			playSound(selectSound);
 
 			saveLocal("currentInventory", currentInventory);
 		}
@@ -1183,16 +1192,17 @@ function renderCatalog(array, template, tagTemplate, type) {
 					itemDOM.querySelector(".use-button").classList.add("hide");
 				}
 			} else if (item.type === "ammo") {
-			itemDOM.querySelector(".reduction_container").classList.add("hide");
-			itemDOM.querySelector(".damage_container").classList.add("hide");
-			itemDOM.querySelector(".ammo_container").classList.add("hide");
-			itemDOM.querySelector(".use-button").classList.add("hide");
-		} else {
-			itemDOM.querySelector(".reduction-stat").innerHTML = item.reduction.replace(/\{life\}/g, lifeSvg);
+				itemDOM.querySelector(".reduction_container").classList.add("hide");
+				itemDOM.querySelector(".damage_container").classList.add("hide");
+				itemDOM.querySelector(".ammo_container").classList.add("hide");
+				itemDOM.querySelector(".use-button").classList.add("hide");
+			} else {
+				itemDOM.querySelector(".reduction-stat").innerHTML =
+					item.reduction.replace(/\{life\}/g, lifeSvg);
 
-			itemDOM.querySelector(".damage_container").classList.add("hide");
-			itemDOM.querySelector(".ammo_container").classList.add("hide");
-		}
+				itemDOM.querySelector(".damage_container").classList.add("hide");
+				itemDOM.querySelector(".ammo_container").classList.add("hide");
+			}
 
 			if (item.space !== null) {
 				itemDOM.querySelector(".weight-stat").innerHTML = item.space;
@@ -1201,8 +1211,8 @@ function renderCatalog(array, template, tagTemplate, type) {
 			}
 
 			if (item.description !== null) {
-				itemDOM.querySelector(".item__description").innerHTML =
-					item.description.replace(/\{life\}/g, lifeSvg)
+				itemDOM.querySelector(".item__description").innerHTML = item.description
+					.replace(/\{life\}/g, lifeSvg)
 					.replace(/\{pain\}/g, painSvg);
 			} else {
 				itemDOM.querySelector(".item__description").innerHTML =
@@ -1258,7 +1268,7 @@ function renderItems(list, template, tagTemplate, container, type) {
 			} else {
 				itemDOM.querySelector(".ammo_container").classList.add("hide");
 			}
-		} else if (item.type === "item" ) {
+		} else if (item.type === "item") {
 			itemDOM.querySelector(".reduction_container").classList.add("hide");
 			itemDOM.querySelector(".damage_container").classList.add("hide");
 			itemDOM.querySelector(".ammo_container").classList.add("hide");
@@ -1274,7 +1284,8 @@ function renderItems(list, template, tagTemplate, container, type) {
 			itemDOM.querySelector(".ammo_container").classList.add("hide");
 			itemDOM.querySelector(".use-button").classList.add("hide");
 		} else {
-			itemDOM.querySelector(".reduction-stat").innerHTML = item.reduction.replace(/\{life\}/g, lifeSvg);
+			itemDOM.querySelector(".reduction-stat").innerHTML =
+				item.reduction.replace(/\{life\}/g, lifeSvg);
 
 			itemDOM.querySelector(".damage_container").classList.add("hide");
 			itemDOM.querySelector(".ammo_container").classList.add("hide");
@@ -1295,8 +1306,9 @@ function renderItems(list, template, tagTemplate, container, type) {
 		}
 
 		if (item.description !== null) {
-			itemDOM.querySelector(".item__description").innerHTML = item.description.replace(/\{life\}/g, lifeSvg)
-					.replace(/\{pain\}/g, painSvg);
+			itemDOM.querySelector(".item__description").innerHTML = item.description
+				.replace(/\{life\}/g, lifeSvg)
+				.replace(/\{pain\}/g, painSvg);
 		} else {
 			itemDOM.querySelector(".item__description").innerHTML =
 				'<span class="no-desc">Este item não possui descrição no momento<span>';
