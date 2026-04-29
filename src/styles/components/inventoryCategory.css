@@ -1,6 +1,6 @@
 .inventory-equipment__content {
 	height: calc(100% - 48px);
-	padding: var(--space-2) 1px var(--space-2) var(--space-3);
+	padding: var(--space-2) 1px var(--space-4) var(--space-3);
 	overflow-y: scroll;
 
 	&::-webkit-scrollbar {
@@ -311,4 +311,30 @@
 .no-desc {
 	display: flex;
 	color: var(--mk-color);
+}
+
+.no-items {
+	margin: auto;
+	font-family: var(--poppins);
+	font-size: var(--text-sm);
+	color: var(--mk-color);
+}
+
+.add-inventory {
+	background-color: var(--fg-color);
+	color: var(--bg-color);
+	font-family: var(--poppins);
+	border: none;
+	padding: var(--space-1) var(--space-2);
+	border-radius: 4px;
+}
+
+.filter-item {
+	font-family: var(--poppins);
+	font-size: var(--text-sm);
+	color: var(--fg-color);
+
+	&::placeholder {
+		color: var(--placeholder-color);
+	}
 }

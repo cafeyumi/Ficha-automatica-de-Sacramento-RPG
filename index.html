@@ -1824,8 +1824,17 @@
 				<div id="equipmentCombat" class="menu__container"></div>
 				<div id="equipmentInventory" class="menu__container inventory-equipment__content hide">
 					<div class="inventory-equipment__filter">
-						<input type="text" placeholder="Filtrar items">
-						<button popovertarget="inventorySelectionMenu" id="addInventory" type="button">
+						<input
+							type="text"
+							id="itemFilter"
+							placeholder="Filtrar items..."
+							class="filter-item"
+							autocomplete="off">
+						<button
+							popovertarget="inventorySelectionMenu"
+							class="add-inventory"
+							id="addInventory"
+							type="button">
 							Adicionar
 						</button>
 					</div>

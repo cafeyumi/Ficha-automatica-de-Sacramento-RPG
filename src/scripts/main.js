@@ -485,7 +485,8 @@ function menuSystem() {
 			const target = event.target;
 
 			if (target.matches(".header-button")) {
-				playSound(menuSound);
+				if (![...target.classList].includes("header-button--selected"))
+					playSound(menuSound);
 
 				[...target.closest(".buttons-header").children].forEach((buttons) => {
 					[...buttons.children].forEach((button) => {
@@ -824,9 +825,34 @@ async function inventorySystem() {
 			inventoryOptionTemplate,
 		);
 	});
+
+	document.querySelector("#itemFilter").addEventListener("input", (e) => {
+		const target = e.target;
+		let filtered;
+
+		if (target.value.length >= 3) {
+			filtered = target.value;
+		}
+
+		renderCurrentInventory(
+			inventoryContainer,
+			currentInventory,
+			inventoryTemplate,
+			itemTemplate,
+			tagTemplate,
+			filtered,
+		);
+	});
+
 	// #endregion
 
 	// #region Menu de inventarios
+
+	if (localStorage.getItem("inventoryId") === null) {
+		inventoryId = 0;
+	} else {
+		inventoryId = JSON.parse(localStorage.getItem("inventoryId"));
+	}
 
 	inventoryOptions.addEventListener("click", (e) => {
 		const target = e.target;
@@ -839,6 +865,10 @@ async function inventorySystem() {
 			const selectedOption = structuredClone(
 				inventoryTypes[selectedOptionIndex],
 			);
+
+			selectedOption.id = inventoryId;
+			inventoryId++;
+			saveLocal("inventoryId", inventoryId);
 
 			currentInventory.push(selectedOption);
 
@@ -860,6 +890,11 @@ async function inventorySystem() {
 	});
 
 	// #endregion
+	if (localStorage.getItem("itemId") === null) {
+		itemId = 0;
+	} else {
+		itemId = JSON.parse(localStorage.getItem("itemId"));
+	}
 
 	inventoryContainer.addEventListener("click", (e) => {
 		const target = e.target;
@@ -891,12 +926,6 @@ async function inventorySystem() {
 			selectedCategoryId = Number(
 				target.closest(".inventory-category").dataset.id,
 			);
-
-			if (localStorage.getItem("itemId") === null) {
-				itemId = 0;
-			} else {
-				itemId = JSON.parse(localStorage.getItem("itemId"));
-			}
 
 			playSound(clickSound);
 
@@ -998,6 +1027,7 @@ function renderCurrentInventory(
 	template,
 	itemTemplate,
 	tagTemplate,
+	filtered,
 ) {
 	container.replaceChildren();
 	let actualQuantity = null;
@@ -1055,14 +1085,41 @@ function renderCurrentInventory(
 			inventory.querySelector(".space-inventory").classList.add("hide");
 		}
 
-		renderItems(
-			inventoryType.items,
-			itemTemplate,
-			tagTemplate,
-			inventory.querySelector(".inventory-category__content"),
+		if (filtered) {
+			const filteredItems = inventoryType.items.filter((item) =>
+				item.name.toLowerCase().trim().includes(filtered.toLowerCase().trim()),
+			);
 
-			inventoryType.type,
-		);
+			if (filteredItems.length === 0) {
+				inventory.querySelector(".inventory-category__content").innerHTML =
+					'<span class="no-items">Nenhum item foi encontrado</span>';
+			} else
+				inventory.querySelector(".inventory-category__content").innerHTML = "";
+
+			renderItems(
+				filteredItems,
+				itemTemplate,
+				tagTemplate,
+				inventory.querySelector(".inventory-category__content"),
+
+				inventoryType.type,
+			);
+		} else {
+			if (inventoryType.items.length === 0) {
+				inventory.querySelector(".inventory-category__content").innerHTML =
+					'<span class="no-items">Este inventário está vazio</span>';
+			} else
+				inventory.querySelector(".inventory-category__content").innerHTML = "";
+
+			renderItems(
+				inventoryType.items,
+				itemTemplate,
+				tagTemplate,
+				inventory.querySelector(".inventory-category__content"),
+
+				inventoryType.type,
+			);
+		}
 
 		let usedSpace = 0;
 		let usedAmmo = 0;
@@ -1242,7 +1299,7 @@ function renderCatalog(array, template, tagTemplate, type) {
 	});
 }
 
-function renderItems(list, template, tagTemplate, container, type) {
+function renderItems(list, template, tagTemplate, container) {
 	list.sort((a, b) => a.name.localeCompare(b.name));
 
 	list.forEach((item) => {
@@ -1315,6 +1372,7 @@ function renderItems(list, template, tagTemplate, container, type) {
 		}
 
 		itemDOM.querySelector(".select-button").classList.add("hide");
+
 		container.appendChild(itemDOM);
 	});
 }
@@ -1353,6 +1411,7 @@ function redemptionSystem() {
 				}
 			});
 
+			playSound(clickSound);
 			renderRedemption();
 			updateStats("redemption", totalValue);
 		});
@@ -1372,6 +1431,7 @@ function redemptionSystem() {
 				position = 0;
 			}
 
+			playSound(clickSound);
 			saveLocal("pathPosition", position);
 			renderRedemption(target.id);
 		});
