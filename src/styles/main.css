@@ -77,11 +77,10 @@ h2 {
 	justify-content: center;
 	padding: var(--space-4);
 	gap: var(--space-3);
-	grid-template-rows: 20.625rem var(--space-20) 15.625rem 15.625rem;
+	grid-template-rows: 20.625rem 20rem 15.625rem;
 	grid-template-columns: 22.75rem 20.625rem 9.275rem var(--space-20) 7.5rem 13rem;
 	grid-template-areas:
 		"character character attributes attributes sina sina"
-		"informations antecedents antecedents rolagemlivre rolagemlivre rolagemlivre"
 		"informations antecedents antecedents equipment equipment equipment"
 		"informations mount mount equipment equipment equipment";
 }

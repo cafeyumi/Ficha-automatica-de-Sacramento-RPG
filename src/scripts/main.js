@@ -773,6 +773,7 @@ async function inventorySystem() {
 	const inventoryTemplate = document.querySelector("#InventoryCategory");
 	const inventoryOptionTemplate = document.querySelector("#inventoryOption");
 	const itemTemplate = document.querySelector("#itemTemplate");
+	const inventoryEquippedItems = document.querySelector("#equipmentCombat");
 	const inventoryContainer = document.querySelector("#inventoryContainer");
 	const inventoryOptions = document.querySelector(
 		"#inventory-selection-options",
@@ -901,13 +902,8 @@ async function inventorySystem() {
 
 		if (target.matches(".inventory-category__remove-category")) {
 			const id = Number(target.closest(".inventory-category").dataset.id);
-
 			const InventoryIndex = currentInventory.findIndex((el) => el.id === id);
-			console.log(currentInventory);
-
 			currentInventory.splice(InventoryIndex, 1);
-
-			console.log(currentInventory);
 
 			renderCurrentInventory(
 				inventoryContainer,
@@ -957,6 +953,42 @@ async function inventorySystem() {
 
 			saveLocal("currentInventory", currentInventory);
 		}
+
+		if (target.matches(".use-button")) {
+			const selectedId = Number(target.closest(".item").dataset.id);
+
+			currentInventory.forEach((inventory) => {
+				const selectedItem = inventory.items.find(
+					(item) => item.id === selectedId,
+				);
+
+				if (selectedItem !== undefined) {
+					if (selectedItem.selected === false) {
+						selectedItem.selected = true;
+					} else {
+						selectedItem.selected = false;
+					}
+				}
+			});
+
+			playSound(clickSound);
+
+			renderCurrentInventory(
+				inventoryContainer,
+				currentInventory,
+				inventoryTemplate,
+				itemTemplate,
+				tagTemplate,
+			);
+
+			saveLocal("currentInventory", currentInventory);
+		}
+
+		if (target.matches(".collapse-button")) return collapseButton(target);
+	});
+
+	inventoryEquippedItems.addEventListener("click", (e) => {
+		const target = e.target;
 		if (target.matches(".collapse-button")) return collapseButton(target);
 	});
 
@@ -1030,6 +1062,7 @@ function renderCurrentInventory(
 	filtered,
 ) {
 	container.replaceChildren();
+	document.querySelector("#inventorySelected").replaceChildren();
 	let actualQuantity = null;
 	let lastName = null;
 
@@ -1369,6 +1402,19 @@ function renderItems(list, template, tagTemplate, container) {
 		} else {
 			itemDOM.querySelector(".item__description").innerHTML =
 				'<span class="no-desc">Este item não possui descrição no momento<span>';
+		}
+
+		if (item.selected === true) {
+			itemDOM.querySelector(".use-button").classList.add("used-button");
+			const cloneItem = itemDOM.cloneNode(true);
+			cloneItem.querySelector(".select-button").classList.add("hide");
+			cloneItem.querySelector(".use-button").classList.add("hide");
+			cloneItem
+				.querySelector(".skill__button-remove-position")
+				.classList.add("hide");
+			document.querySelector("#inventorySelected").appendChild(cloneItem);
+		} else {
+			itemDOM.querySelector(".use-button").classList.remove("used-button");
 		}
 
 		itemDOM.querySelector(".select-button").classList.add("hide");

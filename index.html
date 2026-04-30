@@ -1418,8 +1418,6 @@
 				</div>
 			</section>
 
-			<section id="rolagemlivre"></section>
-
 			<section id="mount" class="mount">
 				<h2 class="mount__header">MONTARIA</h2>
 				<div class="mount__top">
@@ -1807,7 +1805,7 @@
 					<li>
 						<button
 							class="header-button header-button--selected equipment__header-btn"
-							data-for="inventoryCombat"
+							data-for="equipmentCombat"
 							type="button">
 							Equipados
 						</button>
@@ -1821,7 +1819,18 @@
 						</button>
 					</li>
 				</menu>
-				<div id="equipmentCombat" class="menu__container"></div>
+				<div
+					id="equipmentCombat"
+					class="menu__container inventory-equipment__content selected__content">
+					<section class="inventory-category inventory__selected">
+						<div class="inventory-category__header">
+							<div>
+								<h3 class="inventory-category__title category-title selected-title">Itens Equipados</h3>
+							</div>
+						</div>
+						<div class="inventory-category__content inventory__selected" id="inventorySelected"></div>
+					</section>
+				</div>
 				<div id="equipmentInventory" class="menu__container inventory-equipment__content hide">
 					<div class="inventory-equipment__filter">
 						<input
@@ -1994,7 +2003,19 @@
 									d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
 							</svg>
 						</button>
-						<button type="button" class="use-button"></button>
+						<button type="button" class="use-button">
+							<svg
+								aria-hidden="true"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 16 16"
+								fill="currentColor"
+								class="size-4">
+								<path
+									fill-rule="evenodd"
+									d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
+									clip-rule="evenodd" />
+							</svg>
+						</button>
 					</div>
 				</div>
 				<div class="collapse skill__bottom">
