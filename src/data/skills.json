@@ -9,9 +9,8 @@
 		{
 			"name": "Ataque Sacana",
 			"type": "Combate",
-			"description": "Sua honra pode ser a primeira pá de terra que cai em cima do seu caixão, então para o inferno com ela, não é mesmo? Ao realizar um <strong>ataque surpresa</strong> usando facas, navalhas ou qualquer outra lâmina oculta, o golpe causa dano adicional que aumenta a cada nível conforme a tabela abaixo.",
-			"repeatable": false,
-			"table": {}
+			"description": "Sua honra pode ser a primeira pá de terra que cai em cima do seu caixão, então para o inferno com ela, não é mesmo? Ao realizar um <strong>ataque surpresa</strong> usando facas, navalhas ou qualquer outra lâmina oculta, o golpe causa dano adicional que aumenta a cada nível conforme a tabela abaixo.<br><br><strong>Dano adicional por nível:</strong><br><strong>Nível 1:</strong> {life}<br><strong>Nível 3:</strong> 2 {life}<br><strong>Nível 6:</strong> 3 {life}",
+			"repeatable": false
 		},
 		{
 			"name": "Briga de Bar",
@@ -28,9 +27,8 @@
 		{
 			"name": "Dedo Quente",
 			"type": "Combate",
-			"description": "Você sente a alma de um revólver como o fogo de uma paixão ardente, fazendo de seus tiros tão precisos quanto mortais. Sempre que atirar com um revólver, você recebe <strong>+1</strong> nos <strong>Testes de Violência</strong>. Além disso, contra alvos sem cobertura, o dano dos tiros aumenta conforme seu nível, de acordo com a tabela.",
-			"repeatable": false,
-			"table": {}
+			"description": "Você sente a alma de um revólver como o fogo de uma paixão ardente, fazendo de seus tiros tão precisos quanto mortais. Sempre que atirar com um revólver, você recebe <strong>+1</strong> nos <strong>Testes de Violência</strong>. Além disso, contra alvos sem cobertura, o dano dos tiros aumenta conforme seu nível, de acordo com a tabela.<br><br><strong>Dano adicional por nível:</strong><br><strong>Nível 1:</strong> {life}<br><strong>Nível 3:</strong> 2 {life}<br><strong>Nível 6:</strong> 3 {life}",
+			"repeatable": false
 		},
 		{
 			"name": "Fúria dos Aflitos",
@@ -71,30 +69,26 @@
 		{
 			"name": "Quebra-ossos",
 			"type": "Combate",
-			"description": "Aplique golpes especiais de luta livre, como agarrões, arremessos ou o famoso suplex. Para dar este golpe é preciso gastar um <strong>Movimento</strong> e uma <strong>Ação de Combate</strong>. Você pode escolher imobilizar o oponente ou potencializar o dano do seu golpe conforme seu nível.",
-			"repeatable": false,
-			"table": {}
+			"description": "Aplique golpes especiais de luta livre, como agarrões, arremessos ou o famoso suplex. Para dar este golpe é preciso gastar um <strong>Movimento</strong> e uma <strong>Ação de Combate</strong>. Você pode escolher imobilizar o oponente ou potencializar o dano do seu golpe conforme seu nível.<br><br><strong>Dano adicional do golpe por nível:</strong><br><strong>Nível 1:</strong> {life} + {pain}<br><strong>Nível 3:</strong> {life} + 2 {pain}<br><strong>Nível 6:</strong> 2 {life} + 3 {pain}",
+			"repeatable": false
 		},
 		{
 			"name": "Sorte dos Covardes",
 			"type": "Combate",
-			"description": "Deixe as façanhas incríveis pra lá, o que importa para você é ter sorte. No começo de um combate, puxe uma carta do baralho e obtenha o efeito descrito na tabela abaixo de acordo com o naipe da carta. Os efeitos duram até o final do combate. Para ter esta habilidade você não pode ter mais do que <strong>1</strong> em Intelecto e <strong>2</strong> em Violência, mesmo em níveis mais altos. Se tiver, essa habilidade deixa de funcionar.",
-			"repeatable": false,
-			"table": {}
+			"description": "Deixe as façanhas incríveis pra lá, o que importa para você é ter sorte. No começo de um combate, puxe uma carta do baralho e obtenha o efeito descrito na tabela abaixo de acordo com o naipe da carta. Os efeitos duram até o final do combate. Para ter esta habilidade você não pode ter mais do que <strong>1</strong> em Intelecto e <strong>2</strong> em Violência, mesmo em níveis mais altos. Se tiver, essa habilidade deixa de funcionar.<br><br><strong>Efeito por naipe:</strong><br><strong>Paus:</strong> +2 Ações de Combate<br><strong>Copas:</strong> Aumente sua Vida em 2<br><strong>Espadas:</strong> +2 Movimentos<br><strong>Ouros:</strong> +1 para Testes de Violência",
+			"repeatable": false
 		},
 		{
 			"name": "Valei-me",
 			"type": "Combate",
-			"description": "Improvise explosivos com o que tiver em mãos, como pedaços de pano, garrafas, um pouco de bebida, um ferrolho, um parafuso etc. Para fabricá-los é preciso ter sucesso em um <strong>Teste de Tradição NA 7</strong>. Se estiver no meio de um combate, além do teste, você precisa gastar <strong>2 Ações de Combate</strong> e um <strong>Movimento</strong> por explosivo. O dano do explosivo feito por você aumenta conforme seu nível.",
-			"repeatable": false,
-			"table": {}
+			"description": "Improvise explosivos com o que tiver em mãos, como pedaços de pano, garrafas, um pouco de bebida, um ferrolho, um parafuso etc. Para fabricá-los é preciso ter sucesso em um <strong>Teste de Tradição NA 7</strong>. Se estiver no meio de um combate, além do teste, você precisa gastar <strong>2 Ações de Combate</strong> e um <strong>Movimento</strong> por explosivo. O dano do explosivo feito por você aumenta conforme seu nível.<br><br><strong>Dano do explosivo adicional por nível:</strong><br><strong>Nível 1:</strong> 2 {life}<br><strong>Nível 3:</strong> 3 {life}<br><strong>Nível 6:</strong> 4 {life}",
+			"repeatable": false
 		},
 		{
 			"name": "Zói de Gavião",
 			"type": "Combate",
-			"description": "De vista afiada como uma ave de rapina, você acerta alvos distantes com maior precisão. Se atirar com um fuzil ou arco longo você recebe <strong>+1</strong> nos <strong>Testes de Violência</strong>. Além disso, se estiver em uma posição vantajosa, o dano dos disparos aumenta conforme seu nível de acordo com a tabela abaixo.",
-			"repeatable": false,
-			"table": {}
+			"description": "De vista afiada como uma ave de rapina, você acerta alvos distantes com maior precisão. Se atirar com um fuzil ou arco longo você recebe <strong>+1</strong> nos <strong>Testes de Violência</strong>. Além disso, se estiver em uma posição vantajosa, o dano dos disparos aumenta conforme seu nível de acordo com a tabela abaixo.<br><br><strong>Dano adicional por nível:</strong><br><strong>Nível 1:</strong> {life}<br><strong>Nível 3:</strong> 2 {life}<br><strong>Nível 6:</strong> 3 {life}",
+			"repeatable": false
 		}
 	],
 
@@ -114,9 +108,8 @@
 		{
 			"name": "Canção da Emoção",
 			"type": "Profissão",
-			"description": "Uma viola, gaita ou violão está na sua mão enquanto você canta um modão. A melodia pode inspirar sua gangue a superar o pior dos combates. Uma vez por sessão, você pode gastar duas <strong>Ações de Combate</strong> para cada PJ que queira beneficiar e conceder a todos eles um dos bônus a seguir, conforme seu nível. Quando usa esta habilidade você pode conceder benefícios adicionais, conforme seu nível, gastando mais duas <strong>Ações de Combate</strong> para cada PJ por benefício.",
-			"repeatable": false,
-			"table": {}
+			"description": "Uma viola, gaita ou violão está na sua mão enquanto você canta um modão. A melodia pode inspirar sua gangue a superar o pior dos combates. Uma vez por sessão, você pode gastar duas <strong>Ações de Combate</strong> para cada PJ que queira beneficiar e conceder a todos eles um dos bônus a seguir, conforme seu nível. Quando usa esta habilidade você pode conceder benefícios adicionais, conforme seu nível, gastando mais duas <strong>Ações de Combate</strong> para cada PJ por benefício.<br><br><strong>Bônus concedidos por nível:</strong><br><strong>Nível 1:</strong> +1 Movimento<br><strong>Nível 3:</strong> +1 Ação de Combate<br><strong>Nível 4:</strong> +1 em Violência<br><strong>Nível 6:</strong> +3 {life} temporários",
+			"repeatable": false
 		},
 		{
 			"name": "Chamego",
@@ -127,9 +120,8 @@
 		{
 			"name": "Cuspe e Cola",
 			"type": "Profissão",
-			"description": "Nas condições precárias da Guerra, tinham poucos <em>trem</em> para cuidar dos soldados feridos, às vezes era preciso limpar com cuspe e estancar com cola. Este é o único jeito de curar alguém no meio do combate. Para fazer isso, você precisa estar colado no seu paciente e gastar <strong>2 Ações de Combate</strong> para cada {life} que curar. O limite de usos dessa habilidade aumenta conforme seu nível.",
-			"repeatable": false,
-			"table": {}
+			"description": "Nas condições precárias da Guerra, tinham poucos <em>trem</em> para cuidar dos soldados feridos, às vezes era preciso limpar com cuspe e estancar com cola. Este é o único jeito de curar alguém no meio do combate. Para fazer isso, você precisa estar colado no seu paciente e gastar <strong>2 Ações de Combate</strong> para cada {life} que curar. O limite de usos dessa habilidade aumenta conforme seu nível.<br><br><strong>Usos por combate:</strong><br><strong>Nível 1:</strong> 1 uso<br><strong>Nível 3:</strong> 2 usos<br><strong>Nível 6:</strong> 4 usos",
+			"repeatable": false
 		},
 		{
 			"name": "Fogo no céu",
@@ -152,9 +144,8 @@
 		{
 			"name": "Não Vai Doer Nadinha",
 			"type": "Profissão",
-			"description": "Quantas vidas você salvou na Guerra? Quantos braços e pernas amputou? Você cuidou de viroses, cancro mole, unha encravada, gripe, caxumba que já desceu e tanta coisa que nada mais o assusta. Ao fazer testes de Medicina, jogue <strong>2d6</strong> e use o melhor resultado. Além disso, sua cura adicional aumenta conforme seu nível, mostrado na tabela abaixo.",
-			"repeatable": false,
-			"table": {}
+			"description": "Quantas vidas você salvou na Guerra? Quantos braços e pernas amputou? Você cuidou de viroses, cancro mole, unha encravada, gripe, caxumba que já desceu e tanta coisa que nada mais o assusta. Ao fazer testes de Medicina, jogue <strong>2d6</strong> e use o melhor resultado. Além disso, sua cura adicional aumenta conforme seu nível, mostrado na tabela abaixo.<br><br><strong>Cura adicional por nível:</strong><br><strong>Nível 1:</strong> {life}<br><strong>Nível 3:</strong> 2 {life}<br><strong>Nível 6:</strong> 4 {life}",
+			"repeatable": false
 		},
 		{
 			"name": "Natural da Natureza",

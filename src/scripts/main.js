@@ -792,6 +792,13 @@ async function inventorySystem() {
 
 	let currentInventory = null;
 	let inventoryId = null;
+	let selectedItems = null;
+
+	if (localStorage.getItem("selectedItems") === null) {
+		selectedItems = [];
+	} else {
+		selectedItems = JSON.parse(localStorage.getItem("selectedItems"));
+	}
 
 	if (localStorage.getItem("currentInventory") === null) {
 		currentInventory = [];
@@ -965,6 +972,7 @@ async function inventorySystem() {
 				if (selectedItem !== undefined) {
 					if (selectedItem.selected === false) {
 						selectedItem.selected = true;
+						selectedItems.push(selectedItem);
 					} else {
 						selectedItem.selected = false;
 					}
@@ -981,6 +989,7 @@ async function inventorySystem() {
 				tagTemplate,
 			);
 
+			saveLocal("selectedItems", selectedItems);
 			saveLocal("currentInventory", currentInventory);
 		}
 
@@ -989,7 +998,34 @@ async function inventorySystem() {
 
 	inventoryEquippedItems.addEventListener("click", (e) => {
 		const target = e.target;
+
 		if (target.matches(".collapse-button")) return collapseButton(target);
+
+		if (target.matches(".remove-button")) {
+			const selectedItem = Number(target.closest(".item").dataset.id);
+
+			currentInventory.forEach((inventory) => {
+				const index = inventory.items.findIndex(
+					(item) => item.id === selectedItem,
+				);
+
+				if (index !== -1) {
+					inventory.items.splice(index, 1);
+				}
+			});
+
+			renderCurrentInventory(
+				inventoryContainer,
+				currentInventory,
+				inventoryTemplate,
+				itemTemplate,
+				tagTemplate,
+			);
+
+			playSound(clickSound);
+
+			saveLocal("currentInventory", currentInventory);
+		}
 	});
 
 	catalogMenu.addEventListener("click", (e) => {
@@ -1059,7 +1095,7 @@ function renderCurrentInventory(
 	template,
 	itemTemplate,
 	tagTemplate,
-	filtered,
+	filterInput,
 ) {
 	container.replaceChildren();
 	document.querySelector("#inventorySelected").replaceChildren();
@@ -1118,9 +1154,12 @@ function renderCurrentInventory(
 			inventory.querySelector(".space-inventory").classList.add("hide");
 		}
 
-		if (filtered) {
+		if (filterInput !== undefined) {
 			const filteredItems = inventoryType.items.filter((item) =>
-				item.name.toLowerCase().trim().includes(filtered.toLowerCase().trim()),
+				item.name
+					.toLowerCase()
+					.trim()
+					.includes(filterInput.toLowerCase().trim()),
 			);
 
 			if (filteredItems.length === 0) {
@@ -1159,7 +1198,9 @@ function renderCurrentInventory(
 		let usedWeapon = 0;
 
 		inventoryType.items.forEach((item) => {
-			usedSpace += item.space;
+			if (item.selected !== true || item.type === "weapon") {
+				usedSpace += item.space;
+			}
 
 			if (item.type === "weapon") {
 				usedWeapon += 1;
@@ -1182,6 +1223,10 @@ function renderCurrentInventory(
 			inventoryType.used = usedSpace;
 			catCap.innerHTML = inventoryType.capacity;
 
+			if (inventoryType.used > inventoryType.capacity) {
+				spaceInv.classList.add("over-capacity");
+			}
+
 			ammoInv.classList.add("hide");
 			weaponInv.classList.add("hide");
 		} else {
@@ -1194,9 +1239,18 @@ function renderCurrentInventory(
 			inventoryType.weapon_used = usedWeapon;
 			weaponCap.innerHTML = inventoryType.weapon_capacity;
 
+			if (inventoryType.weapon_used > inventoryType.weapon_capacity) {
+				weaponInv.classList.add("over-capacity");
+			}
+
 			if (inventoryType.subtype === "ranged") {
 				ammoUsed.innerHTML = usedAmmo;
+				inventoryType.ammo_used = usedAmmo;
 				ammoCap.innerHTML = inventoryType.ammo_capacity;
+
+				if (inventoryType.ammo_used > inventoryType.ammo_capacity) {
+					ammoInv.classList.add("over-capacity");
+				}
 			} else {
 				ammoInv.classList.add("hide");
 			}
@@ -1206,6 +1260,23 @@ function renderCurrentInventory(
 
 		container.appendChild(inventory);
 	});
+
+	const allSelectedItems = list
+		.flatMap((inventoryType) => inventoryType.items)
+		.filter((item) => item.selected === true);
+
+	if (allSelectedItems.length === 0) {
+		document.querySelector("#inventorySelected").innerHTML =
+			'<span class="no-items">Nenhum item está equipado no momento</span>';
+	} else {
+		renderItems(
+			allSelectedItems,
+			itemTemplate,
+			tagTemplate,
+			document.querySelector("#inventorySelected"),
+			"using",
+		);
+	}
 }
 
 function renderCatalog(array, template, tagTemplate, type) {
@@ -1332,7 +1403,7 @@ function renderCatalog(array, template, tagTemplate, type) {
 	});
 }
 
-function renderItems(list, template, tagTemplate, container) {
+function renderItems(list, template, tagTemplate, container, type) {
 	list.sort((a, b) => a.name.localeCompare(b.name));
 
 	list.forEach((item) => {
@@ -1404,20 +1475,18 @@ function renderItems(list, template, tagTemplate, container) {
 				'<span class="no-desc">Este item não possui descrição no momento<span>';
 		}
 
+		itemDOM.querySelector(".select-button").classList.add("hide");
+
 		if (item.selected === true) {
 			itemDOM.querySelector(".use-button").classList.add("used-button");
-			const cloneItem = itemDOM.cloneNode(true);
-			cloneItem.querySelector(".select-button").classList.add("hide");
-			cloneItem.querySelector(".use-button").classList.add("hide");
-			cloneItem
-				.querySelector(".skill__button-remove-position")
-				.classList.add("hide");
-			document.querySelector("#inventorySelected").appendChild(cloneItem);
-		} else {
-			itemDOM.querySelector(".use-button").classList.remove("used-button");
+
+			if (item.type !== "weapon")
+				itemDOM.querySelector(".weight-stat").innerHTML = 0;
 		}
 
-		itemDOM.querySelector(".select-button").classList.add("hide");
+		if (type === "using") {
+			itemDOM.querySelector(".use-button").classList.add("hide");
+		}
 
 		container.appendChild(itemDOM);
 	});

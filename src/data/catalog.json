@@ -124,7 +124,7 @@
 			"ammunition": null,
 			"reload": null,
 			"damage": "3 {pain}",
-			"space": 1,
+			"space": 0.5,
 			"selectable": true,
 			"selected": false,
 			"tags": ["Arma", "Corpo-a-corpo"],
@@ -305,7 +305,7 @@
 			"reload_type": "turn",
 			"damage": "6 {life}",
 			"tags": ["Arma", "Explosivo"],
-			"space": 0,
+			"space": 3,
 			"description": "<strong>Recarga:</strong> 2 turnos<br><strong>Dano:</strong> 6 {life}<br>Seus disparos atingem todos em uma área de 3m de raio, mas, por conta da rusticidade do equipamento, é bastante difícil acertar um tiro com precisão. Por isso, para acertar o tiro, é preciso fazer um Teste de Violência de NA 7 em vez de uma jogada contra a Defesa do alvo. Se falhar, você erra o tiro por 3m em uma direção aleatória. Se obter uma falha crítica, o tiro atinge um aliado e seus arredores."
 		},
 		{
@@ -320,7 +320,7 @@
 			"selectable": true,
 			"selected": false,
 			"tags": ["Arma", "Pesado"],
-			"space": 0,
+			"space": 3,
 			"description": "<strong>Recarga:</strong> 2 turnos<br><strong>Dano:</strong> 3 {life}<br>Como o nome diz, esta arma é tão pesada que precisa ser transportada com a ajuda de rodas. É preciso usar o turno inteiro para atirar com ela e não há como mirar, ou seja, ela vai atingir os inimigos e os amigos que estiverem pela frente. Ela causa dano de 3 Círculos de Vida para cada Ação de Combate e Movimento que o PJ gasta usando a Metralhadora. Por exemplo: se seu PJ gastar 2 Ações de Combate e 2 Movimentos o dano da metralhadora será de 6 Círculos de Vida. No fim do turno a arma precisa ser recarregada."
 		},
 		{

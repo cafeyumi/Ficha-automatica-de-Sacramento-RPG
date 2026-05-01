@@ -385,3 +385,7 @@
 .inventory-category.inventory__selected {
 	max-height: 100%;
 }
+
+.over-capacity {
+	color: #c4280d;
+}
