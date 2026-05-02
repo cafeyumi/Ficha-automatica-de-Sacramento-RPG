@@ -1675,18 +1675,43 @@ function diceSystem() {
 	});
 }
 
-function renderExtras() {
+function extrasSystem() {
 	const extras = [...document.querySelectorAll(".extra")];
 
 	extras.forEach((extra) => {
-		const type = extra.dataset.for;
-		extra.value = stats.extraStats[type];
+		extra.addEventListener("input", (e) => {
+			const target = e.target;
+			const value = target.value;
+			const type = target.dataset.for;
+
+			renderExtras(type, value);
+		});
+	});
+}
+
+extrasSystem();
+
+function renderExtras(type, direct) {
+	const extras = [...document.querySelectorAll(".extra")];
+
+	if (direct) {
+		stats.extraStats[type] = direct;
+		saveLocal(`direct${type}`, direct);
+	}
+
+	extras.forEach((extra) => {
+		if (localStorage.getItem(`direct${extra.dataset.for}`) !== null) {
+			extra.value = JSON.parse(
+				localStorage.getItem(`direct${extra.dataset.for}`),
+			);
+		} else {
+			const type = extra.dataset.for;
+			extra.value = stats.extraStats[type];
+		}
 	});
 }
 
 function updateStats(type, value) {
-	const extras = [...document.querySelectorAll(`.extra`)];
-
 	// redenção
 
 	if (type === "redemption") {
@@ -1698,8 +1723,6 @@ function updateStats(type, value) {
 	if (type === "potency" || type === "endurance") {
 		stats.mount[type] = value;
 	}
-
-	stats.bonusStats.mountLife = stats.mount.endurance;
 
 	// ========== CALCULO E ATUALIZAÇÃO DOS ANTECEDENTES ==========
 
@@ -1732,6 +1755,12 @@ function updateStats(type, value) {
 		}
 	}
 
+	const oldbBonusLife = stats.bonusStats.life;
+	const oldbBonusMovement = stats.bonusStats.movement;
+	const oldbBonusCombat = stats.bonusStats.combat;
+	const oldBonusLifeMount = stats.bonusStats.mountLife;
+
+	stats.bonusStats.mountLife = stats.mount.endurance;
 	stats.bonusStats.life = stats.attributes.physical;
 	stats.bonusStats.movement = stats.attributes.speed;
 	stats.bonusStats.combat = stats.attributes.courage;
@@ -1762,10 +1791,49 @@ function updateStats(type, value) {
 	stats.currentStats.mountPain =
 		stats.baseStats.mountPain + stats.bonusStats.mountPain;
 
-	// Força o valor do stat vida, dor, defesa, combate e movimento a ser sobescrevido pelo valor do input do usuario
-	if (MAIN_TYPES.includes(type)) {
-		stats.currentStats[type] = value;
-		stats.baseStats[type] = value;
+	if (localStorage.getItem("directlife")) {
+		const lifeChange =
+			Number(JSON.parse(localStorage.getItem("directlife"))) +
+			Number(stats.bonusStats.life - oldbBonusLife);
+
+		if (lifeChange < 0) {
+			saveLocal("directlife", 0);
+		} else {
+			saveLocal("directlife", lifeChange);
+		}
+	}
+	if (localStorage.getItem("directmovement")) {
+		const movementChange =
+			Number(JSON.parse(localStorage.getItem("directmovement"))) +
+			Number(stats.bonusStats.movement - oldbBonusMovement);
+
+		if (movementChange < 0) {
+			saveLocal("directmovement", 0);
+		} else {
+			saveLocal("directmovement", movementChange);
+		}
+	}
+	if (localStorage.getItem("directcombat")) {
+		const combatChange =
+			Number(JSON.parse(localStorage.getItem("directcombat"))) +
+			Number(stats.bonusStats.combat - oldbBonusCombat);
+
+		if (combatChange < 0) {
+			saveLocal("directcombat", 0);
+		} else {
+			saveLocal("directcombat", combatChange);
+		}
+	}
+	if (localStorage.getItem("directmountLife")) {
+		const mountLifeChange =
+			Number(JSON.parse(localStorage.getItem("directmountLife"))) +
+			Number(stats.bonusStats.mountLife - oldBonusLifeMount);
+
+		if (mountLifeChange < 0) {
+			saveLocal("directmountLife", 0);
+		} else {
+			saveLocal("directmountLife", mountLifeChange);
+		}
 	}
 
 	MAIN_TYPES.forEach((stat) => {
@@ -1776,18 +1844,19 @@ function updateStats(type, value) {
 		}
 	});
 
-	extras.forEach((extra) => {
-		const extraType = extra.dataset.for;
-		const extraSubtype = extra.dataset.subtype;
-
-		if (extraSubtype === "mount") {
-			extra.value = stats.extraMount[extraType];
-		} else {
-			extra.value = stats.extraStats[extraType];
+	// Força o valor do stat vida, dor, defesa, combate e movimento a ser sobescrevido pelo valor do input do usuario
+	if (MAIN_TYPES.includes(type)) {
+		if (localStorage.getItem(`direct${type}`)) {
+			saveLocal(`direct${type}`, 0);
 		}
-	});
+		stats.currentStats[type] = value;
+		stats.baseStats[type] = value;
+	}
 
+	renderExtras();
 	saveLocal("savedStats", stats);
+
+	console.log(stats);
 }
 
 init();
